@@ -223,31 +223,34 @@ monasca-node        ansible_ssh_host=192.168.10.4 ansible_ssh_user=administrator
         <section>
             <title>Starting and Stopping Individual Agents and Services</title>
             <p>You can start or stop the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> agents and services individually. When doing so, you need to stick to the following sequence:</p>
+                /> agents and services individually. When stopping them individually, you need to stick to the following sequence:</p>
             <p id="zookeeper_concept_conbody_section_4_p">
                 <ol>
                     <li><codeph>zookeeper</codeph></li>
+                    <li><codeph>kafka</codeph></li>
                     <li><codeph>storm-nimbus</codeph></li>
                     <li><codeph>storm-supervisor</codeph></li>
-                    <li><codeph>mariadb</codeph></li>
-                    <li><codeph>kafka</codeph></li>
+                    <li><codeph>mariadb</codeph>
+                    </li>
                     <li><codeph>influxdb</codeph></li>
                     <li><codeph>elasticsearch</codeph></li>
                     <li><codeph>memcached</codeph></li>
                     <li><codeph>openstack-monasca-notification</codeph></li>
                     <li><codeph>openstack-monasca-thresh</codeph></li>
                     <li><codeph>openstack-monasca-log-transformer</codeph></li>
-                    <li><codeph>openstack-monasca-log-api</codeph></li>
+                    <li><codeph>openstack-monasca-log-api</codeph>
+                    </li>
                     <li><codeph>openstack-monasca-persister </codeph></li>
-                    <li><codeph>openstack-monasca-api</codeph></li>
-                    <li><codeph>openstack-monasca-agent</codeph></li>
-                    <li><codeph>kibana</codeph></li>
                     <li><codeph>openstack-monasca-log-persister</codeph></li>
                     <li><codeph>openstack-monasca-log-metrics</codeph></li>
+                    <li><codeph>openstack-monasca-api</codeph>
+                    </li>
+                    <li><codeph>kibana</codeph></li>
+                    <li><codeph>openstack-monasca-agent</codeph></li>
                     <li><codeph>openstack-monasca-log-agent</codeph></li>
                 </ol>
             </p>
-            <p>When stopping individual services, proceed in the reverse order. </p>
+            <p>When starting individual services, proceed in the reverse order. </p>
         </section>
         <section id="Use_the_following_command_to_concept_conbody_section_5">
             <p>Use the following command to start an individual service: </p>
