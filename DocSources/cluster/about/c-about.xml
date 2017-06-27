@@ -41,7 +41,7 @@
                             <row>
                                 <entry colname="col2"><xref href="../../shared/operationmaintenance/c-operate.xml"/></entry>
                                 <entry colname="col3"
-                                        >Describes the main operation, maintenance, and recovery tasks for a <ph
+                                        >Describes the main operation and maintenance recovery tasks for a <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                     /> cluster.</entry>
                             </row>
