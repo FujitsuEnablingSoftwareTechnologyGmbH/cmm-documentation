@@ -31,14 +31,14 @@
                 /> integrates with Grafana for visualizing the monitoring data.</p>
         </section>
         <section>
-            <title>Infrastructure as a Service (IaaS)</title>
-            <p>The delivery of computer infrastructure (typically a platform virtualization environment) as a service.</p>
-        </section>
-        <section>
             <title>InfluxDB</title>
             <p>An open source time-series database that supports high write loads and large data set storage. <ph
                     conref="../product-name.xml#ProductNameTopic/Product_Abbr"
                 /> uses InfluxDB as the underlying technology for storing metrics and the alarm history.</p>
+        </section>
+        <section>
+            <title>Infrastructure as a Service (IaaS)</title>
+            <p>The delivery of computer infrastructure (typically a platform virtualization environment) as a service.</p>
         </section>
         <section>
             <title>Kibana</title>
