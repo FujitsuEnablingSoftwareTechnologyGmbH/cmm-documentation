@@ -10,7 +10,7 @@ The following documentation on CMM is available:
 * **Monitoring Service Operator's Guide:** A manual for system operators describing how to install, operate, and maintain CMM in single mode. The manual also describes how the operators use CMM for monitoring their environment.
 * **Cluster Management Guide:** A manual for operators describing how to install, operate, and maintain CMM in cluster mode.
 
-Released versions of these guides are published to http://rapidonboarding.fcip.global.fujitsu.com/ui/.
+Released versions of these guides are published to http://rapidonboarding.fcip.global.fujitsu.com/ui/en/products/fujitsu-cloud-monitoring-manager/documentation/.
 
 ## Overview of Branches ##
 
