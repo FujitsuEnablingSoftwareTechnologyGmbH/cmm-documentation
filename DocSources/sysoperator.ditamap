@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bookmap PUBLIC "-//OASIS//DTD DITA BookMap//EN"
+                         "">
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<bookmap
+                    xml:lang="en_US">
+    <title>System Operator's Guide</title>
+    <bookmeta>
+        <prodinfo>
+            <prodname>ServerView</prodname>
+            <vrmlist>
+                <vrm
+                version="2.0"/>
+            </vrmlist>
+            <brand>FUJITSU Software</brand>
+            <prognum>Cloud Monitoring Manager V2.0</prognum>
+            <component/>
+            <series>System Operator's Guide</series>
+        </prodinfo>
+        <bookid>
+            <edition>Draft Version (09-2017)</edition>
+            <booknumber> </booknumber>
+        </bookid>
+        <bookrights>
+            <bookowner
+            name="."/>
+        </bookrights>
+    </bookmeta>
+    <frontmatter>
+        <preface
+            format="dita" href="cmmoperator/about/c-about.xml"
+                type="concept">
+            <topicref
+                href="cmmoperator/about/c-readers.xml"
+                type="concept"/>
+            <topicref
+                href="shared/gettingstarted/intro-convent.xml"
+                type="concept"/>
+            <topicref
+                href="shared/gettingstarted/intro-abbrev.xml"
+                type="concept"/>
+            <topicref
+                href="shared/gettingstarted/intro-availabledoc.xml"
+                type="concept"/>
+            <topicref
+                href="shared/gettingstarted/c-webreferences.xml"
+                type="concept"/>
+            <topicref
+                href="shared/gettingstarted/intro-trademarks.xml"
+                type="concept"/>
+            <topicref
+                href="shared/gettingstarted/intro-copyright.xml"
+                type="concept"/>
+            <topicref
+                href="shared/gettingstarted/intro-export.xml"
+        type="concept"/>
+        </preface>
+    </frontmatter>
+    <chapter
+            href="shared/intro/c-intro.xml">
+        <topicref
+            format="dita" href="cmmoperator/intro/c-usagescenario.xml"
+            type="concept"/>
+        <topicref format="dita"
+            href="cmmoperator/intro/c-cmmoarchitecture.xml"
+            type="concept"/>
+        <topicref format="dita"
+            href="cmmoperator/intro/c-cmmousers.xml"
+            type="concept"/>
+        <topicref format="dita"
+            href="shared/intro/c-cmmodistribmedia.xml"
+        type="concept"/>
+    </chapter>
+    
+    <chapter
+            href="shared/monitor/c-monitor.xml">
+        <topicref
+            format="dita"
+            href="cmmoperator/monitor/c-monitor-overview-cmmo.xml"
+            type="concept"/>
+        <topicref format="dita"
+            href="cmmoperator/monitor/c-monitor-graf-cmmo.xml"
+            type="concept"/>
+        <topicref format="dita"
+            href="shared/monitor/c-monitor-alarm.xml"
+            type="concept"/>
+        <topicref format="dita"
+            href="shared/monitor/c-monitor-alert.xml"
+            type="concept"/>
+        <topicref format="dita"
+            href="shared/monitor/c-monitor-statusinfo.xml"
+        type="concept"/>
+    </chapter>
+    
+    <chapter
+            href="shared/logging/c-osologging.xml">
+        <topicref
+            format="dita" href="shared/logging/c-osolog-kibana.xml"
+            type="concept"/>
+        <topicref format="dita"
+            href="shared/logging/c-osolog-index.xml"
+            type="concept"/>
+        <topicref format="dita"
+            href="shared/logging/c-osolog-alarms.xml"
+        type="concept"/>
+    </chapter>
+    
+        <chapter
+            href="shared/operationmaintenance/c-operate.xml">
+        <topicref
+            format="dita"
+            href="cmmoperator/operate/c-cmmostartstopcmm.xml"
+            type="concept"/>
+        <topicref format="dita"
+            href="shared/operationmaintenance/c-deletedata.xml"
+                type="concept">
+            <topicref format="dita"
+                href="shared/operationmaintenance/c-removemetrics.xml"
+                type="concept"/>
+            <topicref format="dita"
+                href="shared/operationmaintenance/c-disablelogretrieval.xml"
+                type="concept"/>
+            <topicref format="dita"
+                href="cmmoperator/operate/c-dataretention-inf.xml"
+                type="concept"/>
+            <topicref format="dita"
+                href="cmmoperator/operate/c-dataretention-es.xml"
+                type="concept"/>
+            <topicref format="dita"
+                href="cmmoperator/operate/c-deleteinfluxdbdata.xml"
+                type="concept"/>
+            <topicref format="dita"
+                href="cmmoperator/operate/c-removelogfiles.xml"
+            type="concept"/>
+        </topicref>
+        <topicref
+            format="dita"
+            href="shared/operationmaintenance/c-logfilelocation.xml"
+            type="concept"/>
+        <topicref format="dita"
+            href="shared/operationmaintenance/c-backup.xml"
+                type="concept">
+            <topicref format="dita"
+                href="cmmoperator/operate/c-backupdb.xml"
+                type="concept"/>
+            <topicref format="dita"
+                href="cmmoperator/operate/c-backupcfg.xml"
+                type="concept"/>
+            <topicref format="dita"
+                href="cmmoperator/operate/c-backupdashboards.xml"
+        type="concept"/>
+        </topicref>
+    </chapter>
+    
+    <appendix format="dita"
+        href="shared/appendix/r-confsettings.xml"
+            type="reference">
+        <topicref format="dita"
+            href="shared/appendix/r-confsettings-metrics.xml"
+            type="reference"/>
+        <topicref format="dita"
+            href="shared/appendix/r-confsettings-logs.xml"
+        type="reference"/>
+    </appendix>
+    <appendix format="dita"
+        href="cmmoperator/appendix/r-cmmometrics.xml"
+            type="reference">
+        <topicref format="dita"
+            href="shared/appendix/r-metricsstandard.xml"
+            type="reference"/>
+        <topicref format="dita"
+            href="shared/appendix/r-metricsadditional.xml"
+        type="reference"/>
+    </appendix>
+    <appendix href="shared/glossary/r-glossary.xml"/>
+</bookmap>
