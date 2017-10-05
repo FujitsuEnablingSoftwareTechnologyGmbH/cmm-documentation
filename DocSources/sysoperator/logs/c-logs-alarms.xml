@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                    xml:lang="en-us">
+    <title>Monitoring Log Data</title>
+    <conbody>
+        <section>
+            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> provides alerting features for monitoring your log data. Specific log metrics support you in checking the severity of the entries in your log files. Log metrics are handled like any other metrics in <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                />. They complete the log management features and support you in analyzing and troubleshooting any issue that you encounter in your log data. </p>
+            <p>By default, <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> supports the following log metrics:</p>
+            <ul>
+                <li><codeph>log.warning</codeph> to count warnings in your log data.</li>
+                <li><codeph>log.error</codeph> to count errors in your log data. </li>
+                <li><codeph>log.fatal</codeph> to count fatal errors in your log data. </li>
+                <li><codeph>log.critical</codeph> to count critical errors in your log data. </li>
+            </ul>
+            <note othertype="note"
+                    >Your installation might deviate from this default. The log levels that can be evaluated have been specified during the installation of <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </note>
+            <p>Using the log metrics for monitoring corresponds to using any other metrics: </p>
+            <ul>
+                <li>
+                    <p>Use <uicontrol>Monitoring &gt; Alarm Definitions</uicontrol> to create, edit, and delete alarms for log data.</p>
+                </li>
+                <li>
+                    <p>Use <uicontrol>Monitoring &gt; Notifications</uicontrol> to create, edit, and delete notifications for alarms.</p>
+                </li>
+                <li>
+                    <p>Use <uicontrol>Monitoring &gt; Overview</uicontrol> to check whether there are any irregularities in your log data. As soon as you have defined an alarm for your log data and metrics data has been received, there is status information displayed on the <uicontrol>Overview</uicontrol> page.</p>
+                </li>
+            </ul>
+            <p>For details on using the log metrics, refer to <xref href="../../shared/monitor/c-monitor.xml"/>.</p>
+        </section>
+    </conbody>
+</concept>

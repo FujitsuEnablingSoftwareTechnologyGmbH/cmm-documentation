@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                xml:lang="en-us">
+    <title>Basic Usage Scenario</title>
+    <conbody>
+        <section>
+            <p
+                    conref="../../overview/monitor/c-monitoring.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/The_basic_usage_scenario_of_s_concept_conbody_section_2_p"/>
+            <fig>
+                <image
+                    align="left" alt="metricslogs.png" height="298"
+                    href="../../images/metricslogs.png"
+                    placement="break"
+                    width="700"/>
+            </fig>
+                        <p>An <b>application operator</b> acts as a service provider in the OpenStack environment. He books virtual machines to provide services to <b>end users</b> or to host services that he needs for his own development activities. <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                /> helps application operators ensure that their services and the servers on which they are provided are configured and working as required.</p>
+            <p>The <b>OpenStack operator</b> is a special application operator who is responsible for administrating and maintaining the underlying OpenStack platform. The monitoring and log management services of <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                        /> enable him to ensure the availability and quality of the platform. He uses <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> for:</p>
+                        <ul id="Monitoring_physical_and_virtu_concept_conbody_section_p_4">
+                                <li>Monitoring physical and virtual servers, hypervisors, and OpenStack services.</li>
+                                <li>Monitoring middleware components, for example, database services. </li>
+                                <li>Retrieving and analyzing the log data of the OpenStack services and servers, the middleware components, and the operating system.</li>
+                        </ul>
+            <p>The <b>Monitoring Service operator</b> is responsible for providing the monitoring and log management features to the application operators and the OpenStack operator. This enables them to focus on operation and the quality of their services and servers without having to carry out the tedious tasks implied by setting up and administrating their own monitoring software. The Monitoring Service operator uses the monitoring features himself for ensuring the quality of <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
+        </section>
+                <section>
+                        <title>Tasks Overview</title>
+                        <p>Depending on the distribution of tasks in your environment, the tasks of the Monitoring Service operator and the OpenStack Operator are jointly performed by one system operator or they are performed separately by different system operators.</p>
+                        <p>When taking on the role of the OpenStack operator, you have the following responsibilities: </p>
+                        <ul>
+                                <li>Installation of the OpenStack extention points required for <ph
+                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                        />. This includes the installation and configuration of the Metrics Agent and the Log Agent on the OpenStack hosts to be monitored as well as the installation of the OpenStack Horizon plugin and the OpenStack Keystone configuration. For details, refer to ###</li>
+                                <li>Monitoring of the OpenStack services and servers using the metrics-based monitoring features of <ph
+                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                        />.</li>
+                                <li>Managing the logs from the OpenStack services and servers using the log management features of <ph
+                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                        />.</li>
+                        </ul>
+                        <p>When taking on the role of the Monitoring Service operator, you have the following responsibilities: </p>
+                        <ul>
+                                <li>Installation and setup of the Monitoring Service, thus providing the monitoring and log management features to the other CMM user groups. For details, refer to ## </li>
+                                <li>Installation of the Metrics Agent and Log Agent on the <ph
+                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> host. The agents are required for monitoring <ph
+                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                        />.</li>
+                                <li>Regular maintenance of the components and services <ph
+                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                        /> consists of. </li>
+                                <li>Backup of the <ph
+                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                        /> databases, configuration files, and customized dashboards.</li>
+                                <li>Monitoring of <ph
+                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> to ensure the <ph
+                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                        /> quality. </li>
+                        </ul>
+                </section>
+    </conbody>
+</concept>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                xml:lang="en-us">
+    <title>Installation</title>
+    <conbody>
+        <section>
+            <p>###Overview</p>
+            <p>###Sequence of installation steps ?</p>
+            <p>(1)Install the Monitoring Service with a Metrics Agent and a Log Agent required for self-monitoring</p>
+            <p>(2)Install OpenStack Extensions - Metrics Agent on OpenStack node where OpenStack service to be monitored is running</p>
+            <p>(3)Install OpenStack Extensions - Log Agent on OpenStack node where OpenStack service to be monitored is running</p>
+            <p>(4)Install OpenStack Extensions - Horizon Plugin to integrate the Monitoring Service into the OpenStack cloud/platform</p>
+            <p>(5)Configure OpenStack Keystone to integrate the Monitoring Service with OpenStack Keystone</p>
+            <p>##config settings for Metrics Agent ?</p>
+            <p>##config setting for Log Agent ?</p>
+            <p>##Supported / Available Metrics (Standard Metrics and Additional Metrics)</p>
+        </section>
+    </conbody>
+</concept>

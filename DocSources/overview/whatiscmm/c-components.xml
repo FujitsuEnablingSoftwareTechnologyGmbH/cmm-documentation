@@ -36,20 +36,25 @@
             <p id="The_concept_conbody_section_3_p">The Monitoring Service is the central <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                 /> component. It is responsible for receiving, persisting, and processing metrics and log data, as well as providing the data to the users.</p>
-            <p>The Monitoring Service relies on Monasca. It uses Monasca for high-speed metrics querying and integrates the streaming alarm engine and the notification engine of Monasca. For details, refer to the <xref
-                                        format="html" href="https://wiki.openstack.org/wiki/Monasca" scope="external"
-                                                        ><u><i>Monasca Wiki</i></u></xref>.</p>
+            <p id="The_Monitoring_Service_relies_concept_conbody_section_3_p"
+                                >The Monitoring Service relies on Monasca. It uses Monasca for high-speed metrics querying and integrates the streaming alarm engine and the notification engine of Monasca. </p>
+                        <p>For details, refer to the <xref format="html" href="https://wiki.openstack.org/wiki/Monasca"
+                                        scope="external"><u><i>Monasca Wiki</i></u></xref>.</p>
         </section>
         <section>
             <title>Horizon Plugin</title>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> comes with a plugin for the OpenStack Horizon dashboard. The Horizon plugin extends the main dashboard in OpenStack with a view for monitoring. This enables <ph
+                                        /> comes with a plugin for the OpenStack Horizon dashboard. The Horizon plugin extends the main dashboard in OpenStack with a view for monitoring and log management. This enables <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                /> users to access the monitoring and log management functions from a central Web-based graphical user interface. Metrics and log data are visualized on a comfortable and easy-to-use dashboard.</p>
-            <p>For details, refer to the <xref
-                    format="html"
-                    href="http://docs.openstack.org/developer/horizon/"
-            scope="external"><u><i>OpenStack Horizon documentation</i></u></xref>. </p>
+                                        /> users to access the <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                        /> functionality from a central Web-based graphical user interface. For details, refer to the <xref
+                                        format="html" href="http://docs.openstack.org/developer/horizon/"
+                                        scope="external"><u><i>OpenStack Horizon documentation</i></u></xref>. </p>
+                        <p>Based on OpenStack Horizon, metrics and log data are visualized on comfortable and easy-to-use dashboards which fully integrate with the following applications:<ul>
+                                        <li>Grafana (for metrics data). An open source application for visualizing large-scale measurement data.</li>
+                                        <li>Kibana (for log data). An open source analytics and visualization platform designed to work with Elasticsearch.</li>
+                                </ul></p>
         </section>
         <section
                     id="Metrics_Agent_concept_conbody_section_5">

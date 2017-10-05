@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                xml:lang="en-us">
+    <title>Installing a Log Agent</title>
+    <conbody>
+        <section>
+            <p>To install a Log Agent for an OpenStack service, proceed as follows:</p>
+            <ol compact="no">
+                <li>
+                    <p>Log in to the ###.</p>
+                </li>
+                <li>
+                    <p>####. </p>
+                    <p>Example:</p>
+                    <codeblock>###</codeblock>
+                </li>
+                <li>
+                    <p>####</p>
+                    <codeblock>###</codeblock>
+                </li>
+                <li>
+                    <p>###</p>
+                    <note othertype="note">####this is the note text</note>
+                    <p>####.</p>
+                </li>
+            </ol>
+            <p>###:</p>
+            <codeblock>###</codeblock>
+            <p>###</p>
+        </section>
+    </conbody>
+</concept>
