@@ -8,11 +8,11 @@
 	<title>Overview</title>
 	<bookmeta>
 		<prodinfo>
-			<prodname>ServerView</prodname>
+			<prodname>FUJITSU Software</prodname>
 			<vrmlist>
 				<vrm version="2.0" />
 			</vrmlist>
-			<brand>FUJITSU Software</brand>
+			<brand></brand>
 			<prognum>Cloud Monitoring Manager V2.0</prognum>
 			<component />
 			<series>Overview</series>

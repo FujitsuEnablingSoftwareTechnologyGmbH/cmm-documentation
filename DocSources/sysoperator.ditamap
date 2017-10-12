@@ -6,11 +6,11 @@
     <title>System Operator's Guide</title>
     <bookmeta>
         <prodinfo>
-            <prodname>ServerView</prodname>
+            <prodname>FUJITSU Software</prodname>
             <vrmlist>
                 <vrm version="2.0"/>
             </vrmlist>
-            <brand>FUJITSU Software</brand>
+            <brand></brand>
             <prognum>Cloud Monitoring Manager V2.0</prognum>
             <component/>
             <series>System Operator's Guide</series>
@@ -42,13 +42,14 @@
         <topicref format="dita" href="sysoperator/intro/c-distribmedia.xml" type="concept"/>
     </chapter>
     <chapter href="sysoperator/install/c-install.xml">
+        <topicref format="dita" href="sysoperator/install/c-install-prepare.xml" type="concept"/>
+        <topicref format="dita" href="sysoperator/install/c-install-swsetup.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/install/c-install-monservice.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/install/c-install-metricsagent.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/install/c-install-logagent.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/install/c-install-horizon.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/install/c-install-ksconfig.xml" type="concept"/>
     </chapter>
-    
     <chapter href="sysoperator/operate/c-operate.xml">
         <topicref format="dita" href="sysoperator/operate/c-startstop.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/operate/c-deletedata.xml" type="concept">
@@ -81,8 +82,8 @@
     <!-- appendix format="dita" href="shared/appendix/r-confsettings.xml" type="reference">
         <topicref format="dita" href="shared/appendix/r-confsettings-metrics.xml" type="reference"/>
         <topicref format="dita" href="shared/appendix/r-confsettings-logs.xml" type="reference"/>
-    </appendix -->
-    <!-- appendix format="dita" href="cmmoperator/appendix/r-cmmometrics.xml" type="reference">
+    </appendix 
+ appendix format="dita" href="cmmoperator/appendix/r-cmmometrics.xml" type="reference">
         <topicref format="dita" href="shared/appendix/r-metricsstandard.xml" type="reference"/>
         <topicref format="dita" href="shared/appendix/r-metricsadditional.xml" type="reference"/>
     </appendix -->
