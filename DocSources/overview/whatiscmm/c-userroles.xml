@@ -55,8 +55,9 @@
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> can monitor the set of resources that is defined for the projects to which they are assigned.</p></li>
             </ul>
-            <p>For details on user management, refer to the <xref
-                    format="html" href="http://docs.openstack.org/" scope="external"><u><i>OpenStack documentation</i></u></xref>.</p>
+            <p id="For_details_on_user_managemen_concept_conbody_section_2_p"
+                    >For details on user management, refer to the <xref format="html" href="http://docs.openstack.org/"
+                    scope="external"><u><i>OpenStack documentation</i></u></xref>.</p>
         </section>
     </conbody>
 </concept>
