@@ -9,7 +9,7 @@
     <conbody>
         <section
             id="You_have_to_define_alarms_to_concept_conbody_section_1">
-            <p>You have to define alarms to monitor your cloud resources. An alarm definition specifies the metrics to be collected and the threshold at which an alarm is to be triggered for a cloud resource. If the specified threshold is reached or exceeded, the alarm is triggered and notifications can be sent to inform users. By default, an alarm definition is evaluated every minute. </p>
+            <p>You have to define alarms to monitor your cloud resources. An alarm definition specifies the metrics to be collected and the threshold at which an alarm is to be triggered for a cloud resource. By default, an alarm definition is evaluated over an interval of one minute. If the specified threshold is reached or exceeded within this interval, the alarm is triggered and notifications can be sent to inform users. The alarm definition is re-evaluated in each subsequent interval.</p>
             <p>To handle a large variety of monitoring requirements, you can create either simple alarm definitions that refer to one metrics only, or compound alarm definitions that combine multiple metrics and allow you to track and process more complex events. </p>
             <p>Example for a simple alarm definition that checks whether the system-level load of the CPU exceeds a threshold of 90 percent:</p>
             <codeblock>cpu.system_perc{hostname=monasca} &gt; 90</codeblock>
@@ -87,11 +87,11 @@ max(disk.space_used_perc{service=monitoring}) &gt; 90</codeblock>
             </ol>
             <note
                         othertype="note">
-                <p>You can also edit the expression syntax directly. For this purpose, save your alarm definition and update it using the <uicontrol>Edit Alarm Definition</uicontrol> option.</p>
-                <p>By default, an alarm definition is evaluated every minute. When updating the alarm definition, you can change this interval. For syntax details, refer to the Monasca API documentation on <xref
+                <p>You can also edit the expression syntax directly. For this purpose, save your alarm definition and update it using the <uicontrol>Edit Alarm Definition</uicontrol> option. </p>
+                <p>When updating the alarm definition, you can also change the default interval over which the alarm definition is evaluated. For syntax details, refer to the Monasca API documentation on <xref
                         format="html"
                         href="https://github.com/openstack/monasca-api/blob/stable/ocata/docs/monasca-api-spec.md#alarm-definition-expressions"
-                    scope="external"><u><i>Alarm Definition Expressions</i></u></xref>.</p>
+                        scope="external"><u><i>Alarm Definition Expressions</i></u></xref>.</p>
             </note>
         </section>
         <section>

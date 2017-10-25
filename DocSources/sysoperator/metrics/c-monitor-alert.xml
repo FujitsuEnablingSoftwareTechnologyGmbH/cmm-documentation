@@ -11,15 +11,23 @@
             <p>Notifications define how users are informed when a threshold value defined for an alarm is reached or exceeded. In the alarm definition, you can assign one or multiple notifications.</p>
             <p>For a notification, you specify the following elements:</p>
             <ul>
-                <li><uicontrol>Name</uicontrol>. A unique identifier of the notification. The name is offered for selection when defining an alarm.</li>
-                <li><uicontrol>Type</uicontrol>. <codeph>Email</codeph> is the notification method supported by <ph
-                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                        />. If you want to use <codeph>WebHook</codeph> or <codeph>PagerDuty</codeph>, contact your <ph
-                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    /> support for further information.</li>
-                <li><uicontrol>Address</uicontrol>. The email address to be notified when an alarm is triggered.<p>
-                        <note othertype="note">Generic top-level domains such as business domain names are not supported in email addresses (for example, <codeph>user@xyz.company</codeph>).</note>
-                    </p></li>
+                <li>
+                    <p><uicontrol>Name</uicontrol>. A unique identifier of the notification. The name is offered for selection when defining an alarm.</p>
+                </li>
+                <li>
+                    <p><uicontrol>Type</uicontrol>. The notification method to be used. <ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                            /> supports <codeph>Email</codeph>,  <codeph>WebHook</codeph>, and <codeph>PagerDuty</codeph>.</p>
+                </li>
+                <li>
+                    <p><uicontrol>Address</uicontrol>. For <codeph>Email</codeph>, the email address to be notified when an alarm is triggered.</p>
+                    <p>
+                        <note othertype="note"
+                                >Generic top-level domains such as business domain names are not supported in email addresses (for example, <codeph>user@xyz.company</codeph>).</note>
+                    </p>
+                    <p>For <codeph>WebHook</codeph>, the WebHook URL to be notified when an alarm is triggered. </p>
+                    <p>For <codeph>PagerDuty</codeph>, the PagerDuty Service API Key to be notified when an alarm is triggered. </p>
+                </li>
             </ul>
             <p>To create, edit, and delete notifications, use <uicontrol>Monitoring &gt; Notifications</uicontrol>.</p>
         </section>

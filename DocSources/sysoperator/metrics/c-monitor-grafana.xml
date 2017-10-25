@@ -7,9 +7,6 @@
         xml:lang="en-us">
     <title>Working with Data Visualizations</title>
     <conbody>
-        <section>
-            <p><i><b>PENDING</b>: Update to newer Grafana version </i></p>
-        </section>
         <section
                     id="The_user_interface_for_monito_concept_conbody_section_1">
             <p>The user interface for monitoring your services, servers, and log data integrates with Grafana, an open source application for visualizing large-scale monitoring data. Use the options at the top border of the <uicontrol>Overview</uicontrol> page to access Grafana. </p>
@@ -94,9 +91,9 @@
                 <li>Take the dashboard that is shipped with <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> as a starting point and customize it.</li>
             </ul>
-            <p>The following sections provide introductory information on dashboards, rows, and panels, and make you familiar with the first steps involved in building a dashboard. For additional information, you can also refer to the <xref
+            <p>The following sections provide introductory information on dashboards, rows, and panels, and make you familiar with the first steps involved in building a dashboard. For more detailed information and a description of the complete set of features that is available, refer to the <xref
                     format="html" href="http://docs.grafana.org/" scope="external"
-                        ><u><i>Grafana documentation</i></u></xref>.</p>
+                    ><u><i>Grafana documentation</i></u></xref>.</p>
         </section>
         <section
                     id="Creating_a_Dashboard_concept_conbody_section_5">
@@ -120,7 +117,8 @@
         <section
                     id="Editing_Panels_concept_conbody_section_7">
             <title>Editing Panels</title>
-            <p>Grafana distinguishes between three panel types:</p>
+            <p>Grafana distinguishes between different types of panel. The following three panel types are used in the preconfigured metrics dashboards that are shipped with <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>:</p>
             <fig>
                 <image alt="grafana-cmm.png" height="260" href="../../images/grafana-panels.png" width="435"/>
             </fig>

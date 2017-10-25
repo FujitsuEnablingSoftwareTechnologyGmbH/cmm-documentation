@@ -8,7 +8,7 @@
                 xml:lang="en-us">
     <title>Status of Services, Servers, and Log Data</title>
     <conbody>
-        <section><p>An alarm definition for a service, server, or log data is evaluated over the interval specified in the alarm expression. The alarm definition is re-evaluated in each subsequent interval. The following alarm statuses are distinguished:</p><ul>
+        <section><p>The following alarm statuses are distinguished as soon as an alarm definition has been evaluated:</p><ul>
                 <li>
                     <p><codeph>Alarm</codeph>. The alarm expression has evaluated to <codeph>true</codeph>. An alarm has been triggered for the cloud resource.</p>
                 </li>
