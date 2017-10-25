@@ -50,10 +50,14 @@ Using database mon</codeblock>
                     <p id="Replace_concept_conbody_section_ol_l"
                         >Replace <codeph>&lt;duration&gt;</codeph> with the time period after which the data is to be deleted. The minimum retention period is one hour. You can use the following options for specifying the time period:</p>
                     <ul>
-                        <li>##TODO to be inserted, broken content reference##</li>
-                        <li>##TODO to be inserted, broken content reference##</li>
+                        <li><codeph>m</codeph> for minutes</li>
+                        <li><codeph>h</codeph> for hours</li>
+                        <li><codeph>d</codeph> for days</li>
+                        <li><codeph>w</codeph> for weeks</li>
+                        <li>
+                            <codeph>INF</codeph> for infinite retention</li>
                     </ul>
-                    <p>##TODO, repair broken content reference##</p>
+                    <p>Only single units are supported. This means, for example, that you cannot define a time span of <codeph>7230m</codeph> as <codeph>120h 30m</codeph>. </p>
                     <p>Use <codeph>[SHARD DURATION]</codeph> to define the time span covered by a shard group. When a retention policy is enforced for the database, entire shard groups are removed, and not individual data points. This means that specifying a shorter time range for shard groups than the database retention period allows you to remove data more efficiently. By default, the shard group duration is determined by the database retention period as follows:</p>
                     <ul>
                         <li>A database retention period &lt; 2 days corresponds to a shard group duration of 1 hour.</li>

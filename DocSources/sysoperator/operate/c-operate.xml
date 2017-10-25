@@ -9,12 +9,12 @@
     <title>Operation and Maintenance</title>
     <conbody>
         <section>
-            <p>Regular operation and maintenance includes: ##Monitoring Service Operator</p>
+            <p>Regular operation and maintenance includes: </p>
             <p>
                 <ul>
-                    <li>Starting and stopping agents and services. ##specific</li>
-                    <li>Disabling the monitoring of specific metrics in the configuration of a Metrics Agent. ##shared</li>
-                    <li>Disabling the collection of specific log data in the configuration of a Log Agent. ##shared</li>
+                    <li>Starting and stopping agents and services. </li>
+                    <li>Disabling the monitoring of specific metrics in the configuration of a Metrics Agent.</li>
+                    <li>Disabling the collection of specific log data in the configuration of a Log Agent. </li>
                     <li>Configuring data retention for the InfluxDB database.</li>
                     <li>Configuring data retention for the Elasticsearch database.</li>
                     <li>Removing metrics data from the InfluxDB database.</li>
@@ -23,83 +23,6 @@
                     <li>Backup and recovery of databases, configuration files, and dashboards.</li>
                 </ul>
             </p>
-        </section>
-        <section>
-            <p>Regular operation and maintenance includes: ##OpenStack Operator</p>
-            <ul>
-                <li>Starting and stopping the agents. ##specific</li>
-                <li>Disabling the monitoring of specific metrics in the configuration of a Metrics Agent. ##shared</li>
-                <li>Disabling the collection of specific log data in the configuration of a Log Agent. ##shared</li>
-                <li>Collecting the agent log files. ##specific</li>
-                <li>Backup and recovery. ## specific</li>
-            </ul>
-        </section>
-        <section>
-            <p><b>STARTING AND STOPPING AN AGENT from OSOP manual</b></p>
-            <p>System operation and maintenance may require that an agent is manually stopped and restarted.</p>
-            <p>To start an agent, proceed as follows:</p>
-            <ol compact="no">
-                <li>
-                    <p>Log in to the server where the agent is installed.</p>
-                </li>
-                <li>
-                    <p>To start a Metrics Agent, execute the following command:</p>
-                    <codeblock>sudo systemctl start openstack-monasca-agent	</codeblock>
-                    <p>To start a Log Agent, execute the following command:</p>
-                    <codeblock>sudo systemctl start openstack-monasca-log-agent	</codeblock>
-                </li>
-            </ol>
-            <p>To stop an agent, proceed as follows:</p>
-            <ol compact="no">
-                <li>
-                    <p>Log in to the server where the agent is installed.</p>
-                </li>
-                <li>
-                    <p>To stop a Metrics Agent, execute the following command:</p>
-                    <codeblock>sudo systemctl stop openstack-monasca-agent</codeblock>
-                    <p>To stop a Log Agent, execute the following command:</p>
-                    <codeblock>sudo systemctl stop openstack-monasca-log-agent</codeblock>
-                </li>
-            </ol>
-        </section>
-        <section>
-            <p><b>COLLECTING THE AGENT LOG FILES from OSOP manual</b></p>
-            <p>The agent log files record the events that occur in operating the agent. <ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> provides an individual log file for each agent component. The log files provide important information, for example, for trouble-shooting.</p>
-            <p>The log files of the Metrics Agent are written to the following directory:</p>
-            <p><codeph>/var/log/monasca/agent</codeph></p>
-            <p>The log files of the Log Agent are written to the following directory:</p>
-            <p><codeph>/var/log/monasca/monasca-log-agent</codeph></p>
-        </section>
-        <section>
-            <p><b>BACKUP AND RECOVERY from OSOP manua</b>l</p>
-            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> does not offer integrated backup and recovery mechanisms. Use the standard file system mechanisms instead.</p>
-            <p>It is recommended that you create a regular backup of the configuration files:</p>
-            <ul>
-                <li>The configuration files of the Metrics Agent located in the <codeph>/etc/monasca/agent</codeph> directory.</li>
-                <li>The configuration file of the Log Agent located in the <codeph>/etc/monasca/monasca-log-agent</codeph> directory.</li>
-            </ul>
-            <p>The frequency of backups depends on the amount of configuration changes.</p>
-            <p>If you need to recover your agent installation, the recommended procedure is as follows: </p>
-            <ol>
-                <li>
-                    <p>Uninstall the agent. For details, refer to ##TODO##.</p>
-                </li>
-                <li>
-                    <p>Reinstall the agent. For details on the Metrics Agent, refer to ##TODO##. For details on the Log Agent, refer to ##TODO##.</p>
-                </li>
-                <li>
-                    <p>Stop the agent.</p>
-                </li>
-                <li>
-                    <p>Copy the backup of your configuration files to the <codeph>/etc/monasca/agent</codeph> or the <codeph>/etc/monasca/monasca-log-agent</codeph> directory, respectively.</p>
-                </li>
-                <li>
-                    <p>Start the agent again.</p>
-                </li>
-            </ol>
         </section>
     </conbody>
 </concept>
