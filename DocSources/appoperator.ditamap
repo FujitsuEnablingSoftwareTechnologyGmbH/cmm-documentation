@@ -8,18 +8,18 @@
     <title>Application Operator's Guide</title>
     <bookmeta>
         <prodinfo>
-            <prodname>ServerView</prodname>
+            <prodname>FUJITSU Software</prodname>
             <vrmlist>
                 <vrm
                 version="2.0"/>
             </vrmlist>
-            <brand>FUJITSU Software</brand>
+            <brand></brand>
             <prognum>Cloud Monitoring Manager V2.0</prognum>
             <component/>
             <series>Application Operator's Guide</series>
         </prodinfo>
         <bookid>
-            <edition>Draft Version (09-2017)</edition>
+            <edition>Draft Version (10-2017)</edition>
             <booknumber> </booknumber>
         </bookid>
         <bookrights>
