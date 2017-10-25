@@ -36,37 +36,37 @@
                 <section>
                         <title>Tasks Overview</title>
                         <p>Depending on the distribution of tasks in your environment, the tasks of the Monitoring Service operator and the OpenStack Operator are jointly performed by one system operator or they are performed separately by different system operators.</p>
-                        <p>When taking on the role of the OpenStack operator, you have the following responsibilities: </p>
+                        <p>When taking on the role of the Monitoring Service operator, you have the following responsibilities: </p>
                         <ul>
-                                <li>Installation of the OpenStack extention points required for <ph
-                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        />. This includes the installation and configuration of the Metrics Agent and the Log Agent on the OpenStack hosts to be monitored as well as the installation of the OpenStack Horizon plugin and the OpenStack Keystone configuration. For details, refer to ###</li>
-                                <li>Monitoring of the OpenStack services and servers using the metrics-based monitoring features of <ph
-                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        />.</li>
-                                <li>Managing the logs from the OpenStack services and servers using the log management features of <ph
+                                <li>
+                                        <p>Installation and setup of the Monitoring Service, thus providing the monitoring and log management features to the other <ph
+                                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> user groups.</p>
+                                </li>
+                                <li>
+                                        <p>Regular maintenance of the components and services <ph
+                                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> consists of. </p>
+                                </li>
+                                <li>
+                                        <p>Backup of the <ph
+                                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> databases, configuration files, and customized dashboards. </p>
+                                </li>
+                                <li>Monitoring of <ph
                                                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                         />.</li>
                         </ul>
-                        <p>When taking on the role of the Monitoring Service operator, you have the following responsibilities: </p>
+                        <p>When taking on the role of the OpenStack operator, you have the following responsibilities: </p>
                         <ul>
-                                <li>Installation and setup of the Monitoring Service, thus providing the monitoring and log management features to the other CMM user groups. For details, refer to ## </li>
-                                <li>Installation of the Metrics Agent and Log Agent on the <ph
-                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                                /> host. The agents are required for monitoring <ph
-                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        />.</li>
-                                <li>Regular maintenance of the components and services <ph
-                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> consists of. </li>
-                                <li>Backup of the <ph
-                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> databases, configuration files, and customized dashboards.</li>
-                                <li>Monitoring of <ph
-                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                                /> to ensure the <ph
-                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> quality. </li>
+                                <li>
+                                        <p>Installation and configuration of the OpenStack extention points required for <ph
+                                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                                />. </p>
+                                </li>
+                                <li>
+                                        <p>Monitoring of the OpenStack services and servers.</p>
+                                </li>
                         </ul>
                 </section>
     </conbody>
