@@ -79,13 +79,15 @@
         <topicref format="dita" href="sysoperator/logs/c-logs-index.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/logs/c-logs-alarms.xml" type="concept"/>
     </chapter>
+ 	<appendix href="sysoperator/appendix/r-metricsintro.xml" type="reference">
+        <topicref format="dita" href="sysoperator/appendix/r-metricsstandard.xml" type="reference"/>
+        <topicref format="dita" href="sysoperator/appendix/r-metricsadditional.xml" type="reference"/>
+    </appendix>    
+        
     <!-- appendix format="dita" href="shared/appendix/r-confsettings.xml" type="reference">
         <topicref format="dita" href="shared/appendix/r-confsettings-metrics.xml" type="reference"/>
         <topicref format="dita" href="shared/appendix/r-confsettings-logs.xml" type="reference"/>
-    </appendix 
- appendix format="dita" href="cmmoperator/appendix/r-cmmometrics.xml" type="reference">
-        <topicref format="dita" href="shared/appendix/r-metricsstandard.xml" type="reference"/>
-        <topicref format="dita" href="shared/appendix/r-metricsadditional.xml" type="reference"/>
-    </appendix -->
+    </appendix -->   
+    
     <appendix href="shared/glossary/r-glossary.xml"/>
 </bookmap>
