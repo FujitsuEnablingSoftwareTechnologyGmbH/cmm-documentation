@@ -3,21 +3,19 @@
                          "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
 ]>
 <!-- Copyright FUJITSU LIMITED 2017 -->
-<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
-                xml:lang="en-us">
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB" xml:lang="en-us">
     <title>Installation</title>
     <conbody>
         <section>
-            <p>###Overview</p>
-            <p>###Sequence of installation steps ?</p>
-            <p>(1)Install the Monitoring Service with a Metrics Agent and a Log Agent required for self-monitoring</p>
-            <p>(2)Install OpenStack Extensions - Metrics Agent on OpenStack node where OpenStack service to be monitored is running</p>
-            <p>(3)Install OpenStack Extensions - Log Agent on OpenStack node where OpenStack service to be monitored is running</p>
-            <p>(4)Install OpenStack Extensions - Horizon Plugin to integrate the Monitoring Service into the OpenStack cloud/platform</p>
-            <p>(5)Configure OpenStack Keystone to integrate the Monitoring Service with OpenStack Keystone</p>
-            <p>##config settings for Metrics Agent ?</p>
-            <p>##config setting for Log Agent ?</p>
-            <p>##Supported / Available Metrics (Standard Metrics and Additional Metrics)</p>
+            <p><i>##TO DO</i></p>
+            <p>Depict the installation scenario: separate physical machine for Monitoring Service? Separate from OSP10 node? CMM V2.0 on a virtual machine ?</p>
+            <p>Technically there should be no problem to use CMM V2.0 on a virtual machine. For CMM in production it is not recommended, especially not on an OpenStack VM. CMM has demanding HW requirements in terms of CPU, RAM and Disk (SSD). It should be installed on the most powerful instance. The question is if a VM is powerful enough. In addition, neighboring VMs may potentially cause trouble. </p>
+            <p>Depict the sequence of the installation steps </p>
+            <p>(1) Install the Monitoring Service with a Metrics Agent and a Log Agent required for self-monitoring</p>
+            <p>(2) Configure OpenStack Keystone to integrate the Monitoring Service with OpenStack Keystone</p>
+            <p>(3 a) Install OpenStack Extensions Points - Metrics Agent on OpenStack node where OpenStack service to be monitored is running</p>
+            <p>(3 b) Install OpenStack Extensions Points - - Log Agent on OpenStack node where OpenStack service to be monitored is running</p>
+            <p>(3 c) Install OpenStack Extensions Points - - Horizon Plugin / monasca-ui to integrate the monitoring functionality into OpenStack Horizon</p>
         </section>
     </conbody>
 </concept>

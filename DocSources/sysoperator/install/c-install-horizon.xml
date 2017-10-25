@@ -8,29 +8,55 @@
     <title>Installing the Horizon Plugin</title>
     <conbody>
         <section>
-            <p>To install the OpenStack Horizon plugin, proceed as follows:</p>
+            <p>To make the monitoring functionality accessible in OpenStack Horizon, you have to install the Horizon Plugin in your OpenStack environment. After a successful installation, additional manual configuration steps must be performed to enable access to the monitoring functionality in OpenStack Horizon for the CMM users.</p>
+        </section>
+        <section>
+            <title>Installation</title>
+            <p>To install the Horizon Plugin, proceed as follows:</p>
             <ol compact="no">
                 <li>
-                    <p>Log in to the ###.</p>
+                    <p>Log in to the server on which the OpenStack Horizon service is installed.</p>
                 </li>
                 <li>
-                    <p>####. </p>
-                    <p>Example:</p>
-                    <codeblock>###</codeblock>
-                </li>
-                <li>
-                    <p>####</p>
-                    <codeblock>###</codeblock>
-                </li>
-                <li>
-                    <p>###</p>
-                    <note othertype="note">####this is the note text</note>
-                    <p>####.</p>
+                    <p> Run the Horizon Plugin installer:</p>
+                    <codeblock>./monasca-ui-&lt;version>.run --target &lt;monasca_ui_dir></codeblock>
+                    <p>The installer extracts the plugin with all the required dependencies.</p>
+                    <p>Use the optional <codeph>--target</codeph> parameter to specify the directory in which the Horizon Plugin is installed. If <codeph>--target</codeph> is not specified, it is installed in the current working directory. </p>
                 </li>
             </ol>
-            <p>###:</p>
-            <codeblock>###</codeblock>
-            <p>###</p>
+        </section>
+        <section>
+            <title>Required Configuration Steps</title>
+            <p>After having successfully installed the Horizon Plugin, the following steps must be performed to enable access to the monitoring functionality in OpenStack Horizon:</p>
+            <ol compact="no">
+                <li>
+                    <p>Append the monasca-ui virtualenv libraries to the OpenStack Horizon system path. For this purpose, edit your WSGI script for OpenStack Horizon.</p>
+                    <p>Example:</p>
+                    <codeblock>sys.path.append("&lt;monasca_ui_dir>/lib/python2.7/site-packages/")</codeblock>
+                    <p>If your deployment uses an Apache server for hosting your WSGI applications, the configuration file is located in one of the following directories: </p>
+                    <p>
+                        <codeblock>/etc/apache2/sites-enabled
+/etc/apache2/vhosts.d</codeblock>
+                    </p>
+                </li>
+                <li>
+                    <p>Enable the Horizon Plugin. </p>
+                    <p>For this purpose, create symbolic links in your OpenStack Horizon installation pointing to the monasca-ui installation.</p>
+                    <p>Example: </p>
+                    <codeblock>ln -s &lt;monasca_ui_dir>/lib/python2.7/site-packages/monitoring/enabled/_50_admin_add_monitoring_panel.py \
+      &lt;horizon_dir>/openstack_dashboard/enabled/_50_admin_add_monitoring_panel.py
+ln -s &lt;monasca_ui_dir>/lib/python2.7/site-packages/monitoring/conf/monitoring_policy.json \
+      &lt;horizon_dir>/openstack_dashboard/conf/monitoring_policy.json</codeblock>
+                </li>
+                <li>
+                    <p>Check the settings defined in your <codeph>local_settings.py</codeph> file. The file is located in the <codeph>&lt;monasca_ui_dir>/lib/python2.7/site-packages/monitoring/config</codeph> directory. </p>
+                    <p>Refer to the ##monasca-ui documentation for a description of the required settings.</p>
+                </li>
+                <li>
+                    <p>Restart the Apache Server:</p>
+                    <codeblock>systemctl restart apache2</codeblock>
+                </li>
+            </ol>
         </section>
     </conbody>
 </concept>

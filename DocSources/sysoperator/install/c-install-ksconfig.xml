@@ -8,9 +8,80 @@
     <title>Configuring OpenStack Keystone</title>
     <conbody>
         <section>
-            <p>OpenStack Keystone must be configured ###</p>
-            <p/>
-            <p/>
+            <p>OpenStack Keystone must be configured for CMM.</p>
+            <p>The configuration must take into account a single OS Keystone instance as well as a load balancer that distributes the load to multiple OS Keystone instances in OS HA.</p>
+            <p>monasca-docker includes an internal keystone instance, redirection to an external keystone is required.</p>
+        </section>
+        <section>
+            <title>Setting the Administrator Credentials</title>
+            <p>Example:</p>
+            <p>
+                <codeblock>export OS_USERNAME=&lt;admin user>
+export OS_PROJECT_NAME=&lt;admin project>
+export OS_PASSWORD=&lt;admin password>
+export OS_AUTH_URL=&lt;keystone auth url>
+export OS_REGION_NAME=&lt;region name></codeblock>
+            </p>
+            <p>Verify the provided credentials.</p>
+            <p>Example:</p>
+            <p>
+                <codeblock>openstack service list</codeblock>
+            </p>
+        </section>
+        <section>
+            <title>Creating a Project </title>
+            <p>Example:</p>
+            <p>
+                <codeblock>openstack project create monitoring</codeblock>
+            </p>
+        </section>
+        <section>
+            <title>Creating the Required Roles</title>
+            <p>Example:</p>
+            <p>
+                <codeblock>openstack role create monasca-user
+openstack role create monasca-agent</codeblock>
+            </p>
+            <p>Access as a user with the <codeph>monasca-user</codeph> role must be provided to perform metrics monitoring tasks.</p>
+            <p>Access as a user with the <codeph>monasca-user</codeph> and <codeph>admin</codeph> role must be provided to perform log management tasks.</p>
+            <p>The user used for authenticating the agent against OpenStack Keystone must have the <codeph>monasca-agent</codeph> role assigned.</p>
+        </section>
+        <section>
+            <title>Creating the Agent User</title>
+            <p>This user is used by the metrics agent and the log agent to submit data to monasca. </p>
+            <p>Example:</p>
+            <p>
+                <codeblock>openstack user create --project monitoring --password password monitoring-agent</codeblock>
+            </p>
+            <p>This user is used for authenticating an agent against Keystone. This user must be specified in the agent configuration.This user must have the monasca-agent role in OpenStack and be assigned to the OpenStack project that is to be monitored by the agent. </p>
+            <p>It is recommended that this user is used only for config purposes and not for actually monitoring services and servers.</p>
+        </section>
+        <section>
+            <title>Assigning Roles </title>
+            <p>The monitoring agent user and the admin user both require appropriate roles. </p>
+            <p>Example: </p>
+            <p>
+                <codeblock>openstack role add --project monitoring --user admin monasca-user
+openstack role add --project monitoring --user admin admin
+openstack role add --project monitoring --user monitoring-agent monasca-agent</codeblock>
+            </p>
+        </section>
+        <section>
+            <title>Defining Services and Endpoints </title>
+            <p>The Horizon plugin requires a set of services and endpoints that must be defined in OpenStack Keystone. Check your Keystone setup. It might be required to adjust the URLs.</p>
+            <p>Example:</p>
+            <p>
+                <codeblock>openstack service create --name monasca monitoring
+openstack service create --name logs logs
+openstack service create --name logs_v2 logs_v2
+openstack endpoint create monasca public http://192.168.10.6:8070/v2.0
+openstack endpoint create logs public http://192.168.10.6:5607/v3.0
+openstack endpoint create logs_v2 public http://192.168.10.6:5607/v2.0</codeblock>
+            </p>
+            <p>Example: </p>
+            <codeblock>openstack endpoint create monasca --publicurl http://192.168.10.6:8070/v2.0
+openstack endpoint create logs --publicurl http://192.168.10.6:5607/v3.0
+openstack endpoint create logs_v2 --publicurl http://192.168.10.6:5607/v2.0</codeblock>
         </section>
     </conbody>
 </concept>

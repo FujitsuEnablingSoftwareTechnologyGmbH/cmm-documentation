@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                    xml:lang="en-us">
+    <title>Preparing the Software and Setup Utilities </title>
+    <conbody>
+        <section>
+            <p><i>PENDING: Software and setup utilities have not yet been defined.</i></p>
+            <p>The software and setup utilities are distributed in the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> installation package on the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> DVD. You have to mount the DVD and execute the <codeph>setup.sh</codeph> script that is provided. It extracts the utilities required for installing <ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
+            <p>Proceed as follows:</p>
+            <ol>
+                <li>
+                    <p/>
+                </li>
+                <li>
+                    <p/>
+                </li>
+                <li>
+                    <p/>
+                </li>
+                <li>
+                    <p/>
+                </li>
+            </ol>
+        </section>
+    </conbody>
+</concept>
