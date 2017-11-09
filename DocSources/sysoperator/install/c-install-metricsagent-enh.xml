@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                            xml:lang="en-us">
+    <title>Activating Additional Metrics</title>
+    <conbody>
+        <section>
+            <p>The agent installation automatically configures and activates a comprehensive set of metrics for monitoring your services and servers. <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> allows you to activate additional metrics. For details on the complete set of metrics that can be activated, refer to the <xref
+                    format="html" href="https://github.com/openstack/monasca-agent/blob/stable/pike/docs/Plugins.md"
+                    scope="external"><u><i>Monasca documentation</i></u></xref>.</p>
+            <p>For a list of the metrics that supported by <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>, refer to <xref
+                    href="../appendix/r-metricsintro.xml"/>. </p>
+            <p>The agent ships with metrics templates that you can adapt to your environment and use for monitoring your services and servers.</p>
+            <p>To activate additional metrics,  proceed as follows: </p>
+            <ol>
+                <li>
+                    <p>Log in to the server where the agent is installed.</p>
+                </li>
+                <li>
+                    <p>To stop the agent, execute the following command:</p>
+                    <codeblock>sudo systemctl stop openstack-monasca-agent</codeblock>
+                </li>
+                <li>
+                    <p>Copy the required template file.</p>
+                    <p>Example:</p>
+                    <codeblock>sudo cp -p \
+ /opt/monasca-agent/share/monasca/agent/conf.d/rabbitmq.yaml.example \
+ /etc/monasca/agent/conf.d/rabbitmq.yaml</codeblock>
+                </li>
+                <li>
+                    <p>Open the template file with your favorite editor.</p>
+                    <p>Example:</p>
+                    <codeblock>sudo vim /etc/monasca/agent/conf.d/rabbitmq.yaml</codeblock>
+                </li>
+                <li>
+                    <p>Adapt the configuration to your environment. For configuration examples, refer to <xref
+                            href="../appendix/r-metricsadditional.xml"/>.</p>
+                </li>
+                <li>
+                    <p>To start the agent again, execute the following command:</p>
+                    <codeblock>sudo systemctl start openstack-monasca-agent</codeblock>
+                </li>
+            </ol>
+            <p>The activated metrics can instantly be used by the agent for retrieving monitoring data.</p>
+        </section>
+    </conbody>
+</concept>

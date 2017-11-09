@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                            xml:lang="en-us">
+    <title>Installation</title>
+    <conbody>
+        <section>
+            <p><i><b>NOTE TO REVIEWERS</b>: Is this set of mandatory parameters correct? Provided we need a V3 endpoint for Keystone, do we also have to configure project_domain_name and user_domain_name?</i></p>
+            <p><i><b>NOTE TO REVIEWERS</b>: Do we support <b>all</b> parameters listed in https://github.com/openstack/monasca-agent/blob/master/docs/Agent.md#monasca-setup-recommended ? In CMM 1.1, we explicitly documented that the dimensions parameter was not supported: "The dimensions parameter is not supported by CMM. The installer auto-detects applications and processes that are running on your machine and saves the corresponding settings to the agent's configuration file. Additional dimensions cannot be specified." </i></p>
+            <p><i><b>NOTE TO REVIEWERS</b>: Any prerequisities to be added? See input by Haruki in Wiki.</i></p>
+        </section>
+        <section>
+            <p>To install a Metrics Agent, proceed as follows:</p>
+            <ol
+                    compact="no">
+                <li>
+                    <p>Log in to the machine on which to install the Metrics Agent.</p>
+                </li>
+                <li>
+                    <p>Run the agent installer, and provide the required OpenStack Keystone credentials. <i>##distribution media not yet defined##</i></p>
+                    <p>Example: <i>##update the version number for final delivery##</i></p>
+                    <codeblock>./monasca-agent-2.3.0.run \
+--target /opt/monasca/monasca-agent -- \
+--username myuser \                   
+--password mypassword \                   
+--project_name monitoring \  
+--user_domain_name default \ 
+--project_domain_name default \               
+--keystone_url http://192.168.1.5:35357/v3 \  
+--monasca_statsd_port 8126        </codeblock>
+                    <p>The minimum set of parameters to be configured for running the installer includes:</p>
+                    <ul>
+                        <li>
+                            <p><codeph>--target</codeph>. Optional. The directory  in which the agent is installed. If <codeph>--target</codeph> is not specified, the agent is installed in the current working directory. </p>
+                        </li>
+                        <li>
+                            <p><codeph>--username</codeph>. Mandatory. The user to be used for authenticating the agent against OpenStack Keystone.</p>
+                            <p>The user specified here must have the <codeph>cmm-agent</codeph> role in OpenStack and be assigned to the OpenStack project that is to be monitored by the agent. The project is specified in <codeph>project_name</codeph>.</p>
+                            <p>It is recommended that this user is used only for configuration purposes and not for actually monitoring services and servers.</p>
+                        </li>
+                        <li>
+                            <p><codeph>--password</codeph>. Mandatory. The password of the user specified in <codeph>--username</codeph>.</p>
+                        </li>
+                        <li>
+                            <p><codeph>--project_name</codeph>. Optional. The name of the OpenStack project for which metrics data is to be retrieved by the agent. If <codeph>--project_name</codeph> is not specified, the data is retrieved from the default project assigned to the user specified in <codeph>--username</codeph>.</p>
+                        </li>
+                        <li>
+                            <p><codeph>--user_domain_name</codeph>. ##<codeph>default</codeph>## Optional. The user domain name to be used for user name scoping. <i>##If not specified, what does <codeph>default</codeph> imply?##</i></p>
+                        </li>
+                        <li>
+                            <p><codeph>project_domain_name</codeph>. ##<codeph>default</codeph>## Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>##If not specified, what does <codeph>default</codeph> imply?##</i></p>
+                        </li>
+                        <li>
+                            <p><codeph>--keystone_url</codeph>. Mandatory parameter specifying the URL used to access the server where the OpenStack Keystone service is installed. It must be a V3 endpoint.</p>
+                        </li>
+                        <li>
+                            <p><codeph>--monasca_statsd_port</codeph>. Optional. The port number for the StatsD daemon. Check whether the default port number must be changed from <codeph>8125</codeph> to <codeph>8126</codeph>. Port <codeph>8125</codeph> is used by Gnocchi in Red Hat Enterprise Linux OpenStack Platform 10:</p>
+                            <codeblock>(monasca-agent) [root@openstack5 monasca-agents-installer]# lsof -i:8125
+COMMAND    PID    USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
+/usr/bin/ 1122 gnocchi   10u  IPv4  30916      0t0  UDP *:8125</codeblock>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+            <p>For additional details, you can refer to the <xref format="html"
+                    href="https://github.com/openstack/monasca-agent/blob/stable/pike/docs/Agent.md#explanation-of-primary-monasca-setup-command-line-parameters"
+                    scope="external"
+                ><u><i>Monasca documentation</i></u></xref>. Help is also available on the configuration settings. For a description of the settings, run the following command: </p>
+            <codeblock>./monasca-agent-&lt;version_number&gt;.run --help</codeblock>
+            <p>In case the installation fails, check your configuration settings and passwords. To collect debugging information, you can retry the installation in verbose mode:</p>
+            <codeblock>./monasca-agent-&lt;version_number&gt;.run --verbose</codeblock>
+            <p>
+                <note othertype="note">
+                    <p>When running the installer, you can ignore error messages related to components that do not exist in your OpenStack environment, e.g. <codeph>ERROR: Kibana process has not been found. Plugin for Kibana will not be configured.</codeph>.</p>
+                    <p>The agent tries to auto-detect a specific set of processes and outputs an error message if a process is not found. Irrespective of these error message, the agent is successfully installed.</p>
+                </note>
+            </p>
+            <p>The installer creates a <codeph>monasca-agent.service</codeph> file in the <codeph>/etc/systemd/system</codeph> directory, and automatically runs the service file to start the agent after a successful installation.</p>
+            <p>The agent is provided as a LINUX service. A startup script is created that automatically starts the agent each time the machine is booted. </p>
+            <p>The agent is installed in a virtualenv environment. By default, the virtualenv enviroment is located in the <codeph>/opt/monasca-agent</codeph> directory.</p>
+        </section>
+    </conbody>
+</concept>

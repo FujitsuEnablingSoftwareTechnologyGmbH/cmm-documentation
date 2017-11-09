@@ -8,7 +8,7 @@
     <title>Preparing the Software and Setup Utilities </title>
     <conbody>
         <section>
-            <p><i>PENDING: Software and setup utilities have not yet been defined.</i></p>
+            <p><i><b>NOTE TO REVIEWERS:</b> Software and setup utilities to be defined.</i></p>
             <p>The software and setup utilities are distributed in the <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> installation package on the <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> DVD. You have to mount the DVD and execute the <codeph>setup.sh</codeph> script that is provided. It extracts the utilities required for installing <ph
@@ -16,18 +16,36 @@
             <p>Proceed as follows:</p>
             <ol>
                 <li>
-                    <p/>
+                    <p>##</p>
                 </li>
                 <li>
-                    <p/>
+                    <p>##</p>
                 </li>
                 <li>
-                    <p/>
-                </li>
-                <li>
-                    <p/>
+                    <p>##</p>
                 </li>
             </ol>
+            <p>After extraction, the following files and directories are available: </p>
+            <ul>
+                <li>
+                    <p><codeph>docker-compose.yml</codeph>. ##</p>
+                </li>
+                <li>
+                    <p><codeph>log-pipeline.yml</codeph>. ##</p>
+                </li>
+                <li>
+                    <p>Docker files for the CMM components. ##</p>
+                </li>
+                <li>
+                    <p><i>##version number?## </i><codeph>monasca-agent-2.3.0.run</codeph>. Executable for running the Metrics Agent installer on an OpenStack node.</p>
+                </li>
+                <li>
+                    <p><i>##version number?## </i><codeph>log-agent-2.4.1_0.5.3.run</codeph>. Executable for running the Log Agent installer on an OpenStack node.</p>
+                </li>
+                <li>
+                    <p><i>##version number?## </i><codeph>monasca-ui-1.10.0.run</codeph>. Executable for running the Horizon Plugin installer on the node where the OpenStack Horizon service is installed.</p>
+                </li>
+            </ul>
         </section>
     </conbody>
 </concept>

@@ -5,8 +5,7 @@
 <!-- Copyright FUJITSU LIMITED 2017 -->
 <concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
             xml:lang="en-us">
-    <title><ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> Architecture and Components</title>
+    <title>Architecture and Components</title>
     <conbody>
         <section>
             <p>The following illustration provides an overview of the main components of <ph

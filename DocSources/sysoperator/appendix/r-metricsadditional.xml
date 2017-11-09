@@ -8,7 +8,8 @@
     <title>Additional Metrics </title>
     <refbody>
     <section>
-      <p><i><b>PENDING</b>: The configuration examples are from 1.1. To be replaced by examples from 2.0 agent installation. This requires additional testing effort.</i></p>
+      <p><i><b>PENDING</b>: The configuration examples are from 1.1. Can we stay with them or must they be replaced by examples from a 2.0 agent installation? </i></p>
+      <p><i><b>PENDING</b>: The additional metrics listed in this appendix correspond to those we had in 1.1. ceph.yaml was added. Any other yaml files to be added? Please check.</i></p>
     </section>
         <section>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
@@ -17,7 +18,7 @@
             <p>Note that in addition to the metrics below, many more metrics are provided by the Monasca project. These are not automatically installed by <ph
           conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
           />. For details on the complete set of metrics provided by the Monasca project, refer to the <xref
-          format="html" href="https://github.com/openstack/monasca-agent/blob/stable/ocata/docs/Plugins.md"
+          format="html" href="https://github.com/openstack/monasca-agent/blob/stable/pike/docs/Plugins.md"
           scope="external"><u><i>Monasca documentation</i></u></xref>.</p>
         </section>
         <section>
@@ -36,6 +37,17 @@ instances:
   apache_user: root
   apache_password: password</codeblock>
     </section>
+    <section><title>ceph.yaml</title><p>Ceph checks provide information on one or more Ceph clusters. The configuration file must specify the name of the cluster to be monitored. You can configure the agent so that only a specific set of metrics data is collected.</p>As a prerequisite, the <codeph>ceph-common</codeph> package must be installed. In addition, the user running the agent must have the permission to execute Ceph commands. For this purpose, assign the <codeph>monasca-agent</codeph> user to the <codeph>ceph</codeph> group, and give read permission to the group in the <codeph>ceph.client.admin.keyring</codeph> file:<codeblock>usermod -a -G ceph monasca-agent
+  chmod 0640 /etc/ceph/ceph.client.admin.keyring</codeblock><p>Alternatively, you can configure <codeph>sudo</codeph> access for the <codeph>monasca-agent</codeph> user.</p><p>Example configuration with <codeph>monasca-user</codeph> assigned to the <codeph>ceph</codeph> group:</p><codeblock>init_config:
+ null
+instances:
+  - cluster_name: ceph
+    use_sudo: False
+    collect_usage_metrics: True
+    collect_stats_metrics: True
+    collect_mon_metrics: True
+    collect_osd_metrics: False
+    collect_pool_metrics: True</codeblock></section>
     <section>
             <title>crash.yaml</title>
             <p>Crash checks provide information on system crash dumps. The default directory where the crash dumps are provided is <codeph>/var/crash</codeph>.</p>
