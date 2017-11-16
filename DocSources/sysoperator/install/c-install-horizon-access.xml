@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB" xml:lang="en-us">
+    <title>Accessing <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/></title>
+    <conbody>
+        <section><i>##Compare with OSCM / Gertis input on access</i></section>
+        <section>
+            <p>As soon as you have successfully carried out the manual configuration steps, access is enabled for <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> users in OpenStack Horizon. They can now access the monitoring and log management functions provided they fulfill the following prerequisites: </p>
+            <p>
+                <ul>
+                    <li>
+                        <p>They must have access to the OpenStack platform as a user with the <codeph>monasca-user</codeph> role or any other role that is authorized to use the <ph
+                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                            /> functions. Additional roles are optional. </p>
+                    </li>
+                    <li>
+                        <p>They must be assigned to the OpenStack project they want to monitor.</p>
+                    </li>
+                </ul>
+            </p>
+        </section>
+    </conbody>
+</concept>

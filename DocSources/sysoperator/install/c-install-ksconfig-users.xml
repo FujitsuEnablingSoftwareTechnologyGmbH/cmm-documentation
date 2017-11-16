@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                xml:lang="en-us">
+    <title>Creating Projects, Users, and Roles</title>
+    <conbody>
+        <section>
+            <title>Creating a Project </title>
+            <p>Example:</p>
+            <p>
+                <codeblock>openstack project create monitoring</codeblock>
+            </p>
+        </section>
+        <!-- section>
+            <title>Creating a dedicated project for monitoring / via CLI or OS UI as you wish</title>
+            <p>README: </p>
+            <p>##Mandatory or optional?</p>
+            <p>##Purpose?</p>
+            <p>##what would it mean if I do NOT prepare a dedicated project ?</p>
+            <p>If one wishes to have one dedicated project for monitoring, then it can be created with the following command (we assume the project name to be <codeph>monitoring</codeph>:</p>
+            <p>
+                <codeblock>openstack project create monitoring</codeblock>
+            </p>
+            <p>: </p>
+            <p>Q: Is this project to which I must be assigned when I want to see metrics data in Grafana and log data in Kibana and do the actual monitoring?we have one project for cmm self-monitoring and monitoring the OS services?</p>
+            <p/>
+        </section -->
+        <section>
+            <title>Creating the Required Roles</title>
+            <p>The following roles must be prepared:</p>
+            <ul>
+                <li>
+                    <p><codeph>monasca-user</codeph> for ##</p>
+                </li>
+                <li>
+                    <p><codeph>monasca-agent</codeph> for ##</p>
+                </li>
+            </ul>
+            <p>Example:</p>
+            <p>
+                <codeblock>openstack role create monasca-user
+openstack role create monasca-agent</codeblock>
+            </p>
+            <p>The user used for authenticating the agent against OpenStack Keystone must have the <codeph>monasca-agent</codeph> role assigned.</p>
+            <p>Access as a user with the <codeph>monasca-user</codeph> role must be provided to perform metrics monitoring tasks.</p>
+            <p>Access as a user with the <codeph>monasca-user</codeph> and <codeph>admin</codeph> role must be provided to perform lo g management tasks.</p>
+        </section>
+        <!-- section>
+            <p>##Mandatory or optional?</p>
+            <p>##Purpose?</p>
+            <p>##</p>
+        </section -->
+        <section>
+            <title>Creating the Agent User</title>
+            <p>##</p>
+            <p>Example:</p>
+            <p>
+                <codeblock>openstack user create --project monitoring --password password monitoring-agent</codeblock>
+            </p>
+            <p>This user is used for authenticating an agent against Keystone. This user must be specified in the agent configuration. This user must have the <codeph>monasca-agent</codeph> role in OpenStack and be assigned to the OpenStack project that is to be monitored by the agent. </p>
+            <p>It is recommended that this user is used only for config purposes and not for actually monitoring services and servers.</p>
+        </section>
+        <!-- section>
+            <p>##Mandatory or optional?</p>
+            <p>##Purpose?</p>
+            <p>##Must user name be "monitoring-agent" ?</p>
+            <p>README:The agent user will be used by metrics and logs agent to submit data to monasca. It can be created by executing:</p>
+        </section -->
+        <section>
+            <title>Assigning Roles </title>
+            <p>The <codeph>monitoring agent</codeph> user and the <codeph>admin</codeph> user both require appropriate roles. </p>
+            <p>Example: </p>
+            <p>
+                <codeblock>openstack role add --project monitoring --user admin monasca-user
+openstack role add --project monitoring --user admin admin
+openstack role add --project monitoring --user monitoring-agent monasca-agent</codeblock>
+            </p>
+        </section>
+    </conbody>
+</concept>

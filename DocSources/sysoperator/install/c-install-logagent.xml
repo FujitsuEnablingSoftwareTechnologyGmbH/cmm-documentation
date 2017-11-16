@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                            xml:lang="en-us">
+    <title>Installing a Log Agent</title>
+    <conbody>
+        <!-- section>OSP10 Integration Point - Log Agent based on OpenStack Pike / self-extracting installer</section -->
+        <section>
+            <p>TODO</p>
+            <p>https://github.com/logstash-plugins/logstash-output-monasca_log_api</p>
+            <p>https://github.com/logstash-plugins/logstash-output-monasca_log_api/blob/master/docs/index.asciidoc </p>
+            <p>Add reliable references to web where all config params are described; </p>
+            <p>Source for Logstash help on config parameters? To be enhanced and corrected // </p>
+        </section>
+        <section>
+            <p>For monitoring OpenStack services and servers in your environment, you need to install a Log Agent on the node on which the services are running. The agent installer configures the agent so that it can automatically be started as soon as the installation is successful. You can enhance the agent configuration before running the installer or update the initial configuration later, if required. </p>
+            <p>The installer stores all configuration settings of the Log Agent in the following file:</p>
+            <p><codeph>/etc/monasca/monasca-log-agent/agent.conf</codeph></p>
+            <p>The file is composed of an input and an output section:</p>
+            <ul>
+                <li>
+                    <p>The input section specifies which log data is to be retrieved. </p>
+                    <p>The Log Agent is based on the so-called ELK stack, a solution for searching and analyzing log data that combines the open source projects Elasticsearch, Logstash, and Kibana. For details on the ELK stack, refer to the documentation on <xref
+                            format="html"
+                            href="https://www.elastic.co/guide/index.html"
+                            scope="external"><u><i>Elasticsearch, Logstash, and Kibana</i></u></xref>. </p>
+                    <p><ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> supports the file plugin of Logstash as input mechanism. The file plugin enables Logstash to read log data from any log file on your file system. Logstash supports additional plugins. For details, refer to <xref
+                            format="html"
+                            href="https://www.elastic.co/guide/en/logstash/2.3/input-plugins.html"
+                            scope="external"><u><i>Logstash Input Plugins</i></u></xref>. Contact your <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> support if you want to integrate a different plugin.</p>
+                </li>
+                <li>
+                    <p>The output section specifies all parameters required for retrieving the log data and sending it to the Monitoring Service for further processing. </p>
+                </li>
+            </ul>
+        </section>
+    </conbody>
+</concept>

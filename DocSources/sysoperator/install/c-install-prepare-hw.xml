@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+            xml:lang="en-us">
+    <title>Hardware and Operating Systems</title>
+    <conbody>
+        <section>
+            <p><ph
+                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> can be installed on a host machine with the following operating systems:</p>
+            <ul>
+                <li>
+                    <p>Red Hat Enterprise Linux 7.3 (for Intel64). </p>
+                </li>
+            </ul>
+            <note othertype="note"
+                >Make sure that you use a clean operating system. This avoids compatibility-related issues during the installation.</note>
+            <p>As underlying platform technology, the following OpenStack platforms are supported:</p>
+            <ul>
+                <li>Red Hat Enterprise Linux OpenStack Platform 10</li>
+            </ul>
+        </section>
+        <section>
+            <p>The following hardware resources are recommended:</p>
+            <p><i><b>NOTE TO REVIEWERS:</b> These are the HW recommendation from 1.1.</i></p>
+            <table
+                colsep="1" frame="all"
+                    rowsep="1">
+                <tgroup
+                        cols="2">
+                    <colspec
+                        colname="col2" colnum="1"
+                        colwidth="1*"/>
+                    <colspec
+                        colname="col3" colnum="2"
+                                colwidth="2.32*"/>
+                    <thead>
+                        <row>
+                            <entry
+                                colname="col2">Hardware type</entry>
+                            <entry
+                                colname="col3">Description</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry
+                                colname="col2">Model</entry>
+                            <entry
+                                colname="col3">
+                                <p>Fujitsu Server PRIMERGY RX300 S8 </p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry
+                                colname="col2">CPU</entry>
+                            <entry
+                                colname="col3">
+                                <p>Intel® Xeon® E5-2660 v2, 2.20 GHz or more</p>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry
+                                colname="col2">Memory</entry>
+                            <entry
+                    colname="col3">
+                                <p>64 GB DIMM (DDR3) or more</p>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> without any data requires about 2 GB of disk space. The disk capacity required for log data and metrics data varies considerably depending on the number of services and servers to be monitored.</p>
+            <p>Make sure that enough disk space is provided. If required, mount partitions for storing the log data and the metrics data. The default installation uses the following directories:<i> ##where are the data directories in docker deployment? </i></p>
+            <ul id="The_data_directory_of_Elastic_concept_conbody_section_3_ul">
+                <li>The data directory of Elasticsearch is located in <codeph>/var/data/elasticsearch</codeph>.</li>
+                <li>The data directory of InfluxDB is located in <codeph>/var/opt/influxdb/data</codeph>. </li>
+                <li>The data directory of MariaDB is located in <codeph>/var/lib/mysql</codeph>. </li>
+                <li>The data directory of Kafka is located in <codeph>/var/kafka</codeph>.</li>
+            </ul>
+        </section>
+        <section>
+            <p><i><b>NOTE TO REVIEWERS:</b> Below are the HW recommendation from 1.3 used in the SOCM documentation. Decision on HW recommendations for 2.0 is pending (see mail).</i></p>
+            <p>Architecture: x86_64</p>
+            <p>RAM: At least 32 GB, 64 GB or more recommended. </p>
+            <p>CPU: At least 8 cores, 16 cores or more recommended. </p>
+            <p>Hard Disk: SSD strongly recommended. </p>
+            <p>Disk Space: See below. </p>
+            <p>Formula for calculating the required disk space: </p>
+            <p>200 GB + [ number of nodes * retention period * (space for log data/day + space for metrics data/day) ] where </p>
+            <ul>
+                <li>
+                    <p>Retention period = 60 days for InfluxDB and Elasticsearch </p>
+                </li>
+                <li>
+                    <p>Space for log data/day = 2 GB</p>
+                </li>
+                <li>
+                    <p>Space for metrics data/day = 50 MB</p>
+                </li>
+            </ul>
+            <p>This is only a basic rule of thumb. Depending on the OpenStack nodes to be monitored there might be additional factors that have an impact on the required disk space, for example, enabling debug logging for one or more OpenStack services.</p>
+            <p>Note that the formula is based on the following assumptions for log data: </p>
+            <ul>
+                <li>
+                    <p>Approx. 50 log files per node</p>
+                </li>
+                <li>
+                    <p>Approx. 1 log entry/file/sec </p>
+                </li>
+                <li>
+                    <p>200 bytes size</p>
+                </li>
+            </ul>
+            <p>Note that the formula is based on the following assumptions for metrics data: </p>
+            <ul>
+                <li>
+                    <p>400 metrics per node </p>
+                </li>
+                <li>
+                    <p>Time interval: 30 secs </p>
+                </li>
+                <li>
+                    <p>20 bytes size</p>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <title>Web Browsers</title>
+            <p><ph
+                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> has been tested with the following Web browsers: </p>
+            <ul id="Google_Chrome_50.0_concept_conbody_section_2_ul">
+                <li>Google Chrome 50.0</li>
+                <li>Microsoft Internet Explorer 11.0 (with Compatibility View disabled)</li>
+                <li>Mozilla Firefox 46.0</li>
+            </ul>
+        </section>
+    </conbody>
+</concept>

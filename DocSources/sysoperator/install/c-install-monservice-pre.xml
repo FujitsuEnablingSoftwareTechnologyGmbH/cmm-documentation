@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                xml:lang="en-us">
+    <title>Prerequisites</title>
+    <conbody>
+        <section>
+            <p>For installing the Monitoring Service, a machine is required with:</p>
+            <ul>
+                <li>
+                    <p>Docker 1.12. For details, refer to the <xref
+                        format="html"
+                        href="https://docs.docker.com/v1.12/"
+                        scope="external">
+                        <u><i>Docker documentation</i></u></xref>.</p>
+                </li>
+                <li>
+                    <p>Docker Compose 1.14. For details, refer to the <xref format="html"
+                            href="https://docs.docker.com/v1.12/compose/overview/" scope="external">
+                            <u><i>Docker Compose documentation</i></u></xref>. </p>
+                </li>
+            </ul>
+            <p><i>##Are these the required minimum versions?</i></p>
+            <p><i>##Docker Compose 1.14 is the lowest version that contains Compose File Format 2.1.</i></p>
+        </section>
+    </conbody>
+</concept>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                xml:lang="en-us">
+    <title>Installation</title>
+    <conbody>
+        <section>
+            <p>Before you run the Horizon Plugin installer, make sure that you have made the required OpenStack Keystone preparations. For details, refer to ###. To install the Horizon Plugin, proceed as follows:</p>
+            <ol compact="no">
+                <li>
+                    <p>Log in to the server on which the OpenStack Horizon service is installed.</p>
+                </li>
+                <li>
+                    <p>Change the access permissions to the installer. Execute permission is required. <i>##distribution media not yet defined; unzip, gotodir, version number etc.pp.</i></p>
+                </li>
+                <li>
+                    <p> Run the Horizon Plugin installer: </p>
+                    <codeblock>./monasca-ui-1.5.1.run --target &lt;monasca_ui_dir></codeblock>
+                    <p>Use the optional <codeph>--target</codeph> parameter to specify the directory in which to install the plugin. If <codeph>--target</codeph> is not specified, it is installed in the current working directory. </p>
+                </li>
+            </ol>
+            <p>The installer extracts the plugin with all the required dependencies. The configuration of the plugin and its dependencies is prepared.</p>
+            <p>If the installation is successful, you get the following message: </p>
+            <codeblock><i>##</i></codeblock>
+        </section>
+    </conbody>
+</concept>

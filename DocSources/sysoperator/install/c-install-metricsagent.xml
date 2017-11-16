@@ -7,7 +7,11 @@
                 xml:lang="en-us">
     <title>Installing a Metrics Agent </title>
     <conbody>
-        <!-- section>OSP10 Integration Point - Metrics Agent based on OpenStack Pike / self-extracting installer</section -->
+        <!-- section><p>OSP10 Integration Point - Metrics Agent based on OpenStack Pike / self-extracting installer</p>
+<p>Help? monasca-agent/main.py at master openstack/monasca-agent</p></section -->
+        <section>
+            <p><i><b>NOTE TO REVIEWERS</b>: Do we support <b>all</b> parameters listed in https://github.com/openstack/monasca-agent/blob/master/docs/Agent.md#monasca-setup-recommended ? In CMM 1.1, we explicitly documented that the dimensions parameter was not supported: "The dimensions parameter is not supported by CMM. The installer auto-detects applications and processes that are running on your machine and saves the corresponding settings to the agent's configuration file. Additional dimensions cannot be specified." </i></p>
+        </section>
         <section>
             <p>For monitoring the OpenStack services in your environment, you need to install a Metrics Agent on the server on which the OpenStack services are running. The agent installer performs the following tasks:</p>
             <ul>

@@ -8,6 +8,7 @@
             xml:lang="en-us">
     <title>Disabling Metrics for a Metrics Agent</title>
     <conbody>
+        <section><i>##to be updated; do the run files use docker? start/stop commands? service name?</i></section>
         <section>
             <p>To disable the monitoring of a specific metrics that is no longer needed in the configuration of a Metrics Agent, you have to delete the corresponding <codeph>.yaml</codeph> file. Proceed as follows:</p>
             <ol compact="no">

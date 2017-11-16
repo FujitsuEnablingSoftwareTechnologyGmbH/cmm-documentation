@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                xml:lang="en-us">
+    <title>Defining Services and Endpoints</title>
+    <conbody>
+        <section>
+            <p>The Horizon Plugin requires a set of services and endpoints that must be defined in OpenStack Keystone. </p>
+            <p>For this purpose, check your OpenStack Keystone setup, and create the required services and endpoints. You have to adjust the URLs and region names for the endpoints. </p>
+            <p>Example:</p>
+            <p>
+                <codeblock>openstack service create --name monasca monitoring
+openstack service create --name logs logs
+openstack endpoint create monasca public http://192.168.10.6:8070/v2.0 --region RegionOne
+openstack endpoint create logs public http://192.168.10.6:5607/v3.0 --region RegionOne</codeblock>
+            </p>
+        </section>
+    </conbody>
+</concept>

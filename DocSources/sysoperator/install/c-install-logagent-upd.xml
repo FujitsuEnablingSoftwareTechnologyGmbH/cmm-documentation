@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                xml:lang="en-us">
+    <title>Updating the Configuration File</title>
+    <conbody>
+        <section>
+            <p>To edit the <codeph>agent.conf</codeph> file, proceed as follows:</p>
+            <ol>
+                <li>
+                    <p>Log in to the server where the agent is installed.</p>
+                </li>
+                <li>
+                    <p>To stop the agent, execute the following command:</p>
+                    <codeblock>sudo docker-compose -f log-pipeline.yml -f docker-compose.yml stop log-agent
+<i>##docker-compose stop log-agent</i></codeblock>
+                </li>
+                <li>
+                    <p>Open the file with your favorite editor.</p>
+                    <p>Example:</p>
+                    <codeblock>sudo vim /etc/monasca/monasca-log-agent/agent.conf</codeblock>
+                </li>
+                <li>
+                    <p>Adapt the input section, if required.</p>
+                    <p>If you want to add files to be monitored, add a corresponding file block.</p>
+                    <p>If you want to define dimensions for the log files of a file block, define them with <codeph>add_field</codeph>. Dimensions allow you to collect meta information with the log data that is retrieved by the agent. The meta information is attached to each log entry. It is represented as a field in the log management window. For the user who is working with the log data, dimensions provide additional filtering options.</p>
+                    <p>Example:</p>
+                    <codeblock>input {
+  file {
+    path =&gt; "/var/log/keystone/*.log"
+  }
+   file {
+    path =&gt; "/var/log/monasca/agent/*.log"
+  }
+  file {
+    path =&gt; "/var/log/monasca/monasca-log-agent/*.log"
+  }
+  file {
+    add_field => { "dimensions" => { "service" => "monasca-api" }}
+    add_field => { "dimensions" => { "language" => "java" }}
+    add_field => { "dimensions" => { "log_level" => "error" }}
+    path => "/var/log/monasca/api/error.log"
+  }
+}</codeblock>
+                    <p>For additional details on the input section, refer to ##.</p>
+                </li>
+                <li>
+                    <p>Adapt the output section, if required. Update the corresponding parameter values. Each value must be enclosed in double quotes (<codeph>"</codeph>).</p>
+                    <p>Example:</p>
+                    <codeblock>output {
+    monasca_log_api {
+    monasca_log_api_url => "http://192.168.1.6:5607/v3.0"
+    keystone_api_url => "http://192.168.1.5:35357/v3"              <i>##keystone_auth_url ?</i>
+    project_name =&gt; "monasca"  
+    username =&gt; "monasca-agent" 
+    password =&gt; "password"    
+    user_domain_name =&gt; "default"
+    project_domain_name =&gt; "default"
+    dimensions =&gt; ['app_type:kafka', 'priority:high']         <i>##hostname ?</i>
+    num_of_logs => 100
+    delay => 1
+    elapsed_time_sec => 600
+    max_data_size_kb => 5120
+  }
+}
+</codeblock>
+                    <p>For additional details on the output section, refer to ##.</p>
+                </li>
+                <li>
+                    <p>To start the agent again, execute the following command:</p>
+                    <codeblock>sudo docker-compose up log-agent</codeblock>
+                </li>
+            </ol>
+            <p>The agent is instantly available with the updated configuration settings.</p>
+        </section>
+    </conbody>
+</concept>

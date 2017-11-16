@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+            xml:lang="en-us">
+    <title>Web Browsers</title>
+    <conbody>
+        <section>
+            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> has been tested with the following Web browsers: </p>
+            <ul id="Google_Chrome_50.0_concept_conbody_section_2_ul">
+                <li>Google Chrome 56.0</li>
+                <li>Microsoft Internet Explorer 11.0 (with Compatibility View disabled)</li>
+                <li>Mozilla Firefox 57.0</li>
+            </ul>
+        </section>
+    </conbody>
+</concept>

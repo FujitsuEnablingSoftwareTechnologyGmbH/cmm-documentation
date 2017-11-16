@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+            xml:lang="en-us">
+    <title>Software and Setup Utilities</title>
+    <conbody>
+        <section>
+            <p><i><b>NOTE TO REVIEWERS:</b> Software and setup utilities to be defined.</i></p>
+            <p>The software and setup utilities are distributed in the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> installation package on the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> DVD. You have to mount the DVD and execute the <codeph>setup.sh</codeph> script that is provided. It extracts the utilities required for installing <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
+            <p>Proceed as follows:</p>
+            <ol>
+                <li>
+                    <p>##</p>
+                </li>
+                <li>
+                    <p>##</p>
+                </li>
+                <li>
+                    <p>##</p>
+                </li>
+            </ol>
+            <p>After extraction, the following files and directories are available: </p>
+            <ul>
+                <li>
+                    <p><codeph>docker-compose.yml</codeph>. ##</p>
+                </li>
+                <li>
+                    <p><codeph>log-pipeline.yml</codeph>. ##</p>
+                </li>
+                <li>
+                    <p>Docker files for the CMM components. ##</p>
+                </li>
+                <li>
+                    <p><codeph>monasca-agent-2.2.0.run</codeph>. Executable for running the Metrics Agent installer on an OpenStack node.</p>
+                </li>
+                <li>
+                    <p><codeph>log-agent-2.4.1_1.0.2.run</codeph>. Executable for running the Log Agent installer on an OpenStack node.</p>
+                </li>
+                <li>
+                    <p><codeph>monasca-ui-1.5.1.run</codeph>. Executable for running the Horizon Plugin installer on the node where the OpenStack Horizon service is installed.</p>
+                </li>
+            </ul>
+        </section>
+        <section/>
+    </conbody>
+</concept>

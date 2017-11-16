@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                xml:lang="en-us">
+    <title>Installation</title>
+    <conbody>
+        <section>
+            <title>Installation</title>
+            <p>To install the Monitoring Service and the agents, proceed as follows:</p>
+            <ol compact="no">
+                <li>
+                    <p>Log in to the machine on which to install the Monitoring Service.</p>
+                </li>
+                <li>
+                    <p>Go to the Docker Compose directory.</p>
+                </li>
+                <li>
+                    <p>Run <codeph>docker-compose</codeph>: <i>##distribution media not yet defined; unzip, gotodir etc. pp.</i></p>
+                    <codeblock>$ docker-compose -f docker-compose.yml -f log-pipeline.yml up</codeblock>
+                </li>
+            </ol>
+            <p>After a successful deployment, the monitoring pipeline starts within approximately one minute. </p>
+            <p>By default, Docker Compose starts containers for the following services. They correspond to the main <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> components: </p>
+            <p>
+                <table colsep="1" frame="all" rowsep="1">
+                    <tgroup cols="2">
+                        <colspec colname="c1" colnum="1" colwidth="2.00*"/>
+                        <colspec colname="c2" colnum="2" colwidth="3.26*"/>
+                        <!--colspec colname="c3" colnum="3" colwidth="2.87*"/ -->
+                        <thead>
+                            <row>
+                                <entry>Service Name</entry>
+                                <entry>Description</entry>
+                            </row>
+                        </thead>
+                        <tbody>
+                            <row>
+                                <entry><codeph>agent-collector</codeph></entry>
+                                <entry>Collector service of the Metrics Agent. Based on a configurable interval, the collector component collects the metrics data from the monitored services and servers .</entry>
+                            </row>
+                            <row>
+                                <entry><codeph>agent-forwarder</codeph></entry>
+                                <entry>Forwarder service of the Metrics Agent. The forwarder component takes the data from the collector and sends them to the Monitoring API.</entry>
+                            </row>
+                            <row>
+                                <entry><codeph>elasticsearch</codeph></entry>
+                                <entry>Elasticsearch database service. <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                    /> stores the log data in this database.</entry>
+                            </row>
+                            <row>
+                                <entry><codeph>grafana</codeph></entry>
+                                <entry>Grafana service. <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                    /> uses it to enable the integration with the OpenStack Keystone service and to include Monasca as Grafana data source.</entry>
+                            </row>
+                            <row>
+                                <entry><codeph>influxdb</codeph></entry>
+                                <entry>InfluxDB database service. <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                    /> stores metrics and alarms in this database.</entry>
+                            </row>
+                            <row>
+                                <entry><codeph>kafka</codeph>
+                                </entry>
+                                <entry>Message queue service.</entry>
+                            </row>
+                            <row>
+                                <entry><codeph>kibana</codeph></entry>
+                                <entry>Kibana server.</entry>
+                            </row>
+                            <row>
+                                <entry><codeph>log-agent</codeph></entry>
+                                <entry>Log Agent.</entry>
+                            </row>
+                            <row>
+                                <entry><codeph>log-api</codeph></entry>
+                                <entry>Log API.</entry>
+                            </row>
+                            <row>
+                                <entry><codeph>log-metrics</codeph></entry>
+                                <entry>Log Metrics.</entry>
+                            </row>
+                            <row>
+                                <entry><codeph>log-persister</codeph></entry>
+                                <entry>Log Persister. </entry>
+                            </row>
+                            <row>
+                                <entry><codeph>log-transformer</codeph>
+                                </entry>
+                                <entry>Log Transformer. </entry>
+                            </row>
+                            <row>
+                                <entry><codeph>memcached</codeph></entry>
+                                <entry>Memcached service. <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                    /> uses it for caching authentication and authorization information required for the communication between the Log API and OpenStack Keystone.</entry>
+                            </row>
+                            <row>
+                                <entry><codeph>monasca</codeph></entry>
+                                <entry>Monitoring API.</entry>
+                            </row>
+                            <row>
+                                <entry><codeph>monasca-notification</codeph></entry>
+                                <entry>Notification Engine. </entry>
+                            </row>
+                            <row>
+                                <entry><codeph>monasca-persister</codeph></entry>
+                                <entry>Persister. </entry>
+                            </row>
+                            <row>
+                                <entry><codeph>mysql</codeph>
+                                </entry>
+                                <entry>MariaDB database service. <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                    /> stores configuration information in this database. </entry>
+                            </row>
+                            <!-- row>
+                                <entry><codeph>storm-nimbus</codeph></entry>
+                                <entry>Storm is a distributed real-time computation system for processing large volumes of high-velocity data. The Storm Nimbus daemon is responsible for distributing code around a cluster, assigning tasks to machines, and monitoring for failures. </entry>
+                            </row -->
+                            <!-- row>
+                                <entry><codeph>storm-supervisor</codeph></entry>
+                                <entry>The Storm supervisor listens for work assigned to its machine and starts and stops worker processes as necessary based on what Nimbus has assigned to it.</entry>
+                            </row -->
+                            <row>
+                                <entry><codeph>thresh</codeph></entry>
+                                <entry>Threshold Engine. </entry>
+                            </row>
+                            <row>
+                                <entry><codeph>zookeeper</codeph></entry>
+                                <entry>Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services.</entry>
+                            </row>
+                            <!--row>
+                                <entry><codeph>monasca-log-metrics</codeph></entry>
+                                <entry>Log Guard.</entry>
+                            </row -->
+                        </tbody>
+                    </tgroup>
+                </table>
+            </p>
+            <p>In addition, Docker Compose starts a number of init containers that are used to bootstrap the Monitoring Service installation as well as a number of containers with direct dependencies to the services listed above.</p>
+            <p>The following services are exposed on your host machine: <i>## purpose of listing them here ? See also Security section above.</i></p>
+            <ul>
+                <li>##<codeph>keystone</codeph> on ports 5000 and 35357 </li>
+                <li><codeph>monasca</codeph> on port 8070.</li>
+                <li><codeph>log-api</codeph> on port 5607.</li>
+                <li><codeph>grafana</codeph> on port 3000. </li>
+                <li><codeph>kibana</codeph> on port 5601.</li>
+            </ul>
+            <p>For information on starting, stopping and viewing the status of the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> agents and services, refer to ###</p>
+        </section>
+    </conbody>
+</concept>

@@ -4,158 +4,74 @@
 ]>
 <!-- Copyright FUJITSU LIMITED 2017 -->
 <concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
-                xml:lang="en-us">
-    <title>Installing a Log Agent</title>
+                            xml:lang="en-us">
+    <title>Installation</title>
     <conbody>
         <section>
-            <p>For monitoring OpenStack services in your environment, you need to install a Log Agent on the node on which the services are running. The agent installer automatically configures the agent so that it can automatically be started as soon as the installation is successful. You can enhance the agent configuration before running the installer or update the initial configuration later, if required. </p>
-            <p>The installer stores all configuration settings of the Log Agent in the following file:</p>
-            <p><codeph>/etc/monasca/monasca-log-agent/agent.conf</codeph></p>
-            <p>The file is composed of an input and an output section:</p>
-            <ul>
-                <li>
-                    <p>The input section specifies which log data is to be retrieved. </p>
-                    <p>The Log Agent is based on the so-called ELK stack, a solution for searching and analyzing log data that combines the open source projects Elasticsearch, Logstash, and Kibana. For details on the ELK stack, refer to the documentation on <xref
-                            format="html" href="https://www.elastic.co/guide/index.html" scope="external"
-                                    ><u><i>Elasticsearch, Logstash, and Kibana</i></u></xref>. </p>
-                    <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> supports the file plugin of Logstash as input mechanism. The file plugin enables Logstash to read log data from any log file on your file system. Logstash supports additional plugins. For details, refer to <xref
-                            format="html" href="https://www.elastic.co/guide/en/logstash/2.3/input-plugins.html"
-                            scope="external"><u><i>Logstash Input Plugins</i></u></xref>. Contact your <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                        /> support if you want to integrate a different plugin.</p>
-                </li>
-                <li>
-                    <p>The output section specifies all parameters required for retrieving the log data and sending it to the Monitoring Service for further processing. </p>
-                </li>
-            </ul>
-        </section>
-        <section>
-            <title>Installation</title>
             <p>To install a Log Agent, proceed as follows:</p>
             <ol compact="no">
                 <li>
                     <p>Log in to the machine on which to install the Log Agent.</p>
                 </li>
                 <li>
-                    <p>Run the agent installer, and provide the required OpenStack Keystone credentials:</p>
-                    <p>Example:</p>
-                    <codeblock>./log-agent-&lt;logstash_version>_&lt;logstash_output_monasca_log_api_version>.run \
+                    <p>Change the access permissions to the installer. Execute permission is required. <i>##distribution media not yet defined; unzip, gotodir, version number etc.pp.</i></p>
+                </li>
+                <li>
+                    <p>Run the agent installer, and provide the required OpenStack Keystone credentials. </p>
+                    <p>Example: </p>
+                    <codeblock>./log-agent-2.4.1_1.0.2.run \
     --target "/opt/monasca/monasca-log-agent" -- \
-    --monasca_log_api_url "http://192.168.10.4:5607/v3.0" \
-    --keystone_auth_url "http://192.168.10.5:35357/v3" \
-    --project_name "monitoring" \
-    --username "admin-agent" \
+    --monasca_log_api_url "http://192.168.1.6:5607/v3.0" \
+    --keystone_auth_url "http://192.168.1.5:35357/v3" \     
+    --project_name "monasca" \
+    --username "monasca-agent" \
     --password "password" \
-    --user_domain_name "Default" \
-    --project_domain_name "Default" \
+    --user_domain_name "default" \
+    --project_domain_name "default" \
     --hostname "['app_type:kafka', 'priority:high']" \
-    &lt;input_file_path_1> &lt;input_file_path_2> &lt;input_file_path_n></codeblock>
-                    <p>The minimum set of parameters to be configured for an agent includes:</p>
+    "/var/log/*" "/var/log/monasca/api/error.log"</codeblock>
+                    <p>All parameters are filled with default values. Each value must be enclosed in double quotes (<codeph>"</codeph>). The minimum set of parameters to be configured for an agent includes: </p>
                     <ul>
                         <li>
-                            <p><codeph>--target</codeph>. Optional. The directory in which the agent is installed. If <codeph>--target</codeph> is not specified, the agent is installed in the current working directory. </p>
+                            <p><codeph>--target</codeph>. The directory in which the agent is installed. If <codeph>--target</codeph> is not specified, the agent is installed in the current working directory. </p>
                         </li>
                         <li>
-                            <p><codeph>--monasca_log_api_url</codeph>. Mandatory. The URL used to access the machine where the Monitoring Service is installed. </p>
+                            <p><codeph>--monasca_log_api_url</codeph>. The URL used to access the machine where the Monitoring Service is installed. </p>
                         </li>
                         <li>
-                            <p><codeph>--keystone_auth_url</codeph>. Mandatory. The URL used to access the server where the OpenStack Keystone service is installed. The service is used for authenticating the user specified in <codeph>username</codeph>. </p>
+                            <p><codeph>--keystone_auth_url</codeph>. The URL used to access the server where the OpenStack Keystone service is installed. The service is used for authenticating the user specified in <codeph>username</codeph>. </p>
                         </li>
                         <li>
-                            <p><codeph>--project_name</codeph>. Mandatory. The name of the OpenStack project for which log data is to be retrieved by the agent.</p>
+                            <p><codeph>--project_name</codeph>. The name of the OpenStack project for which log data is to be retrieved by the agent.</p>
                         </li>
                         <li>
-                            <p><codeph>--username</codeph>. Mandatory. </p>
-                            <p>The user to be used for authenticating the agent against Keystone.</p>
+                            <p><codeph>--username</codeph>. The user to be used for authenticating the agent against Keystone.</p>
                             <p>The user specified here must have the <codeph>monasca-agent</codeph> role in OpenStack and be assigned to the OpenStack project that is to be monitored by the agent. The project is specified in <codeph>project_name</codeph>.</p>
                             <p>It is recommended that this user is used only for configuration purposes and not for actually monitoring services and servers.</p>
                         </li>
                         <li>
-                            <p><codeph>--password</codeph>. Mandatory. The password of the user specified in <codeph>username</codeph>.</p>
+                            <p><codeph>--password</codeph>. The password of the user specified in <codeph>username</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--user_domain_name</codeph>. ##</p>
+                            <p><codeph>--user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>##If not specified, what does <codeph>default or Default</codeph> imply?</i></p>
                         </li>
                         <li>
-                            <p><codeph>--project_domain_name</codeph>. ##</p>
+                            <p><codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>##If not specified, what does <codeph>default</codeph> imply?</i></p>
                         </li>
                         <li>
-                            <p><codeph>--hostname</codeph>. Optional. Meta information to be collected with the log data that is retrieved by the agent. The information can be defined as an array.</p>
+                            <p><codeph>--hostname</codeph>. Meta information to be collected with the log data that is retrieved by the agent. The information can be defined as an array.</p>
                             <p>The meta information defined by a dimension is attached to each log entry. It is represented as one or more fields in the log management window. For the user who is working with the log data, dimensions provide additional filtering options.</p>
                         </li>
                     </ul>
                 </li>
             </ol>
+            <p>For detailed information on the configuration parameters that can be defined, refer to ##</p>
+            <p>For running the installer, it is not mandatory to specify input file paths. Yet, without specifiying which data is to be retrieved, an immediate update of the agent configuration is required following the installation.</p>
+            <p>Specify the input file paths as follows. <i>##notation for one input path and multiple input paths</i></p>
+            <p>Example:</p>
+            <codeblock>"/var/log/monasca/api/error.log" "/var/log/neutron/firewall.log"</codeblock>
             <p>The installer creates a <codeph>monasca-log-agent.service</codeph> file in the <codeph>/etc/systemd/system</codeph> directory, and automatically runs the service file to start the agent. </p>
             <p>The agent is provided as a LINUX service. A startup script is created that automatically starts the agent each time the machine is booted. </p>
-        </section>
-        <section>
-            <title>Updating the Configuration File</title>
-            <p>To edit the <codeph>agent.conf</codeph> file, proceed as follows:</p>
-            <ol>
-                <li>
-                    <p>Log in to the server where the agent is installed.</p>
-                </li>
-                <li>
-                    <p>To stop the agent, execute the following command:</p>
-                    <codeblock>sudo systemctl stop openstack-monasca-log-agent</codeblock>
-                </li>
-                <li>
-                    <p>Open the file with your favorite editor.</p>
-                    <p>Example:</p>
-                    <codeblock>sudo vim /etc/monasca/monasca-log-agent/agent.conf</codeblock>
-                </li>
-                <li>
-                    <p>Adapt the input section, if required.</p>
-                    <p>If you want to add files to be monitored, add a corresponding file block.</p>
-                    <p>If you want to define dimensions for the log files of a file block, define them with <codeph>add_field</codeph>. Dimensions allow you to collect meta information with the log data that is retrieved by the agent. The meta information is attached to each log entry. It is represented as a field in the log management window. For the user who is working with the log data, dimensions provide additional filtering options.</p>
-                    <p>Example configuration:</p>
-                    <codeblock>input {
-  file {
-    path =&gt; "/var/log/keystone/*.log"
-  }
-   file {
-    path =&gt; "/var/log/monasca/agent/*.log"
-  }
-  file {
-    path =&gt; "/var/log/monasca/monasca-log-agent/*.log"
-  }
-  file {
-    add_field => { "dimensions" => { "service" => "monasca-api" }}
-    add_field => { "dimensions" => { "language" => "java" }}
-    add_field => { "dimensions" => { "log_level" => "error" }}
-    path => "/var/log/monasca/api/error.log"
-  }
-}</codeblock>
-                </li>
-                <li>
-                    <p>Adapt the output section, if required. Update the corresponding parameter values. Each value must be enclosed in double quotes (<codeph>"</codeph>).</p>
-                    <p>For details on the configuration settings that can be defined, refer to ##.</p>
-                    <p>Example configuration:</p>
-                    <codeblock>##to be adapted##
-output {
-    monasca_log_api {
-    monasca_log_api_url => "http://192.168.10.4:5607/v3.0"
-    keystone_api_url => "http://192.168.10.5:35357/v3"
-    project_name =&gt; "monitoring"  
-    username =&gt; "monasca-agent" 
-    password =&gt; "password"    
-    domain_id =&gt; "default"
-    dimensions =&gt; ['app_type:kafka', 'priority:high'] 
-    num_of_logs => 100
-    delay => 1
-    elapsed_time_sec => 600
-    max_data_size_kb => 5120
-  }
-}</codeblock>
-                </li>
-                <li>
-                    <p>To start the agent again, execute the following command:</p>
-                    <codeblock>sudo systemctl start openstack-monasca-log-agent	</codeblock>
-                </li>
-            </ol>
-            <p>The agent is instantly available with the updated configuration settings.</p>
         </section>
     </conbody>
 </concept>

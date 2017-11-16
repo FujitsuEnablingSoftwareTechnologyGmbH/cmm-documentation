@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                xml:lang="en-us">
+    <title>Setting the Administrator Credentials</title>
+    <conbody>
+        <section>
+            <p>To perform any action in OpenStack Keystone, it is required to provide administrator credentials.</p>
+            <p>Example:</p>
+            <p>
+                <codeblock>export OS_USERNAME=&lt;admin user>
+export OS_PROJECT_NAME=&lt;admin project>
+export OS_PASSWORD=&lt;admin password>
+export OS_AUTH_URL=&lt;keystone auth url>
+export OS_REGION_NAME=&lt;region name></codeblock>
+            </p>
+            <p>You can verify the provided credentials with the following command:</p>
+            <p>
+                <codeblock>openstack service list</codeblock>
+            </p>
+        </section>
+        <!-- section>
+            <p>Q: what are we talking about ? where are we? admin credentials for what ? <i>a valid OS user who is in turn responsible/allowed to create the reuqired users and roles in the following steps?</i></p>
+            <p>Q: export the env variables from where? and then ? Import them to what ????</p>
+            <p><b>SECURITY CONCERN: exporting the credentials !!!</b></p>
+            <p/>
+        </section -->
+    </conbody>
+</concept>

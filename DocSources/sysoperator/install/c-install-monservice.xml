@@ -7,63 +7,26 @@
                 xml:lang="en-us">
     <title>Installing the Monitoring Service</title>
     <conbody>
-        <section>Installing the Monitoring Service includes installing the Monitoring Service as well as a Metrics Agent and a Log Agent for monitoring <ph
-                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </section>
+        <!-- section>
+            <p>CMM Server based on OpenStack Pike / monasca-docker stable pike</p>
+            <p>Bug: Version # must be changed to 2 or required Docker Compose version must be changed: See line 1 in docker-compose.yml '3' services: </p>
+        </section -->
         <section>
-            <title>Prerequisites</title>
-            <p>For installing the Monitoring Service , a host machine is required with:</p>
+            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> provides a Docker-based installation of the Monitoring Service. Individual Docker images are provided for the services that make up the Monitoring Service. Instances of these images will run in separate Docker containers as soon as the installation is successful. </p>
+            <p>Installing the Monitoring Service comprises: </p>
             <ul>
-                <li>
-                    <p>Docker <i>##version? 1.10.3 or 17.03.2-ce ; at least 4 GiB of memory available to Docker </i></p>
-                </li>
-                <li>
-                    <p>Docker Compose <i>##version? 2 or 3 or latest 1.16.1 ; change compose file format from 3 to 2? ; provide doc link##</i></p>
-                </li>
+                <li>Installing the Monitoring Service. </li>
+                <li>Installing a Metrics Agent and a Log Agent on the machine where the Monitoring Service is installed. The agents are used for monitoring <ph
+                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> itself.</li>
             </ul>
         </section>
-        <section>
-            <title>Installation</title>
-            <p>To install the Monitoring Service and the agents, proceed as follows:</p>
-            <ol compact="no">
-                <li>
-                    <p>Log in to the machine on which to install the Monitoring Service.</p>
-                </li>
-                <li>
-                    <p>To build and deploy the Monitoring Service and the agents, run <codeph>docker-compose</codeph>: </p>
-                    <codeblock>$ docker-compose -f docker-compose.yml -f log-pipeline.yml up</codeblock>
-                </li>
-            </ol>
-            <p>If the deployment is successful, you get the following message: </p>
-            <codeblock>#</codeblock>
-            <p>After a successful deployment, the full monitoring pipeline starts within approximately one minute. The following services are exposed on your host machine:</p>
-            <ul>
-                <li>keystone on ports 5000 and 35357 </li>
-                <li>monasca-api on port 8070 </li>
-                <li>grafana on port 3000. You can log in using <codeph>mini-mon</codeph> and <codeph>password</codeph>.</li>
-            </ul>
-            <p>By default, <codeph>docker-compose up</codeph> starts containers for the following services: </p>
-            <ul>
-                <li>MySQL</li>
-                <li>Keystone</li>
-                <li>ElasticSearch</li>
-                <li>Zookeeper</li>
-                <li>Kafka</li>
-                <li>##</li>
-            </ul>
-            <p>The following figure shows the structure and the workflow of the generated containers:</p>
-            <p>##</p>
-            <p>You can check the status of each component by running <codeph>docker-compose ps</codeph>. Run the command in a separate shell unless you ran <codeph>docker-compose up -d</codeph> for deploying the Monitoring Service and the agents.</p>
-        </section>
-        <section>
-            <title>Preparing CMM for OSP 10 </title>
-            <p>##</p>
-        </section>
-        <section>
+        <!-- section>
             <title>Synchronizing Container Time with Host Time</title>
-            <p>If you want to synchronize containers' time with the time of the host they are running on, you need to add to every service the following volumes:</p>
+            <p>If you want to synchronize the container time with the time of the host they are running on, you need to add the following volumes to every service:</p>
             <codeblock>volumes:
   - "/etc/timezone:/etc/timezone:ro"
   - "/etc/localtime:/etc/localtime:ro"</codeblock>
-        </section>
+        </section -->
     </conbody>
 </concept>

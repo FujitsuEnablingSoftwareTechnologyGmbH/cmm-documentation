@@ -16,7 +16,7 @@
             <series>System Operator's Guide</series>
         </prodinfo>
         <bookid>
-            <edition>Draft Version (10-2017)</edition>
+            <edition>Pre-Draft for libvirt monitoring only (2017-11-16)</edition>
             <booknumber/>
         </bookid>
         <bookrights>
@@ -42,12 +42,22 @@
         <topicref format="dita" href="sysoperator/intro/c-distribmedia.xml" type="concept"/>
     </chapter>
     <chapter href="sysoperator/install/c-install.xml">
-        <topicref format="dita" href="sysoperator/install/c-install-prepare.xml" type="concept"/>
-        <topicref format="dita" href="sysoperator/install/c-install-swsetup.xml" type="concept"/>
-        <topicref format="dita" href="sysoperator/install/c-install-monservice.xml" type="concept"/>
-        <topicref format="dita" href="sysoperator/install/c-install-ksconfig.xml" type="concept"/>
+        <topicref format="dita" href="sysoperator/install/c-install-prepare.xml" type="concept">
+            <topicref format="dita" href="sysoperator/install/c-install-prepare-hw.xml" type="concept"/>
+            <topicref format="dita" href="sysoperator/install/c-install-prepare-browser.xml" type="concept"/>
+            <topicref format="dita" href="sysoperator/install/c-install-prepare-setup.xml" type="concept"/>
+            <topicref format="dita" href="sysoperator/install/c-install-prepare-sec.xml" type="concept"/>
+        </topicref>
+        <topicref format="dita" href="sysoperator/install/c-install-ksconfig.xml" type="concept">
+            <topicref format="dita" href="sysoperator/install/c-install-ksconfig-admin.xml" type="concept"/>
+            <topicref format="dita" href="sysoperator/install/c-install-ksconfig-users.xml" type="concept"/>
+            <topicref format="dita" href="sysoperator/install/c-install-ksconfig-serv.xml" type="concept"/>
+        </topicref>
+        <topicref format="dita" href="sysoperator/install/c-install-monservice.xml" type="concept">
+            <topicref format="dita" href="sysoperator/install/c-install-monservice-pre.xml" type="concept"/>
+            <topicref format="dita" href="sysoperator/install/c-install-monservice-inst.xml" type="concept"/>
+        </topicref>
         <topicref format="dita" href="sysoperator/install/c-install-metricsagent.xml" type="concept">
-            <topicref format="dita" href="sysoperator/install/c-install-metricsagent-pre.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-metricsagent-inst.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-metricsagent-upd.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-metricsagent-enh.xml" type="concept"/>
@@ -58,13 +68,20 @@
             <topicref format="dita" href="sysoperator/install/c-install-logagent-upd.xml" type="concept"/>
         </topicref>
         <topicref format="dita" href="sysoperator/install/c-install-horizon.xml" type="concept">
-            <topicref format="dita" href="sysoperator/install/c-install-horizon-inst.xml" type="concept">
-                <topicref format="dita" href="sysoperator/install/c-install-horizon-pre.xml" type="concept"/>
-            </topicref>
+            <topicref format="dita" href="sysoperator/install/c-install-horizon-pre.xml" type="concept"/>
+            <topicref format="dita" href="sysoperator/install/c-install-horizon-inst.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-horizon-config.xml" type="concept"/>
+            <topicref format="dita" href="sysoperator/install/c-install-horizon-access.xml" type="concept"/>
         </topicref>
     </chapter>
-    <chapter href="sysoperator/operate/c-operate.xml">
+    <chapter href="sysoperator/appmon/c-appmon.xml">
+        <topicref format="dita" href="sysoperator/appmon/c-appmon-users.xml" type="concept"/>
+        <topicref format="dita" href="sysoperator/appmon/c-appmon-install.xml" type="concept"/>
+        <topicref format="dita" href="sysoperator/appmon/c-appmon-libs.xml" type="concept"/>
+        <topicref format="dita" href="sysoperator/appmon/c-appmon-config.xml" type="concept"/>
+    </chapter>
+    <chapter href="sysoperator/operate/c-operate.xml"/>
+    <!-- chapter href="sysoperator/operate/c-operate.xml">
         <topicref format="dita" href="sysoperator/operate/c-startstop.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/operate/c-deletedata.xml" type="concept">
             <topicref format="dita" href="sysoperator/operate/c-removemetrics.xml" type="concept"/>
@@ -80,7 +97,7 @@
             <topicref format="dita" href="sysoperator/operate/c-backupcfg.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/operate/c-backupdashboards.xml" type="concept"/>
         </topicref>
-    </chapter>
+    </chapter -->
     <chapter href="sysoperator/metrics/c-monitor.xml">
         <topicref format="dita" href="sysoperator/metrics/c-monitor-overview.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/metrics/c-monitor-grafana.xml" type="concept"/>
