@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                    xml:lang="en-us">
+    <title>Creating a Role and a User Account in OpenStack</title>
+    <conbody>
+                <section>
+                        <p>As a prerequisite for installing a Metrics Agent, you need to take the following preparations.</p>
+                        <ul>
+                                <li>
+                                        <p>Create the <codeph>monitoring-delegate</codeph> role in OpenStack Keystone. </p>
+                                        <p>This role is required for cross-tenant metrics submission. A application operator who has booked a virtual machine must receive only the monitoring data related to his virtual machine. This role enables the agent to submit metrics on behalf of an individual application operator.</p>
+                                        <p>Example command for creating the <codeph>monitoring-delegate</codeph> role:</p>
+                                        <codeblock>$ openstack role create monitoring-delegate </codeblock>
+                                </li>
+                                <li>
+                                        <p>Create a new user account for configuring the agent, or use the <codeph>admin</codeph> user. Assign the <codeph>monitoring-delegate</codeph> role to the user.</p>
+                                        <p>The user name and password must be specified in the agent configuration when the agent is installed.</p>
+                                        <p>Example command for assigning the <codeph>monitoring-delegate</codeph> role to the <codeph>admin</codeph> user:</p>
+                                        <codeblock>$ openstack role add \
+   --project admin \
+   --user admin-agent monitoring-delegate </codeblock>
+                                </li>
+                        </ul>
+                </section>
+        </conbody>
+</concept>

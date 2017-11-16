@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                xml:lang="en-us">
+    <title>Configuring the Metrics Agent</title>
+    <conbody>
+                <section>
+                        <p>The installation of the Metrics Agent includes its initial configuration. To prepare the environment for application operators, you have to reconfigure the agent. It is necessary to explicitly activate the libvirt metrics that the application operators use for monitoring. </p>
+                        <p>To reconfigure the agent, proceed as follows:</p>
+                        <ol
+                            compact="no">
+                                <li>
+                                        <p>Activate the libvirt metrics. For details, refer to <xref
+                                                        href="../install/c-install-metricsagent-enh.xml"
+                                                        />. For an example configuration, refer to the information on <codeph>libvirt.yml</codeph> in <xref
+                                                        href="../appendix/r-metricsadditional.xml"/>.</p>
+                                </li>
+                                <li>
+                                        <p>Make sure that the host name specified for the <codeph>nova-compute</codeph> service is specified in the <codeph>agent.yaml</codeph> configuration file.</p>
+                                        <p>To check the host name for the <codeph>nova-compute</codeph> service, you can execute the following command: </p>
+                                        <codeblock># nova service-list</codeblock>
+                                </li>
+                        </ol>
+            <p>As soon as the agent is started again, the application operators can use the libvirt metrics for monitoring.</p>
+                </section>
+        </conbody>
+</concept>

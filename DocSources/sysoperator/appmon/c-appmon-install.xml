@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                    xml:lang="en-us">
+    <title>Installing the Metrics Agent</title>
+    <conbody>
+        <section>
+            <p>To enable monitoring for application operators, a Metrics Agent must be installed on the hypervisor that hosts the virtual machines of the application operator. </p>
+            <p>Enter the credentials of the OpenStack user you want to use for libvirt monitoring in the agent configuration. This user is used for the communication between the Monitoring Service and the agent.</p>
+            <p>For details on installing a Metrics Agent, refer to <xref href="../install/c-install-metricsagent.xml"/>.</p>
+        </section>
+        </conbody>
+</concept>
