@@ -25,12 +25,13 @@
                                         /> functionality is available on the <uicontrol>Monitoring</uicontrol> tab. It provides access to the monitoring data of the project to which you are assigned. If you are assigned to more than one project, select the project you want to work on from the drop-down menu at the top left of the dashboard. </p>
         </section>
                 <section>
-                        <title>Supported Web Browsers</title>
-                        <p>To perform monitoring tasks, you must use one of the Web browsers that has been used for testing <ph
+                        <title>Web Browsers</title>
+                        <p>To perform monitoring tasks, you must use one of the Web browsers supported by <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>:</p>
-                        <ul
-                                conref="../../cmmoperator/install/c-cmmoprepare-pre.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Google_Chrome_50.0_concept_conbody_section_2_ul">
-                                <li/>
+                        <ul>
+                                <li>Google Chrome 56.0</li>
+                                <li>Microsoft Internet Explorer 11.0 (with Compatibility View disabled)</li>
+                                <li>Mozilla Firefox 57.0</li>
                         </ul>
                 </section>
     </conbody>
