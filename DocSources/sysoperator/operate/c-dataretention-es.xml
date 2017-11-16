@@ -8,6 +8,7 @@
                 xml:lang="en-us">
     <title>Configuring Log Data Retention</title>
     <conbody>
+        <section><i>##to be removed from product scope?##</i></section>
         <section>
             <p id="Log_data_is_stored_in_the_Ela_concept_conbody_section_p_1"
                     >Log data is stored in the Elasticsearch database. Elasticsearch stores the data in indices. <ph

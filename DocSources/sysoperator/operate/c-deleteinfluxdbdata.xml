@@ -8,6 +8,7 @@
                     xml:lang="en-us">
     <title>Removing Metrics Data</title>
     <conbody>
+        <section><i>##to be updated; Input/contact Dobek</i></section>
         <section>
             <p>Metrics data is stored in the Metrics and Alarms InfluxDB Database. InfluxDB features an SQL-like query language for querying data and performing aggregations on that data.</p>
             <p>The Metrics Agent configuration defines the metrics and types of measurement for which data is stored. For each measurement, a so-called series is written to the InfluxDB database. A series consists of a timestamp, the metrics, and the value measured.</p>

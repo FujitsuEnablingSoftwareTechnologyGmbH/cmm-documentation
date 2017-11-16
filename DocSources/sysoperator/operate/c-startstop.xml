@@ -268,5 +268,10 @@ monasca-node        ansible_ssh_host=192.168.10.4 ansible_ssh_user=administrator
                 <codeblock>sudo systemctl status openstack-monasca-api</codeblock>
             </p>
         </section>
+        <section>
+            <title>Input from Readme</title>
+            <p/>
+            <p>You can check the status of each component by running <codeph>docker-compose ps</codeph>. Run the command in a separate shell unless you ran <codeph>docker-compose up -d</codeph> for deploying the Monitoring Service and the agents.</p>
+        </section>
     </conbody>
 </concept>

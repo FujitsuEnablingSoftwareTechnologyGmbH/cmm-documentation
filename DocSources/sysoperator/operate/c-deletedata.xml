@@ -15,8 +15,8 @@
             <ul>
                 <li>Disable the monitoring of specific metrics in the configuration of a Metrics Agent.</li>
                 <li>Disable the collection of specific log data in the configuration of a Log Agent.</li>
-                <li>Configure data retention for the InfluxDB database.</li>
-                <li>Configure data retention for the Elasticsearch database.</li>
+                <li>Configure data retention for the InfluxDB database. <i>##to be removed from product scope?##</i></li>
+                <li>Configure data retention for the Elasticsearch database. <i>##to be removed from product scope?##</i></li>
                 <li>Remove metrics data from the InfluxDB database.</li>
                 <li>Remove log data from the Elasticsearch database.</li>
             </ul>
