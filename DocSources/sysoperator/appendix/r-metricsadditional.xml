@@ -204,24 +204,32 @@ instances:
             <title>libvirt.yaml</title>
             <p>Libvirt checks provide metrics for virtual machines that run on a hypervisor. The checks provide a set of metrics for the owner of the virtual machine as well as for the owner of the hypervisor.</p>
       <note othertype="note">
-        <p>The user specified in the configuration file must be assigned the <codeph>admin</codeph> role.</p>
-        <p>With Red Hat Enterprise Linux OpenStack Platform as underlying platform technology, the <codeph>admin_tenant_name</codeph> must be set to <codeph>services</codeph>.</p>
+        <p>Check the <codeph>keystone_authtoken</codeph> section in the <codeph>nova.conf</codeph> file for the <codeph>password</codeph>, <codeph>project_name</codeph>, <codeph>username</codeph>, and <codeph>auth_url</codeph> configuration. The user specified in the configuration file must be assigned the <codeph>admin</codeph> role.</p>
+        <p>With Red Hat Enterprise Linux OpenStack Platform as underlying platform technology, the <codeph>project_name</codeph> must be set to <codeph>services</codeph>.</p>
       </note>
             <p>Example configuration:</p>
             <codeblock>init_config:
-    admin_password: password
-    admin_tenant_name: services
-    admin_user: nova
-    identity_uri: 'http://192.168.10.5:35357/v2.0'
+    password: password
+    project_name: services
+    username: nova
+    auth_url: 'http://192.168.10.5/identity'
+    endpoint_type: 'publicURL'
     cache_dir: /dev/shm
     nova_refresh: 14400
     vm_probation: 300
+    ping_check: sudo -n /sbin/ip exec NAMESPACE /usr/bin/fping -n -c1 -t250 -q
+    alive_only: false
+    metadata:
+    - scale_group
+    customer_metadata:
+    - scale_group
     vm_cpu_check_enable: True
     vm_disks_check_enable: True
     vm_extended_disks_check_enable: True
     vm_network_check_enable: True
+    vm_ping_check_enable: True
 instances:
-    - {}</codeblock>
+- {}</codeblock>
         </section>
         <section>
       <title>mysql.yaml</title>

@@ -17,7 +17,7 @@
                     <p>Installing the Monitoring Service. It is recommended that you use a dedicated physical machine for the Monitoring Service which meets the requirements outlined in the next section. It is not recommended that there are any other services running on the machine.</p>
                     <note othertype="note">
                         <p>For <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                /> in productive operation, it is strongly recommended that you do not install the Monitoring Service on a virtual machine. <ph
+                                /> in productive operation, do not install the Monitoring Service on a virtual machine. <ph
                                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                             /> has demanding hardware requirements that are not met by a virtual machine. In addition, neighboring virtual machines may cause trouble.</p>
                     </note>
@@ -29,7 +29,6 @@
                     <p>Installing the OpenStack extensions to integrate the Monitoring Service with the OpenStack platform. This includes the installation of agents for monitoring your OpenStack services and servers as well as the installation of the Horizon Plugin required for accessing the monitoring functions from the OpenStack Horizon dashboard.</p>
                 </li>
             </ol>
-            <p><i>##Preparations for application monitoring to be added? Preparing the monitoring environment for application operators who have booked a virtual machine in OpenStack.##</i></p>
         </section>
     </conbody>
 </concept>
