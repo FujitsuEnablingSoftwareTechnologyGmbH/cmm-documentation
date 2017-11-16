@@ -23,8 +23,6 @@
                             <u><i>Docker Compose documentation</i></u></xref>. </p>
                 </li>
             </ul>
-            <p><i>##Are these the required minimum versions?</i></p>
-            <p><i>##Docker Compose 1.14 is the lowest version that contains Compose File Format 2.1.</i></p>
         </section>
     </conbody>
 </concept>
