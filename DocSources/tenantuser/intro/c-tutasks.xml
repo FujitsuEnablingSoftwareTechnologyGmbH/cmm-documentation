@@ -9,7 +9,7 @@
     <title>The Application Operator's Tasks</title>
     <conbody>
         <section>
-            <p>The Monitoring Service operator and the OpenStack operator are responsible for preparing your monitoring environment. The OpenStack operator configures which metrics are available to you. He explicitly activates the metrics that you can use for monitoring the virtual machines you have booked. </p>
+            <p>The OpenStack operator is responsible for preparing your monitoring environment. He activates the metrics that you can use for monitoring the virtual machines you have booked. </p>
         </section>
         <section>
             <title>Metrics</title>
@@ -35,19 +35,19 @@
                     <p>Metrics on the network, for example, the number of network bytes received or sent per second, or the number of network errors on incoming or outgoing network traffic per second.</p>
                 </li>
             </ul>
-            <p>The OpenStack operator can configure additional metrics. Please contact your OpenStack operator for information on the additional metrics that you can use for monitoring.</p>
+            <!-- p>The OpenStack operator can configure additional metrics. Please contact your OpenStack operator for information on the additional metrics that you can use for monitoring.</p -->
         </section>
         <section>
             <title>Monitoring Functions</title>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> provides a graphical user interface that is seamlessly integrated into your cloud infrastructure. Based on OpenStack Horizon, it visualizes the health and status of your virtual machines and enables access to all monitoring functionality and the resulting large-scale monitoring data.</p>
-            <p>A comfortable dashboard visualizes the health and status of your virtual machines. It allows you to experiment with many ways of visualizing the performance of your resources in real time. You cannot only view but also share and explore visualizations of your monitoring data.</p>
+            <p>A comfortable dashboard visualizes the health and status of your virtual machines. It allows you to experiment with many ways of analyzing the performance of your cöpid resources in real-time. You cannot only view but also share and explore visualizations of your monitoring data.</p>
             <p>For monitoring your virtual machines, <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> provides functions for alarm and notification management. <ph
                     conref="../../overview/monitor/c-monitoring.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Template-based_alarm_definiti_concept_conbody_section_4_p"
                 /></p>
-            <p>As an application operator, you can:</p>
+            <p>As an application operator, you can: <i>##update? as soon as chapter 3 is available</i></p>
             <ul>
                 <li>Monitor the status of your virtual machines.</li>
                 <li>View, share, and explore visualizations of the monitoring data.</li>

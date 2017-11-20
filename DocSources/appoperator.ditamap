@@ -19,7 +19,7 @@
             <series>Application Operator's Guide</series>
         </prodinfo>
         <bookid>
-            <edition>Draft Version (10-2017)</edition>
+            <edition>Draft Version for ST (2017-11-27)</edition>
             <booknumber> </booknumber>
         </bookid>
         <bookrights>
@@ -90,7 +90,7 @@
             href="tenantuser/monitor/c-tumon-alarm.xml"
             type="concept"/>
         <topicref format="dita"
-            href="shared/monitor/c-monitor-alert.xml"
+            href="tenantuser/monitor/c-tumon-alert.xml"
             type="concept"/>
         <topicref format="dita"
             href="tenantuser/monitor/c-tumon-statusinfo.xml"

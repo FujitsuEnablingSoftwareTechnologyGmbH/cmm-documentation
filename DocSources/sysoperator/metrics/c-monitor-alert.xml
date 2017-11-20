@@ -4,10 +4,11 @@
 ]>
 <!-- Copyright FUJITSU LIMITED 2017 -->
 <concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
-                    xml:lang="en-us">
+            xml:lang="en-us">
     <title>Defining Notifications</title>
     <conbody>
-        <section>
+        <section
+                            id="Notifications_define_how_user_concept_conbody_section">
             <p>Notifications define how users are informed when a threshold value defined for an alarm is reached or exceeded. In the alarm definition, you can assign one or multiple notifications.</p>
             <p>For a notification, you specify the following elements:</p>
             <ul>
@@ -16,14 +17,12 @@
                 </li>
                 <li>
                     <p><uicontrol>Type</uicontrol>. The notification method to be used. <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> supports <codeph>Email</codeph>,  <codeph>WebHook</codeph>, and <codeph>PagerDuty</codeph>.</p>
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> supports <codeph>Email</codeph>,  <codeph>WebHook</codeph>, and <codeph>PagerDuty</codeph>.</p>
                 </li>
                 <li>
                     <p><uicontrol>Address</uicontrol>. For <codeph>Email</codeph>, the email address to be notified when an alarm is triggered.</p>
                     <p>
-                        <note othertype="note"
-                                >Generic top-level domains such as business domain names are not supported in email addresses (for example, <codeph>user@xyz.company</codeph>).</note>
+                        <note othertype="note">Generic top-level domains such as business domain names are not supported in email addresses (for example, <codeph>user@xyz.company</codeph>).</note>
                     </p>
                     <p>For <codeph>WebHook</codeph>, the WebHook URL to be notified when an alarm is triggered. </p>
                     <p>For <codeph>PagerDuty</codeph>, the PagerDuty Service API Key to be notified when an alarm is triggered. </p>

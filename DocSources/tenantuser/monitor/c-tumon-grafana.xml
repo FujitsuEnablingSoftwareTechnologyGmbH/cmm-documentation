@@ -11,17 +11,21 @@
             <p>The user interface for monitoring your services and virtual machines integrates with Grafana, an open source application for visualizing large-scale monitoring data on metrics dashboards. <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> ships with preconfigured dashboards for Monitoring Service and OpenStack operators. As an application operator, you can configure your own dashboard as required. </p>
-            <p>Use <uicontrol>Monitoring > Overview</uicontrol> in OpenStack Horizon and one of the options at the top border of the <uicontrol>Overview</uicontrol> page to access the preconfigured metrics dashboards. Use them as the starting point for creating your own dashboard with the data you want to visualize.</p>
+            <p>To access the functions for configuring a dashboard, use the options at the top border of the <uicontrol>Overview</uicontrol> page. This allows you to access Grafana and you can instantly start creating your dashboard for the metrics data you want to visualize.</p>
+            <p>Dashboard example:</p>
+            <fig>
+                <image alt="grafana-libvirt.png" height="260" href="../../images/grafana-libvirt.png" width="435"/>
+            </fig>
         </section>
         <section
-            conref="../../shared/monitor/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Building_Dashboards_concept_conbody_section_4"/>
+            conref="../../sysoperator/metrics/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Building_Dashboards_concept_conbody_section_4"/>
         <section
-            conref="../../shared/monitor/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Creating_a_Dashboard_concept_conbody_section_5"/>
+            conref="../../sysoperator/metrics/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Creating_a_Dashboard_concept_conbody_section_5"/>
         <section
-            conref="../../shared/monitor/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Editing_Rows_concept_conbody_section_6"/>
+            conref="../../sysoperator/metrics/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Editing_Rows_concept_conbody_section_6"/>
         <section
-            conref="../../shared/monitor/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Editing_Panels_concept_conbody_section_7"/>
+            conref="../../sysoperator/metrics/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Editing_Panels_concept_conbody_section_7"/>
         <section
-            conref="../../shared/monitor/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Saving_and_Sharing_Dashboards_concept_conbody_section_8"/>
+            conref="../../sysoperator/metrics/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Saving_and_Sharing_Dashboards_concept_conbody_section_8"/>
     </conbody>
 </concept>
