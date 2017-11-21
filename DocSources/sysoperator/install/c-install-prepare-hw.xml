@@ -128,15 +128,5 @@
                 </li>
             </ul>
         </section>
-        <section>
-            <title>Web Browsers</title>
-            <p><ph
-                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> has been tested with the following Web browsers: </p>
-            <ul id="Google_Chrome_50.0_concept_conbody_section_2_ul">
-                <li>Google Chrome 50.0</li>
-                <li>Microsoft Internet Explorer 11.0 (with Compatibility View disabled)</li>
-                <li>Mozilla Firefox 46.0</li>
-            </ul>
-        </section>
     </conbody>
 </concept>
