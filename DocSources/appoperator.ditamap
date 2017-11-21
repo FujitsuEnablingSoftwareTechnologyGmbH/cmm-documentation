@@ -53,9 +53,12 @@
             <topicref
                 href="shared/gettingstarted/intro-copyright.xml"
                 type="concept"/>
+            <topicref 
+            	href="shared/gettingstarted/intro-highrisk.xml"
+				type="concept" />	
             <topicref
                 href="shared/gettingstarted/intro-export.xml"
-        type="concept"/>
+       			type="concept"/>
         </preface>
     </frontmatter>
     
