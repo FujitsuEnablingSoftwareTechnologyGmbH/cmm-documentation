@@ -12,7 +12,8 @@ Released versions of these guides are published to http://rapidonboarding.fcip.g
 
 ## Overview of Branches ##
 
-The master branch provides the documentation sources for CMM 2.0 which is currently in development.
+The master branch provides the documentation sources for CMM 2.0 (in development).
+Tags are available for predecessor releases. 
 
 ## License ##
 
