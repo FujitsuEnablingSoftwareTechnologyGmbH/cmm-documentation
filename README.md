@@ -6,15 +6,13 @@ The following documentation on CMM is available:
 
 * **Overview:** A manual introducing CMM. It is written for everybody interested in CMM.
 * **Application Operator's Guide:** A manual for application operators describing how CMM supports them in monitoring their services and virtual machines in OpenStack.
-* **OpenStack Operator's Guide:** A manual for OpenStack operators describing how to prepare their OpenStack platform for CMM. The manual also describes how the operators use CMM for monitoring their OpenStack services.
-* **Monitoring Service Operator's Guide:** A manual for system operators describing how to install, operate, and maintain CMM in single mode. The manual also describes how the operators use CMM for monitoring their environment.
-* **Cluster Management Guide:** A manual for operators describing how to install, operate, and maintain CMM in cluster mode.
+* **System Operator's Guide:** A manual for system operators describing how to install, operate, and maintain CMM. The manual also describes how to prepare the OpenStack platform for CMM and how to actually use the monitoring functions.
 
 Released versions of these guides are published to http://rapidonboarding.fcip.global.fujitsu.com/ui/en/products/fujitsu-cloud-monitoring-manager/documentation/.
 
 ## Overview of Branches ##
 
-The master branch provides the documentation sources for the Beta Release of CMM 1.3.
+The master branch provides the documentation sources for CMM 2.0 which is currently in development.
 
 ## License ##
 
