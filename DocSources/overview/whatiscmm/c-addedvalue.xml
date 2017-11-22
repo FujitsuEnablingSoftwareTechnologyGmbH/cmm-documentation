@@ -6,7 +6,7 @@
 
 <concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
                     xml:lang="en-us">
-    <title>Extensions and Customizations</title>
+    <title>Extensions and Add-Ons</title>
     <conbody>
                 <section>
                         <p>Based on Monasca as open source core technology, <ph
@@ -19,7 +19,7 @@
                                 <li>
                                         <p>Interfaces with other services. <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                                /> can be used as part of a service bundle, for example, in combination with OpenStack CloudKitty.</p>
+                                                /> can be used as part of a service bundle, for example, in combination with OpenStack CloudKitty for rating and pricing.</p>
                                 </li>
                                 <li>
                                         <p>Cluster support. <ph
