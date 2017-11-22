@@ -43,7 +43,6 @@
 				type="concept" />	
 			<topicref href="shared/gettingstarted/intro-export.xml"
 				type="concept" />
-			<!-- topicref href="shared/gettingstarted/intro-highrisk.xml" type="concept"/ -->
 		</preface>
 	</frontmatter>
 	
@@ -53,6 +52,8 @@
 		<topicref format="dita" href="overview/whatiscmm/c-components.xml"
 			type="concept" />
 		<topicref format="dita" href="overview/whatiscmm/c-userroles.xml"
+			type="concept" />
+		<topicref format="dita" href="overview/whatiscmm/c-addedvalue.xml"
 			type="concept" />
 	</chapter>
 	

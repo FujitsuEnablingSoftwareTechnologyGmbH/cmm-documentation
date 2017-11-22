@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                    xml:lang="en-us">
+    <title>Extensions and Customizations</title>
+    <conbody>
+                <section>
+                        <p>Based on Monasca as open source core technology, <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                /> offers the value proposition of speedy development, high productivity, and maximum transparency. It takes full advantage of the open source community while at the same time driving the quality of implementation and the usability of features. </p>
+                        <p>As major contributor to Monasca, <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                /> enhances Monasca's value proposition and comes with additional expertise that enables product customizations and solutions. To meet specific customer requirements, specialist know-how is available in the following areas:</p>
+                        <ul>
+                                <li>
+                                        <p>Interfaces with other services. <ph
+                                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> can be used as part of a service bundle, for example, in combination with OpenStack CloudKitty.</p>
+                                </li>
+                                <li>
+                                        <p>Cluster support. <ph
+                                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> can be operated in cluster mode to ensure high availability and fully exploit its scalability potential. </p>
+                                </li>
+                                <li>Multi-cloud monitoring. <ph
+                                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                        /> addresses the requirements of multi-cloud platforms. Platforms hosting a mixture of public and private clouds can be monitored. </li>
+                        </ul>
+                        <p>Contact your FUJITSU support organization for further information. </p>
+                </section>
+        </conbody>
+</concept>

@@ -35,7 +35,8 @@
         </section>
                 <section>
                         <title>Tasks Overview</title>
-                        <p>Depending on the distribution of tasks in your environment, the tasks of the Monitoring Service operator and the OpenStack Operator are jointly performed by one system operator or they are performed separately by different system operators.</p>
+                        <p
+                                conref="../../overview/whatiscmm/c-userroles.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Depending_on_the_distribution_concept_conbody_section_1_p"/>
                         <p>When taking on the role of the Monitoring Service operator, you have the following responsibilities: </p>
                         <ul>
                                 <li>

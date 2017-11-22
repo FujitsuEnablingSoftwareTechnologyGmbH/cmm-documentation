@@ -9,23 +9,6 @@
     <title>Key Features</title>
     <conbody>
                 <section>
-                        <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> is an out-of-the-box solution for monitoring OpenStack-based cloud environments. It is provided as a cloud service to users. <ph
-                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                /> meets different challenges, ranging from small-scale deployments to high-availability deployments and deployments with high levels of scalability. </p>
-                        <p>The core of <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> is Monasca, an open source Monitoring as a Service solution that integrates with OpenStack. The key features of <ph
-                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> form an integral part of the Monasca project. <ph
-                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                /> extends the source code base of the project through active contributions.</p>
-                        <p>Compared to the Monasca community edition, <ph
-                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                /> provides the following added value:</p>
-                        <ul>
-                                <li>Packaging as a commercial enterprise solution </li>
-                                <li>Enterprise-level support</li>
-                        </ul>
                         <p>The key features of <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                 /> address public as well as private cloud service providers. They include:</p>
                         <ul>
@@ -66,18 +49,9 @@
                                 /> is integrated with OpenStack core services. These include: </p>
                         <ul>
                                 <li>OpenStack Horizon dashboard for visualizing monitoring metrics and log data</li>
-                                <li>OpenStack user management</li>
-                                <li>OpenStack security and access control</li>
+                                <li>OpenStack user management </li>
+                                <li>OpenStack security and access control </li>
                         </ul>
-                </section>
-                <section>
-                        <title>Areas of Expertise</title>
-                        <p>See release notes</p>
-                        <p>major OS contributor - FUJITSU is among the top contributors </p>
-                        <p>we deploy OS clouds - NO  </p>
-                        <p>we are above all interested in filling the gaps in monitoring</p>
-                        <p>consulting, expertise, deployments, support, training </p>
-                        <p>Thanks to Enterprise Monasca = CMM you can .... as a </p>
                 </section>
         </conbody>
 </concept>

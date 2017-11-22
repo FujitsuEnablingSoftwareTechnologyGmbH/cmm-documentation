@@ -27,7 +27,7 @@
                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> relies on OpenStack as technology for building cloud computing platforms for public and private clouds. OpenStack consists of a series of interrelated projects delivering various components for a cloud infrastructure solution and allowing for the deployment and management of Infrastructure as a Service (IaaS) platforms.</p>
                         <p
                     id="For_details_on_OpenStack_ref_concept_conbody_section_2_p">For details on OpenStack, refer to the <xref
-                    format="html" href="http://docs.openstack.org/"
+                    format="html" href="http://docs.openstack.org/newton/"
             scope="external"><u><i>OpenStack documentation</i></u></xref>.</p>
                 </section>
         <section
@@ -38,8 +38,8 @@
                                 /> component. It is responsible for receiving, persisting, and processing metrics and log data, as well as providing the data to the users.</p>
             <p id="The_Monitoring_Service_relies_concept_conbody_section_3_p"
                                 >The Monitoring Service relies on Monasca. It uses Monasca for high-speed metrics querying and integrates the streaming alarm engine and the notification engine of Monasca. </p>
-                        <p>For details, refer to the <xref format="html" href="https://wiki.openstack.org/wiki/Monasca"
-                                        scope="external"><u><i>Monasca Wiki</i></u></xref>.</p>
+                <p>For details, refer to the <xref format="html" href="http://monasca.io/"
+                                        scope="external"><u><i>Monasca Web page</i></u></xref>.</p>
         </section>
         <section>
             <title>Horizon Plugin</title>
@@ -63,19 +63,18 @@
                                 >A Metrics Agent is required for retrieving metrics data from the host on which it runs and sending the metrics data to the Monitoring Service. The agent supports metrics from a variety of sources as well as a number of built-in system and service checks. </p>
                         <p id="A_concept_conbody_section_5_p"
                                 >A Metrics Agent can be installed on each virtual or physical server to be monitored.</p>
-            <p
-                    id="The_agent_functionality_is_fu_concept_conbody_section_5_p">The agent functionality is fully integrated into the source code base of the Monasca project. For details, refer to the <xref
-                    format="html"
-                    href="https://wiki.openstack.org/wiki/Monasca"
-            scope="external"><u><i>Monasca Wiki</i></u></xref>.</p>
+            <p id="The_agent_functionality_is_fu_concept_conbody_section_5_p"
+                                        >The agent functionality is fully integrated into the source code base of the Monasca project. For details, refer to the <xref
+                                                format="html" href="http://monasca.io/" scope="external"
+                                                        ><u><i>Monasca Web page</i></u></xref>.</p>
         </section>
         <section
                     id="Log_Agent_concept_conbody_section_6">
             <title>Log Agent</title>
             <p>A Log Agent is needed for collecting log data from the host on which it runs and forwarding the log data to the Monitoring Service for further processing. It can be installed on each virtual or physical server from which log data is to be retrieved.</p>
             <p>The agent functionality is fully integrated into the source code base of the Monasca project. For details, refer to the <xref
-                    format="html"
-                    href="https://wiki.openstack.org/wiki/Monasca" scope="external"><u><i>Monasca Wiki</i></u></xref>.</p>
+                    format="html" href="http://monasca.io/" scope="external"
+                                                        ><u><i>Monasca Web page</i></u></xref>.</p>
         </section>
     </conbody>
 </concept>
