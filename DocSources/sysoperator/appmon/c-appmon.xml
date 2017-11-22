@@ -15,7 +15,7 @@
                         <ol>
                                 <li>Create a role and a user account for libvirt monitoring in OpenStack.</li>
                                 <li>Install a Metrics Agent on the hypervisor where virtual machines are to be monitored for the application operators.</li>
-                                <li>Install additional libraries for libvirt monitoring.</li>
+                                <!--li>Install additional libraries for libvirt monitoring.</li -->
                                 <li>Configure the agent.</li>
                         </ol>
                         <p>For additional information on libvirt monitoring, you can also refer to the <xref

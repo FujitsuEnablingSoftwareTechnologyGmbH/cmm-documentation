@@ -77,7 +77,7 @@
     <chapter href="sysoperator/appmon/c-appmon.xml">
         <topicref format="dita" href="sysoperator/appmon/c-appmon-users.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/appmon/c-appmon-install.xml" type="concept"/>
-        <topicref format="dita" href="sysoperator/appmon/c-appmon-libs.xml" type="concept"/>
+        <!-- topicref format="dita" href="sysoperator/appmon/c-appmon-libs.xml" type="concept"/ -->
         <topicref format="dita" href="sysoperator/appmon/c-appmon-config.xml" type="concept"/>
     </chapter>
     <chapter href="sysoperator/operate/c-operate.xml">
