@@ -9,7 +9,7 @@
     <title>Accessing <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/></title>
     <conbody>
         <section>
-                        <p><i>##Check required role</i></p>
+                        <!-- p><i>##Check required role</i></p -->
                         <p>As an application operator, you must fulfill the following prerequisites:</p>
                         <ul>
                                 <li>You must have access to the OpenStack platform as a user with the <codeph>monasca-user</codeph> role or any other role that is authorized to use the <ph
