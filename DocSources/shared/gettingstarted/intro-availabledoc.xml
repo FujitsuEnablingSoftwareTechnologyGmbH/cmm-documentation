@@ -21,16 +21,16 @@
                                                 />.</p>
                                 </li>
                                 <li>
-                                        <p><i>Application Operator's Guide:</i> A manual for application operators describing how <ph
-                                                        conref="../product-name.xml#ProductNameTopic/Product_Abbr"
-                                                /> supports them in monitoring their services and virtual machines in OpenStack.</p>
-                                </li>
-                                <li>
                                         <p><i>System Operator's Guide:</i> A manual for system operators describing how to install, operate, and maintain <ph
                                                         conref="../product-name.xml#ProductNameTopic/Product_Abbr"
                                                         />. The manual also describes how to prepare the OpenStack platform for <ph
                                                         conref="../product-name.xml#ProductNameTopic/Product_Abbr"
                                                 /> and how to actually use the monitoring functions.</p>
+                                </li>
+                                <li>
+                                        <p><i>Application Operator's Guide:</i> A manual for application operators describing how <ph
+                                                        conref="../product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> supports them in monitoring their services and virtual machines in OpenStack.</p>
                                 </li>
                         </ul>
                 </section>

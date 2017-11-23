@@ -25,7 +25,7 @@
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                 /> to check whether their services and servers are working appropriately. </p>
                         <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> provides comprehensive and configurable metrics with reasonable defaults for monitoring the status, capacity, throughput, and latency of cloud systems. <ph
+                                        /> provides comprehensive and configurable metrics for monitoring the status, capacity, throughput, and latency of cloud systems. <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                 /> users can set their own warnings and critical thresholds and can combine multiple warnings and thresholds to support the processing of complex events. Combined with a notification system, these alerting features enable them to quickly analyze and resolve problems in the cloud infrastructure. </p>
                         <p>For details, refer to <xref href="../monitor/c-monitoring.xml"/>.</p>
@@ -36,7 +36,7 @@
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                 /> provides centralized log management features. </p>
                         <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> collects log data from all services and servers the cloud infrastructure is composed of. The log data from a large number of sources can be accessed from a single dashboard. Integrated search, filter, and graphics options enable system operators to isolate problems and narrow down potential root causes. <ph
+                                        /> collects log data from all services and servers the cloud infrastructure is composed of. The log data can then be accessed from a single dashboard. Integrated search, filter, and graphics options enable system operators to isolate problems and narrow down potential root causes. <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                 /> thus provides valuable insights into the log data, even with large amounts of data resulting from highly complex environments.</p>
                         <p>Based on <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
@@ -48,7 +48,7 @@
                         <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                 /> is integrated with OpenStack core services. These include: </p>
                         <ul>
-                                <li>OpenStack Horizon dashboard for visualizing monitoring metrics and log data</li>
+                                <li>OpenStack Horizon dashboard for visualizing metrics and log data</li>
                                 <li>OpenStack user management </li>
                                 <li>OpenStack security and access control </li>
                         </ul>

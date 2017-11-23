@@ -26,8 +26,8 @@
                     <p>For details on the tasks of the Monitoring Service operator, refer to the <i>System Operator's Guide</i>.</p>
                 </li>
             </ul>
-            <p
-            id="Depending_on_the_distribution_concept_conbody_section_1_p">Depending on the distribution of tasks in your environment, the tasks of the Monitoring Service operator and the OpenStack Operator are jointly performed by one system operator or they are performed separately by different system operators.</p>
+            <p id="Depending_on_the_distribution_concept_conbody_section_1_p"
+                >Depending on the distribution of tasks in your environment, the tasks of the Monitoring Service operator and the OpenStack Operator are jointly performed by one system operator or separately by different system operators.</p>
         </section>
         <section
                 id="User_Management_concept_conbody_section_2">

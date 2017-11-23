@@ -59,7 +59,7 @@
             <title>Alarms and Notifications</title>
             <p>GUI-based alarm and notification management is also supported for log data. Based on a template mechanism, <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> allows system operators to configure alarms and notifications for monitoring the number of critical log events over time. When the number of critical log entries exceed a defined threshold, a corresponding notification is sent. </p>
+                /> allows system operators to configure alarms and notifications for monitoring the number of critical log events over time. When the number of critical log entries exceeds a defined threshold, a corresponding notification is sent. </p>
             <p>The template mechanism is not limited to a single cloud resource but can be used to analyze a scalable set of resources. Compound alarms can also be created for analyzing more complex log events. </p>
             <p>The automation of log handling guarantees that system operators identify problems in their infrastructure early and find the root cause of these problems quickly. </p>
         </section>
