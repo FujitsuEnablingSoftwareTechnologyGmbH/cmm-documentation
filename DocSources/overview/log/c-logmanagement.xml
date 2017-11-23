@@ -49,7 +49,7 @@
         <section>
             <title>Data Visualization and Analysis</title>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> supports advanced data visualization and analysis of the log data in a variety of charts, tables, or maps. Visualizations can easily be combined in dynamic dashboards that display changes to search queries in real time, for example:</p>
+                /> supports advanced data visualization and analysis of the log data in a variety of charts, tables, or maps. Visualizations can easily be combined in dynamic dashboards that display changes to search queries in real-time, for example:</p>
             <fig>
                 <image alt="kibana.png" height="260" href="../../images/kibana-dashboard.png" width="435"/>
             </fig>

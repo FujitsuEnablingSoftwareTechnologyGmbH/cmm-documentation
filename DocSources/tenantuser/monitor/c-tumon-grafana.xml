@@ -8,7 +8,7 @@
     <title>Working with Data Visualizations</title>
     <conbody>
         <section>
-            <p>The user interface for monitoring your services and virtual machines integrates with Grafana, an open source application for visualizing large-scale monitoring data on metrics dashboards. <ph
+            <p>The user interface for monitoring your services and virtual machines integrates with Grafana for visualizing large-scale monitoring data on metrics dashboards. <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> ships with preconfigured dashboards for Monitoring Service and OpenStack operators. As an application operator, you can configure your own dashboard as required. </p>
             <p>To access the functions for configuring a dashboard, use the options at the top border of the <uicontrol>Overview</uicontrol> page. This allows you to access Grafana and you can instantly start creating your dashboard for the metrics data you want to visualize.</p>
