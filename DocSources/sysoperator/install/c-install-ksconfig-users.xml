@@ -11,7 +11,7 @@
             <title>Creating a Project </title>
             <p>Example:</p>
             <p>
-                <codeblock>openstack project create monitoring</codeblock>
+                <codeblock>openstack project create monitoring <i>##mini-mon in *.yml file##</i></codeblock>
             </p>
         </section>
         <!-- section>
@@ -41,8 +41,8 @@
             </ul>
             <p>Example:</p>
             <p>
-                <codeblock>openstack role create monasca-user
-openstack role create monasca-agent</codeblock>
+                <codeblock>openstack role create monasca-user 
+openstack role create monasca-agent </codeblock>
             </p>
             <p>The user used for authenticating the agent against OpenStack Keystone must have the <codeph>monasca-agent</codeph> role assigned.</p>
             <p>Access as a user with the <codeph>monasca-user</codeph> role must be provided to perform metrics monitoring tasks.</p>
@@ -55,7 +55,7 @@ openstack role create monasca-agent</codeblock>
         </section -->
         <section>
             <title>Creating the Agent User</title>
-            <p>##</p>
+            <p>##user "monasca-agent" exists in *.yml files</p>
             <p>Example:</p>
             <p>
                 <codeblock>openstack user create --project monitoring --password password monitoring-agent</codeblock>

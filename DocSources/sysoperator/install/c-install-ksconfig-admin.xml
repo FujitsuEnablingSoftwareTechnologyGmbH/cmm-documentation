@@ -8,6 +8,7 @@
     <title>Setting the Administrator Credentials</title>
     <conbody>
         <section>
+            <p><i>###see *.yml files</i></p>
             <p>To perform any action in OpenStack Keystone, it is required to provide administrator credentials.</p>
             <p>Example:</p>
             <p>
@@ -21,6 +22,21 @@ export OS_REGION_NAME=&lt;region name></codeblock>
             <p>
                 <codeblock>openstack service list</codeblock>
             </p>
+            <p><b>Log agent in yml file: </b></p>
+            <p>OS_AUTH_URL: ${MON_KEYSTONE_URL}/v3</p>
+            <p> OS_USERNAME: monasca-agent </p>
+            <p>OS_PASSWORD: password </p>
+            <p>OS_PROJECT_NAME: mini-mon</p>
+            <p><b>Agent forwarder in yml file</b></p>
+            <p>OS_AUTH_URL: ${MON_KEYSTONE_URL}/v3</p>
+            <p> OS_USERNAME: monasca-agent </p>
+            <p>OS_PASSWORD: password </p>
+            <p>OS_PROJECT_NAME: mini-mon</p>
+            <p><b>agent collector in yml file</b></p>
+            <p>OS_AUTH_URL: ${MON_KEYSTONE_URL}/v3</p>
+            <p> OS_USERNAME: monasca-agent</p>
+            <p> OS_PASSWORD: password </p>
+            <p>OS_PROJECT_NAME: mini-mon</p>
         </section>
         <!-- section>
             <p>Q: what are we talking about ? where are we? admin credentials for what ? <i>a valid OS user who is in turn responsible/allowed to create the reuqired users and roles in the following steps?</i></p>

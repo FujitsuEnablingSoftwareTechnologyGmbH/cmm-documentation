@@ -8,7 +8,7 @@
     <title>Distribution Media</title>
     <conbody>
         <section>
-            <p><i><b>PENDING</b>: Distribution media for CMM 2.0 to be defined. Section to be rewritten.</i></p>
+            <p><i><b>PENDING</b>: Distribution media for CMM 2.0 to be defined and agreed upon with FJJ. Section to be rewritten.</i></p>
         </section>
         <section>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> is distributed in the <ph
@@ -19,29 +19,37 @@
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
             <p>The package includes:<ul>
                     <li>
-                        <p><codeph>setup.sh</codeph> script for setting up the <ph
+                        <p><codeph>CMM_server_2.0.0_images.tar</codeph>:</p>
+                        <p>## file used for setting up the docker images required for installing <ph
+                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/></p>
+                    </li>
+                    <li>
+                        <p><codeph>.env</codeph>:</p>
+                        <p>Docker Compose configuration file for setting up the <ph
                                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> installer.</p>
                     </li>
                     <li>
-                        <p><codeph>Licenses</codeph> subdirectory:</p>
-                        <p>License files of third-party software used by <ph
+                        <p><codeph>docker-compose-metrics.yml</codeph> and <codeph>docker-compose-log.yml</codeph>:</p>
+                        <p>Docker Compose files for setting up and running the Docker containers required for <ph
                                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
                     </li>
                     <li>
-                        <p><codeph>Service</codeph> subdirectory:</p>
-                        <p>Installation package for <ph
-                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>, <codeph><ph
-                                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                />-Service-2.0.tar.gz</codeph>. It provides the software and setup utilities required by the Monitoring Service operator and the OpenStack operator for installing <ph
-                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> in either single or cluster mode. </p>
-                        <p><codeph>FJSVsvcmm-1.3.0-1.noarch.rpm</codeph> , an RPM required for checking version information.</p>
+                        <p><codeph>monasca-agent-2.0.0.run</codeph>:</p>
+                        <p>Executable for installing a Metrics Agent on the OpenStack platform.</p>
+                    </li>
+                    <li>
+                        <p><codeph>log-agent-2.0.0.run</codeph>:</p>
+                        <p>Executable for installing a Log Agent on an OpenStack node.</p>
+                    </li>
+                    <li>
+                        <p><codeph>monasca-ui-2.0.0.run</codeph>:</p>
+                        <p>Executable for installing the Horizon Plugin on the OpenStack platform.</p>
                     </li>
                     <li>
                         <p><codeph>Manuals</codeph> subdirectory:</p>
                         <p>PDF manuals providing an overview of <ph
                                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> as well as information directed to system operators.</p>
+                            /> as well as information directed to system operators and application operators.</p>
                     </li>
                 </ul></p>
         </section>
@@ -52,4 +60,3 @@
             
             
             
-

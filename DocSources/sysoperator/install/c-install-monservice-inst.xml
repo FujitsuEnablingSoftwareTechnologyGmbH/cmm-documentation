@@ -8,18 +8,50 @@
     <title>Installation</title>
     <conbody>
         <section>
-            <title>Installation</title>
             <p>To install the Monitoring Service and the agents, proceed as follows:</p>
             <ol compact="no">
                 <li>
                     <p>Log in to the machine on which to install the Monitoring Service.</p>
                 </li>
                 <li>
-                    <p>Go to the Docker Compose directory.</p>
+                    <p>Prepare an installation directory. </p>
+                    <p>Example:</p>
+                    <codeblock>$ mkdir /cmmv2.0</codeblock>
                 </li>
                 <li>
-                    <p>Run <codeph>docker-compose</codeph>: <i>##distribution media not yet defined; unzip, gotodir etc. pp.</i></p>
-                    <codeblock>$ docker-compose -f docker-compose.yml -f log-pipeline.yml up</codeblock>
+                    <p>Go to the installation directory, <codeph>/cmmv2.0</codeph> in the above example.</p>
+                </li>
+                <li>
+                    <p>Copy the following files from ## to your installation directory:</p>
+                    <ul>
+                        <li>
+                            <p><codeph>CMM_server_2.0.0_images.tar</codeph></p>
+                        </li>
+                        <li>
+                            <p><codeph>docker-compose-metric.yml</codeph></p>
+                        </li>
+                        <li>
+                            <p><codeph>docker-compose-log.yml</codeph></p>
+                        </li>
+                        <li>
+                            <p><codeph>.env</codeph></p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Load local docker repository ###ich fülle meine docker registry/mein docker repository</p>
+                    <codeblock>docker load -i CMM_server_2.0.0_images.tar</codeblock>
+                </li>
+                <li>
+                    <p>Check that the images required for the installation have been loaded.</p>
+                    <codeblock>docker image ls</codeblock>
+                </li>
+                <li>
+                    <p>##Any mandatory config settings to be changed in the *.yml files and .env ?</p>
+                </li>
+                <li>
+                    <p>Run <codeph>docker-compose</codeph>: </p>
+                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up</codeblock>
                 </li>
             </ol>
             <p>After a successful deployment, the monitoring pipeline starts within approximately one minute. </p>

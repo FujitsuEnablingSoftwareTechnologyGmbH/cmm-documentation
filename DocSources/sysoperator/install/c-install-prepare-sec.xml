@@ -7,15 +7,11 @@
             xml:lang="en-us">
     <title>Security</title>
     <conbody>
-        <section>
-            <p>In a default Red Hat Enterprise Linux installation, the following security precautions are taken:</p>
-            <ul>
+        <section><i><b>NOTE TO REVIEWERS:</b> Input on ports opened by the docker installation still pending(see mail).</i><p>In a default Red Hat Enterprise Linux installation, the following security precautions are taken:</p><ul>
                 <li>A firewall exists to prevent unauthorized user access.</li>
                 <li>Security-Enhanced Linux (SELinux), a security module that adds mandatory access control mechanisms to the Linux kernel, is enabled.</li>
-            </ul>
-            <p>Before installing <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                />, make sure that the firewall is enabled and SELinux is running. Make sure that neither the firewall nor SELinux block the communication between the Control Machine and the remote machines.</p>
-        </section>
+            </ul><p>Before installing <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                />, make sure that the firewall is enabled and SELinux is running. Make sure that neither the firewall nor SELinux block the communication between the Control Machine and the remote machines.</p></section>
         <section>
             <p>The installation of <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> opens the following ports:</p>
@@ -32,7 +28,6 @@
                 <li>Port <codeph>80</codeph> for the OpenStack Horizon service.</li>
                 <li>Port <codeph>5000</codeph> and <codeph>35357</codeph> for the OpenStack Keystone service.</li>
             </ul>
-            <p><i><b>NOTE TO REVIEWERS:</b> Input on ports opened by the docker installation still pending(see mail).</i></p>
         </section>
         <section>
             <p>If it is necessary to manually enable access to the ports, you can execute the following commands. Repeat them for each port to which access must be enabled.</p>

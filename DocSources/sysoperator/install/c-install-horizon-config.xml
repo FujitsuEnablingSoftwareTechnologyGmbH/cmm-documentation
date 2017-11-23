@@ -8,6 +8,8 @@
     <title>Configuration</title>
     <conbody>
         <section>
+            <p>###copy from harukis input</p>
+            <p>grafana url anpassen und kibana url anpassen</p>
             <p>The following steps must be performed manually to enable access to the monitoring functionality in OpenStack Horizon:</p>
             <ol compact="no">
                 <li>

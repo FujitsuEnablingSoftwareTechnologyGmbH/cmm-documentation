@@ -49,14 +49,14 @@
             <topicref format="dita" href="sysoperator/install/c-install-prepare-setup.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-prepare-sec.xml" type="concept"/>
         </topicref>
+        <topicref format="dita" href="sysoperator/install/c-install-monservice.xml" type="concept">
+            <topicref format="dita" href="sysoperator/install/c-install-monservice-pre.xml" type="concept"/>
+            <topicref format="dita" href="sysoperator/install/c-install-monservice-inst.xml" type="concept"/>
+        </topicref>
         <topicref format="dita" href="sysoperator/install/c-install-ksconfig.xml" type="concept">
             <topicref format="dita" href="sysoperator/install/c-install-ksconfig-admin.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-ksconfig-users.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-ksconfig-serv.xml" type="concept"/>
-        </topicref>
-        <topicref format="dita" href="sysoperator/install/c-install-monservice.xml" type="concept">
-            <topicref format="dita" href="sysoperator/install/c-install-monservice-pre.xml" type="concept"/>
-            <topicref format="dita" href="sysoperator/install/c-install-monservice-inst.xml" type="concept"/>
         </topicref>
         <topicref format="dita" href="sysoperator/install/c-install-metricsagent.xml" type="concept">
             <topicref format="dita" href="sysoperator/install/c-install-metricsagent-inst.xml" type="concept"/>
