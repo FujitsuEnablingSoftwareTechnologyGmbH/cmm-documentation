@@ -13,8 +13,8 @@
                     conref="../../overview/monitor/c-monitoring.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/The_basic_usage_scenario_of_s_concept_conbody_section_2_p"/>
             <fig>
                 <image
-                    align="left" alt="metricslogs.png" height="298"
-                    href="../../images/metricslogs.png"
+                    align="left" alt="metricslogs-br.png" height="298"
+                    href="../../images/metricslogs-br.png"
                     placement="break"
                     width="700"/>
             </fig>
@@ -66,7 +66,10 @@
                                                 />. </p>
                                 </li>
                                 <li>
-                                        <p>Monitoring of the OpenStack services and servers.</p>
+                                        <p>Preparing the monitoring environment for the application operators.</p>
+                                </li>
+                                <li>
+                                        <p>Monitoring the OpenStack services and servers.</p>
                                 </li>
                         </ul>
                 </section>

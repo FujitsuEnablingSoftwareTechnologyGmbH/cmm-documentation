@@ -13,7 +13,7 @@
             <fig>
                 <image
                     alt="cmm-architecture.png" height="260"
-                    href="../../images/cmm-architecture.png"
+                    href="../../images/cmm-architecture-br.png"
             width="435"/>
             </fig>
         </section>
@@ -76,7 +76,7 @@
             </p>
             <note
                         othertype="note">
-                <p><i><b>PENDING</b>: Note to be deleted ? </i>The installation of the Monitoring Service includes the installation of all <ph
+                <p>The installation of the Monitoring Service includes the installation of all <ph
                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> third-party components that are required. From time to time, it may be necessary to install bug fixes or security patches for these third-party components. In order to guarantee for the interoperability and integrity of your <ph
                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"

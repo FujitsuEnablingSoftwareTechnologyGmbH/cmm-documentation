@@ -27,7 +27,7 @@
                     <p>Combining visualizations in dashboards.</p>
                 </li>
                 <li>
-                    <p>Filtering query results in dashboards.</p>
+                    <p>Filtering query results.</p>
                 </li>
                 <li>
                     <p>Sharing dashboards.</p>
@@ -144,7 +144,7 @@
             <p>By default, dashboards are displayed with a light background. Using <uicontrol>Options</uicontrol> in the top right border of the log management window, you can switch to a dark color scheme. </p>
         </section>
         <section>
-            <title>Filtering Query Results in Dashboards</title>
+            <title>Filtering Query Results </title>
             <p>By submitting a query on the data displayed in a dashboard, you can filter out specific sets of data that you want to aggregate while not changing the logic of the individual visualizations.</p>
             <p>Use the search box below the main navigation bar at the top of the log management window for entering a query on the whole dashboard. If a visualization is already based on a saved query, both queries apply. </p>
         </section>

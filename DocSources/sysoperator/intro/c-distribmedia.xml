@@ -8,7 +8,7 @@
     <title>Distribution Media</title>
     <conbody>
         <section>
-            <p><i><b>PENDING</b>: Distribution media for CMM 2.0 to be defined and agreed upon with FJJ. Section to be rewritten.</i></p>
+            <p><i><b>NOTE TO REVIEWERS</b>: Distribution media for CMM 2.0 to be agreed upon with FJJ.</i></p>
         </section>
         <section>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> is distributed in the <ph
@@ -20,22 +20,21 @@
             <p>The package includes:<ul>
                     <li>
                         <p><codeph>CMM_server_2.0.0_images.tar</codeph>:</p>
-                        <p>## file used for setting up the docker images required for installing <ph
-                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/></p>
-                    </li>
-                    <li>
-                        <p><codeph>.env</codeph>:</p>
-                        <p>Docker Compose configuration file for setting up the <ph
-                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> installer.</p>
-                    </li>
-                    <li>
-                        <p><codeph>docker-compose-metrics.yml</codeph> and <codeph>docker-compose-log.yml</codeph>:</p>
-                        <p>Docker Compose files for setting up and running the Docker containers required for <ph
+                        <p>Tarred archive file with the Docker images required for installing and configuring <ph
                                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
                     </li>
                     <li>
+                        <p><codeph>docker-compose-metrics.yml</codeph> and <codeph>docker-compose-log.yml</codeph>:</p>
+                        <p>Docker Compose YAML files required for installing and configuring <ph
+                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
+                    </li>
+                    <li>
+                        <p><codeph>.env</codeph>:</p>
+                        <p>Docker Compose environment file defining the default environment variables used by Docker Compose.</p>
+                    </li>
+                    <li>
                         <p><codeph>monasca-agent-2.0.0.run</codeph>:</p>
-                        <p>Executable for installing a Metrics Agent on the OpenStack platform.</p>
+                        <p>Executable for installing a Metrics Agent on an OpenStack node.</p>
                     </li>
                     <li>
                         <p><codeph>log-agent-2.0.0.run</codeph>:</p>
@@ -43,7 +42,7 @@
                     </li>
                     <li>
                         <p><codeph>monasca-ui-2.0.0.run</codeph>:</p>
-                        <p>Executable for installing the Horizon Plugin on the OpenStack platform.</p>
+                        <p>Executable for installing the Horizon Plugin on the node where the OpenStack Horizon Service is deployed.</p>
                     </li>
                     <li>
                         <p><codeph>Manuals</codeph> subdirectory:</p>

@@ -8,8 +8,9 @@
     <title>Additional Metrics </title>
     <refbody>
     <section>
-      <p><i><b>PENDING</b>: The configuration examples are from 1.1. Can we stay with them or must they be replaced by examples from a 2.0 agent installation? </i></p>
-      <p><i><b>PENDING</b>: The additional metrics listed in this appendix correspond to those we had in 1.1. ceph.yaml was added. Any other yaml files to be added? Please check.</i></p>
+      <p><i><b>NOTE TO REVIEWERS: </b>: </i></p>
+      <p><i>The configuration examples are from 1.1. Can we stay with them? </i></p>
+      <p><i>The additional metrics listed in this appendix correspond to those we had in 1.1. ceph.yaml was added. Any other yaml files to be added? Please check.</i></p>
     </section>
         <section>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
