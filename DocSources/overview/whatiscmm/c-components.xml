@@ -22,59 +22,60 @@
         <section
                 id="OpenStack_concept_conbody_section_2">
                         <title>OpenStack</title>
-                        <p id="OpenStack_is_the_underlying_p_concept_conbody_section_2_p"><ph
-                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                /> relies on OpenStack, a technology for building cloud computing platforms for public and private clouds. OpenStack consists of a series of interrelated projects delivering various components for a cloud infrastructure solution and allowing for the deployment and management of Infrastructure as a Service (IaaS) platforms.</p>
+                        <p
+                    id="OpenStack_is_the_underlying_p_concept_conbody_section_2_p"><ph
+                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> relies on OpenStack, a technology for building cloud computing platforms for public and private clouds. OpenStack consists of a series of interrelated projects delivering various components for a cloud infrastructure solution and allowing for the deployment and management of Infrastructure as a Service (IaaS) platforms.</p>
                         <p
                     id="For_details_on_OpenStack_ref_concept_conbody_section_2_p">For details on OpenStack, refer to the <xref
-                    format="html" href="http://docs.openstack.org/newton/"
+                    format="html"
+                    href="http://docs.openstack.org/newton/"
             scope="external"><u><i>OpenStack documentation</i></u></xref>.</p>
                 </section>
         <section
-                    id="Service_concept_conbody_section_3">
+                id="Service_concept_conbody_section_3">
             <title>Monitoring Service</title>
-            <p id="The_concept_conbody_section_3_p">The Monitoring Service is the central <ph
-                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                /> component. It is responsible for receiving, persisting, and processing metrics and log data, as well as providing the data to the users.</p>
-            <p id="The_Monitoring_Service_relies_concept_conbody_section_3_p"
-                                >The Monitoring Service relies on Monasca. It uses Monasca for high-speed metrics querying and log management, and integrates the streaming alarm engine as well as the notification engine of Monasca. </p>
-                <p>For details, refer to <xref format="html" href="http://monasca.io/" scope="external"
-                                                        ><u><i>Monasca</i></u></xref>.</p>
+            <p
+                    id="The_concept_conbody_section_3_p">The Monitoring Service is the central <ph
+                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> component. It is responsible for receiving, persisting, and processing metrics and log data, as well as providing the data to the users.</p>
+            <p
+                    id="The_Monitoring_Service_relies_concept_conbody_section_3_p">The Monitoring Service relies on Monasca. It uses Monasca for high-speed metrics querying and log management, and integrates the streaming alarm engine as well as the notification engine of Monasca. </p>
+                <p>For details, refer to <xref
+                    format="html" href="http://monasca.io/"
+            scope="external"><u><i>Monasca</i></u></xref>.</p>
         </section>
-        <section>
+        <section
+                    id="Horizon_Plugin_concept_conbody_section_4">
             <title>Horizon Plugin</title>
-            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> comes with a plugin for the OpenStack Horizon dashboard. The plugin extends the main dashboard in OpenStack with a view for monitoring and log management. This enables <ph
-                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> users to access the <ph
-                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> functionality from a central Web-based graphical user interface. For details, refer to the <xref
-                                        format="html" href="http://docs.openstack.org/developer/horizon/"
-                                        scope="external"><u><i>OpenStack Horizon documentation</i></u></xref>. </p>
+            <p><ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> comes with a plugin for the OpenStack Horizon dashboard. The plugin extends the main dashboard in OpenStack with a view for monitoring and log management. This enables <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> users to access the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> functionality from a central Web-based graphical user interface. For details, refer to the <xref
+                    format="html"
+                    href="http://docs.openstack.org/developer/horizon/"
+            scope="external"><u><i>OpenStack Horizon documentation</i></u></xref>. </p>
                         <p>Based on the Monitoring Service, metrics and log data are visualized on convenient and user-friendly dashboards which fully integrate with the following applications:<ul>
                                         <li>Grafana (for metrics data). An open source application for visualizing large-scale measurement data.</li>
                                         <li>Kibana (for log data). An open source analytics and visualization platform designed to work with Elasticsearch.</li>
                                 </ul></p>
         </section>
         <section
-                    id="Metrics_Agent_concept_conbody_section_5">
+                id="Metrics_Agent_concept_conbody_section_5">
             <title>Metrics Agent</title>
-            <p id="A_concept_conbody_section_5_p"
-                                >A Metrics Agent is required for retrieving metrics data from the host on which it runs and sending the metrics data to the Monitoring Service. The push-based agent supports metrics from a variety of sources as well as a number of built-in system and service checks. </p>
-                        <p id="A_concept_conbody_section_5_p"
-                                >A Metrics Agent can be installed on each virtual or physical server to be monitored.</p>
-            <p id="The_agent_functionality_is_fu_concept_conbody_section_5_p"
-                                        >The agent functionality is fully integrated into the source code base of the Monasca project. For details, refer to <xref
-                                        format="html" href="http://monasca.io/" scope="external"
-                                        ><u><i>Monasca</i></u></xref>.</p>
+            <p
+                id="A_concept_conbody_section_5_p">A Metrics Agent is required for retrieving metrics data from the host on which it runs and sending the data to the Monitoring Service. The push-based agent supports metrics from a variety of sources as well as a number of built-in system and service checks. </p>
+                        <p
+                id="A_concept_conbody_section_5_p">A Metrics Agent can be installed on each virtual or physical server to be monitored.</p>
+            <p
+                    id="The_agent_functionality_is_fu_concept_conbody_section_5_p">The agent functionality is fully integrated into the source code base of the Monasca project. For details, refer to <xref
+                    format="html" href="http://monasca.io/"
+            scope="external"><u><i>Monasca</i></u></xref>.</p>
         </section>
         <section
                     id="Log_Agent_concept_conbody_section_6">
             <title>Log Agent</title>
-            <p>A Log Agent is needed for collecting log data from the host on which it runs and forwarding the log data to the Monitoring Service for further processing. It can be installed on each virtual or physical server from which log data is to be retrieved.</p>
+            <p>A Log Agent is needed for collecting log data from the host on which it runs and forwarding the data to the Monitoring Service for further processing. It can be installed on each virtual or physical server from which log data is to be retrieved.</p>
             <p>The agent functionality is fully integrated into the source code base of the Monasca project. For details, refer to <xref
-                                        format="html" href="http://monasca.io/" scope="external"
-                                        ><u><i>Monasca</i></u></xref>.</p>
+                    format="html" href="http://monasca.io/" scope="external"><u><i>Monasca</i></u></xref>.</p>
         </section>
     </conbody>
 </concept>

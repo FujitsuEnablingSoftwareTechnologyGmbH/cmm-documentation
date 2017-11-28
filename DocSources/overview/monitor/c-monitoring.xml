@@ -37,7 +37,9 @@
                 width="700"/>
             </fig>
             <p id="The_concept_conbody_section_2_p"
-                    >The <b>Monitoring Service operator</b> is responsible for providing the monitoring features to the application operators and the OpenStack operator. This enables the application operators and the OpenStack operator to focus on operation and ensure the quality of their services without having to carry out the tedious tasks implied by setting up and administrating their own system monitoring software. The Monitoring Service operator uses the features himself for monitoring the operation of <ph
+                    >The <b>Monitoring Service operator</b> is responsible for providing the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> monitoring features to the application operators and the OpenStack operator. This enables the application operators and the OpenStack operator to focus on operation and ensure the quality of their services without having to carry out the tedious tasks implied by setting up and administrating their own system monitoring software. The Monitoring Service operator uses the features himself for monitoring the operation of <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
             <p id="Tenant_users_concept_conbody_section_2_p"
                     ><b>Application operators</b> monitor the virtual machines on which they provide services to <b>end users</b> or services they need for their own development activities. They ensure that the physical and virtual servers on which their services are provided are up and running as required.</p>
@@ -76,9 +78,14 @@
         </section>
         <section>
             <title>Alarms and Notifications</title>
-            <p><ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> supports GUI-based alarm and notification management. <ph
-                        id="Template-based_alarm_definiti_concept_conbody_section_4_p">Template-based alarm definitions allow for monitoring a dynamically changing set of resources without the need for reconfiguration. While the number of underlying virtual machines is changing, for example, this ensures the efficient monitoring of scalable cloud services. Alarm definitions allow you to specify expressions that are evaluated based on the metrics data that is received. Alarm definitions can be combined to form compound alarms. Compound alarms allow you to track and process even more complex events. Notifications can be configured in order to inform <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> users when an alarm is triggered.</ph></p>
+            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> supports GUI-based alarm and notification management. <ph
+                    id="Template-based_alarm_definiti_concept_conbody_section_4_p"
+                        >Template-based alarm definitions allow for monitoring a dynamically changing set of resources without the need for reconfiguration. While the number of underlying virtual machines is changing, this ensures the efficient monitoring of scalable cloud services. Alarm definitions allow <ph
+                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                        /> users to specify expressions that are evaluated based on the metrics data that is received. Alarm definitions can be combined to form compound alarms. Compound alarms allow users to track and process even more complex events. Notifications can be configured in order to inform <ph
+                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> users when an alarm is triggered.</ph></p>
         </section>
     </conbody>
 </concept>

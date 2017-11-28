@@ -8,7 +8,7 @@
     <title>Log Management</title>
     <conbody>
         <section>
-            <p>Services and servers in a cloud infrastructure generate huge amounts of log data, from simply announcing that everything is healthy to detailed information on events or processes. The logs are distributed over many physical and virtual servers. <ph
+            <p>Services and servers in a cloud infrastructure generate huge amounts of log data, ranging from simple announcements that everything is healthy to detailed information on events or processes. The logs are distributed over many physical and virtual servers. <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> collects, stores, and queries these logs and makes them accessible to <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
@@ -35,7 +35,9 @@
                     placement="break"
                         width="700"/>
             </fig>
-            <p>The <b>Monitoring Service operator</b> is responsible for providing the log management features to the OpenStack operator. He uses the features himself for retrieving log data on <ph
+            <p>The <b>Monitoring Service operator</b> is responsible for providing the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> log management features to the OpenStack operator. He uses the features himself for retrieving log data on <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
             <p>The <b>OpenStack operator</b> uses the log management features for retrieving log data on the OpenStack services and the middleware components that make up the underlying OpenStack platform.</p>
         </section>
@@ -49,7 +51,7 @@
         <section>
             <title>Data Visualization and Analysis</title>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> supports advanced data visualization and analysis of the log data in a variety of charts, tables, or maps. Visualizations can easily be combined in dynamic dashboards that display changes to search queries in real-time, for example:</p>
+                /> supports advanced data visualization and analysis of the log data in a variety of charts, tables, or maps. Visualizations can easily be combined in dynamic dashboards that display query results in real-time, for example:</p>
             <fig>
                 <image alt="kibana.png" height="260" href="../../images/kibana-dashboard.png" width="435"/>
             </fig>
@@ -57,10 +59,10 @@
         </section>
         <section>
             <title>Alarms and Notifications</title>
-            <p>GUI-based alarm and notification management is also supported for log data. Based on a template mechanism, <ph
+            <p>GUI-based alarm and notification management is supported for the log data. Based on a template mechanism, <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> allows system operators to configure alarms and notifications for monitoring the number of critical log events over time. When the number of critical log entries exceeds a defined threshold, a corresponding notification is sent. </p>
-            <p>The template mechanism is not limited to a single cloud resource but can be used to analyze a scalable set of resources. Compound alarms can also be created for analyzing more complex log events. </p>
+            <p>The template mechanism is not limited to a single cloud resource but can be used to analyze a scalable set of resources. Compound alarms can be created for analyzing more complex log events. </p>
             <p>The automation of log handling guarantees that system operators identify problems in their infrastructure early and find the root cause of these problems quickly. </p>
         </section>
     </conbody>

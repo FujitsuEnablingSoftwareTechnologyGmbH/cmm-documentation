@@ -17,7 +17,7 @@
                     <p>For details on the tasks of the application operator, refer to the <i>Application Operator's Guide</i>.</p>
                 </li>
                 <li>
-                    <p>The<b> OpenStack operator</b> is a special application operator. He is responsible for administrating and maintaining the underlying OpenStack platform and ensures the availability and quality of the OpenStack services (e.g. Heat, Nova, Cinder, Swift, Glance, or Keystone).</p>
+                    <p>The<b> OpenStack operator</b> is responsible for administrating and maintaining the underlying OpenStack platform and ensures the availability and quality of the OpenStack services (e.g. Heat, Nova, Cinder, Swift, Glance, or Keystone).</p>
                     <p>For details on the tasks of the OpenStack operator, refer to the <i>System Operator's Guide</i>.</p>
                 </li>
                 <li>
@@ -27,7 +27,7 @@
                 </li>
             </ul>
             <p id="Depending_on_the_distribution_concept_conbody_section_1_p"
-                >Depending on the distribution of tasks in your environment, the tasks of the Monitoring Service operator and the OpenStack Operator are jointly performed by one system operator or separately by different system operators.</p>
+                >Depending on the distribution of tasks in your environment, the tasks of the Monitoring Service operator and the OpenStack Operator are performed by a single person or shared by different system operators.</p>
         </section>
         <section
                 id="User_Management_concept_conbody_section_2">
@@ -35,12 +35,13 @@
             <p
                     id="is_fully_integrated_with_Key_concept_conbody_section_2_p"><ph
                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> is fully integrated with Keystone, the identity service which serves as the common authentication and authorization system in OpenStack.</p>
-            <p
-                    id="The_concept_conbody_section_2_p">The <ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> integration with Keystone requires any <ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> user to be registered as an OpenStack user. All authentication and authorization in <ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> is done through Keystone. If a user requests monitoring data, for example, <ph
-                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> verifies that the user is a valid user in OpenStack and allowed to access the requested metrics.</p>
+            <p id="The_concept_conbody_section_2_p">The integration with Keystone requires any <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> user to be registered as an OpenStack user. All authentication and authorization in <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> is done through Keystone. If a user requests monitoring data, for example, <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> verifies that the user is a valid user in OpenStack and allowed to access the requested metrics.</p>
             <p
                     id="users_are_created_and_admini_concept_conbody_section_2_p"><ph
                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> users are created and administrated in OpenStack:</p>

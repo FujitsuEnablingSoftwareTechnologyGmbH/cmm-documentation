@@ -25,7 +25,9 @@
                                                         conref="../product-name.xml#ProductNameTopic/Product_Abbr"
                                                         />. The manual also describes how to prepare the OpenStack platform for <ph
                                                         conref="../product-name.xml#ProductNameTopic/Product_Abbr"
-                                                /> and how to actually use the monitoring functions.</p>
+                                                        /> and how to use the <ph
+                                                        conref="../product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> monitoring functions.</p>
                                 </li>
                                 <li>
                                         <p><i>Application Operator's Guide:</i> A manual for application operators describing how <ph

@@ -14,9 +14,9 @@
                     id="As_more_and_more_applications_concept_conbody_section_p_1">As more and more applications are deployed on cloud systems and cloud systems are growing in complexity, managing the cloud infrastructure is becoming increasingly difficult. <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Name"/> (<ph
                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>) helps mastering this challenge by providing a sophisticated Monitoring as a Service solution that is operated on top of OpenStack-based cloud computing platforms.</p>
-            <p
-                    id="allows_enterprises_to_manage_concept_conbody_section_p_2"><ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> allows enterprises to manage, track, and optimize their cloud infrastructure and the services they provide to end users. It offers a suite of monitoring and analytics tools aimed at improving the health and performance of cloud systems.</p>
+            <p id="allows_enterprises_to_manage_concept_conbody_section_p_2"><ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> allows enterprises to control, track, and optimize their cloud infrastructure and the services they provide to end users. It offers a suite of monitoring and analytics tools aimed at improving the health and performance of cloud systems.</p>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> assembles and presents metrics and log data in one convenient access point. It offers an integrated view of cloud resources, based on its seamless integration with OpenStack. While being flexible and scalable to instantly reflect changes in the cloud infrastructure of an enterprise, <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
@@ -27,9 +27,9 @@
         <section>
             <title>Enterprise-Grade Monitoring</title>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    /> is an out-of-the-box solution for monitoring OpenStack-based cloud environments. It is provided as a cloud service to users. As an enterprise-grade monitoring solution, <ph
+                    /> is an out-of-the-box solution for monitoring OpenStack-based cloud environments. It is made available to users as a cloud service. As an enterprise-grade solution, <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> delivers the reliability, performance, and service levels required for cloud environments in productive use. It meets different challenges, ranging from small-scale deployments to high-availability deployments and deployments with high levels of scalability.</p>
+                /> provides the reliability, performance, and service levels required for cloud environments in productive use. It meets a variety of challenges, ranging from small-scale to high-availability deployments and deployments with high levels of scalability.</p>
             <p>The core of <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> is Monasca, an open source Monitoring as a Service solution that integrates with OpenStack. The key features of <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
