@@ -36,7 +36,7 @@
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                 /> provides centralized log management features. </p>
                         <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> collects log data from all services and servers the cloud infrastructure is composed of. The log data can then be accessed from a single dashboard. Integrated search, filter, and graphics options enable system operators to isolate problems and narrow down potential root causes. <ph
+                                        /> collects log data from all the services and servers the cloud infrastructure is be composed of. The log data can then be accessed from a single dashboard. Integrated search, filter, and graphics options enable system operators to isolate problems and narrow down potential root causes. <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                 /> thus provides valuable insights into the log data, even with large amounts of data resulting from highly complex environments.</p>
                         <p>Based on <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"

@@ -22,9 +22,9 @@
         <section
                 id="OpenStack_concept_conbody_section_2">
                         <title>OpenStack</title>
-                        <p
-                    id="OpenStack_is_the_underlying_p_concept_conbody_section_2_p"><ph
-                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> relies on OpenStack as technology for building cloud computing platforms for public and private clouds. OpenStack consists of a series of interrelated projects delivering various components for a cloud infrastructure solution and allowing for the deployment and management of Infrastructure as a Service (IaaS) platforms.</p>
+                        <p id="OpenStack_is_the_underlying_p_concept_conbody_section_2_p"><ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                /> relies on OpenStack, a technology for building cloud computing platforms for public and private clouds. OpenStack consists of a series of interrelated projects delivering various components for a cloud infrastructure solution and allowing for the deployment and management of Infrastructure as a Service (IaaS) platforms.</p>
                         <p
                     id="For_details_on_OpenStack_ref_concept_conbody_section_2_p">For details on OpenStack, refer to the <xref
                     format="html" href="http://docs.openstack.org/newton/"
@@ -51,7 +51,7 @@
                                         /> functionality from a central Web-based graphical user interface. For details, refer to the <xref
                                         format="html" href="http://docs.openstack.org/developer/horizon/"
                                         scope="external"><u><i>OpenStack Horizon documentation</i></u></xref>. </p>
-                        <p>Based on the Monitoring Service, metrics and log data are visualized on comfortable and easy-to-use dashboards which fully integrate with the following applications:<ul>
+                        <p>Based on the Monitoring Service, metrics and log data are visualized on convenient and user-friendly dashboards which fully integrate with the following applications:<ul>
                                         <li>Grafana (for metrics data). An open source application for visualizing large-scale measurement data.</li>
                                         <li>Kibana (for log data). An open source analytics and visualization platform designed to work with Elasticsearch.</li>
                                 </ul></p>
