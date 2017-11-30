@@ -19,13 +19,13 @@
             <p>
                 <ul>
                     <li>
-                        <p>Set the administator credentials</p>
+                        <p>Set the OpenStack administator credentials.</p>
                     </li>
                     <li>
-                        <p>Create a project, users, and roles </p>
+                        <p>Create a project, a user, and roles .</p>
                     </li>
                     <li>
-                        <p>Define services and endpoints</p>
+                        <p>Define services and endpoints.</p>
                     </li>
                 </ul>
             </p>

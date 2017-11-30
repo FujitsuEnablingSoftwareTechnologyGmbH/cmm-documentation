@@ -21,7 +21,7 @@
                         <p>An <b>application operator</b> acts as a service provider in the OpenStack environment. He books virtual machines to provide services to <b>end users</b> or to host services that he needs for his own development activities. <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                 /> helps application operators ensure that their services and the servers on which they are provided are configured and working as required.</p>
-            <p>The <b>OpenStack operator</b> is a special application operator who is responsible for administrating and maintaining the underlying OpenStack platform. The monitoring and log management services of <ph
+            <p>The <b>OpenStack operator</b> is responsible for administrating and maintaining the underlying OpenStack platform. The monitoring and log management services of <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                         /> enable him to ensure the availability and quality of the platform. He uses <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> for:</p>

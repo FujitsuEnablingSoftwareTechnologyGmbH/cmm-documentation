@@ -3,34 +3,38 @@
                          "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
 ]>
 <!-- Copyright FUJITSU LIMITED 2017 -->
-<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
-            xml:lang="en-us">
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB" xml:lang="en-us">
     <title>Security</title>
     <conbody>
-        <section><i><b>NOTE TO REVIEWERS:</b> Input on ports opened by the docker installation still pending(see mail).</i><p>In a default Red Hat Enterprise Linux installation, the following security precautions are taken:</p><ul>
+        <section>
+            <p>In a default Red Hat Enterprise Linux installation, the following security precautions are taken:</p>
+            <ul>
                 <li>A firewall exists to prevent unauthorized user access.</li>
                 <li>Security-Enhanced Linux (SELinux), a security module that adds mandatory access control mechanisms to the Linux kernel, is enabled.</li>
-            </ul><p>Before installing <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                />, make sure that the firewall is enabled and SELinux is running. Make sure that neither the firewall nor SELinux block the communication between the Control Machine and the remote machines.</p></section>
+            </ul>
+            <p>Before installing <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                />, make sure that the firewall is enabled and SELinux is running. Make sure that neither the firewall nor SELinux block the communication between the Control Machine and the remote machines.</p>
+        </section>
         <section>
-            <p>The installation of <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> opens the following ports:</p>
+            <p>Access to the following ports must be enabled, before installing <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>:</p>
             <ul>
                 <li>Port <codeph>5607</codeph> for the Log API. </li>
                 <li>Port <codeph>8070</codeph> for the Monitoring API.</li>
                 <li>Port <codeph>5601</codeph> for the Kibana Server.</li>
                 <li>Port <codeph>3000</codeph> for Grafana.</li>
             </ul>
-            <p>Port <codeph>8081</codeph> is required internally by the Monitoring API, for example, for healthchecks or threads. </p>
-            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> uses the following ports to integrate with the required OpenStack services:</p>
+            <p>In addition, access to port <codeph>8081</codeph> is required internally by the Monitoring API, for example, for healthchecks or threads. </p>
+            <p>To integrate with the required OpenStack services, <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> requires access to the following ports:</p>
             <ul>
-                <li>Port <codeph>80</codeph> for the OpenStack Horizon service.</li>
+                <li>Port <codeph>80</codeph> for the OpenStack Horizon service. </li>
                 <li>Port <codeph>5000</codeph> and <codeph>35357</codeph> for the OpenStack Keystone service.</li>
             </ul>
         </section>
         <section>
-            <p>If it is necessary to manually enable access to the ports, you can execute the following commands. Repeat them for each port to which access must be enabled.</p>
+            <p>To manually enable access to the ports, you can execute the following commands. Repeat them for each port to which access must be enabled.</p>
             <codeblock>firewall-cmd --add-port=&lt;port_number&gt;/tcp
 firewall-cmd --permanent --add-port=&lt;port_number&gt;/tcp
 firewall-cmd --reload
@@ -39,6 +43,11 @@ firewall-cmd --add-port=&lt;port_number&gt;/udp
 firewall-cmd --permanent --add-port=&lt;port_number&gt;/udp
 firewall-cmd --reload</codeblock>
             <p>Replace <codeph>&lt;port_number&gt;</codeph> with the port.</p>
+            <p>To check the enabled ports, you can execute the following command:</p>
+            <codeblock>firewall-cmd --list-all</codeblock>
+            <p>If you change your firewall setting, remember to restart Dockers:</p>
+            <codeblock>systemctl stop docker
+systemctrl start docker</codeblock>
         </section>
     </conbody>
 </concept>

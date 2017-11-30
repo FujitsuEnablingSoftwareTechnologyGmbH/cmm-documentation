@@ -9,17 +9,12 @@
     <conbody>
         <!-- section>
             <p>CMM Server based on OpenStack Pike / monasca-docker stable pike</p>
-            <p>Bug: Version # must be changed to 2 or required Docker Compose version must be changed: See line 1 in docker-compose.yml '3' services: </p>
         </section -->
         <section>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> provides a Docker-based installation of the Monitoring Service. Individual Docker images are provided for the services that make up the Monitoring Service. Instances of these images will run in separate Docker containers as soon as the installation is successful. </p>
-            <p>Installing the Monitoring Service comprises: </p>
-            <ul>
-                <li>Installing the Monitoring Service. </li>
-                <li>Installing a Metrics Agent and a Log Agent on the machine where the Monitoring Service is installed. The agents are used for monitoring <ph
-                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> itself.</li>
-            </ul>
+                /> provides a Docker-based installation of the Monitoring Service. Production-ready Docker images are provided for the services that make up the Monitoring Service. Instances of these images will run in separate Docker containers as soon as the installation is successful. </p>
+            <p>The installation of the Monitoring Service automatically includes the installation of a Metrics Agents and a Log Agent for monitoring <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> itself.</p>
         </section>
         <!-- section>
             <title>Synchronizing Container Time with Host Time</title>

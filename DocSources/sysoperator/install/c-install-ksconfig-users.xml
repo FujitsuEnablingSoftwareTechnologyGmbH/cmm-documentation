@@ -8,75 +8,57 @@
     <title>Creating Projects, Users, and Roles</title>
     <conbody>
         <section>
+            <p>To integrate <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> with the OpenStack Keystone service, specific preparations must manually be taken in OpenStack Keystone. </p>
+            <p>You have to create a project, roles, and a user. The project, the roles and the user must exist in OpenStack Keystone before you proceed with installing the Monitoring Service.</p>
+        </section>
+        <section>
             <title>Creating a Project </title>
-            <p>Example:</p>
+            <p>A dedicated OpenStack project must be prepared for <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    />. The monitoring data retrieved for <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> and for your OpenStack services and servers is accessible to users assigned to this project, provided they have the required role assigned.</p>
+            <p>Example for creating the project:</p>
             <p>
-                <codeblock>openstack project create monitoring <i>##mini-mon in *.yml file##</i></codeblock>
+                <codeblock>openstack project create monasca </codeblock>
             </p>
         </section>
-        <!-- section>
-            <title>Creating a dedicated project for monitoring / via CLI or OS UI as you wish</title>
-            <p>README: </p>
-            <p>##Mandatory or optional?</p>
-            <p>##Purpose?</p>
-            <p>##what would it mean if I do NOT prepare a dedicated project ?</p>
-            <p>If one wishes to have one dedicated project for monitoring, then it can be created with the following command (we assume the project name to be <codeph>monitoring</codeph>:</p>
-            <p>
-                <codeblock>openstack project create monitoring</codeblock>
-            </p>
-            <p>: </p>
-            <p>Q: Is this project to which I must be assigned when I want to see metrics data in Grafana and log data in Kibana and do the actual monitoring?we have one project for cmm self-monitoring and monitoring the OS services?</p>
-            <p/>
-        </section -->
         <section>
-            <title>Creating the Required Roles</title>
-            <p>The following roles must be prepared:</p>
+            <title>Creating Roles</title>
+            <p>The following OpenStack roles must be prepared:</p>
             <ul>
                 <li>
-                    <p><codeph>monasca-user</codeph> for ##</p>
+                    <p><codeph>monasca-user</codeph>. This role must be assigned to any user who wants to perform monitoring and log management tasks.</p>
                 </li>
                 <li>
-                    <p><codeph>monasca-agent</codeph> for ##</p>
+                    <p><codeph>monasca-agent</codeph>. This role must be assigned to the user used for authenticating the Metrics Agent and the Log Agent against OpenStack Keystone.</p>
                 </li>
             </ul>
-            <p>Example:</p>
+            <p>Example for creating the roles:</p>
             <p>
-                <codeblock>openstack role create monasca-user 
-openstack role create monasca-agent </codeblock>
+                <codeblock>openstack role create monasca-user
+openstack role create monasca-agent</codeblock>
             </p>
-            <p>The user used for authenticating the agent against OpenStack Keystone must have the <codeph>monasca-agent</codeph> role assigned.</p>
-            <p>Access as a user with the <codeph>monasca-user</codeph> role must be provided to perform metrics monitoring tasks.</p>
-            <p>Access as a user with the <codeph>monasca-user</codeph> and <codeph>admin</codeph> role must be provided to perform lo g management tasks.</p>
         </section>
-        <!-- section>
-            <p>##Mandatory or optional?</p>
-            <p>##Purpose?</p>
-            <p>##</p>
-        </section -->
         <section>
-            <title>Creating the Agent User</title>
-            <p>##user "monasca-agent" exists in *.yml files</p>
-            <p>Example:</p>
+            <title>Creating a User</title>
+            <p>An OpenStack user must be prepared that is used for authenticating an agent against OpenStackKeystone. The user must be specified in the agent configuration. The user must have the <codeph>monasca-agent</codeph> role in OpenStack and be assigned to the OpenStack project that is to be monitored by the agent. </p>
+            <p>This user is used by the Metrics Agent and the Log Agent to submit data to the Monitoring Service. It is recommended that this user is used only for configuration purposes and not for actually monitoring services and servers. </p>
+            <p>Example for creating the user:</p>
             <p>
-                <codeblock>openstack user create --project monitoring --password password monitoring-agent</codeblock>
+                <codeblock>openstack user create --project monasca --password password monasca-agent</codeblock>
             </p>
-            <p>This user is used for authenticating an agent against Keystone. This user must be specified in the agent configuration. This user must have the <codeph>monasca-agent</codeph> role in OpenStack and be assigned to the OpenStack project that is to be monitored by the agent. </p>
-            <p>It is recommended that this user is used only for config purposes and not for actually monitoring services and servers.</p>
         </section>
-        <!-- section>
-            <p>##Mandatory or optional?</p>
-            <p>##Purpose?</p>
-            <p>##Must user name be "monitoring-agent" ?</p>
-            <p>README:The agent user will be used by metrics and logs agent to submit data to monasca. It can be created by executing:</p>
-        </section -->
         <section>
             <title>Assigning Roles </title>
-            <p>The <codeph>monitoring agent</codeph> user and the <codeph>admin</codeph> user both require appropriate roles. </p>
-            <p>Example: </p>
+            <p>The created OpenStack user (<codeph>monasca-agent</codeph> in the example) and the <codeph>admin</codeph> user must be assigned the roles that are required for <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
+            <p>Example for assigning the roles: </p>
             <p>
-                <codeblock>openstack role add --project monitoring --user admin monasca-user
-openstack role add --project monitoring --user admin admin
-openstack role add --project monitoring --user monitoring-agent monasca-agent</codeblock>
+                <codeblock>openstack role add --project monasca --user admin monasca-user
+openstack role add --project monasca --user admin admin
+openstack role add --project monasca --user monasca-agent monasca-agent</codeblock>
             </p>
         </section>
     </conbody>

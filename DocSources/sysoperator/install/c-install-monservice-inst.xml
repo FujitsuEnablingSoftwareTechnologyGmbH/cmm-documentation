@@ -8,7 +8,7 @@
     <title>Installation</title>
     <conbody>
         <section>
-            <p>To install the Monitoring Service and the agents, proceed as follows:</p>
+            <p>To install the Monitoring Service, proceed as follows:</p>
             <ol compact="no">
                 <li>
                     <p>Log in to the machine on which to install the Monitoring Service.</p>
@@ -19,10 +19,9 @@
                     <codeblock>$ mkdir /cmmv2.0</codeblock>
                 </li>
                 <li>
-                    <p>Go to the installation directory, <codeph>/cmmv2.0</codeph> in the above example.</p>
-                </li>
-                <li>
-                    <p>Copy the following files from ## to your installation directory:</p>
+                    <p>Extract the <codeph>CMM_server_2.0.0.zip</codeph> archive file from the <ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                        /> installation package to the installation directory. The archive provides the following files:</p>
                     <ul>
                         <li>
                             <p><codeph>CMM_server_2.0.0_images.tar</codeph></p>
@@ -39,24 +38,81 @@
                     </ul>
                 </li>
                 <li>
-                    <p>Load local docker repository ###ich fülle meine docker registry/mein docker repository</p>
-                    <codeblock>docker load -i CMM_server_2.0.0_images.tar</codeblock>
+                    <p>Open the <codeph>.env</codeph> to make adaptions required for your environment.</p>
                 </li>
                 <li>
-                    <p>Check that the images required for the installation have been loaded.</p>
-                    <codeblock>docker image ls</codeblock>
+                    <p>For integrating the Monitoring Service with your OpenStack Keystone service, adapt the <codeph>OpenStack Keystone service</codeph> section.</p>
+                    <p>You have to specify the IP address of the host on which the OpenStack Keystone service is deployed, for example, <codeph>http://172.31.0.216:5000</codeph>. </p>
+                    <p>In addition, you must set the <codeph>MON_MONASCA_PLUGIN_ENABLED</codeph> parameter to <codeph>True</codeph>, and mount Kibana to the OpenStack Horizon proxy by specifying the <codeph>/dashboard/monitoring/logs_proxy</codeph> path.</p>
+                    <codeblock># Set the IP address of the OpenStack Keystone host
+MON_KEYSTONE_URL=&lt;keystone_host_ip>
+
+# Enable Kibana authorization (for token received from Horizon Plugin)
+MON_MONASCA_PLUGIN_ENABLED=True
+
+# Set the path to mount Kibana to the OpenStack Horizon proxy 
+MON_BASE_PATH=/dashboard/monitoring/logs_proxy</codeblock>
                 </li>
                 <li>
-                    <p>##Any mandatory config settings to be changed in the *.yml files and .env ?</p>
+                    <p>For enabling access to OpenStack Keystone, you have to specify credentials for the Metrics Agent and Log Agent, as well as for the Monitoring API and the Log API in the <codeph>Keystone credentials</codeph> section. </p>
+                    <codeblock># Set the agent credentials 
+MON_AGENT_USERNAME=&lt;user_name>
+MON_AGENT_PASSWORD=&lt;password>
+MON_AGENT_PROJECT_NAME=&lt;project_name>
+
+# Set the Monitoring API and Log API credentials
+MON_API_USERNAME=&lt;api_user_name>
+MON_API_PASSWORD=&lt;api_password></codeblock>
+                    <p>Replace the variables as follows:</p>
+                    <ul>
+                        <li>
+                            <p>Replace <codeph>user_name</codeph> and <codeph>password</codeph> by the credentials of a user used for authenticating the agents against OpenStack Keystone, and replace <codeph>project_name</codeph> by the name of the OpenStack project for which data is to be retrieved by the agents.</p>
+                            <p>The names and passwords that you enter must correspond to the project and agent user you have already prepared for the integration of <ph
+                                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                    /> with OpenStack. For details, refer to <xref href="c-install-ksconfig-users.xml"/>. </p>
+                            <p>Example:</p>
+                            <codeblock># Set the agent credentials 
+MON_AGENT_USERNAME=monasca-agent
+MON_AGENT_PASSWORD=password
+MON_AGENT_PROJECT_NAME=monasca</codeblock>
+                        </li>
+                        <li>
+                            <p>Replace <codeph>api_user_name</codeph> and <codeph>api_password</codeph> by the credentials of a user used for authenticating the Monitoring API and the Log API against OpenStack Keystone. This user account is automatically created with the installation.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>The installation of the Monitoring Service mounts <codeph>/opt/monasca-containers</codeph> as default volume for the data directories of Elasticsearch, Influxdb, MySQL, Kafka, and Grafana. </p>
+                    <p>If required, you can update the <codeph>MON_DOCKER_VOL_ROOT</codeph> parameter in the <codeph>Data directories</codeph> section, and specify a different volume.</p>
+                    <codeblock># Set the path for the data directories of of Elasticsearch, Influxdb, 
+# MySQL, Kafka, and Grafana
+
+MON_DOCKER_VOL_ROOT=&lt;path to data directories></codeblock>
+                </li>
+                <li>
+                    <p>Load the tarred repository from the <codeph>CMM_server_2.0.0_images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>
+                    <codeblock>docker load -i CMM_server_2.0.0.images.tar</codeblock>
+                </li>
+                <li>
+                    <p>Check that the images and tags required for the installation have been loaded.</p>
+                    <codeblock>docker images</codeblock>
                 </li>
                 <li>
                     <p>Run <codeph>docker-compose</codeph>: </p>
                     <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up</codeblock>
+                    <note othertype="note">
+                        <p>Make sure that the OpenStack Keystone service is up when running <codeph>docker-compose</codeph>. Refer to the <xref
+                                format="html" href="https://docs.docker.com/compose/reference/up/" scope="external">
+                                <u><i>Docker Compose documentation</i></u></xref> for information on the <codeph>docker-compose up</codeph> command.</p>
+                    </note>
                 </li>
             </ol>
             <p>After a successful deployment, the monitoring pipeline starts within approximately one minute. </p>
-            <p>By default, Docker Compose starts containers for the following services. They correspond to the main <ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> components: </p>
+        </section>
+        <section>
+            <title><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> Services</title>
+            <p>By default, Docker Compose starts containers for the following services. They correspond to the main components of <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>: </p>
             <p>
                 <table colsep="1" frame="all" rowsep="1">
                     <tgroup cols="2">
@@ -176,17 +232,6 @@
                 </table>
             </p>
             <p>In addition, Docker Compose starts a number of init containers that are used to bootstrap the Monitoring Service installation as well as a number of containers with direct dependencies to the services listed above.</p>
-            <p>The following services are exposed on your host machine: <i>## purpose of listing them here ? See also Security section above.</i></p>
-            <ul>
-                <li>##<codeph>keystone</codeph> on ports 5000 and 35357 </li>
-                <li><codeph>monasca</codeph> on port 8070.</li>
-                <li><codeph>log-api</codeph> on port 5607.</li>
-                <li><codeph>grafana</codeph> on port 3000. </li>
-                <li><codeph>kibana</codeph> on port 5601.</li>
-            </ul>
-            <p>For information on starting, stopping and viewing the status of the <ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> agents and services, refer to ###</p>
         </section>
     </conbody>
 </concept>

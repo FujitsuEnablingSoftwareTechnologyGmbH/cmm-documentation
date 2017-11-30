@@ -8,11 +8,26 @@
     <title>Software and Setup Utilities</title>
     <conbody>
         <section>
-            <p><i><b>NOTE TO REVIEWERS:</b> Software and setup utilities to be defined.</i></p>
-            <p/>
-            <p/>
+            <p>The preliminary delivery includes two <codeph>zip</codeph> files:</p>
+            <ul>
+                <li><codeph>CMM_server_2.0.0.zip</codeph> for installing the Monitoring Service.</li>
+                <li><codeph>CMM_client_2.0.0.zip</codeph> for installing the OpenStack extensions.</li>
+            </ul>
+            <p>You have to extract the files to make the included files available for the installation.</p>
+            <p>After extraction of <codeph>CMM_server_2.0.0.zip</codeph> the following files are available:</p>
+            <ul>
+                <li><codeph>CMM_server_2.0.0.images.tar</codeph></li>
+                <li><codeph>docker-compose-log.yml</codeph></li>
+                <li><codeph>docker-compose-metric.yml</codeph></li>
+            </ul>
+            <p>After extraction of <codeph>CMM_client_2.0.0.zip</codeph> the following files are available:</p>
+            <ul>
+                <li><codeph>log-agent-2.4.1_0.5.3.run</codeph></li>
+                <li><codeph>monasca-agent-2.2.0.run</codeph></li>
+                <li><codeph>monasca-ui-1.5.1.run</codeph></li>
+            </ul>
         </section>
-        <!-- section>
+        <section>
             <p>The software and setup utilities are distributed in the <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> installation package on the <ph
@@ -32,6 +47,6 @@
                 </li>
             </ol>
             <p>After extraction, the following files and directories are available: </p>
-        </section -->
+        </section>
     </conbody>
 </concept>

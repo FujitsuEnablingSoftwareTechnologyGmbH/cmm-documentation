@@ -8,17 +8,17 @@
     <title>Installing a Log Agent</title>
     <conbody>
         <!-- section>OSP10 Integration Point - Log Agent based on OpenStack Pike / self-extracting installer</section -->
-        <section>
+        <!--section>
             <p>TODO</p>
             <p>https://github.com/logstash-plugins/logstash-output-monasca_log_api</p>
             <p>https://github.com/logstash-plugins/logstash-output-monasca_log_api/blob/master/docs/index.asciidoc </p>
             <p>Add reliable references to web where all config params are described; </p>
             <p>Source for Logstash help on config parameters? To be enhanced and corrected // </p>
-        </section>
+        </section -->
         <section>
             <p>For monitoring OpenStack services and servers in your environment, you need to install a Log Agent on the node on which the services are running. The agent installer configures the agent so that it can automatically be started as soon as the installation is successful. You can enhance the agent configuration before running the installer or update the initial configuration later, if required. </p>
             <p>The installer stores all configuration settings of the Log Agent in the following file:</p>
-            <p><codeph>/etc/monasca/monasca-log-agent/agent.conf</codeph></p>
+            <p><codeph>/etc/monasca/monasca-log-agent/agent.conf</codeph> ## /opt/monasca/monasca-log-agent/conf/agent.conf ##</p>
             <p>The file is composed of an input and an output section:</p>
             <ul>
                 <li>

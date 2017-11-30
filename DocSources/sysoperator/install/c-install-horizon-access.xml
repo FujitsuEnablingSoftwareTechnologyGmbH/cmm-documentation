@@ -6,7 +6,7 @@
 <concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB" xml:lang="en-us">
     <title>Accessing <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/></title>
     <conbody>
-        <section><i>##Compare with OSCM / Gertis input on access</i></section>
+        <!--section><i>##Compare with OSCM / Gertis input on access</i></section -->
         <section>
             <p>As soon as you have successfully carried out the manual configuration steps, access is enabled for <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"

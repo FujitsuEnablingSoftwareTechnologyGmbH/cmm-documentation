@@ -11,10 +11,15 @@
                 /> comprises the following steps:</p>
             <ol>
                 <li>
-                    <p>Preparing the installation environment as well as the software and setup utilities.</p>
+                    <p>Preparing the installation environment.</p>
                 </li>
                 <li>
-                    <p>Installing the Monitoring Service. It is recommended that you use a dedicated physical machine for the Monitoring Service which meets the requirements outlined in the next section. It is not recommended that there are any other services running on the machine.</p>
+                    <p>Preparing the integration of <ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                        /> with your OpenStack platform.</p>
+                </li>
+                <li>
+                    <p>Installing the <b>Monitoring Service</b>. It is recommended that you use a dedicated physical machine for the Monitoring Service which meets the requirements outlined in the next section. It is not recommended that there are any other services running on the machine.</p>
                     <note othertype="note">
                         <p>For <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                 /> in productive operation, do not install the Monitoring Service on a virtual machine. <ph
@@ -23,12 +28,35 @@
                     </note>
                 </li>
                 <li>
-                    <p>Preparing the integration of the Monitoring Service with your OpenStack platform.</p>
+                    <p>Installing a <b>Metrics Agent</b>. A Metrics Agent is installed as an extension to your OpenStack platform for monitoring an OpenStack service and the server on which it is deployed.</p>
                 </li>
                 <li>
-                    <p>Installing the OpenStack extensions to integrate the Monitoring Service with the OpenStack platform. This includes the installation of agents for monitoring your OpenStack services and servers as well as the installation of the Horizon Plugin required for accessing the monitoring functions from the OpenStack Horizon dashboard.</p>
+                    <p>Installing a <b>Log Agent</b>. A Log Agent is installed as an extension to your OpenStack platform for managing the logs of an OpenStack service and the server on which it is deployed.</p>
+                </li>
+                <li>
+                    <p>Installing the <b>Horizon Plugin</b>. The Horizon Plugin is installed as an extension to your OpenStack plaform . It is required for  accessing the monitoring functions from the OpenStack Horizon dashboard. </p>
                 </li>
             </ol>
+        </section>
+        <section>
+            <p>The following picture depicts where the components are installed. It shows a simplified scenario with a <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> node and one OpenStack node. </p>
+            <p>##</p>
+            <p>##</p>
+            <p>##</p>
+            <p>##</p>
+            <p><i>&lt;&lt; graphics to be inserted >></i></p>
+            <p>##</p>
+            <p>##</p>
+            <p>##</p>
+            <p>##</p>
+            <p>A productive OpenStack environment consists of multiple nodes on which multiple services are deployed. Observe the following when installing <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>:</p>
+            <ul>
+                <li>The Horizon Plugin is installed on the node where the OpenStack Horizon Service is deployed.</li>
+                <li>A Metrics Agent and a Log Agent are installed on the node where the service you want to monitor is deployed.</li>
+            </ul>
         </section>
     </conbody>
 </concept>

@@ -21,8 +21,7 @@
                 </li>
                 <li>
                     <p>To stop the agent, execute the following command:</p>
-                    <codeblock>sudo docker-compose -f log-pipeline.yml -f docker-compose.yml stop agent-forwarder agent-collector
-<i>##docker-compose stop agent-forwarder agent-collector</i></codeblock>
+                    <codeblock>sudo systemctl stop openstack-monasca-agent</codeblock>
                 </li>
                 <li>
                     <p>Copy the required template file.</p>
@@ -42,7 +41,7 @@
                 </li>
                 <li>
                     <p>To start the agent again, execute the following command:</p>
-                    <codeblock>sudo docker-compose up agent-forwarder agent-collector</codeblock>
+                    <codeblock>sudo systemctl start openstack-monasca-agent</codeblock>
                 </li>
             </ol>
             <p>The activated metrics can instantly be used by the agent for retrieving monitoring data.</p>
