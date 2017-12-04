@@ -53,10 +53,10 @@
                 /> integrates with Logstash for collecting, processing, and outputting logs. </p>
         </section>
         <section>
-            <title>MariaDB</title>
+            <title>MySQL</title>
             <p>An open source relational database that provides an SQL-compliant interface for accessing data. <ph
                     conref="../product-name.xml#ProductNameTopic/Product_Abbr"
-                /> uses MariaDB as the underlying technology for storing configuration information, alarm definitions, and notification methods.</p>
+                /> uses MySQL as the underlying technology for storing configuration information, alarm definitions, and notification methods.</p>
         </section>
         <section>
             <title>Metrics</title>

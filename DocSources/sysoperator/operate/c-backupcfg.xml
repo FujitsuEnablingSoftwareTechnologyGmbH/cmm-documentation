@@ -61,7 +61,7 @@
 /opt/elasticsearch/config/elasticsearch.yml
 /opt/elasticsearch/config/logging.yml
 /opt/kibana/config/kibana.yml
-/usr/lib/systemd/system/mariadb.service</codeblock>
+/usr/lib/systemd/system/mysql.service</codeblock>
             </p>
         </section>
         <section>

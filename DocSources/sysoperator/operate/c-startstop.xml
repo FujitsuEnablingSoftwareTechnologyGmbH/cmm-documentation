@@ -53,9 +53,10 @@
                             </row>
                             <row>
                                 <entry>4</entry>
-                                <entry><codeph>mariadb</codeph></entry>
-                                <entry>MariaDB database service. <ph
-                                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> stores configuration information in this database. </entry>
+                                <entry><codeph>mysql</codeph></entry>
+                                <entry>MySQL database service. <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                    /> stores configuration information in this database. </entry>
                             </row>
                             <row>
                                 <entry>5</entry>
@@ -220,7 +221,7 @@ monasca-node        ansible_ssh_host=192.168.10.4 ansible_ssh_user=administrator
                     <li><codeph>kafka</codeph></li>
                     <li><codeph>storm-nimbus</codeph></li>
                     <li><codeph>storm-supervisor</codeph></li>
-                    <li><codeph>mariadb</codeph>
+                    <li><codeph>mysql</codeph>
                     </li>
                     <li><codeph>influxdb</codeph></li>
                     <li><codeph>elasticsearch</codeph></li>

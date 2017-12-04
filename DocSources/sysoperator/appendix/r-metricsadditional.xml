@@ -7,11 +7,11 @@
                     xml:lang="en-us">
     <title>Additional Metrics </title>
     <refbody>
-    <section>
+    <!-- section>
       <p><i><b>NOTE TO REVIEWERS: </b>: </i></p>
       <p><i>The configuration examples are from 1.1. To be checked whether they must be replaced. </i></p>
       <p><i>The additional metrics listed in this appendix correspond to those we had in 1.1. ceph.yaml was added. Any other yaml files to be added? Please check.</i></p>
-    </section>
+    </section -->
         <section>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
         /> supports the additional metrics described below for monitoring specific servers and services. The metrics are grouped by metrics types. Each metrics type references a set of related metrics.</p>
@@ -244,7 +244,7 @@ instances:
         </section>
         <section>
       <title>mysql.yaml</title>
-      <p>MySQL checks gather metrics from a MySQL database server. MariaDB is also supported. The metrics are related to the server status variables of MySQL. </p>
+      <p>MySQL checks gather metrics from a MySQL database server. The metrics are related to the server status variables of MySQL. </p>
       <p>The agent installer automatically configures the MySQL checks. As a prerequisite, you must update the <codeph>.my.cnf</codeph> file in the <codeph>root</codeph> directory before installing the agent.</p>
       <p>Example configuration for <codeph>.my.cnf</codeph>: </p>
       <codeblock>[client]

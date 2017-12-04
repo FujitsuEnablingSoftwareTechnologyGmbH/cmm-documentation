@@ -14,7 +14,7 @@
                 id="Elasticsearch_database_concept_conbody_section_1_ul">
                                 <li>Elasticsearch database </li>
                                 <li>InfluxDB database </li>
-                                <li>MariaDB database </li>
+                                <li>MySQL database </li>
                         </ul>
                         <p
                 id="It_is_recommended_that_backup_concept_conbody_section_1_p">It is recommended that backup and restore operations for databases are carried out by experienced operators only.</p>
@@ -153,14 +153,14 @@
                                         scope="external"><u><i>InfluxDB documentation</i></u></xref>.</p>
                 </section>
                 <section>
-                        <title>MariaDB Database</title>
+                        <title>MySQL Database</title>
                         <p id="For_backing_up_and_restoring_concept_conbody_section_4_p"
-                                        >For backing up and restoring your MariaDB database, you can use the <codeph>mysqldump</codeph> utility program. <codeph>mysqldump</codeph> performs a logical backup that produces a set of SQL statements. These statements can later be executed to restore the database.</p>
-                        <p>To back up your MariaDB database, you must be the owner of the database or a user with superuser privileges. You can use the following command.</p>
+                                        >For backing up and restoring your MySQL database, you can use the <codeph>mysqldump</codeph> utility program. <codeph>mysqldump</codeph> performs a logical backup that produces a set of SQL statements. These statements can later be executed to restore the database.</p>
+                        <p>To back up your MySQL database, you must be the owner of the database or a user with superuser privileges. You can use the following command.</p>
                         <p>Example:</p>
                         <codeblock>$ mysqldump -u root -p mon &gt; dumpfile.sql</codeblock>
                         <p>In addition to the name of the database, you have to specify the name and the location where <codeph>mysqldump</codeph> stores its output.</p>
-                        <p>To restore your MariaDB database, proceed as follows:</p>
+                        <p>To restore your MySQL database, proceed as follows:</p>
                         <ol>
                                 <li>Log in to the host where the Monitoring Service is installed as a user with root privileges.</li>
                                 <li>Go to the directory where the <ph
@@ -174,8 +174,8 @@
                                         </p>
                                 </li>
                                 <li>
-                                        <p>Start the <codeph>mariadb</codeph> service:</p>
-                                        <codeblock>$ systemctl start mariadb</codeblock>
+                                        <p>Start the <codeph>mysql</codeph> service:</p>
+                                        <codeblock>$ systemctl start mysql</codeblock>
                                 </li>
                                 <li id="Log_in_to_the_database_you_ha_concept_conbody_section_4_o">
                                         <p>Log in to the database you have backed up as a user with root privileges.</p>
@@ -188,7 +188,7 @@
 &gt; CREATE DATABASE mon;</codeblock>
                                 </li>
                                 <li id="Exit_concept_conbody_section_4_o">
-                                        <p>Exit <codeph>mariadb</codeph>:</p>
+                                        <p>Exit <codeph>mysql</codeph>:</p>
                                         <codeblock>&gt; \q</codeblock>
                                 </li>
                                 <li id="Restore_the_database._concept_conbody_section_4_o">
@@ -203,9 +203,9 @@
                                 </li>
                         </ol>
                         <p id="For_additional_information_on_concept_conbody_section_4_p"
-                                        >For additional information on backing up and restoring a MariaDB database with <codeph>mysqldump</codeph>, refer to the <xref
+                                        >For additional information on backing up and restoring a MySQL database with <codeph>mysqldump</codeph>, refer to the ###updated## <xref
                                         format="html" href="https://mariadb.com/kb/en/mariadb/mysqldump/"
-                                        scope="external"><u><i>MariaDB documentation</i></u></xref>.</p>
+                                        scope="external"><u><i>MySQL documentation</i></u></xref>.</p>
                 </section>
     </conbody>
 </concept>

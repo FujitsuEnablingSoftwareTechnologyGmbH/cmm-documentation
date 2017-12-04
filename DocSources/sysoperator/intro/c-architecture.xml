@@ -59,7 +59,7 @@
                     <li><b>Metrics and Alarms Database</b><p>An InfluxDB database used for storing metrics and the alarm history.</p></li>
                     <li>
                         <p><b>Config Database</b></p>
-                        <p>A MariaDB database used for storing configuration information, alarm definitions, and notification methods. </p>
+                        <p>A MySQL database used for storing configuration information, alarm definitions, and notification methods. </p>
                     </li>
                     <li><b>Log API</b>
                         <p>A RESTful API for log management. It gathers log data from the Log Agents and forwards it to the Message Queue. </p><p>The <ph
