@@ -11,12 +11,11 @@
             <p>To install the Monitoring Service, proceed as follows:</p>
             <ol compact="no">
                 <li>
-                    <p>Log in to the machine on which to install the Monitoring Service.</p>
+                    <p>Log in to the machine on which to install the Monitoring Service (<ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> node).</p>
                 </li>
                 <li>
                     <p>Prepare an installation directory. </p>
-                    <p>Example:</p>
-                    <codeblock>$ mkdir /cmmv2.0</codeblock>
                 </li>
                 <li>
                     <p>Extract the <codeph>CMM_server_2.0.0.zip</codeph> archive file from the <ph
@@ -38,12 +37,21 @@
                     </ul>
                 </li>
                 <li>
-                    <p>Open the <codeph>.env</codeph> to make adaptions required for your environment.</p>
+                    <p>Open the <codeph>.env</codeph> file to make adaptions that are required for your environment.</p>
                 </li>
                 <li>
-                    <p>For integrating the Monitoring Service with your OpenStack Keystone service, adapt the <codeph>OpenStack Keystone service</codeph> section.</p>
-                    <p>You have to specify the IP address of the host on which the OpenStack Keystone service is deployed, for example, <codeph>http://172.31.0.216:5000</codeph>. </p>
-                    <p>In addition, you must set the <codeph>MON_MONASCA_PLUGIN_ENABLED</codeph> parameter to <codeph>True</codeph>, and mount Kibana to the OpenStack Horizon proxy by specifying the <codeph>/dashboard/monitoring/logs_proxy</codeph> path.</p>
+                    <p>For integrating the Monitoring Service with your OpenStack Keystone service, you have to adapt the <codeph>OpenStack Keystone service</codeph> section:</p>
+                    <ul>
+                        <li>
+                            <p>Specify the IP address of the host on which the OpenStack Keystone service is deployed, for example, <codeph>http://172.31.0.216:5000</codeph>. </p>
+                        </li>
+                        <li>
+                            <p>Set the <codeph>MON_MONASCA_PLUGIN_ENABLED</codeph> parameter to <codeph>True</codeph>.</p>
+                        </li>
+                        <li>
+                            <p>Mount Kibana to the OpenStack Horizon proxy by specifying the <codeph>/dashboard/monitoring/logs_proxy</codeph> directory as base path.</p>
+                        </li>
+                    </ul>
                     <codeblock># Set the IP address of the OpenStack Keystone host
 MON_KEYSTONE_URL=&lt;keystone_host_ip>
 
@@ -78,24 +86,28 @@ MON_AGENT_PROJECT_NAME=monasca</codeblock>
                         </li>
                         <li>
                             <p>Replace <codeph>api_user_name</codeph> and <codeph>api_password</codeph> by the credentials of a user used for authenticating the Monitoring API and the Log API against OpenStack Keystone. This user account is automatically created with the installation.</p>
+                            <p>Example:</p>
+                            <codeblock># Set the Monitoring API and Log API credentials
+MON_API_USERNAME=####
+MON_API_PASSWORD=password</codeblock>
                         </li>
                     </ul>
                 </li>
                 <li>
                     <p>The installation of the Monitoring Service mounts <codeph>/opt/monasca-containers</codeph> as default volume for the data directories of Elasticsearch, Influxdb, MySQL, Kafka, and Grafana. </p>
                     <p>If required, you can update the <codeph>MON_DOCKER_VOL_ROOT</codeph> parameter in the <codeph>Data directories</codeph> section, and specify a different volume.</p>
-                    <codeblock># Set the path for the data directories of of Elasticsearch, Influxdb, 
-# MySQL, Kafka, and Grafana
+                    <codeblock># Set the path for the data directories of of Elasticsearch,  
+# Influxdb, MySQL, Kafka, and Grafana
 
 MON_DOCKER_VOL_ROOT=&lt;path to data directories></codeblock>
                 </li>
                 <li>
                     <p>Load the tarred repository from the <codeph>CMM_server_2.0.0_images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>
-                    <codeblock>docker load -i CMM_server_2.0.0.images.tar</codeblock>
+                    <codeblock>$ docker load -i CMM_server_2.0.0.images.tar</codeblock>
                 </li>
                 <li>
                     <p>Check that the images and tags required for the installation have been loaded.</p>
-                    <codeblock>docker images</codeblock>
+                    <codeblock>$ docker images</codeblock>
                 </li>
                 <li>
                     <p>Run <codeph>docker-compose</codeph>: </p>
@@ -103,7 +115,7 @@ MON_DOCKER_VOL_ROOT=&lt;path to data directories></codeblock>
                     <note othertype="note">
                         <p>Make sure that the OpenStack Keystone service is up when running <codeph>docker-compose</codeph>. Refer to the <xref
                                 format="html" href="https://docs.docker.com/compose/reference/up/" scope="external">
-                                <u><i>Docker Compose documentation</i></u></xref> for information on the <codeph>docker-compose up</codeph> command.</p>
+                                <u><i>Docker Compose documentation</i></u></xref> for details on the <codeph>docker-compose up</codeph> command.</p>
                     </note>
                 </li>
             </ol>

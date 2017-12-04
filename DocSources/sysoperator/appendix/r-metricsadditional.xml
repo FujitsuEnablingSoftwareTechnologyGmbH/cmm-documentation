@@ -9,7 +9,7 @@
     <refbody>
     <section>
       <p><i><b>NOTE TO REVIEWERS: </b>: </i></p>
-      <p><i>The configuration examples are from 1.1. Can we stay with them? </i></p>
+      <p><i>The configuration examples are from 1.1. To be checked whether they must be replaced. </i></p>
       <p><i>The additional metrics listed in this appendix correspond to those we had in 1.1. ceph.yaml was added. Any other yaml files to be added? Please check.</i></p>
     </section>
         <section>
@@ -108,7 +108,17 @@ instances:
             <p>HTTP endpoint checks perform up/down checks on HTTP endpoints. Based on a list of URLs, the agent sends an HTTP request and reports success or failure to the Monitoring Service.</p>
       <p>The agent installer auto-detects HTTP endpoints on the machine where the agent is installed. It saves the detected settings to the <codeph>http_check.yaml</codeph> configuration file, and the configuration is automatically provided in the <codeph>/etc/monasca/agent/conf.d/</codeph> directory.</p>
             <p>Example configuration:</p>
-            <codeblock>init_config: null
+      <codeblock>init_config: null
+instances:
+- built_by: MonAPI
+  dimensions:
+    component: monasca-api
+    service: monitoring
+  include_content: false
+  name: monitoring-monasca-api healthcheck
+  timeout: 5
+  url: http://localhost:8081/healthcheck</codeblock>
+            <!-- codeblock>init_config: null
 instances:
 - built_by: MonAPI
   dimensions:
@@ -125,7 +135,7 @@ instances:
     keystone_url: http://&lt;keystone_of_the_environment>:35357/v3
     username: admin
     project_name: admin
-    password: password</codeblock>
+    password: password</codeblock -->
         </section>
     <section>
       <title>http_metrics.yaml</title>

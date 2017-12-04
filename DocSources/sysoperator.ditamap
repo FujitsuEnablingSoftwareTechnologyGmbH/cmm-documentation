@@ -16,7 +16,7 @@
             <series>System Operator's Guide</series>
         </prodinfo>
         <bookid>
-            <edition>Preliminary Version (2017-11-30)</edition>
+            <edition>Preliminary Version (2017-12-04)</edition>
             <booknumber/>
         </bookid>
         <bookrights>
@@ -80,10 +80,7 @@
         <!-- topicref format="dita" href="sysoperator/appmon/c-appmon-libs.xml" type="concept"/ -->
         <topicref format="dita" href="sysoperator/appmon/c-appmon-config.xml" type="concept"/>
     </chapter>
-   
-    <chapter href="sysoperator/operate/c-operate.xml"/>
-          
-    <!-- chapter href="sysoperator/operate/c-operate.xml">
+    <chapter href="sysoperator/operate/c-operate.xml">
         <topicref format="dita" href="sysoperator/operate/c-startstop.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/operate/c-deletedata.xml" type="concept">
             <topicref format="dita" href="sysoperator/operate/c-removemetrics.xml" type="concept"/>
@@ -99,7 +96,7 @@
             <topicref format="dita" href="sysoperator/operate/c-backupcfg.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/operate/c-backupdashboards.xml" type="concept"/>
         </topicref>
-    </chapter -->
+    </chapter>
     <chapter href="sysoperator/metrics/c-monitor.xml">
         <topicref format="dita" href="sysoperator/metrics/c-monitor-overview.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/metrics/c-monitor-grafana.xml" type="concept"/>
@@ -107,11 +104,11 @@
         <topicref format="dita" href="sysoperator/metrics/c-monitor-alert.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/metrics/c-monitor-statusinfo.xml" type="concept"/>
     </chapter>
-    <!-- chapter href="sysoperator/logs/c-logs-intro.xml">
+    <chapter href="sysoperator/logs/c-logs-intro.xml">
         <topicref format="dita" href="sysoperator/logs/c-logs-kibana.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/logs/c-logs-index.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/logs/c-logs-alarms.xml" type="concept"/>
-    </chapter -->
+    </chapter>
     <appendix href="sysoperator/appendix/r-metricsintro.xml" type="reference">
         <topicref format="dita" href="sysoperator/appendix/r-metricsstandard.xml" type="reference"/>
         <topicref format="dita" href="sysoperator/appendix/r-metricsadditional.xml" type="reference"/>

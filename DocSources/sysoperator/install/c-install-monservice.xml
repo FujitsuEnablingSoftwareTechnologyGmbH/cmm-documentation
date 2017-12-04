@@ -11,10 +11,7 @@
             <p>CMM Server based on OpenStack Pike / monasca-docker stable pike</p>
         </section -->
         <section>
-            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> provides a Docker-based installation of the Monitoring Service. Production-ready Docker images are provided for the services that make up the Monitoring Service. Instances of these images will run in separate Docker containers as soon as the installation is successful. </p>
-            <p>The installation of the Monitoring Service automatically includes the installation of a Metrics Agents and a Log Agent for monitoring <ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> itself.</p>
+            <p>Before installing the Monitoring Service make sure that you have made the preparations required for your OpenStack platform. </p>
         </section>
         <!-- section>
             <title>Synchronizing Container Time with Host Time</title>

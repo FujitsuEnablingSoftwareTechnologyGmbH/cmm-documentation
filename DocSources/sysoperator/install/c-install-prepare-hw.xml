@@ -83,24 +83,24 @@
         <section>
             <title>Calculating the Required Disk Space</title>
             <p>As a basic rule of thumb, the following formula can be used for calculating the required disk space:</p>
-            <p>200 GB + [ number of nodes * retention period * (space for log data/day + space for metrics data/day) ] </p>
+            <p>200 GB + [ &lt;number of nodes> * &lt;retention period> * (&lt;space for log data/day> + &lt;space for metrics data/day>) ] </p>
             <p>Replace the variables as follows: </p>
-            <ul>
+            <ul compact="no">
                 <li>
-                    <p>Number of nodes corresponds to the number of nodes to be monitored.</p>
+                    <p>The number of nodes corresponds to the number of nodes to be monitored.</p>
                 </li>
                 <li>
-                    <p>Retention period corresponds to 60 days for InfluxDB and Elasticsearch.</p>
+                    <p>The retention period corresponds to 60 days for InfluxDB and Elasticsearch.</p>
                 </li>
                 <li>
-                    <p>Space for log data/day corresponds to approx. 2 GB.</p>
+                    <p>The space for log data/day corresponds to approx. 2 GB.</p>
                 </li>
                 <li>
-                    <p>Space for metrics data/day correspond to approx 50 MB.</p>
+                    <p>The space for metrics data/day correspond to approx 50 MB.</p>
                 </li>
             </ul>
             <p>The formula is based on the following assumptions for log data: </p>
-            <ul>
+            <ul compact="no">
                 <li>
                     <p>Approx. 50 log files per node</p>
                 </li>
@@ -112,7 +112,7 @@
                 </li>
             </ul>
             <p>The formula is based on the following assumptions for metrics data: </p>
-            <ul>
+            <ul compact="no">
                 <li>
                     <p>400 metrics per node </p>
                 </li>
@@ -124,7 +124,7 @@
                 </li>
             </ul>
             <note othertype="note">
-                <p>Depending on the OpenStack nodes to be monitored there might be additional factors that have an impact on the required disk space, for example, enabling debug logging for one or more OpenStack services.</p>
+                <p>Depending on the OpenStack nodes to be monitored there might be additional factors that have an impact on the required disk space, for example, enabling debug logging for the OpenStack services.</p>
             </note>
         </section>
     </conbody>

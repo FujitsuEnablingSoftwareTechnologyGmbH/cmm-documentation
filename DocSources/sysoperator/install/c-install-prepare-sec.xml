@@ -45,9 +45,9 @@ firewall-cmd --reload</codeblock>
             <p>Replace <codeph>&lt;port_number&gt;</codeph> with the port.</p>
             <p>To check the enabled ports, you can execute the following command:</p>
             <codeblock>firewall-cmd --list-all</codeblock>
-            <p>If you change your firewall setting, remember to restart Dockers:</p>
+            <p>If you change your firewall settings, remember to restart Dockers:</p>
             <codeblock>systemctl stop docker
-systemctrl start docker</codeblock>
+systemctl start docker</codeblock>
         </section>
     </conbody>
 </concept>
