@@ -52,13 +52,13 @@
                     <codeblock>output {
     monasca_log_api {
     monasca_log_api_url => "http://192.168.1.6:5607/v3.0"
-    keystone_api_url => "http://192.168.1.5:35357/v3"              <i>##keystone_auth_url ?</i>
+    keystone_api_url => "http://192.168.1.5:35357/v3"             
     project_name =&gt; "monasca"  
     username =&gt; "monasca-agent" 
     password =&gt; "password"    
     user_domain_name =&gt; "default"
     project_domain_name =&gt; "default"
-    dimensions =&gt; ['app_type:kafka', 'priority:high']         <i>##hostname ?</i>
+    dimensions =&gt; ['app_type:kafka', 'priority:high']         
     num_of_logs => 100
     delay => 1
     elapsed_time_sec => 600

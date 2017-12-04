@@ -13,7 +13,7 @@
                         <ul>
                                 <li>
                                         <p>Create the <codeph>monitoring-delegate</codeph> role in OpenStack Keystone. </p>
-                                        <p>This role is required for cross-tenant metrics submission. A application operator who has booked a virtual machine must receive only the monitoring data related to his virtual machine. This role enables the agent to submit metrics on behalf of an individual application operator.</p>
+                                        <p>This role is required for cross-tenant metrics submission. An application operator who has booked a virtual machine must receive only the monitoring data related to his virtual machine. This role enables the agent to submit metrics on behalf of an individual application operator.</p>
                                         <p>Example command for creating the <codeph>monitoring-delegate</codeph> role:</p>
                                         <codeblock>$ openstack role create monitoring-delegate </codeblock>
                                 </li>

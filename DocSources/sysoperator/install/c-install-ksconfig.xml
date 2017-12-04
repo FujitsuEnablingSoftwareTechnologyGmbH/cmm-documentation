@@ -14,7 +14,9 @@
         <section>
             <p>All authentication and authorization in <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> is done through Keystone. The integration of the Monitoring Service with OpenStack must therefore be prepared before you can proceed with installing a Metrics Agent, a Log Agent, and the Horizon Plugin in your OpenStack environment.</p>
+                    /> is done through OpenStack Keystone. The integration of <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> with OpenStack must therefore be prepared <b>before</b> you can proceed with installing the Monitoring Service as well as a Metrics Agent, a Log Agent, and the Horizon Plugin in your OpenStack environment.</p>
             <p>You need to take the following preparations:</p>
             <p>
                 <ul>
@@ -22,7 +24,7 @@
                         <p>Set the OpenStack administator credentials.</p>
                     </li>
                     <li>
-                        <p>Create a project, a user, and roles .</p>
+                        <p>Create a project, a user, and the required roles.</p>
                     </li>
                     <li>
                         <p>Define services and endpoints.</p>

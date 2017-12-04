@@ -11,7 +11,7 @@
             <p>To install a Log Agent, proceed as follows:</p>
             <ol compact="no">
                 <li>
-                    <p>Log in to the machine on which to install the Log Agent.</p>
+                    <p>Log in to the OpenStack node on which to install the Log Agent.</p>
                 </li>
                 <li>
                     <p>Prepare an installation directory. </p>
@@ -27,39 +27,39 @@
                     </ul>
                 </li>
                 <li>
-                    <p>Change the access permission of the <codeph>log-agent-2.4.1_0.5.3.run</codeph> file to execute.</p>
+                    <p>Change the access permission of the <codeph>log-agent-2.4.1_0.5.3.run</codeph> file to Execute.</p>
                 </li>
-                <li/>
                 <li>
                     <p>Run the agent installer, and provide the required OpenStack Keystone credentials. </p>
                     <p>Example: </p>
                     <codeblock>./log-agent-2.4.1_0.5.3.run \
     --target "/opt/monasca/monasca-log-agent" -- \
-    --monasca_log_api_url "http://192.168.1.6:5607/v3.0" \   >>>logapi
-    --keystone_auth_url "http://192.168.1.5:35357/v3" \     >>>>OS IP
-    --project_name "monasca" \
-    --username "monasca-agent" \
-    --password "password" \
+    --monasca_log_api_url "&lt;cmm_ip>" \   
+    --keystone_auth_url "&lt;openstack_ip>" \   
+    --project_name "&lt;project>" \
+    --username "&lt;user_name> ##monasca-agent" \
+    --password "&lt;password>" \
     --user_domain_name "default" \
     --project_domain_name "default" \
     --hostname "['app_type:kafka', 'priority:high']" \
     "/var/log/*" "/var/log/monasca/api/error.log"</codeblock>
-                    <p>All parameters are filled with default values. Each value must be enclosed in double quotes (<codeph>"</codeph>). The minimum set of parameters to be configured for an agent includes: </p>
+                    <p>All parameters are filled with default values. Each value must be enclosed in double quotes (<codeph>"</codeph>). The minimum set of parameters to be configured for an agent includes:  </p>
                     <ul>
                         <li>
                             <p><codeph>--target</codeph>. The directory in which the agent is installed. If <codeph>--target</codeph> is not specified, the agent is installed in the current working directory. </p>
                         </li>
                         <li>
-                            <p><codeph>--monasca_log_api_url</codeph>. The URL used to access the machine where the Monitoring Service is installed. </p>
+                            <p><codeph>--monasca_log_api_url</codeph>. The URL used to access the server where the Monitoring Service is installed. Example: <codeph>http://192.168.1.6:5607/v3.0</codeph>
+                            </p>
                         </li>
                         <li>
-                            <p><codeph>--keystone_auth_url</codeph>. The URL used to access the server where the OpenStack Keystone service is installed. The service is used for authenticating the user specified in <codeph>username</codeph>. </p>
+                            <p><codeph>--keystone_auth_url</codeph>. The URL used to access the server where the OpenStack Keystone service is installed. The service is used for authenticating the user specified in <codeph>username</codeph>.  It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph></p>
                         </li>
                         <li>
-                            <p><codeph>--project_name</codeph>. The name of the OpenStack project for which log data is to be retrieved by the agent.</p>
+                            <p><codeph>--project_name</codeph>. The name of the OpenStack project for which log data is to be retrieved by the agent. Example: <codeph>monasca</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--username</codeph>. The user to be used for authenticating the agent against Keystone.</p>
+                            <p><codeph>--username</codeph>. The user to be used for authenticating the agent against Keystone, for example <codeph>monasca-agent</codeph>.</p>
                             <p>The user specified here must have the <codeph>monasca-agent</codeph> role in OpenStack and be assigned to the OpenStack project that is to be monitored by the agent. The project is specified in <codeph>project_name</codeph>.</p>
                             <p>It is recommended that this user is used only for configuration purposes and not for actually monitoring services and servers.</p>
                         </li>

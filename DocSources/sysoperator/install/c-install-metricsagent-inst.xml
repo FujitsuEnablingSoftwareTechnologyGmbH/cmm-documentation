@@ -32,16 +32,16 @@
                 </li>
                 <li>
                     <p>Run the agent installer, and provide the required OpenStack Keystone credentials. </p>
-                    <p>Example: </p>
                     <codeblock>./monasca-agent-2.2.0.run \
---target /opt/monasca/monasca-agent -- \
---username &lt;user_name> \                   
+--target /opt/monasca-agent -- \
+--username &lt;user_name> \           
 --password &lt;password> \                   
 --project_name &lt;project_name> \  
 --user_domain_name default \ 
 --project_domain_name default \               
 --keystone_url &lt;ip_address> \  
---monasca_statsd_port &lt;port_no>        </codeblock>
+--monasca_statsd_port &lt;port_no>     
+--skip_detection_plugins OVS Libvirt  ##TODO   </codeblock>
                     <p>The minimum set of parameters to be configured for running the installer includes:</p>
                     <ul>
                         <li>
@@ -68,10 +68,10 @@
                             <p><codeph>--keystone_url</codeph>. Mandatory parameter specifying the URL used to access the server where the OpenStack Keystone service is installed. It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph></p>
                         </li>
                         <li>
-                            <p><codeph>--monasca_statsd_port</codeph>. Optional. The port number for the StatsD daemon. Check whether the default port number must be changed from <codeph>8125</codeph> to <codeph>8126</codeph>. Port <codeph>8125</codeph> is used by Gnocchi in Red Hat Enterprise Linux OpenStack Platform 10:</p>
-                            <codeblock>(monasca-agent) [root@openstack5 monasca-agents-installer]# lsof -i:8125
-COMMAND    PID    USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
-/usr/bin/ 1122 gnocchi   10u  IPv4  30916      0t0  UDP *:8125</codeblock>
+                            <p><codeph>--monasca_statsd_port</codeph>. Optional. The port number for the StatsD daemon. Check whether the default port number must be changed from <codeph>8125</codeph> to <codeph>8126</codeph>. Port <codeph>8125</codeph> is used by Gnocchi in Red Hat Enterprise Linux OpenStack Platform 10.</p>
+                        </li>
+                        <li>
+                            <p><codeph>skip_detection_plugins OVS Libvirt  ##TODO   </codeph> ###</p>
                         </li>
                     </ul>
                 </li>

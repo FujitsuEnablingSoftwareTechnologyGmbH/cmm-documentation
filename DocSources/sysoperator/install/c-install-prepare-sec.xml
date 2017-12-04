@@ -7,6 +7,7 @@
     <title>Security</title>
     <conbody>
         <section>
+            <p><i><b>PENDING</b>: Bug 13788 - Installation of CMM server fails when SELinux is running</i></p>
             <p>In a default Red Hat Enterprise Linux installation, the following security precautions are taken:</p>
             <ul>
                 <li>A firewall exists to prevent unauthorized user access.</li>

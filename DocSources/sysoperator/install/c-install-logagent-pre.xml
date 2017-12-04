@@ -11,7 +11,7 @@
             <p>The Log Agent installer requires a Java Runtime Environment on the host machine where the agent is installed.</p>
             <p>Before running the installer, you have to install the following OpenJDK package:</p>
             <ul>
-                <li><codeph>java-1.7.0-openjdk</codeph>
+                <li><codeph>java-1.8.0-openjdk</codeph>
                 </li>
             </ul>
         </section>

@@ -11,9 +11,44 @@
             <p>The following steps must be performed manually to enable access to the monitoring functionality in OpenStack Horizon:</p>
             <ol compact="no">
                 <li>
-                    <p>Append the virtualenv libraries of the Horizon Plugin to the system path of the OpenStack Horizon service. </p>
-                    <p>For this purpose, edit the WSGI script of your OpenStack Platform, and append the path where the plugin is installed.</p>
-                    <p>Example:</p>
+                    <p>Adapt the settings defined in your <codeph>local_settings.py</codeph> file. The file is located in your plugin installation directory in the <codeph>/lib/python2.7/site-packages/monitoring/config</codeph> subdirectory. </p>
+                    <codeblock>vi /opt/monasca-ui/lib/python2.7/site-packages/monitoring/config/local_settings.py
+
+---
+
+GRAFANA_URL = getattr(settings, 'GRAFANA_URL', {'RegionOne': '&lt;cmm_ip>:3000/', })
+
+ENABLE_KIBANA_BUTTON = getattr(settings, 'ENABLE_KIBANA_BUTTON', True)
+KIBANA_HOST = getattr(settings, 'KIBANA_HOST', '&lt;cmm_ip:5601/')
+KIBANA_POLICY_RULE = getattr(settings, 'KIBANA_POLICY_RULE',
+                             'monitoring:kibana_access')
+KIBANA_POLICY_SCOPE = getattr(settings, 'KIBANA_POLICY_SCOPE',
+                              'monitoring')
+</codeblock>
+                    <p>Replace <codeph>cmm_ip</codeph> by the IP address of the <ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                        /> node for the following parameters:</p>
+                    <ul>
+                        <li>
+                            <p><codeph>GRAFANA_URL</codeph>. Example with Grafana port: <codeph>http://192.168.10.4:3000/</codeph>. </p>
+                        </li>
+                        <li>
+                            <p><codeph>KIBANA_HOST</codeph>. Example with Kibana port: <codeph>http://192.168.10.4:5601/</codeph>.</p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>To integrate the Monitoring Service with the OpenStack Horizon service, create links pointing to the Horizon Plugin.</p>
+                    <p>Example with <codeph>/opt/monasca-ui/</codeph> as plugin installation directory:</p>
+                    <codeblock>ln -s /opt/monasca-ui/lib/python2.7/site-packages/monitoring/enabled/_50_admin_add_monitoring_panel.py \
+/usr/share/openstack-dashboard/openstack_dashboard/local/enabled/_50_admin_add_monitoring_panel.py
+
+ln -s /opt/monasca-ui/lib/python2.7/site-packages/monitoring/conf/monitoring_policy.json \
+/etc/openstack-dashboard/monitoring_policy.json</codeblock>
+                </li>
+                <li>
+                    <p>Append the virtual env libraries of the Horizon Plugin to the system path of the OpenStack Horizon service. For this purpose, edit the WSGI script of your OpenStack Platform, and append the path where the plugin is installed.</p>
+                    <p>Example with <codeph>/opt/monasca-ui/</codeph> as plugin installation directory:</p>
                     <codeblock>vi /usr/share/openstack-dashboard/openstack_dashboard/wsgi/django.wsgi
 
 ---
@@ -35,31 +70,30 @@ DEBUG = False
 application = get_wsgi_application()</codeblock>
                 </li>
                 <li>
-                    <p>To integrate the Monitoring Service with the OpenStack Horizon service, create links pointing to the Horizon Plugin.</p>
-                    <p>Example: </p>
-                    <codeblock>ln -s /opt/monasca-ui/lib/python2.7/site-packages/monitoring/enabled/_50_admin_add_monitoring_panel.py \
-/usr/share/openstack-dashboard/openstack_dashboard/local/enabled/_50_admin_add_monitoring_panel.py
-
-ln -s /opt/monasca-ui/lib/python2.7/site-packages/monitoring/conf/monitoring_policy.json \
-/etc/openstack-dashboard/monitoring_policy.json</codeblock>
-                </li>
-                <li>
-                    <p>Adapt the settings defined in your <codeph>local_settings.py</codeph> file. The file is located in the <codeph>&lt;monasca_ui_dir>/lib/python2.7/site-packages/monitoring/config</codeph> directory. </p>
-                    <p>The IP address of the Monitoring Service must be entered for Grafana (<codeph>GRAFANA_URL</codeph>) and Kibana (<codeph>KIBANA_HOST</codeph>) to enable the integration of monitoring and log data in OpenStack Horizon.</p>
-                    <p>Example:</p>
-                    <codeblock>vi /opt/monasca-ui/lib/python2.7/site-packages/monitoring/config/local_settings.py
+                    <p>##TODO - purpose? what is actually done in manage.py? ##</p>
+                    <p>Adapt your <codeph>manage.py</codeph> file.</p>
+                    <p>Example with <codeph>/opt/monasca-ui/</codeph> as plugin installation directory:</p>
+                    <codeblock>vi /usr/share/openstack-dashboard/manage.py
 
 ---
 
-GRAFANA_URL = getattr(settings, 'GRAFANA_URL', {'RegionOne': 'http://192.168.10.4:3000/', })
+import os
+import sys
 
-ENABLE_KIBANA_BUTTON = getattr(settings, 'ENABLE_KIBANA_BUTTON', True)
-KIBANA_HOST = getattr(settings, 'KIBANA_HOST', 'http://192.168.10.4:5601/')
-KIBANA_POLICY_RULE = getattr(settings, 'KIBANA_POLICY_RULE',
-                             'monitoring:kibana_access')
-KIBANA_POLICY_SCOPE = getattr(settings, 'KIBANA_POLICY_SCOPE',
-                              'monitoring')
-</codeblock>
+from django.core.management import execute_from_command_line  # noqa
+
+if __name__ == "__main__":
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE",
+                          "openstack_dashboard.settings")
+    sys.path.append('/opt/monasca-ui/lib/python2.7/site-packages')
+    execute_from_command_line(sys.argv)</codeblock>
+                </li>
+                <li>
+                    <p>##TODO - purpose? what is actually done with commands? ##</p>
+                    <p>Prepare the Japanese version of the OpenStack Horizon plugin.</p>
+                    <p>Example with <codeph>/opt/monasca-ui/</codeph> as plugin installation directory:</p>
+                    <codeblock>cd /opt/monasca-ui/lib/python2.7/site-packages/monitoring/
+/opt/monasca-ui/lib/python2.7/site-packages/django/bin/django-admin.py compilemessages -l ja</codeblock>
                 </li>
                 <li>
                     <p>Restart the server on which the OpenStack Horizon service is running.</p>
@@ -68,90 +102,5 @@ KIBANA_POLICY_SCOPE = getattr(settings, 'KIBANA_POLICY_SCOPE',
                 </li>
             </ol>
         </section>
-        <!--section>
-            <p>The following steps must be performed manually to enable access to the monitoring functionality in OpenStack Horizon:</p>
-            <ol compact="no">
-                <li>
-                    <p>Append the virtualenv libraries of the Horizon Plugin to the system path of the OpenStack Horizon service. </p>
-                    <p>For this purpose, edit the WSGI script of your OpenStack Platform, and append the path where the plugin is installed.</p>
-                    <p>Example:</p>
-                    <codeblock>vi /usr/share/openstack-dashboard/openstack_dashboard/wsgi/django.wsgi
-
-
-import logging
-import os
-import sys
-from django.core.wsgi import get_wsgi_application
-from django.conf import settings
-
-# Add this file path to sys.path in order to import settings
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), '../..'))
-sys.path.append("<i><b>/opt/monasca-ui</b></i>/lib/python2.7/site-packages")
-os.environ['DJANGO_SETTINGS_MODULE'] = 'openstack_dashboard.settings'
-sys.stdout = sys.stderr
-
-<i>&lt;monasca_ui_dir> example /opt/monasca-ui</i>
-
-
-Haruki NEU: ##which lines do i need to adapt ???? can we restrict the codeblock to what is really mandatory to be adapted ???
-import logging
-import os
-import sys
-sys.path.append("/opt/monasca-ui/lib/python2.7/site-packages")
-from django.core.wsgi import get_wsgi_application
-from django.conf import settings
-
-# Add this file path to sys.path in order to import settings
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), '../..'))
-os.environ['DJANGO_SETTINGS_MODULE'] = 'openstack_dashboard.settings'
-sys.stdout = sys.stderr
-
-DEBUG = False
-
-application = get_wsgi_application()</codeblock>
-                </li>
-                <li>
-                    <p>To integrate the Monitoring Service with the OpenStack Horizon service, create links pointing to the Horizon Plugin.</p>
-                    <p>Example: </p>
-                    <codeblock>ln -s /opt/monasca-ui/lib/python2.7/site-packages/monitoring/enabled/_50_admin_add_monitoring_panel.py \
-      /usr/share/openstack_dashboard/enabled/_50_admin_add_monitoring_panel.py
-
-Haruki neu
-ln -s /opt/monasca-ui/lib/python2.7/site-packages/monitoring/enabled/_50_admin_add_monitoring_panel.py \
-/usr/share/openstack-dashboard/openstack_dashboard/local/enabled/_50_admin_add_monitoring_panel.py
-
-
-ln -s /opt/monasca-ui/lib/python2.7/site-packages/monitoring/conf/monitoring_policy.json \
-      /usr/share//openstack_dashboard/conf/monitoring_policy.json
-
-Haruki neu
-ln -s /opt/monasca-ui/lib/python2.7/site-packages/monitoring/conf/monitoring_policy.json \
-/etc/openstack-dashboard/monitoring_policy.json</codeblock>
-                </li>
-                <li>
-                    <p>Adapt the settings defined in your <codeph>local_settings.py</codeph> file. The file is located in the <codeph>&lt;monasca_ui_dir>/lib/python2.7/site-packages/monitoring/config</codeph> directory. </p>
-                    <p>The IP address of the Monitoring Service must be entered for Grafana (<codeph>GRAFANA_URL</codeph>) and Kibana (<codeph>KIBANA_HOST</codeph>) to enable the integration of monitoring and log data in OpenStack Horizon.</p>
-                    <p>Example:</p>
-                    <codeblock>vi /opt/monasca-ui/lib/python2.7/site-packages/monitoring/config/local_settings.py
-
-###
-
-GRAFANA_URL = getattr(settings, 'GRAFANA_URL', {'RegionOne': '<i><b>http://192.168.10.4:3000/'</b></i>, })
-
-ENABLE_KIBANA_BUTTON = getattr(settings, 'ENABLE_KIBANA_BUTTON', True)
-KIBANA_HOST = getattr(settings, 'KIBANA_HOST', <i><b>'http://192.168.10.4:5601/</b></i>')
-KIBANA_POLICY_RULE = getattr(settings, 'KIBANA_POLICY_RULE',
-                             'monitoring:kibana_access')
-KIBANA_POLICY_SCOPE = getattr(settings, 'KIBANA_POLICY_SCOPE',
-                              'monitoring')
-</codeblock>
-                </li>
-                <li>
-                    <p>Restart the server on which the OpenStack Horizon service is running.</p>
-                    <p>Example: </p>
-                    <codeblock>systemctl restart httpd</codeblock>
-                </li>
-            </ol>
-        </section -->
     </conbody>
 </concept>

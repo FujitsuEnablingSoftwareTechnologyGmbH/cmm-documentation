@@ -8,32 +8,11 @@
     <title>Installation</title>
     <conbody>
         <section>
-            <p>Before you run the Horizon Plugin installer, make sure that you have made the required OpenStack Keystone preparations. For details, refer to ###. </p>
+            <p>Before you run the Horizon Plugin installer, make sure that you have made the required OpenStack Keystone preparations.</p>
             <p>To install the Horizon Plugin, proceed as follows:</p>
-            <p/>
-            <p>The preliminary delivery includes two <codeph>zip</codeph> files:</p>
-            <ul>
-                <li><codeph>CMM_server_2.0.0.zip</codeph> for installing the Monitoring Service.</li>
-                <li><codeph>CMM_client_2.0.0.zip</codeph> for installing the OpenStack extensions.</li>
-            </ul>
-            <p>You have to extract the files to make the included files available for the installation.</p>
-            <p>After extraction of <codeph>CMM_server_2.0.0.zip</codeph> the following files are available:</p>
-            <ul>
-                <li><codeph>CMM_server_2.0.0.images.tar</codeph></li>
-                <li><codeph>docker-compose-log.yml</codeph></li>
-                <li><codeph>docker-compose-metric.yml</codeph></li>
-            </ul>
-            <p>After extraction of <codeph>CMM_client_2.0.0.zip</codeph> the following files are available:</p>
-            <ul>
-                <li><codeph>log-agent-2.4.1_0.5.3.run</codeph></li>
-                <li><codeph>monasca-agent-2.2.0.run</codeph></li>
-                <li><codeph>monasca-ui-1.5.1.run</codeph></li>
-            </ul>
-            <p/>
-            <p/>
             <ol compact="no">
                 <li>
-                    <p>Log in to the server on which the OpenStack Horizon service is installed.</p>
+                    <p>Log in to the OpenStack node on which the OpenStack Horizon service is installed.</p>
                 </li>
                 <li>
                     <p>Prepare an installation directory. </p>
@@ -49,12 +28,13 @@
                     </ul>
                 </li>
                 <li>
-                    <p>Change the access permission of the <codeph>monasca-ui-1.5.1.run</codeph> file to execute.</p>
+                    <p>Change the access permission of the <codeph>monasca-ui-1.5.1.run</codeph> file to Execute.</p>
                 </li>
                 <li>
                     <p> Run the Horizon Plugin installer: </p>
                     <codeblock>./monasca-ui-1.5.1.run --target &lt;monasca_ui_dir></codeblock>
-                    <p>Use the optional <codeph>--target</codeph> parameter to specify the directory in which to install the plugin. If <codeph>--target</codeph> is not specified, it is installed in the current working directory. </p>
+                    <p>Use the optional <codeph>--target</codeph> parameter to specify the directory in which to install the plugin. Example: <codeph>/opt/monasca-ui</codeph>.</p>
+                    <p>If <codeph>--target</codeph> is not specified, it is installed in the current working directory. </p>
                 </li>
             </ol>
             <p>The installer extracts the plugin with all the required dependencies. The configuration of the plugin and its dependencies is prepared.</p>

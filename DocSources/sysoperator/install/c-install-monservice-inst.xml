@@ -40,29 +40,39 @@
                     <p>Open the <codeph>.env</codeph> file to make adaptions that are required for your environment.</p>
                 </li>
                 <li>
-                    <p>For integrating the Monitoring Service with your OpenStack Keystone service, you have to adapt the <codeph>OpenStack Keystone service</codeph> section:</p>
-                    <ul>
-                        <li>
-                            <p>Specify the IP address of the host on which the OpenStack Keystone service is deployed, for example, <codeph>http://172.31.0.216:5000</codeph>. </p>
-                        </li>
-                        <li>
-                            <p>Set the <codeph>MON_MONASCA_PLUGIN_ENABLED</codeph> parameter to <codeph>True</codeph>.</p>
-                        </li>
-                        <li>
-                            <p>Mount Kibana to the OpenStack Horizon proxy by specifying the <codeph>/dashboard/monitoring/logs_proxy</codeph> directory as base path.</p>
-                        </li>
-                    </ul>
+                    <p>For integrating the Monitoring Service with OpenStack Keystone, you have to adapt the <codeph>OpenStack Keystone service</codeph> section:</p>
                     <codeblock># Set the IP address of the OpenStack Keystone host
-MON_KEYSTONE_URL=&lt;keystone_host_ip>
+MON_KEYSTONE_URL=&lt;os_ip>:5000
 
 # Enable Kibana authorization (for token received from Horizon Plugin)
 MON_MONASCA_PLUGIN_ENABLED=True
 
 # Set the path to mount Kibana to the OpenStack Horizon proxy 
-MON_BASE_PATH=/dashboard/monitoring/logs_proxy</codeblock>
+MON_BASE_PATH=/dashboard/monitoring/logs_proxy
+
+##TODO
+##MON_GRAFANA_USERNAME=admin >>> OpenStack admin user
+##MON_GRAFANA_PASSWORD=secretadmin
+ >>> password</codeblock>
+                    <ul>
+                        <li>
+                            <p>Replace <codeph>os_ip</codeph> by the IP address of the node on which the OpenStack Keystone service is deployed, for example, <codeph>http://172.31.0.216</codeph>. </p>
+                        </li>
+                        <li>
+                            <p>Set the <codeph>MON_MONASCA_PLUGIN_ENABLED</codeph> parameter to <codeph>True</codeph>.</p>
+                        </li>
+                        <li>
+                            <p>Set the <codeph>MON_BASE_PATH</codeph> parameter to <codeph>/dashboard/monitoring/logs_proxy</codeph>. This path is required for mounting Kibana if <ph
+                                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                /> is running behind a proxy. </p>
+                        </li>
+                        <li>
+                            <p>##TODO## Replace <codeph>###</codeph> and <codeph>###</codeph> by the credentials of the OpenStack <codeph>admin</codeph> user. By default, the <codeph>admin</codeph> user is used for ###.</p>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <p>For enabling access to OpenStack Keystone, you have to specify credentials for the Metrics Agent and Log Agent, as well as for the Monitoring API and the Log API in the <codeph>Keystone credentials</codeph> section. </p>
+                    <p>For enabling access to OpenStack Keystone, you have to specify credentials for the Metrics Agent and Log Agent, as well as for the Monitoring API and the Log API in the <codeph>Keystone credentials</codeph> section: </p>
                     <codeblock># Set the agent credentials 
 MON_AGENT_USERNAME=&lt;user_name>
 MON_AGENT_PASSWORD=&lt;password>
@@ -85,10 +95,10 @@ MON_AGENT_PASSWORD=password
 MON_AGENT_PROJECT_NAME=monasca</codeblock>
                         </li>
                         <li>
-                            <p>Replace <codeph>api_user_name</codeph> and <codeph>api_password</codeph> by the credentials of a user used for authenticating the Monitoring API and the Log API against OpenStack Keystone. This user account is automatically created with the installation.</p>
+                            <p>Replace <codeph>api_user_name</codeph> and <codeph>api_password</codeph> by the credentials of the OpenStack <codeph>admin</codeph> user. By default, the <codeph>admin</codeph> user is used for authenticating the Monitoring API and the Log API against OpenStack Keystone. </p>
                             <p>Example:</p>
                             <codeblock># Set the Monitoring API and Log API credentials
-MON_API_USERNAME=####
+MON_API_USERNAME=admin
 MON_API_PASSWORD=password</codeblock>
                         </li>
                     </ul>
@@ -215,7 +225,7 @@ MON_DOCKER_VOL_ROOT=&lt;path to data directories></codeblock>
                             <row>
                                 <entry><codeph>mysql</codeph>
                                 </entry>
-                                <entry>MariaDB database service. <ph
+                                <entry>MySQL database service. <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                     /> stores configuration information in this database. </entry>
                             </row>

@@ -17,7 +17,7 @@
             <p>To activate additional metrics,  proceed as follows: </p>
             <ol>
                 <li>
-                    <p>Log in to the server where the agent is installed.</p>
+                    <p>Log in to the OpenStack node on which the agent is installed.</p>
                 </li>
                 <li>
                     <p>To stop the agent, execute the following command:</p>
