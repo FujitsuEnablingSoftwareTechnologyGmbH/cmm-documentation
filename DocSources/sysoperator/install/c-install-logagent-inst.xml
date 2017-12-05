@@ -70,10 +70,10 @@
                             <p><codeph>--password</codeph>. The password of the user specified in <codeph>username</codeph>.</p>
                         </li>
                         <li>
-                            <p>##TODO <codeph>--user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>##If not specified, what does <codeph>default or Default</codeph> imply? Default (name with capital D; ID with small)</i></p>
+                            <p><codeph>--user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>##If not specified, what does <codeph>default or Default</codeph> imply? Default (name with capital D; ID with small)</i></p>
                         </li>
                         <li>
-                            <p>##TODO <codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>##If not specified, what does <codeph>default</codeph> imply?</i></p>
+                            <p><codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>##If not specified, what does <codeph>default</codeph> imply?</i></p>
                         </li>
                         <li>
                             <p><codeph>--hostname</codeph>. Meta information to be collected with the log data that is retrieved by the agent. The information can be defined as an array. Example: <codeph>['service:'monitoring', 'hostname']</codeph></p>

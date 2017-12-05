@@ -47,7 +47,7 @@ MON_KEYSTONE_URL=&lt;os_ip>:5000
 # Enable Kibana authorization (for token received from Horizon Plugin)
 MON_MONASCA_PLUGIN_ENABLED=True
 
-# Set the path to mount Kibana to the OpenStack Horizon proxy 
+# Set the path to link Kibana to OpenStack Horizon via proxy (leave as is).
 MON_BASE_PATH=/dashboard/monitoring/logs_proxy
 
 # Set the admin credentials for installing the Monasca data source

@@ -44,7 +44,7 @@
 --project_domain_name default \ 
 --service_type monitoring \
 --keystone_url &lt;openstack_ip>:35357/v3 \  
---monasca_statsd_port &lt;port_no>     
+--monasca_statsd_port &lt;port_no> \     
 --skip_detection_plugins OVS Libvirt </codeblock>
                     <p>The minimum set of parameters to be configured for running the installer includes:</p>
                     <ul>
@@ -63,13 +63,13 @@
                             <p><codeph>--project_name</codeph>. Optional. The name of the OpenStack project for which metrics data is to be retrieved by the agent. If <codeph>--project_name</codeph> is not specified, the data is retrieved from the default project assigned to the user specified in <codeph>--username</codeph>.</p>
                         </li>
                         <li>
-                            <p>##<codeph> --user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
+                            <p><codeph> --user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
                         </li>
                         <li>
-                            <p>## --<codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
+                            <p> --<codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
                         </li>
                         <li>
-                            <p>## <codeph>--service_type</codeph>. Example: <codeph>monitoring</codeph></p>
+                            <p><codeph>--service_type</codeph>. Example: <codeph>monitoring</codeph></p>
                         </li>
                         <li>
                             <p><codeph>--keystone_url</codeph>. Mandatory parameter specifying the URL used to access the server where the OpenStack Keystone service is installed. It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph></p>
@@ -78,7 +78,7 @@
                             <p><codeph>--monasca_statsd_port</codeph>. Optional. The port number for the StatsD daemon. Check whether the default port number must be changed from <codeph>8125</codeph> to <codeph>8126</codeph>. Port <codeph>8125</codeph> is used by Gnocchi in Red Hat Enterprise Linux OpenStack Platform 10.</p>
                         </li>
                         <li>
-                            <p>## <codeph>--skip_detection_plugins</codeph>. <i>Optional or mandatory?</i> Example: <codeph>OVS Libvirt</codeph>.</p>
+                            <p><codeph>--skip_detection_plugins</codeph>. <i>Optional or mandatory?</i> Example: <codeph>OVS Libvirt</codeph>.</p>
                         </li>
                     </ul>
                 </li>

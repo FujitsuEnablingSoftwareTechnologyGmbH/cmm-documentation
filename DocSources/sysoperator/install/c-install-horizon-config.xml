@@ -13,11 +13,11 @@
                 <li>
                     <p>Specify the IP address of your <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> node in your <codeph>local_settings.py</codeph> file. The file is located in your plugin installation directory in the <codeph>/lib/python2.7/site-packages/monitoring/config</codeph> subdirectory:</p>
-                    <codeblock>GRAFANA_URL = getattr(settings, 'GRAFANA_URL', {'RegionOne': '&lt;cmm_ip>:3000/', })
+                            /> node in your <codeph>local_settings.py</codeph> file. The file is located in your plugin installation directory <codeph>&lt;monasca_ui_dir>/lib/python2.7/site-packages/monitoring/config</codeph>:</p>
+                    <codeblock>GRAFANA_URL = getattr(settings, 'GRAFANA_URL', {'RegionOne': 'http://&lt;cmm_ip>:3000/', })
 
 ENABLE_KIBANA_BUTTON = getattr(settings, 'ENABLE_KIBANA_BUTTON', True)
-KIBANA_HOST = getattr(settings, 'KIBANA_HOST', '&lt;cmm_ip>:5601/')
+KIBANA_HOST = getattr(settings, 'KIBANA_HOST', 'http://&lt;cmm_ip>:5601/')
 KIBANA_POLICY_RULE = getattr(settings, 'KIBANA_POLICY_RULE',
                              'monitoring:kibana_access')
 KIBANA_POLICY_SCOPE = getattr(settings, 'KIBANA_POLICY_SCOPE',
