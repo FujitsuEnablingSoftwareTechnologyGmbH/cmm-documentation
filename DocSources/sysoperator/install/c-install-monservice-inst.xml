@@ -37,7 +37,7 @@
                     </ul>
                 </li>
                 <li>
-                    <p>Open the <codeph>.env</codeph> file to make adaptions that are required for your environment.</p>
+                    <p>Open the <codeph>.env</codeph> file to make the adaptions required for your environment.</p>
                 </li>
                 <li>
                     <p>For integrating the Monitoring Service with OpenStack Keystone, you have to adapt the <codeph>OpenStack Keystone service</codeph> section:</p>
@@ -50,10 +50,9 @@ MON_MONASCA_PLUGIN_ENABLED=True
 # Set the path to mount Kibana to the OpenStack Horizon proxy 
 MON_BASE_PATH=/dashboard/monitoring/logs_proxy
 
-##TODO
-##MON_GRAFANA_USERNAME=admin >>> OpenStack admin user
-##MON_GRAFANA_PASSWORD=secretadmin
- >>> password</codeblock>
+# Set the admin credentials for installing the Monasca data source
+MON_GRAFANA_USERNAME=&lt;admin_user_name>
+MON_GRAFANA_PASSWORD=&lt;admin_password></codeblock>
                     <ul>
                         <li>
                             <p>Replace <codeph>os_ip</codeph> by the IP address of the node on which the OpenStack Keystone service is deployed, for example, <codeph>http://172.31.0.216</codeph>. </p>
@@ -62,12 +61,10 @@ MON_BASE_PATH=/dashboard/monitoring/logs_proxy
                             <p>Set the <codeph>MON_MONASCA_PLUGIN_ENABLED</codeph> parameter to <codeph>True</codeph>.</p>
                         </li>
                         <li>
-                            <p>Set the <codeph>MON_BASE_PATH</codeph> parameter to <codeph>/dashboard/monitoring/logs_proxy</codeph>. This path is required for mounting Kibana if <ph
-                                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                /> is running behind a proxy. </p>
+                            <p>Set the <codeph>MON_BASE_PATH</codeph> parameter to <codeph>/dashboard/monitoring/logs_proxy</codeph>.</p>
                         </li>
                         <li>
-                            <p>##TODO## Replace <codeph>###</codeph> and <codeph>###</codeph> by the credentials of the OpenStack <codeph>admin</codeph> user. By default, the <codeph>admin</codeph> user is used for ###.</p>
+                            <p>Replace <codeph>admin_user_name</codeph> and <codeph>admin_password</codeph> by the credentials of the OpenStack <codeph>admin</codeph> user. By default, the <codeph>admin</codeph> user is used for installing the Monasca data source in Grafana.</p>
                         </li>
                     </ul>
                 </li>
@@ -87,7 +84,8 @@ MON_API_PASSWORD=&lt;api_password></codeblock>
                             <p>Replace <codeph>user_name</codeph> and <codeph>password</codeph> by the credentials of a user used for authenticating the agents against OpenStack Keystone, and replace <codeph>project_name</codeph> by the name of the OpenStack project for which data is to be retrieved by the agents.</p>
                             <p>The names and passwords that you enter must correspond to the project and agent user you have already prepared for the integration of <ph
                                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                    /> with OpenStack. For details, refer to <xref href="c-install-ksconfig-users.xml"/>. </p>
+                                    /> with OpenStack. For details, refer to <xref href="c-install-ksconfig-users.xml"
+                                />. </p>
                             <p>Example:</p>
                             <codeblock># Set the agent credentials 
 MON_AGENT_USERNAME=monasca-agent
@@ -104,12 +102,26 @@ MON_API_PASSWORD=password</codeblock>
                     </ul>
                 </li>
                 <li>
-                    <p>The installation of the Monitoring Service mounts <codeph>/opt/monasca-containers</codeph> as default volume for the data directories of Elasticsearch, Influxdb, MySQL, Kafka, and Grafana. </p>
+                    <p>The installation of the Monitoring Service mounts <codeph>/opt/monasca-containers</codeph> as default volume for the data directories of Elasticsearch, InfluxDB, MySQL, Kafka, and Grafana. </p>
                     <p>If required, you can update the <codeph>MON_DOCKER_VOL_ROOT</codeph> parameter in the <codeph>Data directories</codeph> section, and specify a different volume.</p>
-                    <codeblock># Set the path for the data directories of of Elasticsearch,  
-# Influxdb, MySQL, Kafka, and Grafana
-
+                    <codeblock># Set the path for the data directories of Elasticsearch,  
+# InfluxDB, MySQL, Kafka, and Grafana
 MON_DOCKER_VOL_ROOT=&lt;path to data directories></codeblock>
+                </li>
+                <li>
+                    <p>By default, <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                        /> retains the data stored in the Elasticsearch and InfluxDB database for 60 days. Older data is automatically deleted.</p>
+                    <p>If required, you can change the data retention parameters in the <codeph>Data retention</codeph> section.</p>
+                    <codeblock># Data retention for Elasticsearch database. 
+# The delete job is executed every day at midnight.
+MON_ELASTICSEARCH_DATA_RETENTION_DAYS=&lt;number of days>
+
+# Data retention for InfluxDB database
+MON_INFLUXDB_RETENTION=&lt;number of days>d</codeblock>
+                    <p>Replace <codeph>number of days</codeph> by the number of days after which data is to be deleted.</p>
+                    <p>Example:</p>
+                    <codeblock>MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30
+MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
                     <p>Load the tarred repository from the <codeph>CMM_server_2.0.0_images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>

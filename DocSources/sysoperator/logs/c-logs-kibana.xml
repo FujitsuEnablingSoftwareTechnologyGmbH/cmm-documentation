@@ -51,7 +51,7 @@
             <p>On the <uicontrol>Discover</uicontrol> page the following elements assist you in analyzing your log data: </p>
             <ul>
                 <li>
-                    <p>Below the main navigation bar at the top of the window, there is a <b>search box</b> for querying your log data. By submitting a query, you search all indices that match the current index pattern. The name of the current index pattern is displayed directly below the search box on the left side. You can select a different index pattern, if required. For details on configuring and selecting index patterns, refer to <xref
+                    <p>Below the main navigation bar at the top of the window, there is a <b>search box</b> for querying the log data. By submitting a query, you search all indices that match the current index pattern. The name of the current index pattern is displayed directly below the search box on the left side. You can select a different index pattern, if required. For details on configuring and selecting index patterns, refer to <xref
                             href="../logs/c-logs-index.xml"/>.</p>
                     <p>For entering strings in the search box, use the Lucene query syntax. Kibana also supports the Elasticsearch Query DSL. For details, refer to the <xref
                             format="html"

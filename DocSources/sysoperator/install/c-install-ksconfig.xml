@@ -16,7 +16,9 @@
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> is done through OpenStack Keystone. The integration of <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    /> with OpenStack must therefore be prepared <b>before</b> you can proceed with installing the Monitoring Service as well as a Metrics Agent, a Log Agent, and the Horizon Plugin in your OpenStack environment.</p>
+                    /> with OpenStack must therefore be prepared <b>before</b> you can proceed with installing the Monitoring Service on the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> node as well as a Metrics Agent, a Log Agent, and the Horizon Plugin in your OpenStack environment.</p>
             <p>You need to take the following preparations:</p>
             <p>
                 <ul>

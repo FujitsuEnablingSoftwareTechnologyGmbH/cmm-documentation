@@ -12,7 +12,7 @@
         <section>
             <p>To make the monitoring functionality accessible in OpenStack Horizon, you have to install the Horizon Plugin in your OpenStack environment. After a successful installation on the node where the OpenStack Horizon service is deployed, additional manual configuration steps must be performed before <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> users can access the monitoring and log management functionality from the OpenStack Horizon dashboard.</p>
+                /> users can access the monitoring and log management functionality from OpenStack Horizon.</p>
         </section>
     </conbody>
 </concept>

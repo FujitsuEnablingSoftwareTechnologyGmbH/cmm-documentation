@@ -19,20 +19,20 @@
                         /> with your OpenStack platform.</p>
                 </li>
                 <li>
-                    <p>Installing the <b>Monitoring Service</b>. </p>
+                    <p>Installing the Monitoring Service. </p>
                     <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> provides a Docker-based installation of the Monitoring Service. Production-ready Docker images are provided for the services that make up the Monitoring Service. Instances of these images will run in separate Docker containers as soon as the installation is successful. </p>
                 </li>
                 <li>
-                    <p>Installing a <b>Metrics Agent</b>. </p>
+                    <p>Installing a Metrics Agent. </p>
                     <p>A Metrics Agent is installed as an extension to your OpenStack platform for monitoring an OpenStack service and the server on which it is deployed.</p>
                 </li>
                 <li>
-                    <p>Installing a <b>Log Agent</b>. </p>
+                    <p>Installing a Log Agent. </p>
                     <p>A Log Agent is installed as an extension to your OpenStack platform for managing the logs of an OpenStack service and the server on which it is deployed.</p>
                 </li>
                 <li>
-                    <p>Installing the <b>Horizon Plugin</b>. </p>
+                    <p>Installing the Horizon Plugin. </p>
                     <p>The Horizon Plugin is installed as an extension to your OpenStack platform. It is required for accessing the monitoring and log management functions from the OpenStack Horizon dashboard. </p>
                 </li>
             </ol>
@@ -42,7 +42,7 @@
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> node and one OpenStack node only: </p>
             <fig>
-                <image alt="installation-br.png" height="130" href="../../images/installation-br.png" width="300"/>
+                <image alt="installation-br.png" height="90" href="../../images/installation-br.png" width="200"/>
             </fig>
             <p>Observe the following when installing <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>:</p>

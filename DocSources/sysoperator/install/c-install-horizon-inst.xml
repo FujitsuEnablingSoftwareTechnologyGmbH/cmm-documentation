@@ -31,6 +31,9 @@
                     <p>Change the access permission of the <codeph>monasca-ui-1.5.1.run</codeph> file to Execute.</p>
                 </li>
                 <li>
+                    <p>Make sure that your <codeph>/root/.my.cnf</codeph> file does not define any passwords in single quotes.</p>
+                </li>
+                <li>
                     <p> Run the Horizon Plugin installer: </p>
                     <codeblock>./monasca-ui-1.5.1.run --target &lt;monasca_ui_dir></codeblock>
                     <p>Use the optional <codeph>--target</codeph> parameter to specify the directory in which to install the plugin. Example: <codeph>/opt/monasca-ui</codeph>.</p>

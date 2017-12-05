@@ -12,7 +12,7 @@
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> integrates with Kibana, an open source analytics and visualization platform. <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> uses Kibana as a front-end application to the log data held in the Elasticsearch database. </p>
             <p>Kibana allows you to easily understand large data volumes. Based on the data that is stored in Elasticsearch indices, you can perform advanced data analysis and visualize your log data in a variety of charts, tables, or maps. Changes to the Elasticsearch indices are displayed in <ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> in real time.</p>
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> in real-time.</p>
             <p>The log management features of <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> include:</p>
             <ul>

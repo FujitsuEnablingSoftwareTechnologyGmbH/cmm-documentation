@@ -12,7 +12,7 @@
                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> can be installed on a host machine with the following operating systems:</p>
             <ul>
                 <li>
-                    <p>Red Hat Enterprise Linux 7.3 (for Intel64). </p>
+                    <p>Red Hat Enterprise Linux 7.4 (for Intel64). </p>
                 </li>
             </ul>
             <note othertype="note"
@@ -96,7 +96,7 @@
                     <p>The space for log data/day corresponds to approx. 2 GB.</p>
                 </li>
                 <li>
-                    <p>The space for metrics data/day correspond to approx 50 MB.</p>
+                    <p>The space for metrics data/day correspond to approx. 50 MB.</p>
                 </li>
             </ul>
             <p>The formula is based on the following assumptions for log data: </p>
@@ -108,7 +108,7 @@
                     <p>Approx. 1 log entry/file/sec </p>
                 </li>
                 <li>
-                    <p>200 bytes size</p>
+                    <p>200 bytes in size</p>
                 </li>
             </ul>
             <p>The formula is based on the following assumptions for metrics data: </p>
@@ -117,10 +117,10 @@
                     <p>400 metrics per node </p>
                 </li>
                 <li>
-                    <p>Time interval: 30 secs </p>
+                    <p>Time interval of 30 secs </p>
                 </li>
                 <li>
-                    <p>20 bytes size</p>
+                    <p>20 bytes in size</p>
                 </li>
             </ul>
             <note othertype="note">

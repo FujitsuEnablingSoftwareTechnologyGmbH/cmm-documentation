@@ -33,7 +33,7 @@
                 <ul>
                     <li><b>Monitoring API</b><p>A RESTful API for monitoring. It is primarily focused on the following areas: </p><ul>
                             <li>
-                                <p>Metrics: Store and query massive amounts of metrics in real time. </p>
+                                <p>Metrics: Store and query massive amounts of metrics in real- time. </p>
                             </li>
                             <li>
                                 <p>Statistics: Provide statistics for metrics. </p>

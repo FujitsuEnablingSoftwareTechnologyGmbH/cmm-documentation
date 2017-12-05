@@ -15,12 +15,12 @@
                 </li>
                 <li>
                     <p>To stop the agent, execute the following command:</p>
-                    <codeblock>sudo systemctl stop openstack-monasca-log-agent</codeblock>
+                    <codeblock>sudo systemctl stop monasca-log-agent</codeblock>
                 </li>
                 <li>
                     <p>Open the file with your favorite editor.</p>
                     <p>Example:</p>
-                    <codeblock>sudo vim /etc/monasca/monasca-log-agent/agent.conf</codeblock>
+                    <codeblock>sudo vim opt/monasca/monasca-log-agent/conf/agent.conf</codeblock>
                 </li>
                 <li>
                     <p>Adapt the input section, if required.</p>
@@ -44,7 +44,7 @@
     path => "/var/log/monasca/api/error.log"
   }
 }</codeblock>
-                    <p>For additional details on the input section, refer to ##.</p>
+                    <!-- p>##TODO For additional details on the input section, refer to ##.</p -->
                 </li>
                 <li>
                     <p>Adapt the output section, if required. Update the corresponding parameter values. Each value must be enclosed in double quotes (<codeph>"</codeph>).</p>
@@ -66,11 +66,11 @@
   }
 }
 </codeblock>
-                    <p>For additional details on the output section, refer to ##.</p>
+                    <!-- p>For additional details on the output section, refer to ##.</p -->
                 </li>
                 <li>
                     <p>To start the agent again, execute the following command:</p>
-                    <codeblock>sudo systemctl start openstack-monasca-log-agent	</codeblock>
+                    <codeblock>sudo systemctl start monasca-log-agent	</codeblock>
                 </li>
             </ol>
             <p>The agent is instantly available with the updated configuration settings.</p>

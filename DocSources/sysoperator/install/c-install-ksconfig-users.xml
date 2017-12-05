@@ -18,7 +18,7 @@
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     />. The monitoring data retrieved for <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> and for your OpenStack services and servers is accessible to users assigned to this project, provided they have the required role assigned.</p>
+                /> and your OpenStack services and servers is accessible to users assigned to this project, provided they have the required role assigned.</p>
             <p>Example command for creating a <codeph>monasca</codeph> project:</p>
             <p>
                 <codeblock>openstack project create monasca </codeblock>
@@ -47,7 +47,8 @@ openstack role create monasca-agent</codeblock>
             <p>This user is used by the Metrics Agent and the Log Agent to submit data to the Monitoring Service. It is recommended that this user is used only for configuration purposes and not for actually monitoring services and servers. </p>
             <p>Example command for creating a <codeph>monasca-agent</codeph> user:</p>
             <p>
-                <codeblock>openstack user create --project monasca --password password monasca-agent</codeblock>
+                <codeblock>openstack user create --project monasca \
+--password password monasca-agent</codeblock>
             </p>
         </section>
         <section>
@@ -55,12 +56,14 @@ openstack role create monasca-agent</codeblock>
             <p>The following assigments must be prepared:</p>
             <ul>
                 <li>
-                    <p>The new OpenStack user (<codeph>monasca-agent</codeph> in the example) must have the <codeph>monasca-agent</codeph> role in OpenStack and be assigned to the project prepared for <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
+                    <p>The new OpenStack user (<codeph>monasca-agent</codeph> in the example) must be assigned to the project prepared for <ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                            /> and must have the <codeph>monasca-agent</codeph> role.</p>
                 </li>
                 <li>
-                    <p>The <codeph>admin</codeph> user must have the <codeph>monasca-user</codeph> and <codeph>admin</codeph> roles and be assigned to the project prepared for <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
+                    <p>The <codeph>admin</codeph> user must be assigned to the project prepared for <ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                            /> and must have the <codeph>monasca-user</codeph> and <codeph>admin</codeph> roles.</p>
                 </li>
             </ul>
             <p>Example commands for assigning the roles: </p>

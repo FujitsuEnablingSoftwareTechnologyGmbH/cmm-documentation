@@ -30,6 +30,9 @@
                     <p>Change the access permission of the <codeph>log-agent-2.4.1_0.5.3.run</codeph> file to Execute.</p>
                 </li>
                 <li>
+                    <p>Make sure that your <codeph>/root/.my.cnf</codeph> file does not define any passwords in single quotes.</p>
+                </li>
+                <li>
                     <p>Run the agent installer, and provide the required OpenStack Keystone credentials. </p>
                     <p>Example: </p>
                     <codeblock>./log-agent-2.4.1_0.5.3.run \
@@ -37,13 +40,13 @@
     --monasca_log_api_url "&lt;cmm_ip>" \   
     --keystone_auth_url "&lt;openstack_ip>" \   
     --project_name "&lt;project>" \
-    --username "&lt;user_name> ##monasca-agent" \
+    --username "&lt;user_name>"  \
     --password "&lt;password>" \
     --user_domain_name "default" \
     --project_domain_name "default" \
-    --hostname "['app_type:kafka', 'priority:high']" \
+    --hostname "['&lt;name>:'&lt;dimension>']" \
     "/var/log/*" "/var/log/monasca/api/error.log"</codeblock>
-                    <p>All parameters are filled with default values. Each value must be enclosed in double quotes (<codeph>"</codeph>). The minimum set of parameters to be configured for an agent includes:  </p>
+                    <p>All parameters are filled with default values. Each value must be enclosed in double quotes (<codeph>"</codeph>). The minimum set of parameters to be configured for an agent includes: </p>
                     <ul>
                         <li>
                             <p><codeph>--target</codeph>. The directory in which the agent is installed. If <codeph>--target</codeph> is not specified, the agent is installed in the current working directory. </p>
@@ -53,7 +56,7 @@
                             </p>
                         </li>
                         <li>
-                            <p><codeph>--keystone_auth_url</codeph>. The URL used to access the server where the OpenStack Keystone service is installed. The service is used for authenticating the user specified in <codeph>username</codeph>.  It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph></p>
+                            <p><codeph>--keystone_auth_url</codeph>. The URL used to access the server where the OpenStack Keystone service is installed. The service is used for authenticating the user specified in <codeph>username</codeph>. It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph></p>
                         </li>
                         <li>
                             <p><codeph>--project_name</codeph>. The name of the OpenStack project for which log data is to be retrieved by the agent. Example: <codeph>monasca</codeph>.</p>
@@ -67,19 +70,19 @@
                             <p><codeph>--password</codeph>. The password of the user specified in <codeph>username</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>##If not specified, what does <codeph>default or Default</codeph> imply? Default (name with capital D; ID with small)</i></p>
+                            <p>##TODO <codeph>--user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>##If not specified, what does <codeph>default or Default</codeph> imply? Default (name with capital D; ID with small)</i></p>
                         </li>
                         <li>
-                            <p><codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>##If not specified, what does <codeph>default</codeph> imply?</i></p>
+                            <p>##TODO <codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>##If not specified, what does <codeph>default</codeph> imply?</i></p>
                         </li>
                         <li>
-                            <p><codeph>--hostname</codeph>. Meta information to be collected with the log data that is retrieved by the agent. The information can be defined as an array. <i>##EXAMPLE: --hostname "['service:'monitoring', 'hostname']" \</i></p>
+                            <p><codeph>--hostname</codeph>. Meta information to be collected with the log data that is retrieved by the agent. The information can be defined as an array. Example: <codeph>['service:'monitoring', 'hostname']</codeph></p>
                             <p>The meta information defined by a dimension is attached to each log entry. It is represented as one or more fields in the log management window. For the user who is working with the log data, dimensions provide additional filtering options.</p>
                         </li>
                     </ul>
                 </li>
             </ol>
-            <p>For detailed information on the configuration parameters that can be defined, refer to ##</p>
+            <!--p>##TODO For detailed information on the configuration parameters that can be defined, refer to ##</p -->
             <p>For running the installer, it is not mandatory to specify input file paths. Yet, without specifying which data is to be retrieved, an immediate update of the agent configuration is required following the installation.</p>
             <p>Specify the input file paths as in the following example: </p>
             <codeblock>"/var/log/monasca/api/error.log" "/var/log/neutron/firewall.log"</codeblock>

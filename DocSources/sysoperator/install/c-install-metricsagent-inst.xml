@@ -31,6 +31,9 @@
                     <p>Change the access permission of the <codeph>monasca-agent-2.2.0.run</codeph> file to Execute.</p>
                 </li>
                 <li>
+                    <p>Make sure that your <codeph>/root/.my.cnf</codeph> file does not define any passwords in single quotes.</p>
+                </li>
+                <li>
                     <p>Run the agent installer, and provide the required OpenStack Keystone credentials. </p>
                     <codeblock>./monasca-agent-2.2.0.run \
 --target /opt/monasca-agent -- \
@@ -38,10 +41,11 @@
 --password &lt;password> \                   
 --project_name &lt;project_name> \  
 --user_domain_name default \ 
---project_domain_name default \               
---keystone_url &lt;ip_address> \  
+--project_domain_name default \ 
+--service_type monitoring \
+--keystone_url &lt;openstack_ip>:35357/v3 \  
 --monasca_statsd_port &lt;port_no>     
---skip_detection_plugins OVS Libvirt  ##TODO   </codeblock>
+--skip_detection_plugins OVS Libvirt </codeblock>
                     <p>The minimum set of parameters to be configured for running the installer includes:</p>
                     <ul>
                         <li>
@@ -49,7 +53,7 @@
                         </li>
                         <li>
                             <p><codeph>--username</codeph>. Mandatory. The user to be used for authenticating the agent against OpenStack Keystone, for example <codeph>monasca-agent</codeph>.</p>
-                            <p>The user specified here must have the <codeph>monasca-agent</codeph> role in OpenStack and be assigned to the OpenStack project that is to be monitored by the agent. The project is specified in <codeph>project_name</codeph>.</p>
+                            <p>The user specified here must have the <codeph>monasca-agent</codeph> role in OpenStack and be assigned to the OpenStack project that is to be monitored by the agent. The project is specified in <codeph>project_name</codeph>, for example, <codeph>monasca</codeph>.</p>
                             <p>It is recommended that this user is used only for configuration purposes and not for actually monitoring services and servers.</p>
                         </li>
                         <li>
@@ -59,10 +63,13 @@
                             <p><codeph>--project_name</codeph>. Optional. The name of the OpenStack project for which metrics data is to be retrieved by the agent. If <codeph>--project_name</codeph> is not specified, the data is retrieved from the default project assigned to the user specified in <codeph>--username</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>##If not specified, what does <codeph>default</codeph> imply?</i></p>
+                            <p>##<codeph> --user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
                         </li>
                         <li>
-                            <p><codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>##If not specified, what does <codeph>default</codeph> imply?</i></p>
+                            <p>## --<codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
+                        </li>
+                        <li>
+                            <p>## <codeph>--service_type</codeph>. Example: <codeph>monitoring</codeph></p>
                         </li>
                         <li>
                             <p><codeph>--keystone_url</codeph>. Mandatory parameter specifying the URL used to access the server where the OpenStack Keystone service is installed. It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph></p>
@@ -71,7 +78,7 @@
                             <p><codeph>--monasca_statsd_port</codeph>. Optional. The port number for the StatsD daemon. Check whether the default port number must be changed from <codeph>8125</codeph> to <codeph>8126</codeph>. Port <codeph>8125</codeph> is used by Gnocchi in Red Hat Enterprise Linux OpenStack Platform 10.</p>
                         </li>
                         <li>
-                            <p><codeph>skip_detection_plugins OVS Libvirt  ##TODO   </codeph> ###</p>
+                            <p>## <codeph>--skip_detection_plugins</codeph>. <i>Optional or mandatory?</i> Example: <codeph>OVS Libvirt</codeph>.</p>
                         </li>
                     </ul>
                 </li>
@@ -86,7 +93,7 @@
             <p>
                 <note othertype="note">
                     <p>When running the installer, you can ignore error messages related to components that do not exist in your OpenStack environment, e.g. <codeph>ERROR: Kibana process has not been found. Plugin for Kibana will not be configured.</codeph></p>
-                    <p>The agent tries to auto-detect a specific set of processes and outputs an error messages if a process is not found. Irrespective of these messages, the agent is successfully installed.</p>
+                    <p>The agent tries to auto-detect a specific set of processes and outputs an error message if a process is not found. Irrespective of these messages, the agent is successfully installed.</p>
                 </note>
             </p>
             <p>The installer creates a <codeph>monasca-agent.service</codeph> file in the <codeph>/etc/systemd/system</codeph> directory, and automatically runs the service file to start the agent after a successful installation.</p>
