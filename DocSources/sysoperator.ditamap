@@ -16,7 +16,7 @@
             <series>System Operator's Guide</series>
         </prodinfo>
         <bookid>
-            <edition>Preliminary Version (2017-12-05)</edition>
+            <edition>Start/Stop (2017-12-06)</edition>
             <booknumber/>
         </bookid>
         <bookrights>
@@ -93,7 +93,6 @@
         <topicref format="dita" href="sysoperator/operate/c-logfilelocation.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/operate/c-backup.xml" type="concept">
             <topicref format="dita" href="sysoperator/operate/c-backupdb.xml" type="concept"/>
-            <topicref format="dita" href="sysoperator/operate/c-backupcfg.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/operate/c-backupdashboards.xml" type="concept"/>
         </topicref>
     </chapter>
