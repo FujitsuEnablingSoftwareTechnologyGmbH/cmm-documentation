@@ -12,7 +12,7 @@
                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> can be installed on a host machine with the following operating systems:</p>
             <ul>
                 <li>
-                    <p>Red Hat Enterprise Linux 7.4 (for Intel64). </p>
+                    <p>Red Hat Enterprise Linux 7.3 (for Intel64). </p>
                 </li>
             </ul>
             <note othertype="note"
