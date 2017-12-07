@@ -8,7 +8,6 @@
                     xml:lang="en-us">
     <title>Removing Metrics Data</title>
     <conbody>
-        <section><i>##to be updated; Input/contact Dobek</i></section>
         <section>
             <p>Metrics data is stored in the Metrics and Alarms InfluxDB Database. InfluxDB features an SQL-like query language for querying data and performing aggregations on that data.</p>
             <p>The Metrics Agent configuration defines the metrics and types of measurement for which data is stored. For each measurement, a so-called series is written to the InfluxDB database. A series consists of a timestamp, the metrics, and the value measured.</p>
@@ -23,33 +22,62 @@
             <p>Proceed as follows to delete metrics data from the database: </p>
             <p>
                 <ol>
-                    <li>Create a backup of the database. For details, refer to <xref
-                            href="../../shared/operationmaintenance/c-backup.xml"/>.</li>
-                    <li>Determine the ID of the OpenStack project for the data to be deleted:<p>Log in to the OpenStack dashboard and go to <b>Identity &gt; Projects</b>.</p><p>The following OpenStack projects are initially relevant for metrics and alarms management: </p><p>
-                            <ul>
-                                <li><codeph>admin</codeph>: All metrics data related to OpenStack.</li>
-                                <li><codeph>monasca</codeph>: All metrics data related to <ph
-                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</li>
-                            </ul>
-                        </p><p>In the course of the productive operation of <ph
+                    <li>
+                        <p>Create a backup of the database. For details, refer to <xref
+                                href="c-backup.xml"/>.</p>
+                    </li>
+                    <li>
+                        <p>Determine the ID of the OpenStack project for the data to be deleted:</p>
+                        <p>For this purpose, create a configuration file for defining environment variables:</p>
+                        <codeblock>vim .keystone-connect-e.env</codeblock>
+                        <p>Define the following variables in <codeph>.keystone-connect-e.env</codeph>:</p>
+                        <codeblock>-e OS_PROJECT_DOMAIN_NAME=Default \
+-e OS_USER_DOMAIN_NAME=Default \
+-e OS_PROJECT_NAME=admin \
+-e OS_USERNAME=admin \
+-e OS_PASSWORD=secretadmin \
+-e OS_AUTH_URL=http://localhost:35357/v3 \
+-e OS_IDENTITY_API_VERSION=3 \
+-e OS_IMAGE_API_VERSION=2              <i>##Notation - are the backslashes correct?</i></codeblock>
+                        <p>Connect to the working Keystone container and list the existing projects:</p>
+                        <codeblock>docker exec -it `cat .keystone-connect-e.env` monascadocker_keystone_1 openstack project list</codeblock>
+                        <p>The following response is displayed.</p>
+                        <p>Example: </p>
+                        <codeblock>+----------------------------------+----------+
+| ID                               | Name     |
++----------------------------------+----------+
+| 0c11d9e9029841958544794f05e71d04 | demo     |
+| c83cad8eb14a4adabd3da45f715f57c0 | monasca  |
++----------------------------------+----------+</codeblock>
+                        <p>The <codeph>monasca</codeph> project is initially relevant for metrics and alarms management. All metrics data related to <ph
                                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            />, additional projects may be created, for example, for application operators.</p><p>The <b>Project ID</b> field shows the relevant tenant ID. </p></li>
-                    <li>Log in to the host where the Monitoring Service is installed. </li>
-                    <li>Go to the directory where InfluxDB is installed: <p>
-                            <codeblock>cd /usr/bin</codeblock>
-                        </p></li>
-                    <li>Connect to InfluxDB using the InfluxDB command line interface as follows: <p>
-                            <codeblock>./influx -host &lt;host_ip&gt;</codeblock>
-                        </p><p>Replace <codeph>&lt;host_ip&gt;</codeph> with the IP address of the machine on which <ph
+                            /> and the OpenStack services are assigned to this project.</p>
+                        <p>In the course of the productive operation of <ph
                                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> is installed.</p><p>The output of this command is, for example, as follows: </p><p>
-                            <codeblock>Connected to http://localhost:8086 version 1.1.1
-InfluxDB shell version: 1.1.1
-</codeblock>
-                        </p></li>
-                    <li>Connect to the InfluxDB database of <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> (<codeph>mon</codeph>): <p>
-                            <codeblock>&gt; show databases
+                            />, additional projects may be created, for example, for application operators.</p>
+                        <p>The <b>ID</b> column shows the relevant tenant ID. </p>
+                    </li>
+                    <li>
+                        <p><i>##Step required at this stage?##</i> Log in to the <ph
+                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> node.</p>
+                    </li>
+                    <li>
+                        <p>Connect to InfluxDB as follows: </p>
+                        <p>
+                            <codeblock># docker exec -it monascadocker_influxdb_1 /bin/sh
+# influx</codeblock>
+                        </p>
+                        <p>The output of this command is, for example, as follows: </p>
+                        <p>
+                            <codeblock>Connected to http://localhost:8086 version 1.3.3
+InfluxDB shell version: 1.3.3</codeblock>
+                        </p>
+                    </li>
+                    <li>
+                        <p>Connect to the InfluxDB database of <ph
+                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                /> (<codeph>mon</codeph>): </p>
+                        <codeblock>&gt; show databases
 name: databases
 name
 ----
@@ -58,7 +86,6 @@ _internal
 
 &gt; use mon
 Using database mon</codeblock>
-                        </p>
                     </li>
                     <li>
                         <p>Check the outdated or unnecessary data to be deleted.</p>
@@ -80,16 +107,19 @@ Using database mon</codeblock>
                     <li>
                         <p>Delete the desired data.</p>
                         <ul>
-                            <li>When a project is no longer relevant or a specific tenant is no longer used, delete all series for the project as follows:<p>
-                                    <codeblock>DROP SERIES WHERE _tenant_id = '&lt;project ID&gt;'</codeblock>
-                                </p><p>Example: </p><p>
-                                    <codeblock>DROP SERIES WHERE _tenant_id = '27620d7ee6e948e29172f1d0950bd6f4'</codeblock>
-                                </p></li>
-                            <li>When a metrics is no longer relevant for a project, delete all series for the specific project and metrics as follows: <p>
-                                    <codeblock>DROP SERIES FROM "&lt;metrics&gt;" WHERE _tenant_id = '&lt;project ID&gt;'</codeblock>
-                                </p><p>Example: </p><p>
-                                    <codeblock>DROP SERIES FROM "cpu.user_perc" WHERE _tenant_id = '27620d7e'</codeblock>
-                                </p></li>
+                            <li>
+                                <p>When a project is no longer relevant or a specific tenant is no longer used, delete all series for the project as follows:</p>
+                                <codeblock>DROP SERIES WHERE _tenant_id = '&lt;project ID&gt;'</codeblock>
+                                <p>Example: </p>
+                                <codeblock>DROP SERIES WHERE _tenant_id = '27620d7ee6e948e29172f1d0950bd6f4'</codeblock>
+                            </li>
+                            <li>
+                                <p>When a metrics is no longer relevant for a project, delete all series for the specific project and metrics as follows: </p>
+                                <codeblock>DROP SERIES FROM "&lt;metrics&gt;" WHERE _tenant_id = '&lt;project ID&gt;'</codeblock>
+                                <p>Example: </p>
+                                <codeblock>DROP SERIES FROM "cpu.user_perc" WHERE _tenant_id = '27620d7e'</codeblock>
+                                <p/>
+                            </li>
                             <!-- li>In order to avoid that the entire database becomes too large, you can, for example, create a backup, then drop the database and create a new, empty one: <p>
                                     <codeblock>DROP DATABASE mon</codeblock>
                                 </p><p>
@@ -99,9 +129,7 @@ Using database mon</codeblock>
                     </li>
                     <li>
                         <p>Restart the <codeph>influxdb</codeph> service, for example, as follows: </p>
-                        <p>
-                            <codeblock>sudo systemctl restart influxdb</codeblock>
-                        </p>
+                        <codeblock>sudo systemctl restart influxdb</codeblock>
                     </li>
                 </ol>
             </p>

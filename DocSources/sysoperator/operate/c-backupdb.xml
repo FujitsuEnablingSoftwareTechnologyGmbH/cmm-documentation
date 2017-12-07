@@ -25,6 +25,21 @@
                 id="For_backing_up_and_restoring_concept_conbody_section_2_p">For backing up and restoring your Elasticsearch database, you can use the Snapshot and Restore module of Elasticsearch.</p>
                         <p id="To_make_a_backup_of_the_datab_concept_conbody_section_2_p"
                                 >To create a backup of the database, proceed as follows:</p>
+                        <p/>
+                        <p>alte Lösung:</p>
+                        <p>
+                                <ol>
+                                        <li>
+                                                <p>Specify a file system for backing up the Elasticsearch database in the <codeph>elasticsearch</codeph> section of the <codeph>group_vars/monasca_group</codeph> file. The file system you specify must later be used for backing up your Elasticsearch database. </p>
+                                                <p>Example: </p>
+                                                <codeblock>elasticsearch_repo_dir: -/mount/backup/elasticsearch1</codeblock>
+                                        </li>
+                                </ol>
+                        </p>
+                        <p/>
+                        <p>NEU in env file</p>
+                        <p/>
+                        <p/>
                         <ol>
                                 <li
                             id="Make_sure_that_concept_conbody_section_2_o">
@@ -123,59 +138,63 @@
                 </section>
                 <section>
                         <title>InfluxDB Database</title>
-                        <p>For backing up and restoring your InfluxDB database, you can use the InfluxDB shell. The shell is part of your InfluxDB distribution. If you installed InfluxDB via a package manager, the shell is, by default, installed in the <codeph>/usr/bin</codeph> directory.</p>
+                        <!-- p>For backing up and restoring your InfluxDB database, you can use the InfluxDB shell. The shell is part of your InfluxDB distribution. If you installed InfluxDB via a package manager, the shell is, by default, installed in the <codeph>/usr/bin</codeph> directory.</p -->
                         <p>To create a backup of the database, proceed as follows:</p>
                         <ol>
                                 <li>
-                                        <p>Log in to the InfluxDB database as a user who is allowed to run the <codeph>influxdb</codeph> service.</p>
-                                        <p>Example:</p>
-                                        <codeblock>$ su influxdb -s /bin/bash</codeblock>
+                                        <p>Log in to the <ph
+                                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> node.</p>
                                 </li>
                                 <li>
-                                        <p>Back up the database.</p>
-                                        <p>Example:</p>
-                                        <codeblock>$ influxd backup -database &lt;db_name&gt; /mount/backup/mysnapshot</codeblock>
-                                        <p>Replace <codeph>&lt;db_name&gt;</codeph> with the name of the database. The example creates the backup for the database in <codeph>/mount/backup/mysnapshot</codeph>.</p>
+                                        <p>Go to the installation directory.</p>
+                                        <p><i>##install dir is where the .env. and 2 docker-compose files are located. From where must the command in the next step be executed </i>?</p>
+                                </li>
+                                <li>
+                                        <p>For backing up the InfluxDB database, it is required to mount a directory for synchronizing the meta data and a directory for storing the database backup file on your local machine.</p>
+                                        <p>To mount the directories, execute the following command:</p>
+                                        <codeblock>$ docker docker run --rm --detach 
+  -v $INFLUXDB_META_DIR:&lt;meta_data_dir> 
+  -v $INFLUXDB_BACKUPS:&lt;backup_dir>
+influxdb:1.3.3-alpine</codeblock>
+                                        <p>Replace <codeph>meta_data_dir</codeph> with the directory to be used for synchronizing the meta data, for example <codeph>/var/lib/influxdb</codeph>. </p>
+                                        <p>Replace <codeph>backup_dir</codeph> with the directory to be used for storing the backup file, for example <codeph>/backup</codeph>. </p>
+                                </li>
+                                <li>
+                                        <p>For backing up the InfluxDB database, you need the ID of the container in which the database is running:</p>
+                                        <codeblock>$ docker ps | grep influxd</codeblock>
+                                        <p>Example output with the container ID: </p>
+                                        <codeblock>$ 07e9007e0be8        influxdb:1.3.3-alpine   "/entrypoint.sh in..."
+3 seconds ago       Up 2 seconds 0.0.0.0:32779->8086/tcp   determined_goodall</codeblock>
+                                </li>
+                                <li>
+                                        <p>Back up the database. To create the backup from your local machine, execute the following command:</p>
+                                        <codeblock>$ docker exec &lt;container_id> influxd backup -database &lt;db_name> "&lt;backup_dir>/&lt;name>.backup"</codeblock>
+                                        <p>Replace <codeph>container_id</codeph> with the ID of the container in which the database is running, <codeph>db_name</codeph> with the name of the database, <codeph>backup_dir</codeph> with the directory you have mounted for storing the backup file, and <codeph>name</codeph> with the name of the backup file to be created.</p>
+                                        <p>The following example creates a backup of the <codeph>mon</codeph> database, running in container <codeph>07e9007e0be8</codeph>, in <codeph>/backup/mon.backup</codeph>.</p>
+                                        <codeblock>$ docker exec 07e9007e0be8 influxd backup -database mon "/backup/mon.backup"</codeblock>
                                 </li>
                         </ol>
-                        <p>Before restoring the database, make sure that all database processes are shut down. To restore the database, you can then proceed as follows:</p>
+                        <p>Before restoring the database, make sure that the container for the InfluxDB database is stopped.</p>
+                        <p>To restore the database, you can then proceed as follows:</p>
                         <ol>
                                 <li>
-                                        <p>If required, delete all files not included in the backup by dropping the database before you carry out the restore operation. A restore operation restores all files included in the backup. Files created or merged at a later point in time are not affected.</p>
+                                        <p>Restore the metastore to an ephemeral container.</p>
                                         <p>Example:</p>
-                                        <codeblock>$ influxd drop database &lt;db_name&gt;</codeblock>
-                                        <p>Replace <codeph>&lt;db_name&gt;</codeph> with the name of the database.</p>
+                                        <codeblock>$  docker run --rm --detach -v $INFLUXDB_META_DIR:/var/lib/influxdb -v $INFLUXDB_BACKUPS:/backups 
+-p 8086 influxdb:1.3.3-alpine -c "influxd restore -metadir /var/lib/influxdb/meta  -datadir 
+/var/lib/influxdb/data -database mon /backups/mon.backup</codeblock>
+                                        <p><i>##why do you speak of an "ephemeral" container here?</i></p>
                                 </li>
                                 <li>
-                                        <p>Stop the InfluxDB database service. Use the following command:</p>
-                                        <codeblock>$ systemctl stop influxdb</codeblock>
-                                </li>
-                                <li>
-                                        <p>Log in to the InfluxDB database as a user who is allowed to run the <codeph>influxdb</codeph> service. </p>
+                                        <p>Start the Docker container for the restored metastore.</p>
                                         <p>Example:</p>
-                                        <codeblock>$ su influxdb -s /bin/bash</codeblock>
-                                </li>
-                                <li>
-                                        <p>Restore the metastore.</p>
-                                        <p>Example:</p>
-                                        <codeblock>$ influxd restore -metadir /var/opt/influxdb/meta /mount/backup/mysnapshot</codeblock>
-                                </li>
-                                <li>
-                                        <p>Restore the database. </p>
-                                        <p>Example:</p>
-                                        <codeblock>$ influxd restore -database &lt;db_name&gt; -datadir /var/opt/influxdb/data /mount/backup/mysnapshot</codeblock>
-                                        <p>The example restores the backup from <codeph>/mount/backup/mysnapshot</codeph> to <codeph>/var/opt/influxdb/influxdb.conf</codeph>.</p>
-                                </li>
-                                <li>
-                                        <p>Ensure that the file permissions for the restored database are set correctly.</p>
-                                        <codeblock>$ sudo chown -R influxdb:influxdb /var/opt/influxdb</codeblock>
-                                </li>
-                                <li>
-                                        <p>Start the InfluxDB database service. Use the following command:</p>
-                                        <codeblock>$ systemctl start influxdb</codeblock>
+                                        <codeblock>$ docker docker run --rm --detach -v $INFLUXDB_META_DIR:/var/lib/influxdb -v $INFLUXDB_BACKUPS:/backups 
+influxdb:1.3.3-alpine</codeblock>
                                 </li>
                         </ol>
-                        <p>For additional information on backing up and restoring an InfluxDB database, refer to the <xref
+                        <p><i>##Nothing to be added?</i></p>
+                        <p><i>##This reference does not help with a containerized application##</i> For additional information on backing up and restoring an InfluxDB database, refer to the <xref
                                         format="html"
                                         href="https://docs.influxdata.com/influxdb/v1.1/administration/backup_and_restore/"
                                         scope="external"><u><i>InfluxDB documentation</i></u></xref>.</p>
