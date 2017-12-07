@@ -10,16 +10,27 @@
     <conbody>
         <section>
             <p>In case of trouble with the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> services, you can study their log files to find the reason. The log files are also useful if you need to contact your support organization. For storing the log files, the default installation uses the <codeph>/var/log</codeph> directory on the hosts where the agents or services are installed.</p>
-            <p>You can use <codeph>systemd</codeph>, a system and session manager for LINUX, and <codeph>journald</codeph>, a LINUX logging interface, for addressing dispersed log files.</p>
-            <p>The <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> installer automatically puts all <ph
+                                /> services and the docker containers in which they are deployed, you can study the log files to find the reason. The log files are also useful if you need to contact your support organization.</p>
+            <p>For managing the logs of <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                        />, the installation automatically deploys a Log Agent on the <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> services under the control of <codeph>systemd</codeph>. <codeph>journald</codeph> provides a centralized management solution for the logging of all processes that are controlled by <codeph>systemd</codeph>. The logs are collected and managed in a so-called journal controlled by the <codeph>journald</codeph> daemon.</p>
-            <p>For details on the <codeph>systemd</codeph> and <codeph>journald</codeph> utilities, refer to the <xref
-                    format="html"
-                    href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/part-Basic_System_Configuration.html"
-                    scope="external"><u><i>Red Hat Enterprise LINUX documentation</i></u></xref>.</p>
+                                        /> node. This allows you to instantly use the log management functions for self-monitoring. You can use Kibana as a front-end application to the log data collected from the <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                        /> services and containers. For details, refer to <xref
+                                        href="../logs/c-logs-intro.xml"/>. </p>
+            <p>You can also use <codeph>docker-compose logs</codeph> to manually check the log files of the containers deployed on your <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                /> node. </p>
+            <p>To check the log files of individual containers, run <codeph>docker-compose logs</codeph> as follows:</p>
+            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml logs &lt;services> </codeblock>
+            <p>Replace <codeph>services</codeph> by the names of the services for which you want to check the log files. For a list of the service names, refer to <xref
+                                        href="../install/c-install-monservice.xml"/>. </p>
+            <p>Example for checking the Kafka and Kibana log files: </p>
+            <p>
+                <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml logs kafka kibana</codeblock>
+            </p>
+                        <p>For more information on <codeph>docker-compose logs</codeph>, you can execute the following command:</p>
+                        <codeblock>docker-compose logs --help</codeblock>
         </section>
         
     </conbody>
