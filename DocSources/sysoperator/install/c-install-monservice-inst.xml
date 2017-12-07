@@ -162,7 +162,7 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
                         <tbody>
                             <row>
                                 <entry><codeph>agent-collector</codeph></entry>
-                                <entry>Collector service of the Metrics Agent. Based on a configurable interval, the collector component collects the metrics data from the monitored services and servers .</entry>
+                                <entry>Collector service of the Metrics Agent. Based on a configurable interval, the collector component collects the metrics data from the monitored services and servers.</entry>
                             </row>
                             <row>
                                 <entry><codeph>agent-forwarder</codeph></entry>

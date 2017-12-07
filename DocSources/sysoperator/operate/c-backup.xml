@@ -11,7 +11,6 @@
         <section>Typical tasks of the Monitoring Service operator are to make regular backups, particularly of the data created during operation.<p>At regular intervals, you should make a backup of all:</p><p>
                 <ul>
                     <li>Databases.</li>
-                    <li>Configuration files of the individual agents and services.</li>
                     <li>Monitoring and log dashboards you have created and saved.</li>
                 </ul>
             </p><p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"

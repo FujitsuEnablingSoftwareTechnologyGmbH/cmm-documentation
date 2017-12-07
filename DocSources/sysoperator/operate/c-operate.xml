@@ -20,7 +20,7 @@
                     <li>Removing metrics data from the InfluxDB database.</li>
                     <li>Removing log data from the Elasticsearch database.</li>
                     <li>Handling log files of agents and services.</li>
-                    <li>Backup and recovery of databases, configuration files, and dashboards.</li>
+                    <li>Backup and recovery of databases and dashboards.</li>
                 </ul>
             </p>
         </section>
