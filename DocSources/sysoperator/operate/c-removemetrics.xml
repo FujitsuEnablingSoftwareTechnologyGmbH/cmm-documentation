@@ -6,18 +6,22 @@
 
 <concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
             xml:lang="en-us">
-    <title>Disabling Metrics for a Metrics Agent</title>
+    <title>Disabling Metrics for a Metrics Agent on the OpenStack Platform</title>
     <conbody>
-        <section><i>##to be updated; do the run files use docker? start/stop commands? service name?</i></section>
         <section>
-            <p>To disable the monitoring of a specific metrics that is no longer needed in the configuration of a Metrics Agent, you have to delete the corresponding <codeph>.yaml</codeph> file. Proceed as follows:</p>
+            <p>To disable the monitoring of a specific metrics that is no longer needed in the configuration of a Metrics Agent, you have to delete the corresponding <codeph>.yaml</codeph> file. </p>
+            <note othertype="note">
+                <p>The following step-by-step description refers to a Metrics Agent that you have installed on an OpenStack node. It is assumed that there is no need to disable metrics for the Metrics Agent used for monitoring <ph
+                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> itself.</p>
+            </note>
+            <p>Proceed as follows:</p>
             <ol compact="no">
                 <li>
-                    <p>Log in to the server where the agent is installed.</p>
+                    <p>Log in to the OpenStack node where the agent is installed.</p>
                 </li>
                 <li>
                     <p>To stop the agent, execute the following command:</p>
-                    <codeblock>sudo systemctl stop openstack-monasca-agent</codeblock>
+                    <codeblock>sudo systemctl stop monasca-agent</codeblock>
                 </li>
                 <li>
                     <p>Change to the directory that stores the metrics.</p>
@@ -31,7 +35,7 @@
                 </li>
                 <li>
                     <p>To start the agent again, execute the following command:</p>
-                    <codeblock>sudo systemctl start openstack-monasca-agent</codeblock>
+                    <codeblock>sudo systemctl start monasca-agent</codeblock>
                 </li>
             </ol>
         </section>
