@@ -123,6 +123,12 @@ MON_INFLUXDB_RETENTION=&lt;number of days>d</codeblock>
 MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
+                    <p>The installation of the Monitoring Service mounts <codeph>/mount/backup/elasticsearch1</codeph> as default volume for backing up the Elasticsearch database. </p>
+                    <p>If required, you can update the <codeph>MON_ELASTICSEARCH_BACKUP</codeph> parameter, and specify a different volume.</p>
+                    <codeblock># Set the path for backing up the Elasticsearch database
+MON_ELASTICSEARCH_BACKUP=&lt;path to backup directory></codeblock>
+                </li>
+                <li>
                     <p>Load the tarred repository from the <codeph>CMM_server_2.0.0_images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>
                     <codeblock>$ docker load -i CMM_server_2.0.0.images.tar</codeblock>
                 </li>

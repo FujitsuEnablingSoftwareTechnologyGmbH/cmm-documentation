@@ -25,21 +25,6 @@
                 id="For_backing_up_and_restoring_concept_conbody_section_2_p">For backing up and restoring your Elasticsearch database, you can use the Snapshot and Restore module of Elasticsearch.</p>
                         <p id="To_make_a_backup_of_the_datab_concept_conbody_section_2_p"
                                 >To create a backup of the database, proceed as follows:</p>
-                        <p/>
-                        <p>alte Lösung:</p>
-                        <p>
-                                <ol>
-                                        <li>
-                                                <p>Specify a file system for backing up the Elasticsearch database in the <codeph>elasticsearch</codeph> section of the <codeph>group_vars/monasca_group</codeph> file. The file system you specify must later be used for backing up your Elasticsearch database. </p>
-                                                <p>Example: </p>
-                                                <codeblock>elasticsearch_repo_dir: -/mount/backup/elasticsearch1</codeblock>
-                                        </li>
-                                </ol>
-                        </p>
-                        <p/>
-                        <p>NEU in env file</p>
-                        <p/>
-                        <p/>
                         <ol>
                                 <li
                             id="Make_sure_that_concept_conbody_section_2_o">
@@ -48,7 +33,11 @@
                             href="http://curl.haxx.se/download.html"
                         scope="external"><u><i>http://curl.haxx.se/download.html</i></u></xref>.</p>
                                 </li>
-                                <li>Log in to the host where the Monitoring Service is installed.</li>
+                                <li>
+                                        <p>Log in to the <ph
+                                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> node.</p>
+                                </li>
                                 <li>
                                         <p>Create a snapshot repository.</p>
                                         <p>Example:</p>
@@ -62,7 +51,7 @@
                                         <p
                         id="The_example_registers_a_share_concept_conbody_section_2_o">The example registers a shared file system repository (<codeph>"type": "fs"</codeph>) that uses the <codeph>/mount/backup/elasticsearch1</codeph> directory for storing snapshots. </p>
                                         <note othertype="note"
-                                                        >The directory for storing snapshots must be specified as configured during the installation of the Monitoring Service in the <codeph>group_vars/monasca_group</codeph> file. The directory must be manually mounted before creating the snapshot. The <codeph>elasticsearch</codeph> user must be specified as the owner of the directory.</note>
+                                                        >The directory for storing snapshots must be specified as configured during the installation of the Monitoring Service (<codeph>MON_ELASTICSEARCH_BACKUP</codeph> parameter in <codeph>.env</codeph> file). The directory must be manually mounted before creating the snapshot. The <codeph>elasticsearch</codeph> user must be specified as the owner of the directory.</note>
                                         <p
                     id="compress_concept_conbody_section_2_o"><codeph>compress</codeph> is turned on to compress the metadata files.</p>
                                 </li>
@@ -88,34 +77,6 @@
                                         <p>The example creates a snapshot named <codeph>snapshot_1</codeph> for all indices in the <codeph>my_backup</codeph> repository.</p>
                                 </li>
                         </ol>
-                        <p/>
-                        <p/>
-                        <ul>
-                                <li><i>### started update ###</i></li>
-                                <li>
-                                        <p>Create a snapshot repository.</p>
-                                        <p>Example:</p>
-                                        <codeblock>$ curl -XPUT http://localhost:9200/_snapshot/my_backup -d '{
-  "type": "fs",
-  "settings": {
-       "location": "<b><i>/mount/backup/elasticsearch1</i></b>/my_backup",
-       "compress": true
-  }
-}'</codeblock>
-                                        <p id="The_example_registers_a_share_concept_conbody_section_2_o"
-                                                >The example registers a shared file system repository (<codeph>"type": "fs"</codeph>) that uses the <codeph><b><i>/mount/backup/elasticsearch1</i></b></codeph> directory for storing snapshots. </p>
-                                        <note othertype="note"
-                                                >The directory for storing snapshots must be specified as configured during the installation of the Monitoring Service in the <codeph>group_vars/monasca_group</codeph> file. The directory must be manually mounted before creating the snapshot. The <codeph>elasticsearch</codeph> user must be specified as the owner of the directory. ### The directory for storing snapshots is set by <codeph>default.path.repo</codeph> parameter in <codeph>log-pipeline.yml. This is fix !!! cannot be changed ###</codeph></note>
-                                        <p
-                                                id="compress_concept_conbody_section_2_o"><codeph>compress</codeph> is turned on to compress the metadata files.</p>
-                                        <p>###old installation description## Specify a file system for backing up the Elasticsearch database in the <codeph>elasticsearch</codeph> section of the <codeph>group_vars/monasca_group</codeph> file. The file system you specify must  later be used for backing up your Elasticsearch database. </p>
-                                        <p>##old## Example: </p>
-                                        <codeblock>## old ## elasticsearch_repo_dir: -/mount/backup/elasticsearch1</codeblock>
-                                </li>
-                                <li><i>###ENDE </i></li>
-                        </ul>
-                        <p/>
-                        <p/>
                         <p>To restore the database instance, proceed as follows:</p>
                         <ol id="Close_all_indices_of_your_dat_concept_conbody_section_2_o">
                                 <li>
@@ -147,32 +108,29 @@
                                                 /> node.</p>
                                 </li>
                                 <li>
-                                        <p>Go to the installation directory.</p>
-                                        <p><i>##install dir is where the .env. and 2 docker-compose files are located. From where must the command in the next step be executed </i>?</p>
+                                        <p>It is required to mount a directory for synchronizing the meta data and a directory for storing the database backup file on your local machine.</p>
+                                        <p>For this purpose, execute the following command:</p>
+                                        <codeblock>$ docker run --rm -v $INFLUXDB_META_DIR:&lt;meta_data_dir> 
+  -v $INFLUXDB_BACKUPS:&lt;backup_dir> influxdb:1.3.3-alpine</codeblock>
+                                        <p>Replace <codeph>&lt;meta_data_dir></codeph> with the directory to be used for synchronizing the meta data, for example <codeph>/var/lib/influxdb</codeph>. </p>
+                                        <p>Replace <codeph>&lt;backup_dir></codeph> with the directory to be used for storing the backup file, for example <codeph>/backup</codeph>. </p>
                                 </li>
                                 <li>
-                                        <p>For backing up the InfluxDB database, it is required to mount a directory for synchronizing the meta data and a directory for storing the database backup file on your local machine.</p>
-                                        <p>To mount the directories, execute the following command:</p>
-                                        <codeblock>$ docker docker run --rm --detach 
-  -v $INFLUXDB_META_DIR:&lt;meta_data_dir> 
-  -v $INFLUXDB_BACKUPS:&lt;backup_dir>
-influxdb:1.3.3-alpine</codeblock>
-                                        <p>Replace <codeph>meta_data_dir</codeph> with the directory to be used for synchronizing the meta data, for example <codeph>/var/lib/influxdb</codeph>. </p>
-                                        <p>Replace <codeph>backup_dir</codeph> with the directory to be used for storing the backup file, for example <codeph>/backup</codeph>. </p>
-                                </li>
-                                <li>
-                                        <p>For backing up the InfluxDB database, you need the ID of the container in which the database is running:</p>
+                                        <p>For backing up the InfluxDB database, you need to know the ID of the container in which the database is running:</p>
                                         <codeblock>$ docker ps | grep influxd</codeblock>
-                                        <p>Example output with the container ID: </p>
+                                        <p>Example output: </p>
                                         <codeblock>$ 07e9007e0be8        influxdb:1.3.3-alpine   "/entrypoint.sh in..."
-3 seconds ago       Up 2 seconds 0.0.0.0:32779->8086/tcp   determined_goodall</codeblock>
+  3 seconds ago       Up 2 seconds 0.0.0.0:32779->8086/tcp   
+  determined_goodall</codeblock>
                                 </li>
                                 <li>
                                         <p>Back up the database. To create the backup from your local machine, execute the following command:</p>
-                                        <codeblock>$ docker exec &lt;container_id> influxd backup -database &lt;db_name> "&lt;backup_dir>/&lt;name>.backup"</codeblock>
-                                        <p>Replace <codeph>container_id</codeph> with the ID of the container in which the database is running, <codeph>db_name</codeph> with the name of the database, <codeph>backup_dir</codeph> with the directory you have mounted for storing the backup file, and <codeph>name</codeph> with the name of the backup file to be created.</p>
-                                        <p>The following example creates a backup of the <codeph>mon</codeph> database, running in container <codeph>07e9007e0be8</codeph>, in <codeph>/backup/mon.backup</codeph>.</p>
-                                        <codeblock>$ docker exec 07e9007e0be8 influxd backup -database mon "/backup/mon.backup"</codeblock>
+                                        <codeblock>$ docker exec &lt;container_id> influxd backup -database &lt;db_name> 
+  "&lt;backup_dir>/&lt;name>.backup"</codeblock>
+                                        <p>Replace <codeph>&lt;container_id></codeph> with the ID of the container in which the database is running, <codeph>&lt;db_name></codeph> with the name of the database, <codeph>&lt;backup_dir></codeph> with the directory you have mounted for storing the backup file, and <codeph>&lt;name></codeph> with the name of the backup file to be created.</p>
+                                        <p>The following example creates a backup of the <codeph>mon</codeph> database, running in container <codeph>07e9007e0be8</codeph>, in <codeph>/backup/mon.backup</codeph>:</p>
+                                        <codeblock>$ docker exec 07e9007e0be8 influxd backup 
+  -database mon "/backup/mon.backup"</codeblock>
                                 </li>
                         </ol>
                         <p>Before restoring the database, make sure that the container for the InfluxDB database is stopped.</p>
@@ -181,23 +139,18 @@ influxdb:1.3.3-alpine</codeblock>
                                 <li>
                                         <p>Restore the metastore to an ephemeral container.</p>
                                         <p>Example:</p>
-                                        <codeblock>$  docker run --rm --detach -v $INFLUXDB_META_DIR:/var/lib/influxdb -v $INFLUXDB_BACKUPS:/backups 
--p 8086 influxdb:1.3.3-alpine -c "influxd restore -metadir /var/lib/influxdb/meta  -datadir 
-/var/lib/influxdb/data -database mon /backups/mon.backup</codeblock>
-                                        <p><i>##why do you speak of an "ephemeral" container here?</i></p>
+                                        <codeblock>$ docker run --rm -v $INFLUXDB_META_DIR:/var/lib/influxdb 
+  -v $INFLUXDB_BACKUPS:/backups -p 8086 influxdb:1.3.3-alpine 
+  -c "influxd restore -metadir /var/lib/influxdb/meta  
+  -datadir /var/lib/influxdb/data -database mon /backups/mon.backup</codeblock>
                                 </li>
                                 <li>
                                         <p>Start the Docker container for the restored metastore.</p>
                                         <p>Example:</p>
-                                        <codeblock>$ docker docker run --rm --detach -v $INFLUXDB_META_DIR:/var/lib/influxdb -v $INFLUXDB_BACKUPS:/backups 
-influxdb:1.3.3-alpine</codeblock>
+                                        <codeblock>$ docker run --rm -v $INFLUXDB_META_DIR:/var/lib/influxdb 
+  -v $INFLUXDB_BACKUPS:/backups influxdb:1.3.3-alpine</codeblock>
                                 </li>
                         </ol>
-                        <p><i>##Nothing to be added?</i></p>
-                        <p><i>##This reference does not help with a containerized application##</i> For additional information on backing up and restoring an InfluxDB database, refer to the <xref
-                                        format="html"
-                                        href="https://docs.influxdata.com/influxdb/v1.1/administration/backup_and_restore/"
-                                        scope="external"><u><i>InfluxDB documentation</i></u></xref>.</p>
                 </section>
                 <section>
                         <title>MySQL Database</title>
@@ -209,32 +162,32 @@ influxdb:1.3.3-alpine</codeblock>
                         <p>In addition to the name of the database, you have to specify the name and the location where <codeph>mysqldump</codeph> stores its output.</p>
                         <p>To restore your MySQL database, proceed as follows:</p>
                         <ol>
-                                <li>Log in to the host where the Monitoring Service is installed as a user with root privileges.</li>
-                                <li>Go to the directory where the <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> installation package is located.<p>Example:</p><p>
-                                                <codeblock>cd /opt/FJSVsvcmm</codeblock>
-                                        </p></li>
+                                <li>
+                                        <p>Log in to the <ph
+                                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> node as a user with root privileges.</p>
+                                </li>
                                 <li>
                                         <p>Stop all agents and services: </p>
-                                        <p>
-                                                <codeblock>./services.sh stop</codeblock>
-                                        </p>
+                                        <codeblock>$ docker-compose -f docker-compose-metric.yml 
+  -f docker-compose-log.yml stop</codeblock>
                                 </li>
                                 <li>
                                         <p>Start the <codeph>mysql</codeph> service:</p>
-                                        <codeblock>$ systemctl start mysql</codeblock>
+                                        <codeblock>$ docker-compose -f docker-compose-metric.yml 
+  -f docker-compose-log.yml up mysql</codeblock>
                                 </li>
-                                <li id="Log_in_to_the_database_you_ha_concept_conbody_section_4_o">
+                                <li>
                                         <p>Log in to the database you have backed up as a user with root privileges.</p>
                                         <p>Example:</p>
                                         <codeblock>$ mysql -u root -p mon</codeblock>
                                 </li>
-                                <li id="Remove_and_create_the_databas_concept_conbody_section_4_o">
+                                <li>
                                         <p>Remove and create the database:</p>
                                         <codeblock>&gt; DROP DATABASE mon;
 &gt; CREATE DATABASE mon;</codeblock>
                                 </li>
-                                <li id="Exit_concept_conbody_section_4_o">
+                                <li>
                                         <p>Exit <codeph>mysql</codeph>:</p>
                                         <codeblock>&gt; \q</codeblock>
                                 </li>
@@ -246,11 +199,12 @@ influxdb:1.3.3-alpine</codeblock>
                                 <li>
                                         <p>Start all <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> agents and services:</p>
-                                        <codeblock>./services.sh start</codeblock>
+                                        <codeblock>$ docker-compose -f docker-compose-metric.yml 
+  -f docker-compose-log.yml up</codeblock>
                                 </li>
                         </ol>
                         <p id="For_additional_information_on_concept_conbody_section_4_p"
-                                        >For additional information on backing up and restoring a MySQL database with <codeph>mysqldump</codeph>, refer to the ###updated## <xref
+                                        >For additional information on backing up and restoring a MySQL database with <codeph>mysqldump</codeph>, refer to the <xref
                                         format="html" href="https://mariadb.com/kb/en/mariadb/mysqldump/"
                                         scope="external"><u><i>MySQL documentation</i></u></xref>.</p>
                 </section>

@@ -20,7 +20,6 @@
                         /> node.</p>
                 </li>
                 <li>
-                    <p/>
                     <p>Connect to InfluxDB as follows: </p>
                     <codeblock># docker exec -it monascadocker_influxdb_1 /bin/sh
 # influx</codeblock>
