@@ -15,17 +15,16 @@
         <section id="By_default_the_indices_are_s_concept_conbody_section_2">
             <p>By default, the indices are stored in the following directory on the <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> node: </p>
-            <p><codeph>/var/data/elasticsearch/&lt;cluster-name&gt;/nodes/&lt;node-name&gt;</codeph></p>
+            <p><codeph>/usr/share/elasticsearch/data/&lt;cluster-name&gt;/nodes/&lt;node-name&gt;</codeph></p>
             <p>Example:</p>
-            <p><codeph>/var/data/elasticsearch/elasticsearch/nodes/0</codeph></p>
+            <p><codeph>/usr/share/elasticsearch/data/elasticsearch/nodes/0</codeph></p>
             <p>
                 <note othertype="note"
-                        >If your system uses a different directory, look up the <codeph>path.data</codeph> parameter in the Elasticsearch configuration file, <codeph>/opt/elasticsearch/config/elasticsearch.yml</codeph>.</note>
+                        >If your system uses a different directory, look up the <codeph>path.data</codeph> parameter in the Elasticsearch configuration file, <codeph>/usr/share/elasticsearch/config/elasticsearch.yml</codeph>.</note>
             </p>
         </section>
         <section>
             <p>If you want to delete outdated or unnecessary log data from the Elasticsearch database, proceed as follows:</p>
-            <p><i>##Wiki input: Works without problems when connecting with `curl` from outside of the container. What does it mean? Do I have to change the curl commands? Need your help!</i></p>
             <p>
                 <ol>
                     <li>
@@ -35,11 +34,7 @@
                     </li>
                     <li>
                         <p>Create a backup of the Elasticsearch database. For details, refer to <xref
-                                href="../../shared/operationmaintenance/c-backup.xml"/>.</p>
-                    </li>
-                    <li>
-                        <p>Determine the ID of the OpenStack project for the data to be deleted:</p>
-                        <p><i>##to be copied from influxdb description</i></p>
+                                href="c-backup.xml"/>.</p>
                     </li>
                     <li>
                         <p>Log in to the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
@@ -51,9 +46,11 @@
                         <p>For example, if Elasticsearch is listening at port 9200 (default), the ID of the OpenStack project is <codeph>abc123</codeph>, and you want to check the index of 2015, July 1st, the command is as follows: </p>
                         <codeblock>curl -XHEAD -i 'http://localhost:9200/abc123-2015-07-01'</codeblock>
                         <p>If the HTTP response is <codeph>200</codeph>, the index exists; if the response is <codeph>404</codeph>, it does not exist.</p>
+                        <p>For listing all indices stored in your Elasticsearch database, you can execute the following command: </p>
+                        <codeblock>curl http://localhost:9200/_cat/indices?v</codeblock>
                     </li>
                     <li>
-                        <p>Delete the index as follows: </p>
+                        <p>Delete an index as follows: </p>
                         <codeblock>curl -XDELETE -i 'http://localhost:&lt;port&gt;/&lt;projectID-date&gt;'</codeblock>
                         <p>Example: </p>
                         <codeblock>curl -XDELETE -i 'http://localhost:9200/abc123-2015-07-01'</codeblock>
