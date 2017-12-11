@@ -83,7 +83,8 @@
         <section>
             <title>Calculating the Required Disk Space</title>
             <p>As a basic rule of thumb, the following formula can be used for calculating the required disk space:</p>
-            <p>200 GB + [ &lt;number of nodes> * &lt;retention period> * (&lt;space for log data/day> + &lt;space for metrics data/day>) ] </p>
+            <codeblock>200 GB + [ &lt;number of nodes> * &lt;retention period> * 
+(&lt;space for log data/day> + &lt;space for metrics data/day>) ] </codeblock>
             <p>Replace the variables as follows: </p>
             <ul compact="no">
                 <li>
@@ -93,19 +94,19 @@
                     <p>The retention period corresponds to 60 days for InfluxDB and Elasticsearch.</p>
                 </li>
                 <li>
-                    <p>The space for log data/day corresponds to approx. 2 GB.</p>
+                    <p>The space for log data/day corresponds to approximately 2 GB.</p>
                 </li>
                 <li>
-                    <p>The space for metrics data/day correspond to approx. 50 MB.</p>
+                    <p>The space for metrics data/day corresponds to approximately 50 MB.</p>
                 </li>
             </ul>
             <p>The formula is based on the following assumptions for log data: </p>
             <ul compact="no">
                 <li>
-                    <p>Approx. 50 log files per node</p>
+                    <p>Approximately 50 log files per node</p>
                 </li>
                 <li>
-                    <p>Approx. 1 log entry/file/sec </p>
+                    <p>Approximately 1 log entry/file/sec </p>
                 </li>
                 <li>
                     <p>200 bytes in size</p>

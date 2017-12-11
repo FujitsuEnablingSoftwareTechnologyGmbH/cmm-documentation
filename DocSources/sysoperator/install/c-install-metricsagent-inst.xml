@@ -66,13 +66,14 @@
                             <p><codeph> --user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
                         </li>
                         <li>
-                            <p> --<codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
+                            <p>
+                                <codeph>--project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
                         </li>
                         <li>
-                            <p><codeph>--service_type</codeph>. Example: <codeph>monitoring</codeph></p>
+                            <p><codeph>--service_type</codeph>. Example: <codeph>monitoring</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--keystone_url</codeph>. Mandatory parameter specifying the URL used to access the server where the OpenStack Keystone service is installed. It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph></p>
+                            <p><codeph>--keystone_url</codeph>. Mandatory parameter specifying the URL used to access the server where the OpenStack Keystone service is installed. It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph>.</p>
                         </li>
                         <li>
                             <p><codeph>--monasca_statsd_port</codeph>. Optional. The port number for the StatsD daemon. Check whether the default port number must be changed from <codeph>8125</codeph> to <codeph>8126</codeph>. Port <codeph>8125</codeph> is used by Gnocchi in Red Hat Enterprise Linux OpenStack Platform 10.</p>
@@ -86,7 +87,7 @@
             <p>For additional details, you can refer to the <xref format="html"
                     href="https://github.com/openstack/monasca-agent/blob/stable/pike/docs/Agent.md#explanation-of-primary-monasca-setup-command-line-parameters"
                     scope="external"
-                ><u><i>Monasca documentation</i></u></xref>. Help is also available on the configuration settings. For a description of the settings, run the following command: </p>
+                ><u><i>Monasca documentation</i></u></xref>. Help is also available on the configuration settings. For a description of the settings, execute the following command: </p>
             <codeblock>./monasca-agent-&lt;version_number&gt;.run --help</codeblock>
             <p>In case the installation fails, check your configuration settings and passwords. To collect debugging information, you can retry the installation in verbose mode:</p>
             <codeblock>./monasca-agent-&lt;version_number&gt;.run --verbose</codeblock>

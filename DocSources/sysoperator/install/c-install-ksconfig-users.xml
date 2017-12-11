@@ -19,7 +19,7 @@
                     />. The monitoring data retrieved for <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> and your OpenStack services and servers is accessible to users assigned to this project, provided they have the required role assigned.</p>
-            <p>Example command for creating a <codeph>monasca</codeph> project:</p>
+            <p>Example:</p>
             <p>
                 <codeblock>openstack project create monasca </codeblock>
             </p>
@@ -35,7 +35,7 @@
                     <p><codeph>monasca-agent</codeph>. This role must be assigned to the user used for authenticating the Metrics Agent and the Log Agent against OpenStack Keystone.</p>
                 </li>
             </ul>
-            <p>Example command for creating the roles:</p>
+            <p>Example:</p>
             <p>
                 <codeblock>openstack role create monasca-user
 openstack role create monasca-agent</codeblock>
@@ -45,7 +45,7 @@ openstack role create monasca-agent</codeblock>
             <title>Creating a User</title>
             <p>An OpenStack user must be prepared that is used for authenticating an agent against OpenStackKeystone. The user must be specified in the agent configuration. The user must have the <codeph>monasca-agent</codeph> role in OpenStack and be assigned to the OpenStack project that is to be monitored by the agent. </p>
             <p>This user is used by the Metrics Agent and the Log Agent to submit data to the Monitoring Service. It is recommended that this user is used only for configuration purposes and not for actually monitoring services and servers. </p>
-            <p>Example command for creating a <codeph>monasca-agent</codeph> user:</p>
+            <p>Example:</p>
             <p>
                 <codeblock>openstack user create --project monasca \
 --password password monasca-agent</codeblock>
@@ -61,12 +61,12 @@ openstack role create monasca-agent</codeblock>
                             /> and must have the <codeph>monasca-agent</codeph> role.</p>
                 </li>
                 <li>
-                    <p>The <codeph>admin</codeph> user must be assigned to the project prepared for <ph
+                    <p>The OpenStack <codeph>admin</codeph> user must be assigned to the project prepared for <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                             /> and must have the <codeph>monasca-user</codeph> and <codeph>admin</codeph> roles.</p>
                 </li>
             </ul>
-            <p>Example commands for assigning the roles: </p>
+            <p>Example: </p>
             <p>
                 <codeblock>openstack role add --project monasca --user monasca-agent monasca-agent
 openstack role add --project monasca --user admin monasca-user

@@ -7,29 +7,25 @@
                 xml:lang="en-us">
     <title>Preparing the OpenStack Integration</title>
     <conbody>
-        <!-- section>
-            <p>monasca-docker includes an internal keystone instance, redirection to an external keystone is required.</p>
-            <p>The configuration must take into account a single OS Keystone instance as well as a load balancer that distributes the load to multiple OS Keystone instances in OS HA.</p>
-        </section -->
         <section>
             <p>All authentication and authorization in <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> is done through OpenStack Keystone. The integration of <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    /> with OpenStack must therefore be prepared <b>before</b> you can proceed with installing the Monitoring Service on the <ph
+                    /> with OpenStack must therefore be prepared before you install the Monitoring Service on the <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> node as well as a Metrics Agent, a Log Agent, and the Horizon Plugin in your OpenStack environment.</p>
+                /> node and the OpenStack extensions on an OpenStack node.</p>
             <p>You need to take the following preparations:</p>
             <p>
                 <ul>
                     <li>
-                        <p>Set the OpenStack administator credentials.</p>
+                        <p>Setting the OpenStack administator credentials.</p>
                     </li>
                     <li>
-                        <p>Create a project, a user, and the required roles.</p>
+                        <p>Creating a project, a user, and the required roles.</p>
                     </li>
                     <li>
-                        <p>Define services and endpoints.</p>
+                        <p>Defining services and endpoints.</p>
                     </li>
                 </ul>
             </p>

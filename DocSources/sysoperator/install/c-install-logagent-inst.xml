@@ -52,11 +52,10 @@
                             <p><codeph>--target</codeph>. The directory in which the agent is installed. If <codeph>--target</codeph> is not specified, the agent is installed in the current working directory. </p>
                         </li>
                         <li>
-                            <p><codeph>--monasca_log_api_url</codeph>. The URL used to access the server where the Monitoring Service is installed. Example: <codeph>http://192.168.1.6:5607/v3.0</codeph>
-                            </p>
+                            <p><codeph>--monasca_log_api_url</codeph>. The URL used to access the server where the Monitoring Service is installed. Example: <codeph>http://192.168.1.6:5607/v3.0</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--keystone_auth_url</codeph>. The URL used to access the server where the OpenStack Keystone service is installed. The service is used for authenticating the user specified in <codeph>username</codeph>. It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph></p>
+                            <p><codeph>--keystone_auth_url</codeph>. The URL used to access the server where the OpenStack Keystone service is installed. The service is used for authenticating the user specified in <codeph>username</codeph>. It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph>.</p>
                         </li>
                         <li>
                             <p><codeph>--project_name</codeph>. The name of the OpenStack project for which log data is to be retrieved by the agent. Example: <codeph>monasca</codeph>.</p>
@@ -70,10 +69,10 @@
                             <p><codeph>--password</codeph>. The password of the user specified in <codeph>username</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>##If not specified, what does <codeph>default or Default</codeph> imply? Default (name with capital D; ID with small)</i></p>
+                            <p><codeph>--user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
                         </li>
                         <li>
-                            <p><codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>##If not specified, what does <codeph>default</codeph> imply?</i></p>
+                            <p><codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
                         </li>
                         <li>
                             <p><codeph>--hostname</codeph>. Meta information to be collected with the log data that is retrieved by the agent. The information can be defined as an array. Example: <codeph>['service:'monitoring', 'hostname']</codeph></p>

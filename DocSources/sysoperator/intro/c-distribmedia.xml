@@ -14,7 +14,7 @@
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> software and documentation for installing and configuring <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
-            <p>The package includes: <i>##to be updated for the final delivery##</i><ul>
+            <p>The package includes: <i>##TODO: version numbers to be updated for the final delivery</i><ul>
                     <li>
                         <p><codeph>CMM_server_2.0.0_images.tar</codeph>. Tarred archive file with the Docker images required for installing and configuring <ph
                                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
