@@ -22,20 +22,20 @@
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> installation package to the installation directory. The archive provides the following files:</p>
                     <ul>
-                        <li><codeph>log-agent-2.4.1_0.5.3.run</codeph></li>
-                        <li><codeph>monasca-agent-2.2.0.run</codeph></li>
-                        <li><codeph>monasca-ui-1.5.1.run</codeph></li>
+                        <li><codeph>log-agent-2.0.0.run</codeph></li>
+                        <li><codeph>monasca-agent-2.0.0.run</codeph></li>
+                        <li><codeph>monasca-ui-2.0.0.run</codeph></li>
                     </ul>
                 </li>
                 <li>
-                    <p>Change the access permission of the <codeph>monasca-agent-2.2.0.run</codeph> file to Execute.</p>
+                    <p>Change the access permission of the <codeph>monasca-agent-2.0.0.run</codeph> file to Execute.</p>
                 </li>
                 <li>
                     <p>Make sure that your <codeph>/root/.my.cnf</codeph> file does not define any passwords in single quotes.</p>
                 </li>
                 <li>
                     <p>Run the agent installer, and provide the required OpenStack Keystone credentials. </p>
-                    <codeblock>./monasca-agent-2.2.0.run \
+                    <codeblock>./monasca-agent-2.0.0.run \
 --target /opt/monasca-agent -- \
 --username &lt;user_name> \           
 --password &lt;password> \                   
@@ -49,7 +49,7 @@
                     <p>The minimum set of parameters to be configured for running the installer includes:</p>
                     <ul>
                         <li>
-                            <p><codeph>--target</codeph>. Optional. The directory  in which the agent is installed. If <codeph>--target</codeph> is not specified, the agent is installed in the current working directory. </p>
+                            <p><codeph>--target</codeph>. Mandatory. The directory in which the agent is installed. </p>
                         </li>
                         <li>
                             <p><codeph>--username</codeph>. Mandatory. The user to be used for authenticating the agent against OpenStack Keystone, for example <codeph>monasca-agent</codeph>.</p>
