@@ -53,8 +53,9 @@
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> node which meets the requirements outlined in the next section. It is not recommended that there are any other services running on the machine.</p>
                     <note othertype="note">
-                        <p>For <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                /> in productive operation, do not install the Monitoring Service on a virtual machine. <ph
+                        <p>The Monitoring Service can also be installed on a virtual machine. For <ph
+                                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                /> in productive operation, however, keep in mind that <ph
                                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                             /> has demanding hardware requirements that are not met by a virtual machine. In addition, neighboring virtual machines may cause trouble.</p>
                     </note>
