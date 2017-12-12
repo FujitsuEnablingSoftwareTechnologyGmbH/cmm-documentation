@@ -26,6 +26,11 @@
                         href="http://monasca.io/"
                         scope="external">
                         <u><i>Monasca</i></u></xref>: Information on Monasca, the core of <ph conref="../product-name.xml#ProductNameTopic/Product_Abbr"/>.</li>
+                                <li><xref format="html" href="http://docs.grafana.org/" scope="external">
+                                                <u><i>Grafana</i></u></xref>: Documentation on Grafana, the open-source application used for visualizing metrics data.</li>
+                                <li><xref format="html" href="https://www.elastic.co/guide/en/kibana/4.5/index.html"
+                                                scope="external">
+                                                <u><i>Kibana</i></u></xref>: Documentation on Kibana, the open-source application used for visualizing log data.</li>
                         </ul>
                         <p>More detailed Web references provided in this manual are subject to change without notice.</p>
                 </section>
