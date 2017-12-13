@@ -8,6 +8,7 @@
     <title>Installation</title>
     <conbody>
         <section>
+            <p><i>##Bug 13829: version numbers to be updated for the final delivery</i></p>
             <p>To install the Monitoring Service, proceed as follows:</p>
             <ol compact="no">
                 <li>
@@ -18,12 +19,13 @@
                     <p>Prepare an installation directory. </p>
                 </li>
                 <li>
-                    <p>Extract the <codeph>CMM_server_2.0.0.zip</codeph> archive file from the <ph
+                    <p>Extract the <codeph>CMM_server_2.0.x.zip</codeph> archive file from the <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> installation package to the installation directory. The archive provides the following files:</p>
                     <ul>
                         <li>
-                            <p><codeph>CMM_server_2.0.0_images.tar</codeph></p>
+                            <p><codeph>CMM_server_2.0.x_images.tar</codeph>
+                            </p>
                         </li>
                         <li>
                             <p><codeph>docker-compose-metric.yml</codeph></p>

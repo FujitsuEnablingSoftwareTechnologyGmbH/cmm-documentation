@@ -8,6 +8,7 @@
     <title>Installation</title>
     <conbody>
         <section>
+            <p><i>##Bug 13829: version numbers to be updated for the final delivery</i></p>
             <p>To install a Log Agent, proceed as follows:</p>
             <ol compact="no">
                 <li>
@@ -17,17 +18,17 @@
                     <p>Prepare an installation directory. </p>
                 </li>
                 <li>
-                    <p>Extract the <codeph>CMM_client_2.0.0.zip</codeph> archive file from the <ph
+                    <p>Extract the <codeph>CMM_client_2.0.x.zip</codeph> archive file from the <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> installation package to the installation directory. The archive provides the following files:</p>
                     <ul>
-                        <li><codeph>log-agent-2.0.0.run</codeph></li>
-                        <li><codeph>monasca-agent-2.0.0.run</codeph></li>
-                        <li><codeph>monasca-ui-2.0.0.run</codeph></li>
+                        <li><codeph>log-agent-CMM_2.0.x.run</codeph></li>
+                        <li><codeph>monasca-agent-CMM_2.0.x.run</codeph></li>
+                        <li><codeph>monasca-ui-CMM_2.0.x.run</codeph></li>
                     </ul>
                 </li>
                 <li>
-                    <p>Change the access permission of the <codeph>log-agent-2.0.0.run</codeph> file to Execute.</p>
+                    <p>Change the access permission of the <codeph>log-agent-CMM_2.0.x.run</codeph> file to Execute.</p>
                 </li>
                 <li>
                     <p>Make sure that your <codeph>/root/.my.cnf</codeph> file does not define any passwords in single quotes.</p>
@@ -35,7 +36,7 @@
                 <li>
                     <p>Run the agent installer, and provide the required OpenStack Keystone credentials. </p>
                     <p>Example: </p>
-                    <codeblock>./log-agent-2.0.0.run \
+                    <codeblock>./log-agent-CMM_2.0.x.run \
     --target "/opt/monasca/monasca-log-agent" -- \
     --monasca_log_api_url "&lt;cmm_ip>" \   
     --keystone_auth_url "&lt;openstack_ip>" \   
@@ -50,7 +51,7 @@
                     <p>All parameters are filled with default values. Each value must be enclosed in double quotes (<codeph>"</codeph>). The minimum set of parameters that must be configured for an agent includes: </p>
                     <ul>
                         <li>
-                            <p><codeph>--target</codeph>. The directory in which the agent is installed. </p>
+                            <p><codeph>--target</codeph>. The directory in which the agent is installed.<i> ##mandatory##</i></p>
                         </li>
                         <li>
                             <p><codeph>--monasca_log_api_url</codeph>. The URL used to access the server where the Monitoring Service is installed. Example: <codeph>http://192.168.1.6:5607/v3.0</codeph>.</p>
