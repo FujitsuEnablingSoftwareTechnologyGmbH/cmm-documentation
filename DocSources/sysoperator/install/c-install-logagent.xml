@@ -23,10 +23,9 @@
             <ul>
                 <li>
                     <p>The input section specifies which log data is to be retrieved. </p>
-                    <p>The Log Agent is based on the so-called ELK stack, a solution for searching and analyzing log data that combines the open source projects Elasticsearch, Logstash, and Kibana. For details on the ELK stack, refer to the documentation on <xref
-                            format="html"
-                            href="https://www.elastic.co/guide/index.html"
-                            scope="external"><u><i>Elasticsearch, Logstash, and Kibana</i></u></xref>. </p>
+                    <p>The Log Agent is based on the so-called ELK stack, a solution for searching and analyzing log data that combines the open-source projects Elasticsearch, Logstash, and Kibana. For details on the ELK stack, refer to the documentation on <xref
+                            format="html" href="https://www.elastic.co/guide/index.html" scope="external"
+                                    ><u><i>Elasticsearch, Logstash, and Kibana</i></u></xref>. </p>
                     <p><ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> supports the file plugin of Logstash as input mechanism. The file plugin enables Logstash to read log data from any log file on your file system. Logstash supports additional plugins. For details, refer to <xref
                             format="html"

@@ -9,7 +9,7 @@
     <conbody>
         <section
                     id="The_user_interface_for_monito_concept_conbody_section_1">
-            <p>The user interface for monitoring your services and servers integrates with Grafana, an open source application for visualizing large-scale monitoring data. Use the options at the top border of the <uicontrol>Overview</uicontrol> page to access Grafana. </p>
+            <p>The user interface for monitoring your services and servers integrates with Grafana, an open-source application for visualizing large-scale monitoring data. Use the options located along the top of the <uicontrol>Overview</uicontrol> page to access Grafana. </p>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> ships with preconfigured metrics dashboards. You can instantly use them for monitoring your environment. You can also use them as a starting point for building your own dashboards.</p>
         </section>

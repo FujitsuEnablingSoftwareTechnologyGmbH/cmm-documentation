@@ -20,10 +20,10 @@
                     <p>A red box for a service or virtual machine indicates that there is a severe problem that needs to be checked. One or multiple alarms defined for it have been triggered.</p>
                 </li>
                 <li>
-                    <p>A yellow box indicates a problem. One or multiple alarms have already been triggered, yet, the severity of these alarms is low.</p>
+                    <p>A yellow box indicates a problem. One or multiple alarms have already been triggered, however, the severity of these alarms is low.</p>
                 </li>
                 <li>
-                    <p>A gray box indicates that alarms have been defined. Yet, metrics data has not been received.</p>
+                    <p>A gray box indicates that though alarms have indeed been defined, metrics data has not yet been received.</p>
                 </li>
             </ul>
         </section>

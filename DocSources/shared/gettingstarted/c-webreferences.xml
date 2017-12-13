@@ -9,8 +9,8 @@
         <title>Related Web References</title>
         <conbody>
                 <section>
-                        <p>The following Web references provide information on open source offerings integrated with <ph
-                        conref="../product-name.xml#ProductNameTopic/Product_Abbr"/>:</p>
+                        <p>The following Web references provide information on open-source offerings integrated with <ph
+                                        conref="../product-name.xml#ProductNameTopic/Product_Abbr"/>:</p>
                         <ul>
                         <li><xref
                                 format="html" href="http://docs.openstack.org/newton/"

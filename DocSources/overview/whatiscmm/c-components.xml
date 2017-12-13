@@ -54,8 +54,8 @@
                     href="http://docs.openstack.org/developer/horizon/"
             scope="external"><u><i>OpenStack Horizon documentation</i></u></xref>. </p>
                         <p>Based on the Monitoring Service, metrics and log data are visualized on convenient and user-friendly dashboards which fully integrate with the following applications:<ul>
-                                        <li>Grafana (for metrics data). An open source application for visualizing large-scale measurement data.</li>
-                                        <li>Kibana (for log data). An open source analytics and visualization platform designed to work with Elasticsearch.</li>
+                                        <li>Grafana (for metrics data). An open-source application for visualizing large-scale measurement data.</li>
+                                        <li>Kibana (for log data). An open-source analytics and visualization platform designed to work with Elasticsearch.</li>
                                 </ul></p>
         </section>
         <section

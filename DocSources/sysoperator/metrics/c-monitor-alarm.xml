@@ -9,7 +9,7 @@
     <conbody>
         <section
             id="You_have_to_define_alarms_to_concept_conbody_section_1">
-            <p>You have to define alarms to monitor your cloud resources. An alarm definition specifies the metrics to be collected and the threshold at which an alarm is to be triggered for a cloud resource. By default, an alarm definition is evaluated over an interval of one minute. If the specified threshold is reached or exceeded within this interval, the alarm is triggered and notifications can be sent to inform users. The alarm definition is re-evaluated in each subsequent interval.</p>
+            <p>You have to define alarms to monitor your cloud resources. An alarm definition specifies the metrics to be collected and the threshold at which an alarm is to be triggered for a cloud resource. By default, an alarm definition is evaluated over a succession of one minute periods. If the specified threshold is reached or exceeded within one such period, the alarm is triggered and notifications can be sent to inform users. The alarm definition is re-evaluated in each subsequent time period.</p>
             <p>To handle a large variety of monitoring requirements, you can create either simple alarm definitions that refer to one metrics only, or compound alarm definitions that combine multiple metrics and allow you to track and process more complex events. </p>
             <p>Example for a simple alarm definition that checks whether the system-level load of the CPU exceeds a threshold of 90 percent:</p>
             <codeblock>cpu.system_perc{hostname=monasca} &gt; 90</codeblock>
@@ -33,7 +33,7 @@ max(disk.space_used_perc{service=monitoring}) &gt; 90</codeblock>
             <p>For an alarm definition, you specify the following details:</p>
             <ul>
                 <li><uicontrol>Name</uicontrol>. Mandatory identifier of the alarm. The name must be unique within the project for which you define the alarm.</li>
-                <li><uicontrol>Description</uicontrol>. Optional. A short description that depicts the purpose of the alarm.</li>
+                <li><uicontrol>Description</uicontrol>. Optional. A short description that outlines the purpose of the alarm.</li>
                 <li>
                     <p><uicontrol>Severity</uicontrol>. The following severities for an alarm are supported: <uicontrol>Low</uicontrol> (default), <uicontrol>Medium</uicontrol>, <uicontrol>High</uicontrol>, or <uicontrol>Critical</uicontrol>. </p>
                     <p>The severity affects the status information on the <uicontrol>Overview</uicontrol> page. If an alarm that is defined as <uicontrol>Critical</uicontrol> is triggered, the corresponding resource is displayed in a red box. If an alarm that is defined as <uicontrol>Low</uicontrol>, <uicontrol>Medium</uicontrol>, or <uicontrol>High</uicontrol> is triggered, the corresponding resource is displayed in a yellow box only.</p>
@@ -65,7 +65,7 @@ max(disk.space_used_perc{service=monitoring}) &gt; 90</codeblock>
                 <li>
                     <p>Enter one or multiple dimensions in the <uicontrol>Add a dimension</uicontrol> field to further qualify the metrics. </p>
                     <p>Dimensions filter the data to be monitored. They narrow down the evaluation to specific entities. Each dimension consists of a key/value pair that allows for a flexible and concise description of the data to be monitored, for example, region, availability zone, service tier, or resource ID. </p>
-                    <p>The dimensions available for the selected metrics are displayed in the <uicontrol>Matching Metrics</uicontrol> section. Type the name of the key you want to associate with the metrics in the <uicontrol>Add a dimension</uicontrol> field. You are offered a select list for adding the required key/value pair. </p>
+                    <p>The dimensions available for the selected metrics are displayed in the <uicontrol>Matching Metrics</uicontrol> section. Type the name of the key you want to associate with the metrics in the <uicontrol>Add a dimension</uicontrol> field. You are offered a selection for adding the required key/value pair. </p>
                 </li>
                 <li>Enter the threshold value at which an alarm is to be triggered, and combine it with a relational operator <codeph>&lt;</codeph>, <codeph>&gt;</codeph>, <codeph>&lt;=</codeph>, or <codeph>&gt;=</codeph>. <p>The unit of the threshold value is related to the metrics for which you define the threshold, for example, the unit is percentage for <codeph>cpu.idle_perc</codeph> or MB for <codeph>disk.total_used_space_mb</codeph>. </p></li>
                 <li>
@@ -88,7 +88,7 @@ max(disk.space_used_perc{service=monitoring}) &gt; 90</codeblock>
             <note
                         othertype="note">
                 <p>You can also edit the expression syntax directly. For this purpose, save your alarm definition and update it using the <uicontrol>Edit Alarm Definition</uicontrol> option. </p>
-                <p>When updating the alarm definition, you can also change the default interval over which the alarm definition is evaluated. For syntax details, refer to the Monasca API documentation on <xref
+                <p>When updating the alarm definition, you can also change the default time period for each alarm definition evaluation. For syntax details, refer to the Monasca API documentation on <xref
                         format="html"
                         href="https://github.com/openstack/monasca-api/blob/stable/ocata/docs/monasca-api-spec.md#alarm-definition-expressions"
                         scope="external"><u><i>Alarm Definition Expressions</i></u></xref>.</p>

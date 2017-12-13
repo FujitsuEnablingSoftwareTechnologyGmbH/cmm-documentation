@@ -9,8 +9,10 @@
     <conbody>
                 <section>
             <p>For managing the log data of your services and the virtual and physical servers on which they are provisioned, <ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> integrates with Kibana, an open source analytics and visualization platform. <ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> uses Kibana as a front-end application to the log data held in the Elasticsearch database. </p>
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> integrates with Kibana, an open-source analytics and visualization platform. <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> uses Kibana as a front-end application to the log data held in the Elasticsearch database. </p>
             <p>Kibana allows you to easily understand large data volumes. Based on the data that is stored in Elasticsearch indices, you can perform advanced data analysis and visualize your log data in a variety of charts, tables, or maps. Changes to the Elasticsearch indices are displayed in <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> in real-time.</p>
             <p>The log management features of <ph
@@ -37,7 +39,7 @@
             </ul>
             <p>Log in to OpenStack Horizon with your user name and password. The functions you can use in OpenStack Horizon depend on your access permissions. </p>
             <p>The <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    /> functionality is available on the <uicontrol>Monitoring</uicontrol> tab. It provides access to the log data of all projects to which you are assigned. Before you start, select the project you want to work on. The <uicontrol>Log Management</uicontrol> option at the top border of the <uicontrol>Overview</uicontrol> page displays the log management window where you can work on the log data of the selected project. </p>
+                    /> functionality is available on the <uicontrol>Monitoring</uicontrol> tab. It provides access to the log data of all projects to which you are assigned. Before you start, select the project you want to work on. The <uicontrol>Log Management</uicontrol> option located at the top part of the <uicontrol>Overview</uicontrol> page displays the log management window where you can work on the log data of the selected project. </p>
         </section>
     </conbody>
 </concept>

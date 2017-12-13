@@ -31,7 +31,7 @@
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> provides the reliability, performance, and service levels required for cloud environments in productive use. It meets a variety of challenges, ranging from small-scale to high-availability deployments and deployments with high levels of scalability.</p>
             <p>The core of <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    /> is Monasca, an open source Monitoring as a Service solution that integrates with OpenStack. The key features of <ph
+                    /> is Monasca, an open-source Monitoring as a Service solution that integrates with OpenStack. The key features of <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> form an integral part of the Monasca project. <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"

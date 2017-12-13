@@ -18,7 +18,7 @@
                     <p><codeph>OK</codeph>. The alarm expression has evaluated to <codeph>false</codeph>. There is no need to trigger an alarm.</p>
                 </li>
                 <li>
-                    <p><codeph>Undetermined</codeph>. No metrics data has been received within the defined interval.</p>
+                    <p><codeph>Undetermined</codeph>. No metrics data has been received within the defined time period.</p>
                 </li>
             </ul>
             <p>As soon as you have defined an alarm for a cloud resource, there is status information displayed for it on the <uicontrol>Overview</uicontrol> page:</p>
@@ -33,16 +33,16 @@
                     <p>A red box for a service, server, or log path indicates that there is a severe problem that needs to be checked. One or multiple alarms defined for a service, a server, or log data have been triggered.</p>
                 </li>
                 <li>
-                    <p>A yellow box indicates a problem. One or multiple alarms have already been triggered, yet, the severity of these alarms is low.</p>
+                    <p>A yellow box indicates a problem. One or multiple alarms have already been triggered, however, the severity of these alarms is low.</p>
                 </li>
                 <li>
-                    <p>A gray box indicates that alarms have been defined. Yet, metrics data has not been received.</p>
+                    <p>A gray box indicates that though alarms have indeed been defined, metrics data has not yet been received.</p>
                 </li>
             </ul>
         </section>
         <section id="The_status_information_on_the_concept_conbody_section_3">
             <p>The status information on the <uicontrol>Overview</uicontrol> page results from one or multiple alarms that have been defined for the corresponding resource. If multiple alarms are defined, the severity of the individual alarms controls the status color.</p>
-            <p>You can click a resource on the <uicontrol>Overview</uicontrol> page to display details on the related alarms. The details include the status of each alarm and the expression that is evaluated. For each alarm, you can drill down on the alarm history. To narrow down the problem, the history presents detailed information on the status transitions. </p>
+            <p>You can click a resource on the <uicontrol>Overview</uicontrol> page to display details on the related alarms. The details include the status of each alarm and the expression that is evaluated. For each alarm, you can drill down into the alarm history. To narrow down the problem, the history presents detailed information on the status transitions. </p>
         </section>
     </conbody>
 </concept>

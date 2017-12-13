@@ -9,7 +9,7 @@
     <title>Readers of this Manual</title>
     <conbody>
         <section>
-            <p>This manual is directed to service providers who use <ph
+            <p>This manual is directed at service providers who use <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> for monitoring the cloud resources they have booked on an OpenStack platform. The manual assumes that you have basic knowledge of OpenStack environments. </p>
         </section>

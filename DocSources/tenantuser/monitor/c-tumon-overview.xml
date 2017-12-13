@@ -13,7 +13,7 @@
             <p>On the <uicontrol>Overview</uicontrol> page, you can:</p>
             <ul>
                 <li>
-                    <p>View the status of your cloud resources at a glance. As soon as you have defined an alarm for a service or a virtual machine and metrics data has been received, there is status information displayed on the <uicontrol>Overview</uicontrol> page. For details on the status information, refer to <xref
+                    <p>View the status of your cloud resources at a glance. As soon as you have defined an alarm for a service or a virtual machine and metrics data has been received, relevant status information is displayed on the <uicontrol>Overview</uicontrol> page. For details on the status information, refer to <xref
                             href="c-tumon-statusinfo.xml"/>. For details on defining alarms, refer to <xref
                             href="c-tumon-alarm.xml"/>. </p>
                 </li>

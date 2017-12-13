@@ -20,19 +20,19 @@
         </section>
         <section>
             <title>Elasticsearch</title>
-            <p>An open source application that provides a highly scalable full-text search and analytics engine. <ph
+            <p>An open-source application that provides a highly scalable full-text search and analytics engine. <ph
                     conref="../product-name.xml#ProductNameTopic/Product_Abbr"
                 /> uses Elasticsearch as the underlying technology for storing, searching, and analyzing large volumes of log data.</p>
         </section>
         <section>
             <title>Grafana</title>
-            <p>An open source application for visualizing large-scale measurement data. <ph
+            <p>An open-source application for visualizing large-scale measurement data. <ph
                     conref="../product-name.xml#ProductNameTopic/Product_Abbr"
                 /> integrates with Grafana for visualizing the monitoring data.</p>
         </section>
         <section>
             <title>InfluxDB</title>
-            <p>An open source time-series database that supports high write loads and large data set storage. <ph
+            <p>An open-source time-series database that supports high write loads and large data set storage. <ph
                     conref="../product-name.xml#ProductNameTopic/Product_Abbr"
                 /> uses InfluxDB as the underlying technology for storing metrics and the alarm history.</p>
         </section>
@@ -42,19 +42,19 @@
         </section>
         <section>
             <title>Kibana</title>
-            <p>An open source analytics and visualization platform designed to work with Elasticsearch. <ph
+            <p>An open-source analytics and visualization platform designed to work with Elasticsearch. <ph
                     conref="../product-name.xml#ProductNameTopic/Product_Abbr"
                 /> integrates with Kibana for visualizing the log data.</p>
         </section>
         <section>
             <title>Logstash</title>
-            <p>An open source application that provides a data collection engine with pipelining capabilities. <ph
+            <p>An open-source application that provides a data collection engine with pipelining capabilities. <ph
                     conref="../product-name.xml#ProductNameTopic/Product_Abbr"
                 /> integrates with Logstash for collecting, processing, and outputting logs. </p>
         </section>
         <section>
             <title>MySQL</title>
-            <p>An open source relational database that provides an SQL-compliant interface for accessing data. <ph
+            <p>An open-source relational database that provides an SQL-compliant interface for accessing data. <ph
                     conref="../product-name.xml#ProductNameTopic/Product_Abbr"
                 /> uses MySQL as the underlying technology for storing configuration information, alarm definitions, and notification methods.</p>
         </section>
@@ -65,7 +65,7 @@
         </section>
         <section>
             <title>Monasca</title>
-            <p>An open source Monitoring as a Service solution that integrates with OpenStack. It forms the core of <ph
+            <p>An open-source Monitoring as a Service solution that integrates with OpenStack. It forms the core of <ph
                     conref="../product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
         </section>
         <section>
