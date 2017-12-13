@@ -139,10 +139,13 @@
                                 <li>
                                         <p>Restore the metastore to an ephemeral container.</p>
                                         <p>Example:</p>
-                                        <codeblock>$ docker run --rm -v $INFLUXDB_META_DIR:/var/lib/influxdb 
-  -v $INFLUXDB_BACKUPS:/backups -p 8086 influxdb:1.3.3-alpine 
-  -c "influxd restore -metadir /var/lib/influxdb/meta  
-  -datadir /var/lib/influxdb/data -database mon /backups/mon.backup</codeblock>
+                                        <codeblock>$ docker run --rm --entrypoint /bin/ash 
+  -v /opt/monasca-containers/influxdb:/var/lib/influxdb  
+  -v /opt/monasca-containers/influxdb_backup:/backups influxdb:1.3.4-alpine 
+  -c "influxd restore 
+  -metadir /var/lib/influxdb/meta 
+  -datadir /var/lib/influxdb/data 
+  -database mon /backups/backfinal.backup"</codeblock>
                                 </li>
                                 <li>
                                         <p>Start the Docker container for the restored metastore.</p>
