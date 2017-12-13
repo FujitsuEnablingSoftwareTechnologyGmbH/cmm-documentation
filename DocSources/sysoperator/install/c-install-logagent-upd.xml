@@ -20,7 +20,7 @@
                 <li>
                     <p>Open the file with your favorite editor.</p>
                     <p>Example:</p>
-                    <codeblock>sudo vim opt/monasca/monasca-log-agent/conf/agent.conf</codeblock>
+                    <codeblock>sudo vim /opt/monasca/monasca-log-agent/conf/agent.conf</codeblock>
                 </li>
                 <li>
                     <p>Adapt the input section, if required.</p>

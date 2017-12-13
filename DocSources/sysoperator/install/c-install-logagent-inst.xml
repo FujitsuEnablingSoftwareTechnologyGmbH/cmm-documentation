@@ -77,7 +77,7 @@
                             <p><codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
                         </li>
                         <li>
-                            <p><codeph>--hostname</codeph>. Optional. Meta information to be collected with the log data that is retrieved by the agent. The information can be defined as an array. Example: <codeph>['service:'monitoring', 'hostname']</codeph>. <i>Optional?</i></p>
+                            <p><codeph>--hostname</codeph>. Optional. Meta information to be collected with the log data that is retrieved by the agent. The information can be defined as an array. Example: <codeph>['service:monitoring', 'hostname:node1']</codeph>. <i>Optional?</i></p>
                             <p>The meta information defined by a dimension is attached to each log entry. It is represented as one or more fields in the log management window. For the user who is working with the log data, dimensions provide additional filtering options.</p>
                         </li>
                     </ul>
