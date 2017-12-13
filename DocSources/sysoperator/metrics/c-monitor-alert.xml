@@ -9,7 +9,6 @@
     <conbody>
         <section
                             id="Notifications_define_how_user_concept_conbody_section">
-            <p><i><b>NOTE TO REVIEWERS:</b> It is still pending whether WebHook, PagerDuty, Slack, Jira, and HipChat will be supported in 2.0. Which preparations are required for these methods?</i></p>
             <p>Notifications define how users are informed when a threshold value defined for an alarm is reached or exceeded. In the alarm definition, you can assign one or multiple notifications.</p>
             <p>For a notification, you specify the following elements:</p>
             <ul>

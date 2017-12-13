@@ -9,15 +9,7 @@
     <conbody>
         <section
             id="You_have_to_define_alarms_to_concept_conbody_section_1">
-            <p>You have to define alarms to monitor your cloud resources. An alarm definition specifies the metrics to be collected and the threshold at which an alarm is to be triggered for a cloud resource. By default, an alarm definition is evaluated over a succession of one minute periods. If the specified threshold is reached or exceeded within one such period, the alarm is triggered and notifications can be sent to inform users. The alarm definition is re-evaluated in each subsequent time period.</p>
-            <p>To handle a large variety of monitoring requirements, you can create either simple alarm definitions that refer to one metrics only, or compound alarm definitions that combine multiple metrics and allow you to track and process more complex events. </p>
-            <p>Example for a simple alarm definition that checks whether the system-level load of the CPU exceeds a threshold of 90 percent:</p>
-            <codeblock>cpu.system_perc{hostname=monasca} &gt; 90</codeblock>
-            <p>Example for a simple alarm definition that checks the average time of the system-level load of the CPU over a period of 480 seconds. The alarm is triggered only if this average is greater than 95 percent: </p>
-            <codeblock>avg(cpu.system_perc{hostname=monasca}, 120) &gt; 95 times 4</codeblock>
-            <p>Example for a compound alarm definition that evaluates two metrics. The alarm is triggered if either the system-level load of the CPU exceeds a threshold of 90 percent, or if the disk space that is used by the specified service exceeds a threshold of 90 percent:</p>
-            <codeblock>avg(cpu.system_perc{hostname=monasca}) &gt; 90 OR 
-max(disk.space_used_perc{service=monitoring}) &gt; 90</codeblock>
+            <p>You have to define alarms to monitor your cloud resources. An alarm definition specifies the metrics to be collected and the threshold at which an alarm is to be triggered for a cloud resource. By default, an alarm definition is evaluated over a succession of one-minute periods. If the specified threshold is reached or exceeded within one such period, the alarm is triggered and notifications can be sent to inform users. The alarm definition is re-evaluated in each subsequent time period.</p>
             <p>To create, edit, and delete alarms, use <uicontrol>Monitoring &gt; Alarm Definitions</uicontrol>. </p>
             <p>The elements that define an alarm are grouped into <uicontrol>Details</uicontrol>, <uicontrol>Expression</uicontrol>, and <uicontrol>Notifications</uicontrol>. They are described in the following sections. </p>
         </section>
@@ -50,10 +42,18 @@ max(disk.space_used_perc{service=monitoring}) &gt; 90</codeblock>
                     href="../../images/alarm-expression.png"
                     width="435"/>
             </fig>
-            <p>The expression defines how to evaluate a metrics. The expression syntax is based on a simple expressive grammar. For details, refer to the <xref
+            <p>The expression defines how to evaluate the metrics. The expression syntax is based on a simple expressive grammar. For details, refer to the <xref
                     format="html"
                     href="https://github.com/openstack/monasca-api/blob/stable/ocata/docs/monasca-api-spec.md"
-                scope="external"><u><i>Monasca API documentation</i></u></xref>. </p>
+                    scope="external"><u><i>Monasca API documentation</i></u></xref>. </p>
+            <p>To handle a large variety of monitoring requirements, you can create either simple alarm definitions that refer to one metrics only, or compound alarm definitions that combine multiple metrics in one expression.</p>
+            <p>Example for a simple alarm definition that checks whether the system-level load of the CPU exceeds a threshold of 90 percent:</p>
+            <codeblock>cpu.system_perc{hostname=monasca} &gt; 90</codeblock>
+            <p>Example for a simple alarm definition that checks the average time of the system-level load of the CPU over a period of 480 seconds. The alarm is triggered only if this average is greater than 95 percent: </p>
+            <codeblock>avg(cpu.system_perc{hostname=monasca}, 120) &gt; 95 times 4</codeblock>
+            <p>Example for a compound alarm definition that evaluates two metrics. The alarm is triggered if either the system-level load of the CPU exceeds a threshold of 90 percent, or if the disk space that is used by the specified service exceeds a threshold of 90 percent:</p>
+            <codeblock>avg(cpu.system_perc{hostname=monasca}) &gt; 90 OR 
+max(disk.space_used_perc{service=monitoring}) &gt; 90</codeblock>
             <p>To define an alarm expression, proceed as follows:</p>
             <ol>
                 <li>
