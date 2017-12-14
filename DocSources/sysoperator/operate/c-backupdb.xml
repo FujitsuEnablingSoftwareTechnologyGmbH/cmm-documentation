@@ -136,17 +136,13 @@
                         <p>Before restoring the database, make sure that the container for the InfluxDB database is stopped.</p>
                         <p>To restore the database, you can then proceed as follows:</p>
                         <ol>
-                                <li>
-                                        <p>Restore the metastore to an ephemeral container.</p>
-                                        <p>Example:</p>
-                                        <codeblock>$ docker run --rm --entrypoint /bin/ash 
-  -v /opt/monasca-containers/influxdb:/var/lib/influxdb  
-  -v /opt/monasca-containers/influxdb_backup:/backups influxdb:1.3.4-alpine 
-  -c "influxd restore 
-  -metadir /var/lib/influxdb/meta 
-  -datadir /var/lib/influxdb/data 
-  -database mon /backups/backfinal.backup"</codeblock>
-                                </li>
+                                <li><p>Restore the metastore to an ephemeral container. To restore the metastore, execute the following command:</p><codeblock>$ docker run --rm --entrypoint /bin/ash
+ -v &lt;meta_data_dir>:/var/lib/influxdb  
+ -v &lt;backup_dir>:/backups  influxdb:1.3.4-alpine 
+ -c "influxd restore 
+ -metadir /var/lib/influxdb/meta 
+ -datadir /var/lib/influxdb/data 
+ -database mon /backups/&lt;name>.backup"</codeblock>Replace <codeph>&lt;meta_data_dir></codeph> with the directory used for synchronizing the meta data, <codeph>&lt;backup_dir></codeph> with the directory for storing the backup file, and <codeph>&lt;name></codeph> with the name of the backup file to be restored.</li>
                                 <li>
                                         <p>Start the Docker container for the restored metastore.</p>
                                         <p>Example:</p>
