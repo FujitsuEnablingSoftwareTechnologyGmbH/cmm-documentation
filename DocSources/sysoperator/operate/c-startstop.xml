@@ -35,7 +35,8 @@
                 </li>
                 <li>
                     <p>Run <codeph>docker-compose up</codeph> as follows: </p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up</codeblock>
+                    <codeblock>$ docker-compose -f docker-compose-metric.yml 
+ -f docker-compose-log.yml up</codeblock>
                     <note othertype="note">
                         <p>Make sure that the OpenStack Keystone service is up when executing the command. </p>
                     </note>
@@ -67,7 +68,8 @@
                 </li>
                 <li>
                     <p>Run <codeph>docker-compose stop</codeph> as follows: </p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop</codeblock>
+                    <codeblock>$ docker-compose -f docker-compose-metric.yml 
+ -f docker-compose-log.yml stop</codeblock>
                 </li>
             </ol>
             <p>To stop individual <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
