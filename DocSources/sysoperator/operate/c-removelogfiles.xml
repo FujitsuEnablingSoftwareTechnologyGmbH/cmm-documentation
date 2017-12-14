@@ -18,10 +18,6 @@
             <p><codeph>/usr/share/elasticsearch/data/&lt;cluster-name&gt;/nodes/&lt;node-name&gt;</codeph></p>
             <p>Example:</p>
             <p><codeph>/usr/share/elasticsearch/data/elasticsearch/nodes/0</codeph></p>
-            <p>
-                <note othertype="note"
-                        >If your system uses a different directory, look up the <codeph>path.data</codeph> parameter in the Elasticsearch configuration file, <codeph>/usr/share/elasticsearch/config/elasticsearch.yml</codeph>.</note>
-            </p>
         </section>
         <section>
             <p>If you want to delete outdated or unnecessary log data from the Elasticsearch database, proceed as follows:</p>
@@ -39,6 +35,10 @@
                     <li>
                         <p>Log in to the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                             /> node. </p>
+                    </li>
+                    <li>
+                        <p>To execute <codeph>curl</codeph> commands inside the <codeph>elasticsearch</codeph> container, run <codeph>docker-compose exec</codeph> as follows:</p>
+                        <codeblock>docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml exec elasticsearch /bin/ash</codeblock>
                     </li>
                     <li>
                         <p>Make sure that the data you want to delete exists by executing the following command: </p>
