@@ -19,7 +19,7 @@ openstack endpoint create logs \
 --publicurl http://&lt;cmm_ip>:5607/v3.0 --region &lt;region></codeblock>
             <p>Replace <codeph>&lt;cmm_ip></codeph> by the IP address of the <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    /> node, e.g. <codeph>http://192.168.10.6</codeph>, and <codeph>&lt;region></codeph> by the name of your OpenStack region, e.g. <codeph>RegionOne</codeph>.</p>
+                    /> node, for example, <codeph>http://192.168.10.6</codeph>, and <codeph>&lt;region></codeph> by the name of your OpenStack region, for example, <codeph>RegionOne</codeph>.</p>
         </section>
     </conbody>
 </concept>

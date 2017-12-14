@@ -146,7 +146,7 @@
  -v &lt;backup_dir>:/backups  influxdb:1.3.4-alpine 
  -c "influxd restore -metadir /var/lib/influxdb/meta 
  -datadir /var/lib/influxdb/data 
- -database mon /backups/&lt;name>.backup"</codeblock>Replace <codeph>&lt;meta_data_dir></codeph> with the directory that was used for synchronizing the meta data, <codeph>&lt;backup_dir></codeph> with the directory for storing the backup file, and <codeph>&lt;name></codeph> with the name of the backup file to be restored.</li>
+ -database mon /backups/&lt;name>.backup"</codeblock>Replace <codeph>&lt;meta_data_dir></codeph> with the directory that was used for synchronizing the meta data (<codeph>/var/lib/influxdb</codeph> in the example), <codeph>&lt;backup_dir></codeph> with the directory for storing the backup file (<codeph>/backup</codeph> in the example), and <codeph>&lt;name></codeph> with the name of the backup file to be restored.</li>
                                 <li>
                                         <p>Start the Docker container for the restored metastore.</p>
                                         <p>Example:</p>

@@ -44,7 +44,7 @@
                 </li>
             </ul>
             <p>The installation of an agent includes its initial configuration. This ensures that comprehensive metrics data for monitoring services and servers is retrieved. </p>
-            <p>Options are also provided for reconfiguring an agent following a successful installation. You can update the <codeph>agent.yaml</codeph> file, and you can activate metrics in addition to the ones that are automatically provided with the installation. </p>
+            <p>Options are also provided for reconfiguring an agent following a successful installation. If required, you can update the <codeph>agent.yaml</codeph> file, and you can activate metrics in addition to the ones that are automatically provided with the installation. </p>
         </section>
     </conbody>
 </concept>
