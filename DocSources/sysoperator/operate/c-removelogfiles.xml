@@ -37,7 +37,7 @@
                             /> node. </p>
                     </li>
                     <li>
-                        <p>To execute <codeph>curl</codeph> commands inside the <codeph>elasticsearch</codeph> container, run <codeph>docker-compose exec</codeph> as follows:</p>
+                        <p>To execute <codeph>curl</codeph> commands in the <codeph>elasticsearch</codeph> container, run <codeph>docker-compose exec</codeph> as follows:</p>
                         <codeblock>docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml exec elasticsearch /bin/ash</codeblock>
                     </li>
                     <li>
