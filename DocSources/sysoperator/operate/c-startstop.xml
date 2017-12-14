@@ -83,11 +83,11 @@
             <p>To check the status of all agents and services, run <codeph>docker-compose ps</codeph> as follows:</p>
             <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml ps</codeblock>
             <p>To view the status of an individual container, run <codeph>docker-compose ps</codeph> as follows:</p>
-            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop &lt;services></codeblock>
+            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml ps &lt;services></codeblock>
             <p>Replace <codeph>services</codeph> by the names of the services you want to stop. For a list of the service names, refer to <xref
                     href="../install/c-install-monservice.xml"/>. </p>
             <p>Example:</p>
-            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop kafka monasca-notification</codeblock>
+            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml ps kafka monasca-notification</codeblock>
             <note othertype="note">
                 <p>Run <codeph>docker-compose ps</codeph> in a separate shell unless you used <codeph>docker-compose up -d</codeph> for installing the Monitoring Service.</p>
             </note>
