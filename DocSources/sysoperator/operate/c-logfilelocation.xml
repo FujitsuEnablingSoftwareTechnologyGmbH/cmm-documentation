@@ -31,6 +31,11 @@
             </p>
                         <p>For more information on <codeph>docker-compose logs</codeph>, you can execute the following command:</p>
                         <codeblock>docker-compose logs --help</codeblock>
+            <note othertype="note">
+                <p>By default, Docker uses the <codeph>json-file</codeph> driver to record the logs of your containers. The log output in JSON format can be found in<codeph> /var/lib/docker/containers/&lt;container-id>/&lt;container-id>-json.log</codeph>. For more information on log handling, refer to the <xref
+                        format="html" href="https://docs.docker.com/v1.12/" scope="external">
+                        <u><i>Docker documentation</i></u></xref>.</p>
+            </note>
         </section>
         
     </conbody>
