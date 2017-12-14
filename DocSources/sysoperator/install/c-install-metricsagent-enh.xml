@@ -8,7 +8,7 @@
     <title>Activating Additional Metrics</title>
     <conbody>
         <section>
-            <p>The agent installation automatically configures and activates a comprehensive set of metrics for monitoring your services and servers. The agent ships with additional metrics templates that you can manually adapt to your environment and activate for monitoring.</p>
+            <p>The agent installation automatically configures and activates a comprehensive set of metrics for monitoring your services and servers. The agent ships with additional metrics templates that you can manually adapt to your environment and activate for monitoring, if required.</p>
             <p>For details on the complete set of metrics that is provided, refer to the <xref format="html"
                     href="https://github.com/openstack/monasca-agent/blob/stable/pike/docs/Plugins.md" scope="external"
                             ><u><i>Monasca documentation</i></u></xref>. For a list of the metrics that are supported by <ph

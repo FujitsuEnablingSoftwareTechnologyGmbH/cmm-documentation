@@ -8,7 +8,9 @@
     <title>Updating the Configuration File</title>
     <conbody>
         <section>
-            <p>To edit the <codeph>agent.conf</codeph> file, proceed as follows:</p>
+            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> allows you to change the configuration of an agent that is up and running. It might be required, for example, that you want to monitor additional logs due to changes in your environment. To change the agent configuration, you have to edit the <codeph>agent.conf</codeph> configuration file. </p>
+            <p>Proceed as follows:</p>
             <ol>
                 <li>
                     <p>Log in to the server where the agent is installed.</p>
