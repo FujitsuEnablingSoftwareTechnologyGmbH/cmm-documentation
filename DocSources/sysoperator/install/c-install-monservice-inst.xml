@@ -43,21 +43,23 @@
                 </li>
                 <li>
                     <p>For integrating the Monitoring Service with OpenStack Keystone, you have to adapt the <codeph>OpenStack Keystone service</codeph> section:</p>
-                    <codeblock># Set the IP address of the OpenStack Keystone host
-MON_KEYSTONE_URL=&lt;os_ip>:5000
+                    <codeblock># Set the IPv4 address of the OpenStack Keystone host
+MON_KEYSTONE_URL=http://&lt;ip_address>:5000
 
 # Enable Kibana authorization (for token received from Horizon Plugin)
 MON_MONASCA_PLUGIN_ENABLED=True
 
-# Set the path to link Kibana to OpenStack Horizon via proxy (leave as is).
+# Set the path to mount Kibana to the Horizon proxy (leave as is).
 MON_BASE_PATH=/dashboard/monitoring/logs_proxy
 
-# Set the admin credentials for installing the Monasca data source
-MON_GRAFANA_USERNAME=&lt;admin_user_name>
-MON_GRAFANA_PASSWORD=&lt;admin_password></codeblock>
+# Define the Grafana user settings
+MON_GRAFANA_ADMIN_USER=&lt;Grafana_admin>
+MON_GRAFANA_ADMIN_PASSWORD=&lt;Grafana_admin_password>
+MON_GRAFANA_USERNAME=&lt;OpenStack_admin>
+MON_GRAFANA_PASSWORD=&lt;OpenStack_admin_password></codeblock>
                     <ul>
                         <li>
-                            <p>Replace <codeph>&lt;os_ip></codeph> by the IP address of the node on which the OpenStack Keystone service is deployed, for example, <codeph>http://172.31.0.216</codeph>. </p>
+                            <p>Replace <codeph>&lt;ip_address></codeph> by the IP address of the node on which the OpenStack Keystone service is deployed. Example URL: <codeph>http://172.31.0.216:5000</codeph>. </p>
                         </li>
                         <li>
                             <p>Set the <codeph>MON_MONASCA_PLUGIN_ENABLED</codeph> parameter to <codeph>True</codeph>.</p>
@@ -66,7 +68,10 @@ MON_GRAFANA_PASSWORD=&lt;admin_password></codeblock>
                             <p>Set the <codeph>MON_BASE_PATH</codeph> parameter to <codeph>/dashboard/monitoring/logs_proxy</codeph>.</p>
                         </li>
                         <li>
-                            <p>Replace <codeph>&lt;admin_user_name></codeph> and <codeph>&lt;admin_password></codeph> by the credentials of the OpenStack <codeph>admin</codeph> user. By default, the <codeph>admin</codeph> user is used for installing the Monasca data source in Grafana.</p>
+                            <p>##TODO Replace <codeph>&lt;Grafana_admin></codeph> and <codeph>&lt;Grafana_admin_password></codeph> by the credentials of the ##Grafana administrator (must be different from the OpenStack admin user. </p>
+                        </li>
+                        <li>
+                            <p>##TODO Replace <codeph>&lt;OpenStack_admin></codeph> and <codeph>&lt;OpenStack_admin_password></codeph> by the credentials of the OpenStack <codeph>admin</codeph> user. By default, the <codeph>admin</codeph> user is used for installing the Monasca data source in Grafana. </p>
                         </li>
                     </ul>
                 </li>
@@ -77,9 +82,9 @@ MON_AGENT_USERNAME=&lt;user_name>
 MON_AGENT_PASSWORD=&lt;password>
 MON_AGENT_PROJECT_NAME=&lt;project_name>
 
-# Set the Monitoring API and Log API credentials
-MON_API_USERNAME=&lt;api_user_name>
-MON_API_PASSWORD=&lt;api_password></codeblock>
+# Set the admin credentials
+MON_KEYSTONE_ADMIN_USER=&lt;OpenStack_admin>
+MON_KEYSTONE_ADMIN_PASSWORD=&lt;OpenStack_admin_password></codeblock>
                     <ul>
                         <li>
                             <p>Replace <codeph>&lt;user_name></codeph> and <codeph>&lt;password></codeph> by the credentials of the user used for authenticating the agents against OpenStack Keystone, and replace <codeph>&lt;project_name></codeph> by the name of the OpenStack project for which data is to be retrieved by the agents.</p>
@@ -94,11 +99,7 @@ MON_AGENT_PASSWORD=password
 MON_AGENT_PROJECT_NAME=monasca</codeblock>
                         </li>
                         <li>
-                            <p>Replace <codeph>&lt;api_user_name></codeph> and <codeph>&lt;api_password></codeph> by the credentials of the OpenStack <codeph>admin</codeph> user. By default, the <codeph>admin</codeph> user is used for authenticating the Monitoring API and the Log API against OpenStack Keystone. </p>
-                            <p>Example:</p>
-                            <codeblock># Set the Monitoring API and Log API credentials
-MON_API_USERNAME=admin
-MON_API_PASSWORD=password</codeblock>
+                            <p>Replace <codeph>&lt;OpenStack_admin></codeph> and <codeph>&lt;OpenStack_admin_password></codeph> by the credentials of the OpenStack <codeph>admin</codeph> user. By default, the <codeph>admin</codeph> user is used for authenticating the Monitoring API and the Log API against OpenStack Keystone. </p>
                         </li>
                     </ul>
                 </li>
@@ -107,7 +108,13 @@ MON_API_PASSWORD=password</codeblock>
                     <p>If required, you can update the <codeph>MON_DOCKER_VOL_ROOT</codeph> parameter in the <codeph>Data directories</codeph> section, and specify a different volume.</p>
                     <codeblock># Set the path for the data directories of Elasticsearch,  
 # InfluxDB, MySQL, Kafka, and Grafana
-MON_DOCKER_VOL_ROOT=&lt;path to data directories></codeblock>
+MON_DOCKER_VOL_ROOT=&lt;path_to_data_directories></codeblock>
+                </li>
+                <li>
+                    <p>The installation of the Monitoring Service mounts <codeph>/mount/backup/elasticsearch</codeph> as default volume for backing up the Elasticsearch database. </p>
+                    <p>If required, you can update the <codeph>MON_BACKUP_DIR</codeph> parameter, and specify a different volume.</p>
+                    <codeblock># Set the path for backing up the Elasticsearch database
+MON_BACKUP_DIR=&lt;path_to_backup_directory></codeblock>
                 </li>
                 <li>
                     <p>By default, <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
@@ -115,7 +122,7 @@ MON_DOCKER_VOL_ROOT=&lt;path to data directories></codeblock>
                     <p>If required, you can change the data retention parameters in the <codeph>Data retention</codeph> section.</p>
                     <codeblock># Data retention for Elasticsearch database 
 # Delete job is executed every day at midnight.
-MON_ELASTICSEARCH_DATA_RETENTION_DAYS=&lt;number of days>
+MON_ELASTICSEARCH_DATA_RETENTION_DAYS=&lt;number_of_days>
 
 # Data retention for InfluxDB database
 MON_INFLUXDB_RETENTION=&lt;number of days>d</codeblock>
@@ -123,12 +130,6 @@ MON_INFLUXDB_RETENTION=&lt;number of days>d</codeblock>
                     <p>Example:</p>
                     <codeblock>MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30
 MON_INFLUXDB_RETENTION=30d</codeblock>
-                </li>
-                <li>
-                    <p>The installation of the Monitoring Service mounts <codeph>/mount/backup/elasticsearch1</codeph> as default volume for backing up the Elasticsearch database. </p>
-                    <p>If required, you can update the <codeph>MON_ELASTICSEARCH_BACKUP</codeph> parameter, and specify a different volume.</p>
-                    <codeblock># Set the path for backing up the Elasticsearch database
-MON_ELASTICSEARCH_BACKUP=&lt;path to backup directory></codeblock>
                 </li>
                 <li>
                     <p>Load the tarred repository from the <codeph>CMM_server_2.0.0_images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>
