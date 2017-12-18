@@ -42,7 +42,7 @@
                     <p>Open the <codeph>.env</codeph> file to make the adaptions required for your environment.</p>
                 </li>
                 <li>
-                    <p>For integrating the Monitoring Service with OpenStack Keystone, you have to adapt the <codeph>OpenStack Keystone service</codeph> section:</p>
+                    <p>For integrating the Monitoring Service with OpenStack Keystone, you have to specify the following parameters:</p>
                     <codeblock># Set the IPv4 address of the OpenStack Keystone host
 MON_KEYSTONE_URL=http://&lt;ip_address>:5000
 
@@ -68,21 +68,21 @@ MON_GRAFANA_PASSWORD=&lt;OpenStack_admin_password></codeblock>
                             <p>Set the <codeph>MON_BASE_PATH</codeph> parameter to <codeph>/dashboard/monitoring/logs_proxy</codeph>.</p>
                         </li>
                         <li>
-                            <p>##TODO Replace <codeph>&lt;Grafana_admin></codeph> and <codeph>&lt;Grafana_admin_password></codeph> by the credentials of the ##Grafana administrator (must be different from the OpenStack admin user. </p>
+                            <p>Replace <codeph>&lt;Grafana_admin></codeph> and <codeph>&lt;Grafana_admin_password></codeph> by the credentials of a Grafana administrator. This user is created with installing the Monitoring Service and required for Grafana user management. It must be different from the OpenStack <codeph>admin</codeph> user. </p>
                         </li>
                         <li>
-                            <p>##TODO Replace <codeph>&lt;OpenStack_admin></codeph> and <codeph>&lt;OpenStack_admin_password></codeph> by the credentials of the OpenStack <codeph>admin</codeph> user. By default, the <codeph>admin</codeph> user is used for installing the Monasca data source in Grafana. </p>
+                            <p>Replace <codeph>&lt;OpenStack_admin></codeph> and <codeph>&lt;OpenStack_admin_password></codeph> by the credentials of the OpenStack <codeph>admin</codeph> user. By default, the <codeph>admin</codeph> user is used for installing the Monasca data source in Grafana. </p>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <p>For enabling access to OpenStack Keystone, you have to specify credentials for the Metrics Agent and Log Agent, as well as for the Monitoring API and the Log API in the <codeph>Keystone credentials</codeph> section: </p>
-                    <codeblock># Set the agent credentials 
+                    <p>For enabling access to OpenStack Keystone, you have to specify credentials for the Metrics Agent and Log Agent, as well as for the Monitoring API and the Log API in the <codeph>OpenStack Keystone credentials</codeph> section: </p>
+                    <codeblock># Agent credentials 
 MON_AGENT_USERNAME=&lt;user_name>
 MON_AGENT_PASSWORD=&lt;password>
 MON_AGENT_PROJECT_NAME=&lt;project_name>
 
-# Set the admin credentials
+# Admin credentials
 MON_KEYSTONE_ADMIN_USER=&lt;OpenStack_admin>
 MON_KEYSTONE_ADMIN_PASSWORD=&lt;OpenStack_admin_password></codeblock>
                     <ul>
@@ -111,10 +111,10 @@ MON_AGENT_PROJECT_NAME=monasca</codeblock>
 MON_DOCKER_VOL_ROOT=&lt;path_to_data_directories></codeblock>
                 </li>
                 <li>
-                    <p>The installation of the Monitoring Service mounts <codeph>/mount/backup/elasticsearch</codeph> as default volume for backing up the Elasticsearch database. </p>
+                    <p>The installation of the Monitoring Service mounts <codeph>/mount/backup</codeph> as default volume for backing up the databases. </p>
                     <p>If required, you can update the <codeph>MON_BACKUP_DIR</codeph> parameter, and specify a different volume.</p>
-                    <codeblock># Set the path for backing up the Elasticsearch database
-MON_BACKUP_DIR=&lt;path_to_backup_directory></codeblock>
+                    <codeblock># Set the path for backup directories
+MON_BACKUP_DIR=&lt;path_to_backup_directoriesy></codeblock>
                 </li>
                 <li>
                     <p>By default, <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
