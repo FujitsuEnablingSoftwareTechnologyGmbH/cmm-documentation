@@ -54,7 +54,7 @@
 }'</codeblock>
                                         <p>The example registers a shared file system repository (<codeph>"type": "fs"</codeph>) that uses the <codeph>/elasticsearch_backup</codeph> directory for storing snapshots.</p>
                                         <note othertype="note"
-                                                        >The directory for storing snapshots must be specified as configured during the installation of the Monitoring Service (<codeph>MON_ELASTICSEARCH_BACKUP</codeph> parameter in <codeph>.env</codeph> file). The directory must be manually mounted before creating the snapshot. The <codeph>elasticsearch</codeph> user must be specified as the owner of the directory.</note>
+                                                        >The directory for storing snapshots must be specified as configured during the installation of the Monitoring Service (<codeph>MON_BACKUP_DIR</codeph> parameter in <codeph>.env</codeph> file). The directory must be manually mounted before creating the snapshot. The <codeph>elasticsearch</codeph> user must be specified as the owner of the directory.</note>
                                         <p
                     id="compress_concept_conbody_section_2_o"><codeph>compress</codeph> is turned on to compress the metadata files.</p>
                                 </li>
