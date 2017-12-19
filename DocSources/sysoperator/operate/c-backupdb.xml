@@ -43,6 +43,16 @@
                                         <codeblock>docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
                                 </li>
                                 <li>
+                                        <p/>
+                                        <p>For creating a snapshot repository,</p>
+                                        <p>change the owner of the backup directory. </p>
+                                        <note othertype="note"
+                                                        >The directory for storing snapshots must be specified as configured during the installation of the Monitoring Service (<codeph>MON_BACKUP_DIR</codeph> parameter in <codeph>.env</codeph> file). The directory must be manually mounted before creating the snapshot. The <codeph>elasticsearch</codeph> user must be specified as the owner of the directory.</note>
+                                        <p>#### Set the path for backup directories </p>
+                                        <p>##we need to add info about changing backup folder owner with command: </p>
+                                        <codeblock>chown -R elasticsearch:elasticsearch /elasticsearch_backup </codeblock>
+                                </li>
+                                <li>
                                         <p>Create a snapshot repository.</p>
                                         <p>Example:</p>
                                         <codeblock>$ curl -XPUT http://localhost:9200/_snapshot/my_backup -d '{
@@ -53,8 +63,6 @@
   }
 }'</codeblock>
                                         <p>The example registers a shared file system repository (<codeph>"type": "fs"</codeph>) that uses the <codeph>/elasticsearch_backup</codeph> directory for storing snapshots.</p>
-                                        <note othertype="note"
-                                                        >The directory for storing snapshots must be specified as configured during the installation of the Monitoring Service (<codeph>MON_BACKUP_DIR</codeph> parameter in <codeph>.env</codeph> file). The directory must be manually mounted before creating the snapshot. The <codeph>elasticsearch</codeph> user must be specified as the owner of the directory.</note>
                                         <p
                     id="compress_concept_conbody_section_2_o"><codeph>compress</codeph> is turned on to compress the metadata files.</p>
                                 </li>
@@ -116,7 +124,7 @@
                                         <p>It is required to mount a directory for synchronizing the meta data and a directory for storing the database backup file on your local machine.</p>
                                         <p>For this purpose, execute the following command:</p>
                                         <codeblock>$ docker run --rm -v $INFLUXDB_META_DIR:&lt;meta_data_dir> 
- -v $INFLUXDB_BACKUPS:&lt;backup_dir> influxdb:1.3.3-alpine</codeblock>
+ -v $INFLUXDB_BACKUPS:&lt;backup_dir> influxdb:1.3.4-alpine</codeblock>
                                         <p>Replace <codeph>&lt;meta_data_dir></codeph> with the directory to be used for synchronizing the meta data, for example <codeph>/var/lib/influxdb</codeph>. </p>
                                         <p>Replace <codeph>&lt;backup_dir></codeph> with the directory to be used for storing the backup file, for example <codeph>/backup</codeph>. </p>
                                 </li>
@@ -124,7 +132,7 @@
                                         <p>For backing up the InfluxDB database, you need to know the ID of the container in which the database is running:</p>
                                         <codeblock>$ docker ps | grep influxd</codeblock>
                                         <p>Example output: </p>
-                                        <codeblock>$ 07e9007e0be8        influxdb:1.3.3-alpine   "/entrypoint.sh in..."
+                                        <codeblock>$ 07e9007e0be8        influxdb:1.3.4-alpine   "/entrypoint.sh in..."
  3 seconds ago       Up 2 seconds 0.0.0.0:32779->8086/tcp   
  determined_goodall</codeblock>
                                 </li>
@@ -151,7 +159,7 @@
                                         <p>Start the Docker container for the restored metastore.</p>
                                         <p>Example:</p>
                                         <codeblock>$ docker run --rm -v $INFLUXDB_META_DIR:/var/lib/influxdb 
- -v $INFLUXDB_BACKUPS:/backups influxdb:1.3.3-alpine</codeblock>
+ -v $INFLUXDB_BACKUPS:/backups influxdb:1.3.4-alpine</codeblock>
                                 </li>
                         </ol>
                 </section>
