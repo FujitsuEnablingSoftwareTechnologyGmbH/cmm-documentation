@@ -8,7 +8,6 @@
     <title>Installation</title>
     <conbody>
         <section>
-            <p><i>##Bug 13829: version numbers to be updated for the final delivery</i></p>
             <p>To install a Metrics Agent, proceed as follows:</p>
             <ol
                     compact="no">
@@ -19,24 +18,24 @@
                     <p>Prepare an installation directory. </p>
                 </li>
                 <li>
-                    <p>Extract the <codeph>CMM_client_2.0.x.zip</codeph> archive file from the <ph
+                    <p>Extract the <codeph>CMM_client_2.0.2.zip</codeph> archive file from the <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> installation package to the installation directory. The archive provides the following files:</p>
                     <ul>
-                        <li><codeph>log-agent-CMM_2.0.x.run</codeph></li>
-                        <li><codeph>monasca-agent-CMM_2.0.x.run</codeph></li>
-                        <li><codeph>monasca-ui-CMM_2.0.x.run</codeph></li>
+                        <li><codeph>log-agent-CMM_2.0.2.run</codeph></li>
+                        <li><codeph>monasca-agent-CMM_2.0.2.run</codeph></li>
+                        <li><codeph>monasca-ui-CMM_2.0.2.run</codeph></li>
                     </ul>
                 </li>
                 <li>
-                    <p>Change the access permission of the <codeph>monasca-agent-CMM_2.0.x.run</codeph> file to Execute.</p>
+                    <p>Change the access permission of the <codeph>monasca-agent-CMM_2.0.2.run</codeph> file to Execute.</p>
                 </li>
                 <li>
                     <p>Make sure that your <codeph>/root/.my.cnf</codeph> file does not define any passwords in single quotes.</p>
                 </li>
                 <li>
                     <p>Run the agent installer, and provide the required OpenStack Keystone credentials. </p>
-                    <codeblock>./monasca-agent-CMM_2.0.x.run \
+                    <codeblock>./monasca-agent-CMM_2.0.2.run \
 --target /opt/monasca-agent -- \
 --username &lt;user_name> \           
 --password &lt;password> \                   
