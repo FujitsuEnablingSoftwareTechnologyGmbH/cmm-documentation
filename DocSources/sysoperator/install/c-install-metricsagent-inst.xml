@@ -34,43 +34,43 @@
                     <p>Make sure that your <codeph>/root/.my.cnf</codeph> file does not define any passwords in single quotes.</p>
                 </li>
                 <li>
-                    <p>Run the agent installer, and provide the required OpenStack Keystone credentials. </p>
+                    <p>Run the agent installer:</p>
                     <codeblock>./monasca-agent-CMM_2.0.2.run \
---target /opt/monasca-agent -- \
---username &lt;user_name> \           
---password &lt;password> \                   
---project_name &lt;project_name> \  
---user_domain_name default \ 
---project_domain_name default \ 
---service_type monitoring \
---keystone_url &lt;openstack_ip>:35357/v3 \  
---monasca_statsd_port &lt;port_no> \     
---skip_detection_plugins OVS Libvirt </codeblock>
-                    <p>##reformulate## The minimum set of parameters to be configured for running the installer includes:</p>
+  --target /opt/monasca-agent -- \
+  --username &lt;user_name> \           
+  --password &lt;password> \                   
+  --project_name &lt;project_name> \  
+  --user_domain_name default \ 
+  --project_domain_name default \ 
+  --service_type monitoring \
+  --keystone_url &lt;openstack_url> \  
+  --monasca_statsd_port &lt;port_no> \     
+  --skip_detection_plugins OVS Libvirt </codeblock>
+                    <p>The following parameters must be configured for running the installer:</p>
                     <ul>
                         <li>
-                            <p><codeph>--target</codeph>. Mandatory. The directory in which the agent is installed. </p>
+                            <p><codeph>--target</codeph>. The directory in which the agent is installed. </p>
                         </li>
                         <li>
-                            <p><codeph>--username</codeph>. Mandatory. The user to be used for authenticating the agent against OpenStack Keystone, for example <codeph>monasca-agent</codeph>.</p>
+                            <p><codeph>--username</codeph>. The user to be used for authenticating the agent against OpenStack Keystone, for example <codeph>monasca-agent</codeph>. </p>
                             <p>The user specified here must have the <codeph>monasca-agent</codeph> role in OpenStack and be assigned to the OpenStack project that is to be monitored by the agent. The project is specified in <codeph>project_name</codeph>, for example, <codeph>monasca</codeph>.</p>
                             <p>It is recommended that this user is used only for configuration purposes and not for actually monitoring services and servers.</p>
                         </li>
                         <li>
-                            <p><codeph>--password</codeph>. Mandatory. The password of the user specified in <codeph>--username</codeph>.</p>
+                            <p><codeph>--password</codeph>. The password of the user specified in <codeph>--username</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--project_name</codeph>. Optional. The name of the OpenStack project for which metrics data is to be retrieved by the agent. If <codeph>--project_name</codeph> is not specified, the data is retrieved from the default project assigned to the user specified in <codeph>--username</codeph>.</p>
+                            <p><codeph>--project_name</codeph>. The name of the OpenStack project for which metrics data is to be retrieved by the agent. <codeph>--project_name</codeph> is not specified, the data is retrieved from the default project assigned to the user specified in <codeph>--username</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph> --user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
+                            <p><codeph> --user_domain_name</codeph>. The user domain name to be used for user name scoping. If <codeph>--user_domain_name</codeph> is not specified, <codeph>default</codeph> is set when running the installer.</p>
                         </li>
                         <li>
                             <p>
-                                <codeph>--project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
+                                <codeph>--project_domain_name</codeph>. The project domain name used for authenticating the agent against OpenStack Keystone. If <codeph>--project_domain_name</codeph> is not specified, <codeph>default</codeph> is set when running the installer.</p>
                         </li>
                         <li>
-                            <p><codeph>--service_type</codeph>. Example: <codeph>monitoring</codeph>.</p>
+                            <p><codeph>--service_type</codeph>. Example: <codeph>monitoring</codeph>. ##TODO</p>
                         </li>
                         <li>
                             <p><codeph>--keystone_url</codeph>. Mandatory parameter specifying the URL used to access the server where the OpenStack Keystone service is installed. It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph>.</p>
@@ -79,7 +79,7 @@
                             <p><codeph>--monasca_statsd_port</codeph>. Optional. The port number for the StatsD daemon. Check whether the default port number must be changed from <codeph>8125</codeph> to <codeph>8126</codeph>. Port <codeph>8125</codeph> is used by Gnocchi in Red Hat Enterprise Linux OpenStack Platform 10.</p>
                         </li>
                         <li>
-                            <p><codeph>--skip_detection_plugins</codeph>. <i>Optional or mandatory?</i> Example: <codeph>OVS Libvirt</codeph>.</p>
+                            <p><codeph>--skip_detection_plugins</codeph>. Example: <codeph>OVS Libvirt</codeph>. ##TODO</p>
                         </li>
                     </ul>
                 </li>

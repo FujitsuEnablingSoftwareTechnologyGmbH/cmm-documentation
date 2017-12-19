@@ -33,24 +33,23 @@
                     <p>Make sure that your <codeph>/root/.my.cnf</codeph> file does not define any passwords in single quotes.</p>
                 </li>
                 <li>
-                    <p>Run the agent installer, and provide the required OpenStack Keystone credentials. </p>
-                    <p>Example: </p>
+                    <p>Run the agent installer: </p>
                     <codeblock>./log-agent-CMM_2.0.2.run \
-    --target "/opt/monasca/monasca-log-agent" -- \
-    --monasca_log_api_url "&lt;cmm_ip>" \   
-    --keystone_auth_url "&lt;openstack_ip>" \   
-    --project_name "&lt;project>" \
-    --username "&lt;user_name>"  \
-    --password "&lt;password>" \
-    --user_domain_name "default" \
-    --project_domain_name "default" \
-    --hostname "['&lt;name>:'&lt;dimension>']" \
-    "/var/log/*" "/var/log/monasca/api/error.log"</codeblock>
-                    <p><i>##TODO CHECK: default values, mandatory, optional## </i></p>
-                    <p>All parameters are filled with default values. Each value must be enclosed in double quotes (<codeph>"</codeph>). The minimum set of parameters that must be configured for an agent includes: </p>
+  --target "/opt/monasca/monasca-log-agent" -- \
+  --monasca_log_api_url "&lt;cmm_url>" \   
+  --keystone_auth_url "&lt;openstack_url>" \   
+  --project_name "&lt;project>" \
+  --username "&lt;user_name>"  \
+  --password "&lt;password>" \
+  --user_domain_name "default" \
+  --project_domain_name "default"
+  --hostname "&lt;openstack_hostname>" \
+  "&lt;path_to_log_file1>" "&lt;path_to_log_file<i>n</i>>"
+</codeblock>
+                    <p>The following parameters must be configured for running the installer. Each value must be enclosed in double quotes (<codeph>"</codeph>).  </p>
                     <ul>
                         <li>
-                            <p><codeph>--target</codeph>. The directory in which the agent is installed.<i> ##mandatory##</i></p>
+                            <p><codeph>--target</codeph>. The directory in which the agent is installed.</p>
                         </li>
                         <li>
                             <p><codeph>--monasca_log_api_url</codeph>. The URL used to access the server where the Monitoring Service is installed. Example: <codeph>http://192.168.1.6:5607/v3.0</codeph>.</p>
@@ -70,22 +69,22 @@
                             <p><codeph>--password</codeph>. The password of the user specified in <codeph>username</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
+                            <p><codeph>--user_domain_name</codeph>. The user domain name to be used for user name scoping. If you do not specify <codeph>user_domain_name</codeph>, the installer sets it to <codeph>default</codeph>. ###TODO</p>
                         </li>
                         <li>
-                            <p><codeph>project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone. <i>If not specified, what does <codeph>default</codeph> imply?</i></p>
+                            <p><codeph>project_domain_name</codeph>. The project domain name used for authenticating the agent against OpenStack Keystone. If you do not specify <codeph>project_domain_name</codeph>, the installer sets it to <codeph>default</codeph>. ###TODO</p>
                         </li>
                         <li>
-                            <p><codeph>--hostname</codeph>. Optional. Meta information to be collected with the log data that is retrieved by the agent. The information can be defined as an array. Example: <codeph>['service:monitoring', 'hostname:node1']</codeph>. <i>Optional?</i></p>
+                            <p><codeph>--hostname</codeph>. ??? Optional. Meta information to be collected with the log data that is retrieved by the agent, for example <codeph>node1</codeph>. ###TODO <i>Optional?</i> ###Example by SYLVIE : <codeph>host1</codeph> ### notation? ###haruki --hostname &lt;OS hostname></p>
                             <p>The meta information defined by a dimension is attached to each log entry. It is represented as one or more fields in the log management window. For the user who is working with the log data, dimensions provide additional filtering options.</p>
                         </li>
                     </ul>
                 </li>
             </ol>
             <!--p>##TODO For detailed information on the configuration parameters that can be defined, refer to ##</p -->
-            <p>For running the installer, it is not mandatory to specify input file paths. Yet, without specifying which data is to be retrieved, an immediate update of the agent configuration is required following the installation.</p>
-            <p>Specify the input file paths as in the following example: </p>
-            <codeblock>"/var/log/monasca/api/error.log" "/var/log/neutron/firewall.log"</codeblock>
+            <p>For specifying which log data is to be retrieved, replace <codeph>&lt;path_to_log_file1> "&lt;path_to_log_file<i>n</i>>"</codeph>. You have to specify the file paths as absolute paths as in the following example: </p>
+            <codeblock>"/var/log/keystone/keystone.log" "/var/log/neutron/firewall.log"</codeblock>
+            <p>Any number of input file paths can be specified. You can run the installer without specifying input file paths. Without specifying which data is to be retrieved, however, it is required to update the agent configuration at a later stage.</p>
             <p>The installer creates a <codeph>monasca-log-agent.service</codeph> file in the <codeph>/etc/systemd/system</codeph> directory, and automatically runs the service file to start the agent. </p>
             <p>The agent is provided as a LINUX service. A startup script is created that automatically starts the agent each time the machine is booted. </p>
         </section>
