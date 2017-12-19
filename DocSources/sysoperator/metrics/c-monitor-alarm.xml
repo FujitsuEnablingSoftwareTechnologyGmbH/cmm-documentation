@@ -60,7 +60,7 @@ max(disk.space_used_perc{service=monitoring}) &gt; 90</codeblock>
                     <p>Select the metrics to be evaluated.</p>
                 </li>
                 <li>
-                    <p>Select a statistical function for the metrics: <codeph>min</codeph> to monitor the minimum values, <codeph>max</codeph> to monitor the maximum values, <codeph>sum</codeph> to monitor the sum of the values, <codeph>count</codeph> for the monitored number, or <codeph>avg</codeph> for the arithmetic average.</p>
+                    <p>Select a statistical function for the metrics: <codeph>min</codeph> to monitor the minimum values, <codeph>max</codeph> to monitor the maximum values, <codeph>sum</codeph> to monitor the sum of the values, <codeph>count</codeph> for the monitored number, <codeph>avg</codeph> for the arithmetic average, or <codeph>last</codeph> for the most recent value.</p>
                 </li>
                 <li>
                     <p>Enter one or multiple dimensions in the <uicontrol>Add a dimension</uicontrol> field to further qualify the metrics. </p>
