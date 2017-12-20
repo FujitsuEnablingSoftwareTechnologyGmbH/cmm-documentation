@@ -18,8 +18,8 @@
                                         <codeblock>$ openstack role create monitoring-delegate </codeblock>
                                 </li>
                                 <li>
-                                        <p>Assign the <codeph>monitoring-delegate</codeph> role to the OpenStack user you have created for authenticating an agent against OpenStackKeystone, for example, <codeph>monasca-agent</codeph>. The user name and password of this user must be specified in the agent configuration when the agent is installed. For details, refer to <xref
-                                                href="../install/c-install-ksconfig-users.xml"/>. </p>
+                                        <p>Assign the <codeph>monitoring-delegate</codeph> role to the OpenStack user you have created for authenticating an agent against OpenStack Keystone, for example, <codeph>monasca-agent</codeph>. The user name and password of this user must be specified in the agent configuration when the agent is installed. For details, refer to <xref
+                                                        href="../install/c-install-ksconfig-users.xml"/>. </p>
                                         <p>Example command for assigning the <codeph>monitoring-delegate</codeph> role to the <codeph>monasca-agent</codeph> user:</p>
                                         <codeblock>$ openstack role add \
    --project monasca \
