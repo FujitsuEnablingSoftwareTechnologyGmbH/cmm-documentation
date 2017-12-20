@@ -31,19 +31,15 @@
                     <p>Example:</p>
                     <codeblock>input {
   file {
-    path =&gt; "/var/log/keystone/*.log"
-  }
-   file {
     path =&gt; "/var/log/monasca/agent/*.log"
   }
   file {
     path =&gt; "/var/log/monasca/monasca-log-agent/*.log"
   }
   file {
-    add_field => { "dimensions" => { "service" => "monasca-api" }}
-    add_field => { "dimensions" => { "language" => "java" }}
+    add_field => { "dimensions" => { "service" => "keystone" }}
     add_field => { "dimensions" => { "log_level" => "error" }}
-    path => "/var/log/monasca/api/error.log"
+    path => "/var/log/keystone/*.log"
   }
 }</codeblock>
                     <!-- p>##TODO For additional details on the input section, refer to ##.</p -->
@@ -60,14 +56,13 @@
     password =&gt; "password"    
     user_domain_name =&gt; "default"
     project_domain_name =&gt; "default"
-    dimensions =&gt; ['app_type:kafka', 'priority:high']         
+    dimensions =&gt; ["hostname:['service:monitoring','hostname:node1']"]         
     num_of_logs => 100
     delay => 1
     elapsed_time_sec => 600
     max_data_size_kb => 5120
   }
-}
-</codeblock>
+}</codeblock>
                     <!-- p>For additional details on the output section, refer to ##.</p -->
                 </li>
                 <li>

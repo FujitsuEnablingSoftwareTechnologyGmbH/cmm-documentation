@@ -58,12 +58,12 @@ openstack role create monasca-agent</codeblock>
                 <li>
                     <p>The new OpenStack user (<codeph>monasca-agent</codeph> in the example) must be assigned to the project prepared for <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> and must have the <codeph>monasca-agent</codeph> role.</p>
+                            /> and must have the <codeph>monasca-agent</codeph> role in this project.</p>
                 </li>
                 <li>
                     <p>The OpenStack <codeph>admin</codeph> user must be assigned to the project prepared for <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> and must have the <codeph>monasca-user</codeph> and <codeph>admin</codeph> roles.</p>
+                            /> and must have the <codeph>monasca-user</codeph> and <codeph>admin</codeph> roles in this project.</p>
                 </li>
             </ul>
             <p>Example: </p>
