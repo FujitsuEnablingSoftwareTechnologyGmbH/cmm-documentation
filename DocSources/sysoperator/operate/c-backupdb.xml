@@ -43,14 +43,10 @@
                                         <codeblock>docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
                                 </li>
                                 <li>
-                                        <p/>
-                                        <p>For creating a snapshot repository,</p>
-                                        <p>change the owner of the backup directory. </p>
-                                        <note othertype="note"
-                                                        >The directory for storing snapshots must be specified as configured during the installation of the Monitoring Service (<codeph>MON_BACKUP_DIR</codeph> parameter in <codeph>.env</codeph> file). The directory must be manually mounted before creating the snapshot. The <codeph>elasticsearch</codeph> user must be specified as the owner of the directory.</note>
-                                        <p>#### Set the path for backup directories </p>
-                                        <p>##we need to add info about changing backup folder owner with command: </p>
+                                        <p>Before creating a backup, the <codeph>elasticsearch</codeph> user must be specified as the owner of the directory that is used for storing snapshots. Specify the owner of the directory as follows:</p>
                                         <codeblock>chown -R elasticsearch:elasticsearch /elasticsearch_backup </codeblock>
+                                        <note othertype="note"
+                                                        >When creating a snapshot repository (see next step), the directory for storing snapshots must be specified as configured during the installation of the Monitoring Service (<codeph>MON_BACKUP_DIR</codeph> parameter in <codeph>.env</codeph> file). It must be manually mounted before creating the snapshot. </note>
                                 </li>
                                 <li>
                                         <p>Create a snapshot repository.</p>
