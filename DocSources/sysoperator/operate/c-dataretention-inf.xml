@@ -23,7 +23,8 @@
                 </li>
                 <li>
                     <p>Stop the <codeph>influxdb</codeph> service. For this purpose, run <codeph>docker-compose stop</codeph> as follows: </p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop influxdb</codeblock>
+                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f 
+ docker-compose-log.yml stop influxdb</codeblock>
                 </li>
                 <li>
                     <p>Open the <codeph>.env</codeph> file, and update the data retention parameter as required. </p>
@@ -33,7 +34,8 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
                     <p>Start the <codeph>influxdb</codeph> service. For this purpose, run <codeph>docker-compose up</codeph> as follows: </p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up influxdb</codeblock>
+                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f 
+ docker-compose-log.yml up influxdb</codeblock>
                 </li>
             </ol>
             <p>As soon as the <codeph>influxdb</codeph> service is up and running, your new data retention period takes effect. </p>

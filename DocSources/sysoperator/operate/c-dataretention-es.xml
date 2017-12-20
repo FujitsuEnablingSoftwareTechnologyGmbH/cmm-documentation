@@ -26,18 +26,20 @@
                 </li>
                 <li>
                     <p>Stop the <codeph>elasticsearch-curator</codeph> service. For this purpose, run <codeph>docker-compose stop</codeph> as follows: </p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop elasticsearch-curator</codeblock>
+                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f 
+ docker-compose-log.yml stop elasticsearch-curator</codeblock>
                 </li>
                 <li>
                     <p>Open the <codeph>.env</codeph> file, and update the data retention parameter as required. </p>
                     <p>Example for deleting the data after a period of 30 days:</p>
                     <codeblock># Data retention for Elasticsearch database 
-# Delete job is executed every day at midnight.
+# Delete job is executed every day at 12 a.m. UTC
 MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30</codeblock>
                 </li>
                 <li>
                     <p>Start the <codeph>elasticsearch-curator</codeph> service. For this purpose, run <codeph>docker-compose up</codeph> as follows: </p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up elasticsearch-curator</codeblock>
+                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f 
+ docker-compose-log.yml up elasticsearch-curator</codeblock>
                 </li>
             </ol>
             <p>As soon as the <codeph>elasticsearch-curator</codeph> service is up and running, your new data retention policy takes effect. </p>
