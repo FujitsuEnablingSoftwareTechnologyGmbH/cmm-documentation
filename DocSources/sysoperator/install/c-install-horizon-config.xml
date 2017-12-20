@@ -71,7 +71,7 @@ if __name__ == "__main__":
     execute_from_command_line(sys.argv)</codeblock>
                 </li>
                 <li>
-                    <p>Prepare the Japanese version of the OpenStack Horizon plugin.</p>
+                    <p>If it is required to provide the Japanese version of the Horizon plugin, make the following preparation. </p>
                     <p>Example with <codeph>/opt/monasca-ui/</codeph> as plugin installation directory:</p>
                     <codeblock>cd /opt/monasca-ui/lib/python2.7/site-packages/monitoring/
 /opt/monasca-ui/lib/python2.7/site-packages/django/bin/django-admin.py compilemessages -l ja</codeblock>
