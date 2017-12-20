@@ -70,16 +70,16 @@
                                 <codeph>--project_domain_name</codeph>. The project domain name used for authenticating the agent against OpenStack Keystone. If <codeph>--project_domain_name</codeph> is not specified, <codeph>default</codeph> is set when running the installer.</p>
                         </li>
                         <li>
-                            <p><codeph>--service_type</codeph>. Example: <codeph>monitoring</codeph>. ##TODO</p>
+                            <p><codeph>--service_type</codeph>. Example: <codeph>monitoring</codeph>. </p>
                         </li>
                         <li>
-                            <p><codeph>--keystone_url</codeph>. Mandatory parameter specifying the URL used to access the server where the OpenStack Keystone service is installed. It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph>.</p>
+                            <p><codeph>--keystone_url</codeph>. URL used to access the server where the OpenStack Keystone service is installed. It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph>.</p>
                         </li>
                         <li>
                             <p><codeph>--monasca_statsd_port</codeph>. Optional. The port number for the StatsD daemon. Check whether the default port number must be changed from <codeph>8125</codeph> to <codeph>8126</codeph>. Port <codeph>8125</codeph> is used by Gnocchi in Red Hat Enterprise Linux OpenStack Platform 10.</p>
                         </li>
                         <li>
-                            <p><codeph>--skip_detection_plugins</codeph>. Example: <codeph>OVS Libvirt</codeph>. ##TODO</p>
+                            <p><codeph>--skip_detection_plugins</codeph>. Example: <codeph>OVS Libvirt</codeph>. </p>
                         </li>
                     </ul>
                 </li>
