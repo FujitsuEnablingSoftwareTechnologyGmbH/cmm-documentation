@@ -10,23 +10,26 @@
         <section>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> is distributed in the <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    /> installation package. It contains the <ph
+                    /> installation package. It contains archive files with the <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> software and documentation for installing and configuring <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
-            <p>The <codeph>CMM_server_2.0.2.zip</codeph> archive file includes: </p>
+            <p>The <codeph>CMM_server_2.0.2.zip</codeph> file includes: </p>
             <ul>
                 <li>
                     <p><codeph>CMM_server_2.0.2_images.tar</codeph>. Tarred archive file with the Docker images required for installing and configuring <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
                 </li>
                 <li>
-                    <p><codeph>docker-compose-metrics.yml</codeph> and <codeph>docker-compose-log.yml</codeph>. Docker Compose YAML files required for installing and configuring <ph
+                    <p><codeph>docker-compose-metric.yml</codeph> and <codeph>docker-compose-log.yml</codeph>. Docker Compose YAML files required for installing and configuring <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
                 </li>
                 <li>
                     <p><codeph>.env</codeph>. Docker Compose environment file defining the default environment variables used by Docker Compose.</p>
                 </li>
+            </ul>
+            <p>The <codeph>CMM_client_2.0.2.zip</codeph> file includes: </p>
+            <ul>
                 <li>
                     <p><codeph>monasca-agent-CMM_2.0.2.run</codeph>. Executable for installing a Metrics Agent on an OpenStack node.</p>
                 </li>
@@ -36,40 +39,10 @@
                 <li>
                     <p><codeph>monasca-ui-CMM_2.0.2.run</codeph>. Executable for installing the Horizon Plugin on the node where the OpenStack Horizon Service is deployed.</p>
                 </li>
-                <li>
-                    <p><codeph>Manuals</codeph> subdirectory: with PDF manuals providing an overview of <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                        /> as well as information directed to system operators and application operators.</p>
-                </li>
             </ul>
-            <p>The <codeph>CMM_server_2.0.2.zip</codeph> archive file includes: </p>
-            <ul>
-                <li>
-                    <p><codeph>CMM_server_2.0.2_images.tar</codeph>. Tarred archive file with the Docker images required for installing and configuring <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
-                </li>
-                <li>
-                    <p><codeph>docker-compose-metrics.yml</codeph> and <codeph>docker-compose-log.yml</codeph>. Docker Compose YAML files required for installing and configuring <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
-                </li>
-                <li>
-                    <p><codeph>.env</codeph>. Docker Compose environment file defining the default environment variables used by Docker Compose.</p>
-                </li>
-                <li>
-                    <p><codeph>monasca-agent-CMM_2.0.2.run</codeph>. Executable for installing a Metrics Agent on an OpenStack node.</p>
-                </li>
-                <li>
-                    <p><codeph>log-agent-CMM_2.0.2.run</codeph>. Executable for installing a Log Agent on an OpenStack node.</p>
-                </li>
-                <li>
-                    <p><codeph>monasca-ui-CMM_2.0.2.run</codeph>. Executable for installing the Horizon Plugin on the node where the OpenStack Horizon Service is deployed.</p>
-                </li>
-                <li>
-                    <p><codeph>Manuals</codeph> subdirectory: with PDF manuals providing an overview of <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                        /> as well as information directed to system operators and application operators.</p>
-                </li>
-            </ul>
+            <p>The <codeph>CMM_documentation.zip</codeph> file includes PDF manuals providing an overview of <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> as well as information directed to system operators and application operators.</p>
         </section>
     </conbody>
 </concept>
