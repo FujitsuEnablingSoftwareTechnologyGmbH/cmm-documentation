@@ -69,12 +69,6 @@
                             <p><codeph>--password</codeph>. The password of the user specified in <codeph>username</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--user_domain_name</codeph>. The user domain name to be used for user name scoping. If you do not specify <codeph>user_domain_name</codeph>, the installer sets it to <codeph>default</codeph>. ###TODO</p>
-                        </li>
-                        <li>
-                            <p><codeph>project_domain_name</codeph>. The project domain name used for authenticating the agent against OpenStack Keystone. If you do not specify <codeph>project_domain_name</codeph>, the installer sets it to <codeph>default</codeph>. ###TODO</p>
-                        </li>
-                        <li>
                             <p><codeph>--hostname</codeph>. ??? Optional. Meta information to be collected with the log data that is retrieved by the agent, for example <codeph>node1</codeph>. ###TODO <i>Optional?</i> ###Example by SYLVIE : <codeph>host1</codeph> ### notation? ###haruki --hostname &lt;OS hostname></p>
                             <p>The meta information defined by a dimension is attached to each log entry. It is represented as one or more fields in the log management window. For the user who is working with the log data, dimensions provide additional filtering options.</p>
                         </li>
