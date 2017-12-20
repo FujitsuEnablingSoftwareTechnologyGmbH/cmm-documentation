@@ -13,7 +13,7 @@
                         <p>As an OpenStack operator, you have to prepare the monitoring environment for your application operators. A Metrics Agent is required for monitoring the hypervisor on the Nova compute node on which the virtual machines are provisioned. On behalf of the application operator, the agent monitors the hypervisor on which it is installed as well as the provisioned virtual machines.</p>
                         <p>The following steps are required:</p>
                         <ol>
-                                <li>Create a role and a user account for libvirt monitoring in OpenStack.</li>
+                                <li>Create an OpenStack role for libvirt monitoring.</li>
                                 <li>Install a Metrics Agent on the hypervisor where virtual machines are to be monitored for the application operators.</li>
                                 <!--li>Install additional libraries for libvirt monitoring.</li -->
                                 <li>Configure the agent.</li>

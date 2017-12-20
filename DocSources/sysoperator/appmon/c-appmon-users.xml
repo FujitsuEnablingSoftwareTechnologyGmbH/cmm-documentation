@@ -6,7 +6,7 @@
 
 <concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
                     xml:lang="en-us">
-    <title>Creating a Role and a User Account in OpenStack</title>
+    <title>Creating an OpenStack Role</title>
     <conbody>
                 <section>
                         <p>As a prerequisite for installing a Metrics Agent, you need to take the following preparations.</p>
@@ -18,12 +18,12 @@
                                         <codeblock>$ openstack role create monitoring-delegate </codeblock>
                                 </li>
                                 <li>
-                                        <p>Create a new user account for configuring the agent, or use the <codeph>admin</codeph> user. Assign the <codeph>monitoring-delegate</codeph> role to the user.</p>
-                                        <p>The user name and password must be specified in the agent configuration when the agent is installed.</p>
-                                        <p>Example command for assigning the <codeph>monitoring-delegate</codeph> role to the <codeph>admin</codeph> user:</p>
+                                        <p>Assign the <codeph>monitoring-delegate</codeph> role to the OpenStack user you have created for authenticating an agent against OpenStackKeystone, for example, <codeph>monasca-agent</codeph>. The user name and password of this user must be specified in the agent configuration when the agent is installed. For details, refer to <xref
+                                                href="../install/c-install-ksconfig-users.xml"/>. </p>
+                                        <p>Example command for assigning the <codeph>monitoring-delegate</codeph> role to the <codeph>monasca-agent</codeph> user:</p>
                                         <codeblock>$ openstack role add \
-   --project admin \
-   --user admin-agent monitoring-delegate </codeblock>
+   --project monasca \
+   --user monasca-agent monitoring-delegate </codeblock>
                                 </li>
                         </ul>
                 </section>
