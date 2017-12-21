@@ -306,10 +306,7 @@ instances: {}</codeblock>
     </section>
         <section>
             <title>postfix.yaml</title>
-            <p>Postfix checks monitor a Postfix mail server. For running the Postfix checks, the user who installs the agent must have passwordless <codeph>sudo</codeph> access to the <codeph>find</codeph> command. The passwordless <codeph>sudo</codeph> access must be configured before installing the agent.</p>
-            <p>Example for a corresponding entry in the <codeph>/etc/sudoers</codeph> file:</p>
-            <codeblock>monasca-agent ALL=(ALL) NOPASSWD:/usr/bin/find</codeblock>
-      <p>The agent installer automatically checks whether a Postfix mail server instance is installed on the machine where the agent is installed. If so, the detected settings are saved to the <codeph>postfix.yaml</codeph> configuration file, and the configuration is automatically provided in the <codeph>/etc/monasca/agent/conf.d/</codeph> directory. </p>
+            <p>Postfix checks monitor a Postfix mail server. The agent installer automatically checks whether a Postfix mail server instance is installed on the machine where the agent is installed. If so, the detected settings are saved to the <codeph>postfix.yaml</codeph> configuration file, and the configuration is automatically provided in the <codeph>/etc/monasca/agent/conf.d/</codeph> directory. </p>
             <p>Example configuration:</p>
             <codeblock>init_config: null
 instances:
