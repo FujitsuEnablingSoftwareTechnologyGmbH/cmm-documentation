@@ -23,7 +23,7 @@
                     <p>A yellow box indicates a problem. One or multiple alarms have already been triggered, however, the severity of these alarms is low.</p>
                 </li>
                 <li>
-                    <p>A gray box indicates that though alarms have indeed been defined, metrics data has not yet been received.</p>
+                    <p>A white box indicates that though alarms have indeed been defined, metrics data has not yet been received.</p>
                 </li>
             </ul>
         </section>
