@@ -61,16 +61,16 @@
                             <p><codeph>--project_name</codeph>. The name of the OpenStack project for which metrics data is to be retrieved by the agent. <codeph>--project_name</codeph> is not specified, the data is retrieved from the default project assigned to the user specified in <codeph>--username</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--service_type</codeph>. Example: <codeph>monitoring</codeph>. </p>
+                            <p><codeph>--service_type</codeph>. The identifier used for the Monasca API project in the OpenStack service catalog. <codeph>--service_type</codeph> must be set to <codeph>monitoring</codeph>.</p>
                         </li>
                         <li>
                             <p><codeph>--keystone_url</codeph>. URL used to access the server where the OpenStack Keystone service is installed. It must be a V3 endpoint. Example: <codeph>http://192.168.1.5:35357/v3</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--monasca_statsd_port</codeph>. Optional. The port number for the StatsD daemon. Check whether the default port number must be changed from <codeph>8125</codeph> to <codeph>8126</codeph>. Port <codeph>8125</codeph> is used by Gnocchi in Red Hat Enterprise Linux OpenStack Platform 10.</p>
+                            <p><codeph>--monasca_statsd_port</codeph>. The port number for the StatsD daemon. Check whether the default port number must be changed from <codeph>8125</codeph> to <codeph>8126</codeph>. Port <codeph>8125</codeph> is used by Gnocchi in Red Hat Enterprise Linux OpenStack Platform 10.</p>
                         </li>
                         <li>
-                            <p><codeph>--skip_detection_plugins</codeph>. Example: <codeph>OVS Libvirt</codeph>. </p>
+                            <p><codeph>--skip_detection_plugins</codeph>. When running the installer, it is required to disable auto-detection for two agent plugins. <codeph>--skip_detection_plugins</codeph> must be set to <codeph>OVS Libvirt</codeph>.</p>
                         </li>
                     </ul>
                 </li>
