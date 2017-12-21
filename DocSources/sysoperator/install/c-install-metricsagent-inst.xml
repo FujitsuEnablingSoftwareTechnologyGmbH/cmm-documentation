@@ -40,8 +40,6 @@
   --username &lt;user_name> \           
   --password &lt;password> \                   
   --project_name &lt;project_name> \  
-  --user_domain_name default \ 
-  --project_domain_name default \ 
   --service_type monitoring \
   --keystone_url &lt;openstack_url> \  
   --monasca_statsd_port &lt;port_no> \     
@@ -61,13 +59,6 @@
                         </li>
                         <li>
                             <p><codeph>--project_name</codeph>. The name of the OpenStack project for which metrics data is to be retrieved by the agent. <codeph>--project_name</codeph> is not specified, the data is retrieved from the default project assigned to the user specified in <codeph>--username</codeph>.</p>
-                        </li>
-                        <li>
-                            <p><codeph> --user_domain_name</codeph>. The user domain name to be used for user name scoping. If <codeph>--user_domain_name</codeph> is not specified, <codeph>default</codeph> is set when running the installer.</p>
-                        </li>
-                        <li>
-                            <p>
-                                <codeph>--project_domain_name</codeph>. The project domain name used for authenticating the agent against OpenStack Keystone. If <codeph>--project_domain_name</codeph> is not specified, <codeph>default</codeph> is set when running the installer.</p>
                         </li>
                         <li>
                             <p><codeph>--service_type</codeph>. Example: <codeph>monitoring</codeph>. </p>
