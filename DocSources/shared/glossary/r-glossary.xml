@@ -10,7 +10,7 @@
     <refbody>
         <section>
             <title>Application Operator</title>
-            <p>A person with limited access to cloud resources in OpenStack. An application operator provides services to end users or hosts services for his own development activities.</p>
+            <p>A person responsible for providing services to end users or hosting services for own development activities. An application operator has limited access to cloud resources in OpenStack. </p>
         </section>
         <section>
             <title>Dimension</title>

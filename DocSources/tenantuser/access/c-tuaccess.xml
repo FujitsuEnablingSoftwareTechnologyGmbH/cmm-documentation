@@ -14,11 +14,10 @@
                         <ul>
                                 <li>You must have access to the OpenStack platform as a user with the <codeph>monasca-user</codeph> role or any other role that is authorized to use the <ph
                                                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> monitoring functions. Additional roles are optional. Contact your OpenStack operator for more information.</li>
-                                <li>You must be assigned to the OpenStack project you want to monitor.</li>
+                                        /> monitoring functions. Additional roles are optional. </li>
+                                <li>You must be assigned to the OpenStack project whose resources you want to monitor.</li>
                         </ul>
-                        <p>Log in to OpenStack Horizon with your user name and password provided as login information by OpenStack. The functions you can use in OpenStack Horizon depend on your access permissions. </p>
-                        <p>For monitoring your services and virtual machines, you use the <ph
+                        <p>Log in to OpenStack Horizon with your user name and password provided as login information by OpenStack. For monitoring your services and virtual machines, you use the <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                         /> monitoring user interface which is integrated into OpenStack Horizon. The <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"

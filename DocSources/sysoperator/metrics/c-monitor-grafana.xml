@@ -98,14 +98,14 @@
         <section
                     id="Creating_a_Dashboard_concept_conbody_section_5">
             <title>Creating a Dashboard</title>
-            <p>To create a new dashboard, you use <uicontrol>Open Dashboard</uicontrol> in the top right corner of your dashboard window. The option provides access to various features for administrating dashboards. Use <uicontrol>New</uicontrol> to create an empty dashboard that serves as a starting point for adding rows and panels.</p>
+            <p>To create a new dashboard, use <uicontrol>Open Dashboard</uicontrol> in the top right corner of the window. The option provides access to various features for administrating dashboards. Use <uicontrol>New</uicontrol> to create an empty dashboard that serves as a starting point for adding rows and panels.</p>
             <fig>
                 <image
                     alt="grafana-cmm.png" height="260"
                     href="../../images/grafana-emptydb.png"
             width="435"/>
             </fig>
-            <p>On the left side of an empty dashboard, there is a green rectangle displayed. Hover over this rectangle to access a <uicontrol>Row</uicontrol> menu. To insert your first panel, you can use the options in the <uicontrol>Add Panel</uicontrol> submenu. See below for details on the available panel types.</p>
+            <p>On the left side of an empty dashboard, a green rectangle is displayed. Hover over this rectangle to access a <uicontrol>Row</uicontrol> menu. To insert your first panel, you can use the options in the <uicontrol>Add Panel</uicontrol> submenu. See below for details on the available panel types.</p>
             <p>As soon as you have inserted an empty panel, you can add additional rows. For this purpose, use the <uicontrol>Add Row</uicontrol> option on the right side of the dashboard.</p>
         </section>
         <section
@@ -131,19 +131,19 @@
                     <p>For panels of type <uicontrol>Text</uicontrol>, a simple text editor is displayed for entering text. Plain text, HTML, and markdown format are supported.</p>
                 </li>
                 <li>
-                    <p>For panels of type <uicontrol>Graph</uicontrol> and <uicontrol>Singlestat</uicontrol>, a query editor is displayed to define which data it to be shown. You can add multiple metrics, and apply functions to the metrics. The query results will be visualized in your panel in real-time. </p>
+                    <p>For panels of type <uicontrol>Graph</uicontrol> and <uicontrol>Singlestat</uicontrol>, a query editor is displayed to define which data is to be shown. You can add multiple metrics, and apply functions to the metrics. The query results will be visualized in your panel in real-time. </p>
                 </li>
             </ul>
-            <p>A large number of display and formatting features are provided to customize how the content is presented in a panel. Click the panel title to access the corresponding options. The menu that is displayed also allows you to duplicate or remove a panel. To change the size of a panel, click the <uicontrol>+</uicontrol> and <uicontrol>-</uicontrol> icons.</p>
+            <p>A large number of display and formatting features are provided to define how the content is presented in a panel. Click the panel title to access the corresponding options. The menu that is displayed also allows you to duplicate or remove a panel. To change the size of a panel, click the <uicontrol>+</uicontrol> and <uicontrol>-</uicontrol> icons.</p>
             <p>You can move panels on your dashboard by simply dragging and dropping them within and between rows.</p>
             <p>By default, the time range for panels is controlled by dashboard settings. Use the time picker in the top right corner of your dashboard window to define relative or absolute time ranges. You can also set an auto-refresh interval, or manually refresh the data that is displayed. </p>
         </section>
         <section id="Saving_and_Sharing_Dashboards_concept_conbody_section_8">
             <title>Saving and Sharing Dashboards</title>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    /> allows you to save a metrics dashboard and export it to a JSON file. The JSON file can be edited, it can be shared with other users, and it can be imported to <ph
+                    /> allows you to save a metrics dashboard and export it to a JSON file. The JSON file can be edited, shared with other users, and imported to <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> again.</p>
-            <p>To save a dashboard, use <uicontrol>Save</uicontrol> in the top right corner of your dashboard window. You can enter a name for the dashboard and simply save it to your browser's local storage. Use <uicontrol>Dashboard JSON</uicontrol> to directly view the corresponding JSON syntax, or use <uicontrol>Export dashboard</uicontrol>  to download the JSON file. The JSON file can be forwarded to other users, if required. To import a JSON file, use <uicontrol>Open dashboard</uicontrol> in the top left corner of the dashboard window.</p>
+            <p>To save a dashboard, use <uicontrol>Save</uicontrol> in the top right corner of the window. You can enter a name for the dashboard and save it to your browser's local storage. Use <uicontrol>Dashboard JSON</uicontrol> to directly view the corresponding JSON syntax, or use <uicontrol>Export dashboard</uicontrol> to download the JSON file. The JSON file can be forwarded to other users, if required. To import a JSON file, use <uicontrol>Open dashboard</uicontrol> in the top left corner of the window.</p>
         </section>
     </conbody>
 </concept>

@@ -16,7 +16,7 @@
                 id="A_comfortable_monitoring_over_concept_conbody_section_1_ul">
                 <li>A monitoring overview which allows you to access all monitoring information. </li>
                 <li>Metrics dashboards for visualizing your monitoring data.</li>
-                <li>Alerting features for monitoring. </li>
+                <li>Alerting features. </li>
             </ul>
                         <p
                     id="In_the_following_sections_yo_concept_conbody_section_1_p">In the following sections, you will find information on the monitoring overview and the metrics dashboards as well as details on how to define and handle alarms and notifications.</p>

@@ -9,7 +9,7 @@
     <conbody>
         <section
             id="The_following_alarm_statuses_concept_conbody_section_1">
-            <p>The following alarm statuses are distinguished as soon as an alarm definition has been evaluated:</p>
+            <p>The following alarm statuses are distinguished when an alarm definition has been evaluated:</p>
             <ul>
                 <li>
                     <p><codeph>Alarm</codeph>. The alarm expression has evaluated to <codeph>true</codeph>. An alarm has been triggered for the cloud resource.</p>
@@ -21,7 +21,7 @@
                     <p><codeph>Undetermined</codeph>. No metrics data has been received within the defined time period.</p>
                 </li>
             </ul>
-            <p>As soon as you have defined an alarm for a cloud resource, there is status information displayed for it on the <uicontrol>Overview</uicontrol> page:</p>
+            <p>As soon as you have defined an alarm for a resource, status information is displayed for it on the <uicontrol>Overview</uicontrol> page:</p>
         </section>
         <section>
             <p>The color of the boxes in the three sections indicates the status:</p>

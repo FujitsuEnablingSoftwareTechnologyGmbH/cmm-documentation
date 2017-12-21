@@ -9,7 +9,7 @@
     <title>About this Manual</title>
     <conbody>
         <section>
-            <p>This manual describes how service providers on OpenStack platforms can monitor their cloud resources with FUJITSU Software <ph
+            <p>This manual describes how service providers on OpenStack platforms can monitor their applications with FUJITSU Software <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Name"
                     /> - hereafter referred to as <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Name"/> (<ph

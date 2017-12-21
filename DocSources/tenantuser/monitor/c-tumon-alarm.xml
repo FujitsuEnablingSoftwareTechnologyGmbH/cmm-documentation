@@ -22,7 +22,7 @@
                     width="435"/>
             </fig>
             <p>You can enable notifications for an alarm definition. As soon as an alarm is triggered, the enabled notifications will be sent.</p>
-            <p>The <uicontrol>Notifications</uicontrol> tab allows you to select the notifications from the ones that are predefined in your environment. For a selected notification, you specify whether you want to send it for a status transition to <uicontrol>Alarm</uicontrol>, <uicontrol>OK</uicontrol>, and/or <uicontrol>Undetermined</uicontrol>. </p>
+            <p>The <uicontrol>Notifications</uicontrol> tab allows you to select the notifications from the ones that are defined in your environment. For a selected notification, you specify whether you want to send it for a status transition to <uicontrol>Alarm</uicontrol>, <uicontrol>OK</uicontrol>, and/or <uicontrol>Undetermined</uicontrol>. </p>
             <p>For details on defining notifications, refer to <xref href="c-tumon-alert.xml"
                     />. For details on alarm statuses, refer to <xref href="c-tumon-statusinfo.xml"/>.</p>
         </section>

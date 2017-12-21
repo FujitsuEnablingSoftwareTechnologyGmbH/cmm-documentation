@@ -6,10 +6,10 @@
 
 <concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
                     xml:lang="en-us">
-        <title>Related Web References</title>
+        <title>Related Information</title>
         <conbody>
                 <section>
-                        <p>The following Web references provide information on open-source offerings integrated with <ph
+                        <p>The following links provide information on open-source offerings integrated with <ph
                                         conref="../product-name.xml#ProductNameTopic/Product_Abbr"/>:</p>
                         <ul>
                         <li><xref
@@ -32,7 +32,7 @@
                                                 scope="external">
                                                 <u><i>Kibana</i></u></xref>: Documentation on Kibana, the open-source application used for visualizing log data.</li>
                         </ul>
-                        <p>More detailed Web references provided in this manual are subject to change without notice.</p>
+                        <p>Links to more detailed information provided in this manual are subject to change without notice.</p>
                 </section>
         </conbody>
 </concept>

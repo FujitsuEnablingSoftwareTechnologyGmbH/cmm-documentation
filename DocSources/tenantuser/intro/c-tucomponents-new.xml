@@ -36,7 +36,7 @@
                         <title>Horizon Plugin</title>
                         <p><ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> comes with a plugin for the OpenStack Horizon dashboard. The plugin extends the main dashboard in OpenStack with a view for monitoring. This enables <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> users to access the monitoring functions from a central Web-based graphical user interface.</p>
-                        <p>Monitoring data is visualized on a convenient and easy-to-use dashboard which fully integrates with Grafana, an open-source application for visualizing large-scale measurement data.</p>
+                        <p>Monitoring data is displayed on a convenient and easy-to-use dashboard which fully integrates with Grafana, an open-source application for visualizing large-scale measurement data.</p>
                 </section>
         </conbody>
 </concept>

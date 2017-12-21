@@ -17,13 +17,13 @@
                     placement="break"
                     width="700"/>
             </fig>
-            <p>As an <b>application operator</b>, you have booked a virtual machine in OpenStack to provide services to <b>end users</b> or to host services that you need for your own development activities. <ph
+            <p>As an <b>application operator</b>, you have booked virtual machines in OpenStack to provide services to <b>end users</b> or to host services that you need for your own development activities. <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> helps you ensure that the virtual machines on which these services are provided are working as required.</p>
             <p>The <b>OpenStack operator</b> uses <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> to monitor physical and virtual servers, hypervisors, and services of the underlying platform. In addition, he is responsible for the middleware components, for example, the database services. The OpenStack operator also prepares the monitoring environment including available metrics for application operators.</p>
-            <p>The <b>Monitoring Service operator</b> is responsible for providing the cloud monitoring features to the application operators and the OpenStack operator. This enables the application operators and the OpenStack operator to focus on operation and the quality of their services without having to carry out the tedious tasks implied by setting up and administrating their own monitoring software. The Monitoring Service operator uses the monitoring features himself for monitoring the operation of <ph
+            <p>The <b>Monitoring Service operator</b> is responsible for providing the cloud monitoring features to the application operators and the OpenStack operator. This enables the application operators and the OpenStack operator to focus on the operation and quality of their services without having to carry out the tedious tasks implied by setting up and administrating their own monitoring software. The Monitoring Service operator uses the monitoring features himself for monitoring the operation of <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
             <p>Depending on the distribution of tasks in your environment, the tasks of the Monitoring Service operator and the OpenStack Operator are jointly performed by one system operator or separately by different system operators.</p>
         </section>

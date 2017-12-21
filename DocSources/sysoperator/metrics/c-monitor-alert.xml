@@ -9,7 +9,7 @@
     <conbody>
         <section
                             id="Notifications_define_how_user_concept_conbody_section">
-            <p>Notifications define how users are informed when a threshold value defined for an alarm is reached or exceeded. In the alarm definition, you can assign one or multiple notifications.</p>
+            <p>Notifications define how users are informed when a threshold value defined for an alarm is reached or exceeded. In an alarm definition, you can assign one or multiple notifications.</p>
             <p>For a notification, you specify the following elements:</p>
             <ul>
                 <li>

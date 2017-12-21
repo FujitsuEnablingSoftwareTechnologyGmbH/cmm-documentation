@@ -44,8 +44,8 @@
             <p>A convenient dashboard visualizes the health and status of your virtual machines. It allows you to experiment with many ways of analyzing the performance of your resources in real-time. You cannot only view but also share and explore visualizations of your monitoring data.</p>
             <p>For monitoring your virtual machines, <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> provides functions for alarm and notification management. Template-based alarm definitions allow for monitoring a dynamically changing set of resources without the need for reconfiguration. While the number of underlying virtual machines is changing, for example, this ensures the efficient monitoring of scalable cloud services. </p>
-            <p>Alarm definitions allow you to specify expressions that are evaluated based on the metrics data that is received. Multiple definitions can be combined to form compound alarms. Compound alarms allow you to track and process even more complex events. Notifications can be configured in order to inform <ph
+                /> provides functions for alarm and notification management. Template-based alarm definitions allow for monitoring a dynamically changing set of resources without the need for reconfiguration. This ensures the efficient monitoring of scalable cloud services. </p>
+            <p>Alarm definitions allow you to specify expressions that are evaluated based on the metrics data that is received. Multiple definitions can be combined to form compound alarms. Compound alarms allow you to track and process even complex events. Notifications can be configured in order to inform <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> users when an alarm is triggered.</p>
             <p>As an application operator, you:</p>
