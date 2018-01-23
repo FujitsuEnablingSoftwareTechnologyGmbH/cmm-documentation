@@ -18,9 +18,7 @@
                         <u><i>Docker documentation</i></u></xref>.</p>
                 </li>
                 <li>
-                    <p>Docker Compose 1.14. For details, refer to the <xref format="html"
-                            href="https://docs.docker.com/v1.12/compose/overview/" scope="external">
-                            <u><i>Docker Compose documentation</i></u></xref>. </p>
+                    <p>Docker Compose binaries as included in the <codeph>CMM_server_2.0.2.zip</codeph> file.</p>
                 </li>
             </ul>
         </section>

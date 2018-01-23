@@ -50,6 +50,7 @@ MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30</codeblock>
                     scope="external"><u><i>Elasticsearch Curator documentation</i></u></xref>. Find details on configuring the Cron daemon, for example, in the <xref
                     format="html"
                     href="https://help.ubuntu.com/community/CronHowto" scope="external"><u><i>Ubuntu Wiki</i></u></xref>.</p>
+            <p/>
         </section>
     </conbody>
 </concept>

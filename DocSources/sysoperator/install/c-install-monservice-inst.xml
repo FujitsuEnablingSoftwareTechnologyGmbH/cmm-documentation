@@ -27,6 +27,9 @@
                             </p>
                         </li>
                         <li>
+                            <p><codeph>docker-compose-Linux-x86_64_1.15.0</codeph></p>
+                        </li>
+                        <li>
                             <p><codeph>docker-compose-metric.yml</codeph></p>
                         </li>
                         <li>
@@ -34,6 +37,18 @@
                         </li>
                         <li>
                             <p><codeph>.env</codeph></p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Set up Docker Compose as follows: </p>
+                    <ul>
+                        <li>
+                            <p>Copy the <codeph>docker-compose-Linux-x86_64_1.15.0</codeph> file to the following directory:</p>
+                            <p><codeph>/usr/local/bin/</codeph></p>
+                        </li>
+                        <li>
+                            <p>Rename the file to <codeph>docker-compose</codeph>.</p>
                         </li>
                     </ul>
                 </li>
@@ -129,6 +144,19 @@ MON_INFLUXDB_RETENTION=&lt;number of days>d</codeblock>
                     <p>Example:</p>
                     <codeblock>MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30
 MON_INFLUXDB_RETENTION=30d</codeblock>
+                </li>
+                <li>
+                    <p>Add a logging entry to the Docker Compose files for each service. By default, Docker log files are not rotated or removed once the containers are started. You can configure data retention for the log files in the <codeph>docker-compose-metric.yml</codeph> and <codeph>docker-compose-log.yml</codeph> files. For example: </p>
+                    <codeblock>log-api:
+    image: myOrg/log-api:${MON_LOG_API_VERSION}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500k"
+        max-file: "10"docker load -i CMM_server_2.0.2_images.tar</codeblock>
+                    <p>You can also configure data retention for the  Docker engine (for all containers). For details, refer to the <xref
+                            format="html" href="https://docs.docker.com/v1.12/compose/overview/" scope="external">
+                            <u><i>Docker Compose documentation</i></u></xref> and search for <codeph>max-size</codeph>. </p>
                 </li>
                 <li>
                     <p>Load the tarred repository from the <codeph>CMM_server_2.0.2_images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>

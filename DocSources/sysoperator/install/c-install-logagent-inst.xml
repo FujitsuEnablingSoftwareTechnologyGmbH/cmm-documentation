@@ -38,6 +38,8 @@
   --project_name "&lt;project>" \
   --username "&lt;user_name>"  \
   --password "&lt;password>" \
+  --user_domain_name default \
+  --project_domain_name default \
   --hostname "&lt;openstack_hostname>" \
   "&lt;path_to_log_file1>" "&lt;path_to_log_file<i>n</i>>"</codeblock>
                     <p>The following parameters must be configured for running the installer. Each value must be enclosed in double quotes (<codeph>"</codeph>).  </p>
@@ -61,6 +63,12 @@
                         </li>
                         <li>
                             <p><codeph>--password</codeph>. The password of the user specified in <codeph>username</codeph>.</p>
+                        </li>
+                        <li>
+                            <p><codeph>--user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping.</p>
+                        </li>
+                        <li>
+                            <p><codeph>--project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone.</p>
                         </li>
                         <li>
                             <p><codeph>--hostname</codeph>. Meta information to be collected with the log data that is retrieved by the agent, for example <codeph>node1</codeph>.  If <codeph>--hostname</codeph> is not specified when running the installer, the host name defined in <codeph>/etc/hostname</codeph> is configured as dimension. </p>

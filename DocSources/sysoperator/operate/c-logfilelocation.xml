@@ -10,17 +10,15 @@
     <conbody>
         <section>
             <p>In case of trouble with the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                /> services and the docker containers in which they are deployed, you can study the log files to find the reason. The log files are also useful if you need to contact your support organization.</p>
+                /> services and the docker containers in which they are deployed, you can study the log files to find the reason. The log files are also useful if you need to contact your support organization.</p>
             <p>For managing the logs of <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        />, the installation automatically deploys a Log Agent on the <ph
-                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> node. This allows you to instantly use the log management functions for self-monitoring. You can use Kibana as a front-end application to the log data collected from the <ph
-                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> services and containers. For details, refer to <xref
-                                        href="../logs/c-logs-intro.xml"/>. </p>
+                    />, the installation automatically deploys a Log Agent on the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> node. This allows you to instantly use the log management functions for self-monitoring. You can use Kibana as a front-end application to the log data collected from the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> services and containers. For details, refer to <xref href="../logs/c-logs-intro.xml"/>. </p>
             <p>You can also use <codeph>docker-compose logs</codeph> to manually check the log files of the containers deployed on your <ph
-                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                /> node. </p>
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> node. </p>
             <p>To check the log files of individual containers, run <codeph>docker-compose logs</codeph> as follows:</p>
             <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml logs &lt;services> </codeblock>
             <p>Replace <codeph>&lt;services></codeph> by the names of the services for which you want to check the log files. For a list of the service names, refer to <xref
@@ -29,13 +27,25 @@
             <p>
                 <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml logs kafka kibana</codeblock>
             </p>
-                        <p>For more information on <codeph>docker-compose logs</codeph>, you can execute the following command:</p>
-                        <codeblock>docker-compose logs --help</codeblock>
+            <p>For more information on <codeph>docker-compose logs</codeph>, you can execute the following command:</p>
+            <codeblock>docker-compose logs --help</codeblock>
             <note othertype="note">
                 <p>By default, Docker uses the <codeph>json-file</codeph> driver to record the logs of your containers. The log output in JSON format can be found in<codeph> /var/lib/docker/containers/&lt;container-id>/&lt;container-id>-json.log</codeph>. For more information on log handling, refer to the <xref
                         format="html" href="https://docs.docker.com/v1.12/" scope="external">
                         <u><i>Docker documentation</i></u></xref>.</p>
             </note>
+            <p><b>Be aware of the following: </b></p>
+            <p>By default, Docker log files are not rotated or removed once the containers are started. You can configure data retention for the log files in the <codeph>docker-compose-metric.yml</codeph> and <codeph>docker-compose-log.yml</codeph> files. For example: </p>
+            <codeblock>log-api:
+    image: myOrg/log-api:${MON_LOG_API_VERSION}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "500k"
+        max-file: "10"docker load -i CMM_server_2.0.2_images.tar</codeblock>
+            <p>You can also configure data retention for the Docker engine (for all containers). For details, refer to the <xref
+                    format="html" href="https://docs.docker.com/v1.12/compose/overview/" scope="external">
+                    <u><i>Docker Compose documentation</i></u></xref> and search for <codeph>max-size</codeph>. </p>
         </section>
         
     </conbody>

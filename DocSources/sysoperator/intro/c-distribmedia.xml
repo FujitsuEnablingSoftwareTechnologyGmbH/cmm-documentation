@@ -21,6 +21,10 @@
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
                 </li>
                 <li>
+                    <p><codeph>docker-compose-Linux-x86_64_1.15.0</codeph>. Docker Compose binaries required to install <ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
+                </li>
+                <li>
                     <p><codeph>docker-compose-metric.yml</codeph> and <codeph>docker-compose-log.yml</codeph>. Docker Compose YAML files required for installing and configuring <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
                 </li>
