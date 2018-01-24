@@ -17,21 +17,21 @@
                     <p>Prepare an installation directory. </p>
                 </li>
                 <li>
-                    <p>Extract the <codeph>CMM_client_2.0.2.zip</codeph> archive file from the <ph
+                    <p>Extract the <codeph>CMM_client_2.0.x.zip</codeph> archive file from the <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> installation package to the installation directory. The archive provides the following files:</p>
                     <ul>
-                        <li><codeph>log-agent-CMM_2.0.2.run</codeph></li>
-                        <li><codeph>monasca-agent-CMM_2.0.2.run</codeph></li>
-                        <li><codeph>monasca-ui-CMM_2.0.2.run</codeph></li>
+                        <li><codeph>log-agent-CMM_2.0.x.run</codeph></li>
+                        <li><codeph>monasca-agent-CMM_2.0.x.run</codeph></li>
+                        <li><codeph>monasca-ui-CMM_2.0.x.run</codeph></li>
                     </ul>
                 </li>
                 <li>
-                    <p>Change the access permission of the <codeph>log-agent-CMM_2.0.2.run</codeph> file to Execute.</p>
+                    <p>Change the access permission of the <codeph>log-agent-CMM_2.0.x.run</codeph> file to Execute.</p>
                 </li>
                 <li>
                     <p>Run the agent installer: </p>
-                    <codeblock>./log-agent-CMM_2.0.2.run \
+                    <codeblock>./log-agent-CMM_2.0.x.run \
   --target "/opt/monasca/monasca-log-agent" -- \
   --monasca_log_api_url "&lt;cmm_url>" \   
   --keystone_auth_url "&lt;openstack_url>" \   
@@ -65,10 +65,10 @@
                             <p><codeph>--password</codeph>. The password of the user specified in <codeph>username</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--user_domain_name</codeph>. Optional. The user domain name to be used for user name scoping.</p>
+                            <p><codeph>--user_domain_name</codeph>. The user domain name to be used for user name scoping.</p>
                         </li>
                         <li>
-                            <p><codeph>--project_domain_name</codeph>. Optional. The project domain name used for authenticating the agent against OpenStack Keystone.</p>
+                            <p><codeph>--project_domain_name</codeph>. The project domain name used for authenticating the agent against OpenStack Keystone.</p>
                         </li>
                         <li>
                             <p><codeph>--hostname</codeph>. Meta information to be collected with the log data that is retrieved by the agent, for example <codeph>node1</codeph>.  If <codeph>--hostname</codeph> is not specified when running the installer, the host name defined in <codeph>/etc/hostname</codeph> is configured as dimension. </p>

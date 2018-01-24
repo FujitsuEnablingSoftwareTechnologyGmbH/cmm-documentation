@@ -18,21 +18,21 @@
                     <p>Prepare an installation directory. </p>
                 </li>
                 <li>
-                    <p>Extract the <codeph>CMM_client_2.0.2.zip</codeph> archive file from the <ph
+                    <p>Extract the <codeph>CMM_client_2.0.x.zip</codeph> archive file from the <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> installation package to the installation directory. The archive provides the following files: </p>
                     <ul>
-                        <li><codeph>log-agent-CMM_2.0.2.run</codeph></li>
-                        <li><codeph>monasca-agent-CMM_2.0.2.run</codeph></li>
-                        <li><codeph>monasca-ui-CMM_2.0.2.run</codeph></li>
+                        <li><codeph>log-agent-CMM_2.0.x.run</codeph></li>
+                        <li><codeph>monasca-agent-CMM_2.0.x.run</codeph></li>
+                        <li><codeph>monasca-ui-CMM_2.0.x.run</codeph></li>
                     </ul>
                 </li>
                 <li>
-                    <p>Change the access permission of the <codeph>monasca-ui-CMM_2.0.2.run</codeph> file to Execute.</p>
+                    <p>Change the access permission of the <codeph>monasca-ui-CMM_2.0.x.run</codeph> file to Execute.</p>
                 </li>
                 <li>
                     <p>To run the Horizon Plugin installer, execute the following command:</p>
-                    <codeblock>./monasca-ui-CMM_2.0.2.run --target &lt;monasca_ui_dir></codeblock>
+                    <codeblock>./monasca-ui-CMM_2.0.x.run --target &lt;monasca_ui_dir></codeblock>
                     <p>The <codeph>--target</codeph> parameter is mandatory. You have to specify the directory in which to install the plugin. Example: <codeph>/opt/monasca-ui</codeph>.</p>
                 </li>
             </ol>

@@ -18,12 +18,12 @@
                     <p>Prepare an installation directory. </p>
                 </li>
                 <li>
-                    <p>Extract the <codeph>CMM_server_2.0.2.zip</codeph> archive file from the <ph
+                    <p>Extract the <codeph>CMM_server_2.0.x.zip</codeph> archive file from the <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> installation package to the installation directory. The archive provides the following files:</p>
                     <ul>
                         <li>
-                            <p><codeph>CMM_server_2.0.2_images.tar</codeph>
+                            <p><codeph>CMM_server_2.0.x_images.tar</codeph>
                             </p>
                         </li>
                         <li>
@@ -37,18 +37,6 @@
                         </li>
                         <li>
                             <p><codeph>.env</codeph></p>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <p>Set up Docker Compose as follows: </p>
-                    <ul>
-                        <li>
-                            <p>Copy the <codeph>docker-compose-Linux-x86_64_1.15.0</codeph> file to the following directory:</p>
-                            <p><codeph>/usr/local/bin/</codeph></p>
-                        </li>
-                        <li>
-                            <p>Rename the file to <codeph>docker-compose</codeph>.</p>
                         </li>
                     </ul>
                 </li>
@@ -159,8 +147,8 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
                             <u><i>Docker Compose documentation</i></u></xref> and search for <codeph>max-size</codeph>. </p>
                 </li>
                 <li>
-                    <p>Load the tarred repository from the <codeph>CMM_server_2.0.2_images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>
-                    <codeblock>$ docker load -i CMM_server_2.0.2_images.tar</codeblock>
+                    <p>Load the tarred repository from the <codeph>CMM_server_2.0.x_images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>
+                    <codeblock>$ docker load -i CMM_server_2.0.x_images.tar</codeblock>
                 </li>
                 <li>
                     <p>Check that the images and tags required for the installation have been loaded.</p>

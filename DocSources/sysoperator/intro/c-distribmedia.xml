@@ -14,14 +14,14 @@
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> software and documentation for installing and configuring <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
-            <p>The <codeph>CMM_server_2.0.2.zip</codeph> file includes: </p>
+            <p>The <codeph>CMM_server_2.0.x.zip</codeph> file includes: </p>
             <ul>
                 <li>
-                    <p><codeph>CMM_server_2.0.2_images.tar</codeph>. Tarred archive file with the Docker images required for installing and configuring <ph
+                    <p><codeph>CMM_server_2.0.x_images.tar</codeph>. Tarred archive file with the Docker images required for installing and configuring <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
                 </li>
                 <li>
-                    <p><codeph>docker-compose-Linux-x86_64_1.15.0</codeph>. Docker Compose binaries required to install <ph
+                    <p><codeph>docker-compose-Linux-x86_64_1.15.0</codeph>. Docker Compose binary required to install <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
                 </li>
                 <li>
@@ -32,16 +32,16 @@
                     <p><codeph>.env</codeph>. Docker Compose environment file defining the default environment variables used by Docker Compose.</p>
                 </li>
             </ul>
-            <p>The <codeph>CMM_client_2.0.2.zip</codeph> file includes: </p>
+            <p>The <codeph>CMM_client_2.0.x.zip</codeph> file includes: </p>
             <ul>
                 <li>
-                    <p><codeph>monasca-agent-CMM_2.0.2.run</codeph>. Executable for installing a Metrics Agent on an OpenStack node.</p>
+                    <p><codeph>monasca-agent-CMM_2.0.x.run</codeph>. Executable for installing a Metrics Agent on an OpenStack node.</p>
                 </li>
                 <li>
-                    <p><codeph>log-agent-CMM_2.0.2.run</codeph>. Executable for installing a Log Agent on an OpenStack node.</p>
+                    <p><codeph>log-agent-CMM_2.0.x.run</codeph>. Executable for installing a Log Agent on an OpenStack node.</p>
                 </li>
                 <li>
-                    <p><codeph>monasca-ui-CMM_2.0.2.run</codeph>. Executable for installing the Horizon Plugin on the node where the OpenStack Horizon Service is deployed.</p>
+                    <p><codeph>monasca-ui-CMM_2.0.x.run</codeph>. Executable for installing the Horizon Plugin on the node where the OpenStack Horizon Service is deployed.</p>
                 </li>
             </ul>
             <p>The <codeph>CMM_documentation.zip</codeph> file includes PDF manuals providing an overview of <ph
