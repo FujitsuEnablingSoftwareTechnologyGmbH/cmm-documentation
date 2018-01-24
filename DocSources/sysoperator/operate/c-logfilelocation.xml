@@ -34,18 +34,6 @@
                         format="html" href="https://docs.docker.com/v1.12/" scope="external">
                         <u><i>Docker documentation</i></u></xref>.</p>
             </note>
-            <p><b>Be aware of the following: </b></p>
-            <p>By default, Docker log files are not rotated or removed once the containers are started. You can configure data retention for the log files in the <codeph>docker-compose-metric.yml</codeph> and <codeph>docker-compose-log.yml</codeph> files. For example: </p>
-            <codeblock>log-api:
-    image: myOrg/log-api:${MON_LOG_API_VERSION}
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "500k"
-        max-file: "10"docker load -i CMM_server_2.0.2_images.tar</codeblock>
-            <p>You can also configure data retention for the Docker engine (for all containers). For details, refer to the <xref
-                    format="html" href="https://docs.docker.com/v1.12/compose/overview/" scope="external">
-                    <u><i>Docker Compose documentation</i></u></xref> and search for <codeph>max-size</codeph>. </p>
         </section>
         
     </conbody>

@@ -16,7 +16,7 @@
             <series>System Operator's Guide</series>
         </prodinfo>
         <bookid>
-            <edition>Draft (2018-01-22)</edition>
+            <edition>Draft (2018-01-24)</edition>
             <booknumber/>
         </bookid>
         <bookrights>
@@ -89,6 +89,7 @@
             <topicref format="dita" href="sysoperator/operate/c-dataretention-es.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/operate/c-deleteinfluxdbdata.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/operate/c-removelogfiles.xml" type="concept"/>
+            <topicref format="dita" href="sysoperator/operate/c-dataretention-docker.xml" type="concept"/>
         </topicref>
         <topicref format="dita" href="sysoperator/operate/c-logfilelocation.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/operate/c-backup.xml" type="concept">
