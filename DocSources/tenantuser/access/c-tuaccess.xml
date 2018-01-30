@@ -28,7 +28,7 @@
                         <p>To perform monitoring tasks, you must use one of the Web browsers supported by <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>:</p>
                         <ul>
-                                <li>Google Chrome 62.0</li>
+                                <li>Google Chrome 63.0</li>
                                 <li>Microsoft Internet Explorer 11.0 (with Compatibility View disabled)</li>
                                 <li>Mozilla Firefox 57.0</li>
                         </ul>
