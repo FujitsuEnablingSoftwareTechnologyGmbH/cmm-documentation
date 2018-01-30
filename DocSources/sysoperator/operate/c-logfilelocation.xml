@@ -29,11 +29,20 @@
             </p>
             <p>For more information on <codeph>docker-compose logs</codeph>, you can execute the following command:</p>
             <codeblock>docker-compose logs --help</codeblock>
-            <note othertype="note">
-                <p>By default, Docker uses the <codeph>json-file</codeph> driver to record the logs of your containers. The log output in JSON format can be found in<codeph> /var/lib/docker/containers/&lt;container-id>/&lt;container-id>-json.log</codeph>. For more information on log handling, refer to the <xref
-                        format="html" href="https://docs.docker.com/v1.12/" scope="external">
-                        <u><i>Docker documentation</i></u></xref>.</p>
-            </note>
+            <p>By default, Docker uses the <codeph>json-file</codeph> driver to record the logs of your containers. The log output in JSON format can be found in <codeph>/var/lib/docker/containers/&lt;container-id>/ &lt;container-id>-json.log</codeph>. </p>
+            <p id="Log_data_is_stored_in_the_Ela_concept_conbody_section_p_1"
+                >By default, Docker log files are not rotated or removed once the containers are started. It is recommended to configure data retention for the log files so that they do not become too big. </p>
+            <p id="Log_data_is_stored_in_the_Ela_concept_conbody_section_p_1">You have the following options: </p>
+            <p id="Log_data_is_stored_in_the_Ela_concept_conbody_section_p_1">
+                <ul>
+                    <li>You configure data retention for the entire Docker engine, thus for all containers. For details, refer to the <xref
+                            format="html" href="https://docs.docker.com/v1.12/" scope="external">
+                            <u><i>Docker documentation</i></u></xref>.</li>
+                    <li>You configure data retention individually for each Docker container by adding a <codeph><codeph>max-size</codeph></codeph> entry to the Docker Compose YAML files. For details, refer to the <xref
+                            format="html" href="https://docs.docker.com/v1.12/compose/overview/" scope="external">
+                            <u><i>Docker Compose documentation</i></u></xref>. </li>
+                </ul>
+            </p>
         </section>
         
     </conbody>
