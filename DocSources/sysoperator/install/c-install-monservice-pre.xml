@@ -21,7 +21,7 @@
                     <p>Docker Compose binary as included in the <codeph>CMM_server_2.0.x.zip</codeph> file. In the subsequent sections, it is assumed that you copied the <codeph>docker-compose-Linux-x86_64_1.15.0</codeph> file to the <codeph>/usr/local/bin/</codeph> directory and renamed it to <codeph>docker-compose</codeph>.</p>
                     <p>
                         <note>It is recommended to configure data retention for Docker container logs. Refer to <xref
-                                href="../operate/c-dataretention-docker.xml"/> for details.</note>
+                                href="../operate/c-logfilelocation.xml"/> for details.</note>
                     </p>
                 </li>
             </ul>

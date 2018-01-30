@@ -30,6 +30,9 @@
             <p>For more information on <codeph>docker-compose logs</codeph>, you can execute the following command:</p>
             <codeblock>docker-compose logs --help</codeblock>
             <p>By default, Docker uses the <codeph>json-file</codeph> driver to record the logs of your containers. The log output in JSON format can be found in <codeph>/var/lib/docker/containers/&lt;container-id>/ &lt;container-id>-json.log</codeph>. </p>
+        </section>
+        <section>
+            <title>Data Retention for Docker Log Files</title>
             <p id="Log_data_is_stored_in_the_Ela_concept_conbody_section_p_1"
                 >By default, Docker log files are not rotated or removed once the containers are started. It is recommended to configure data retention for the log files so that they do not become too big. </p>
             <p id="Log_data_is_stored_in_the_Ela_concept_conbody_section_p_1">You have the following options: </p>
