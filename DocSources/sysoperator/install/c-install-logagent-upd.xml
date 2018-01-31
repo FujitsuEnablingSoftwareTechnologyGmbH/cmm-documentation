@@ -38,7 +38,6 @@
   }
   file {
     add_field => { "dimensions" => { "service" => "keystone" }}
-    add_field => { "dimensions" => { "log_level" => "error" }}
     path => "/var/log/keystone/*.log"
   }
 }</codeblock>
@@ -56,7 +55,7 @@
     password =&gt; "password"    
     user_domain_name =&gt; "default"
     project_domain_name =&gt; "default"
-    dimensions =&gt; ["hostname:['service:monitoring','hostname:node1']"]         
+    dimensions =&gt; ["hostname:myhostname"]         
     num_of_logs => 100
     delay => 1
     elapsed_time_sec => 600

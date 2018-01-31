@@ -17,11 +17,12 @@
                     <codeblock>GRAFANA_URL = getattr(settings, 'GRAFANA_URL', {'&lt;region>': 'http://&lt;cmm_ip>:3000/', })
 
 ENABLE_KIBANA_BUTTON = getattr(settings, 'ENABLE_KIBANA_BUTTON', True)
-KIBANA_HOST = getattr(settings, 'KIBANA_HOST', 'http://&lt;cmm_ip>:5601/')
 KIBANA_POLICY_RULE = getattr(settings, 'KIBANA_POLICY_RULE',
                              'monitoring:kibana_access')
 KIBANA_POLICY_SCOPE = getattr(settings, 'KIBANA_POLICY_SCOPE',
-                              'monitoring')</codeblock>
+                             'monitoring')
+KIBANA_HOST = getattr(settings, 'KIBANA_HOST', 
+                             'http://&lt;cmm_ip>:5601/')</codeblock>
                     <p>Replace <codeph>&lt;cmm_ip></codeph> by the IP address of the <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                             /> node for the <codeph>GRAFANA_URL</codeph> and the <codeph>KIBANA_HOST</codeph> parameters, for example, <codeph>http://192.168.10.4</codeph>. Replace <codeph>&lt;region></codeph> by the name of your OpenStack region, for example <codeph>RegionOne</codeph>.</p>

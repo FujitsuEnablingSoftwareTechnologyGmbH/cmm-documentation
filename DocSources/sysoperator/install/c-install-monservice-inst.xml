@@ -23,7 +23,7 @@
                         /> installation package to the installation directory. The archive provides the following files:</p>
                     <ul>
                         <li>
-                            <p><codeph>CMM_server_2.0.x_images.tar</codeph>
+                            <p><codeph>CMM_server_2.0.x.images.tar</codeph>
                             </p>
                         </li>
                         <li>
@@ -116,7 +116,7 @@ MON_DOCKER_VOL_ROOT=&lt;path_to_data_directories></codeblock>
                     <p>The installation of the Monitoring Service mounts <codeph>/mount/backup</codeph> as default volume for backing up the databases. </p>
                     <p>If required, you can update the <codeph>MON_BACKUP_DIR</codeph> parameter, and specify a different volume.</p>
                     <codeblock># Set the path for backup directories
-MON_BACKUP_DIR=&lt;path_to_backup_directoriesy></codeblock>
+MON_BACKUP_DIR=&lt;path_to_backup_directories></codeblock>
                 </li>
                 <li>
                     <p>By default, <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
@@ -134,20 +134,21 @@ MON_INFLUXDB_RETENTION=&lt;number of days>d</codeblock>
 MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
-                    <p>Load the tarred repository from the <codeph>CMM_server_2.0.x_images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>
-                    <codeblock>$ docker load -i CMM_server_2.0.x_images.tar</codeblock>
+                    <p>Load the tarred repository from the <codeph>CMM_server_2.0.x.images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>
+                    <codeblock>$ docker load -i CMM_server_2.0.x.images.tar</codeblock>
                 </li>
                 <li>
                     <p>Check that the images and tags required for the installation have been loaded.</p>
                     <codeblock>$ docker images</codeblock>
                 </li>
                 <li>
-                    <p>Run <codeph>docker-compose</codeph>.</p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up</codeblock>
+                    <p>Run <codeph>docker-compose up</codeph>.</p>
+                    <codeblock>$ docker-compose -f docker-compose-metric.yml 
+ -f docker-compose-log.yml up -d</codeblock>
                     <note othertype="note">
-                        <p>Make sure that the OpenStack Keystone service is up when running <codeph>docker-compose</codeph>. Refer to the <xref
+                        <p>Make sure that the OpenStack Keystone service is up when running <codeph>docker-compose up</codeph>. Use <codeph>-d</codeph> to start the containers in the background and leave them running when the command exits. Refer to the <xref
                                 format="html" href="https://docs.docker.com/compose/reference/up/" scope="external">
-                                <u><i>Docker Compose documentation</i></u></xref> for details on the <codeph>docker-compose up</codeph> command.</p>
+                                <u><i>Docker Compose documentation</i></u></xref> for additional details on the <codeph>docker-compose up</codeph> command.</p>
                     </note>
                 </li>
             </ol>

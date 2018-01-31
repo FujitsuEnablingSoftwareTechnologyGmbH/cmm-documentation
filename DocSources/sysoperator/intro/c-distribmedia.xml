@@ -18,7 +18,7 @@
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>): </p>
             <ul>
                 <li>
-                    <p><codeph>CMM_server_2.0.x_images.tar</codeph>. Tarred archive file with the Docker images required for installing and configuring <ph
+                    <p><codeph>CMM_server_2.0.x.images.tar</codeph>. Tarred archive file with the Docker images required for installing and configuring <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
                 </li>
                 <li>
