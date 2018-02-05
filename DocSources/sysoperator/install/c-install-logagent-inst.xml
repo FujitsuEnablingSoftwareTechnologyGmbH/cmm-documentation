@@ -45,7 +45,7 @@
                     <p>The following parameters must be configured for running the installer. Each value must be enclosed in double quotes (<codeph>"</codeph>).  </p>
                     <ul>
                         <li>
-                            <p><codeph>--target</codeph>. The directory in which the agent is installed.</p>
+                            <p><codeph>--target</codeph>. The directory in which the agent is installed. The agent must not be installed in <codeph>/root</codeph>, the root user's home directory.</p>
                         </li>
                         <li>
                             <p><codeph>--monasca_log_api_url</codeph>. The URL used to access the server where the Monitoring Service is installed. Example: <codeph>http://192.168.1.6:5607/v3.0</codeph>.</p>
