@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                            xml:lang="en-us">
+    <title>Uninstallation</title>
+    <conbody>
+        <section>
+            <p>Before uninstalling a Log Agent from an OpenStack node, it is recommended that you make a backup of the agent's configuration settings. They are stored in the <codeph>/opt/monasca/monasca-log-agent/conf/agent.conf</codeph> file.</p>
+            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> does not offer integrated backup and recovery mechanisms. Use the standard file system mechanisms instead.</p>
+            <p>To uninstall a Log Agent, proceed as follows:</p>
+            <ol compact="no">
+                <li>
+                    <p>Log in to the OpenStack node on which the agent is installed.</p>
+                </li>
+                <li>
+                    <p>Stop the agent and delete all related files: <i>##sudo for each command##</i></p>
+                    <codeblock>systemctl stop monasca-log-agent
+systemctl disable monasca-log-agent
+rm -f /etc/systemd/system/monasca-log-agent.service
+systemctl daemon-reload
+systemctl reset-failed monasca-log-agent</codeblock>
+                </li>
+                <li>
+                    <p>Remove all related directories:<i> ###files? ###sudo? ##slash after target dir?</i></p>
+                    <codeblock>rm -rf &lt;target_dir>/</codeblock>
+                    <p>Replace <codeph>target_dir</codeph> by the directory in which the agent was installed, (e.g. <codeph>/opt/monasca/monasca-log-agent</codeph>.  <i>##Dobek says opt/monasca-log-agent</i></p>
+                </li>
+                <li>
+                    <p>Remove the agent's log files and the log directory:  <i>###???</i></p>
+                    <codeblock>sudo rm -rf /var/log/monasca/agent/</codeblock>
+                </li>
+                <li>
+                    <p>Remove the <codeph>mon-agent</codeph> user. Use <codeph>-r</codeph> to also remove the <codeph>mon-agent</codeph> user's home directory. <i> ###???</i></p>
+                    <codeblock>sudo userdel -r mon-agent</codeblock>
+                </li>
+            </ol>
+        </section>
+    </conbody>
+</concept>

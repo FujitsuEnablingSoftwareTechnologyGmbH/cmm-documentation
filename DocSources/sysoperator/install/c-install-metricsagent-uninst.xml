@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU LIMITED 2017 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                            xml:lang="en-us">
+    <title>Uninstallation</title>
+    <conbody>
+        <section>
+            <p>Before uninstalling a Metrics Agent from an OpenStack node, it is recommended that you make a backup of the configuration files created for operation. The configuration files for an agent are located in the <codeph>/etc/monasca/agent</codeph> directory.</p>
+            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> does not offer integrated backup and recovery mechanisms. Use the standard file system mechanisms instead.</p>
+            <p>To uninstall a Metrics Agent, proceed as follows:</p>
+            <ol
+                    compact="no">
+                <li>
+                    <p>Log in to the OpenStack node on which the agent is installed.</p>
+                </li>
+                <li>
+                    <p>Stop the agent and delete all related files: <i>##sudo for each command##</i></p>
+                    <codeblock>systemctl stop monasca-agent   
+systemctl disable monasca-agent
+sudo rm -f /etc/systemd/system/monasca-agent.service
+systemctl daemon-reload
+systemctl reset-failed monasca-agent</codeblock>
+                </li>
+                <li>
+                    <p>Remove all related directories:</p>
+                    <codeblock>sudo rm -rf &lt;target_dir>
+sudo rm -rf /etc/monasca/agent/
+sudo rm -f /etc/sudoers.d/mon-agent</codeblock>
+                    <p>Replace <codeph>target_dir</codeph> by the directory in which the agent was installed, (e.g. <codeph>/opt/monasca-agent</codeph>.</p>
+                </li>
+                <li>
+                    <p>Remove the agent's log files and the log directory:</p>
+                    <codeblock>sudo rm -rf /var/log/monasca/agent/</codeblock>
+                </li>
+                <li>
+                    <p>Remove the <codeph>mon-agent</codeph> user. Use <codeph>-r</codeph> to also remove the <codeph>mon-agent</codeph> user's home directory. </p>
+                    <codeblock>sudo userdel -r mon-agent</codeblock>
+                </li>
+            </ol>
+            <p/>
+        </section>
+    </conbody>
+</concept>
