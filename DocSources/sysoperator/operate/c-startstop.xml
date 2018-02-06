@@ -36,20 +36,22 @@
                 <li>
                     <p>Run <codeph>docker-compose up</codeph> as follows: </p>
                     <codeblock>$ docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml up</codeblock>
+ -f docker-compose-log.yml up -d</codeblock>
                     <note othertype="note">
-                        <p>Make sure that the OpenStack Keystone service is up when executing the command. </p>
+                        <p>Make sure that the OpenStack Keystone service is up when executing the command. Use <codeph>-d</codeph> to start the containers in the background and leave them running when the command exits. Refer to the <xref
+                                format="html" href="https://docs.docker.com/compose/reference/up/" scope="external">
+                                <u><i>Docker Compose documentation</i></u></xref> for additional details on the <codeph>docker-compose up</codeph> command.</p>
                     </note>
                 </li>
             </ol>
             <p>To start individual  <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> agents and services, run <codeph>docker-compose up</codeph> as follows:</p>
-            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up &lt;services> </codeblock>
+            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d &lt;services> </codeblock>
             <p>Replace <codeph>services</codeph> by the names of the services you want to start. For a list of the service names, refer to <xref
                     href="../install/c-install-monservice.xml"/>. </p>
             <p>Example for starting Kafka and the Notification Engine:</p>
             <p>
-                <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up kafka monasca-notification</codeblock>
+                <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d kafka monasca-notification</codeblock>
             </p>
             <p>When starting a service that depends on other services, the other services are automatically started. If you start Kafka, for example, Zookeeper is automatically started when executing the example command. </p>
             <p>
