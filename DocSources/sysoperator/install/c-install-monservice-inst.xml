@@ -41,7 +41,10 @@
                     </ul>
                 </li>
                 <li>
-                    <p>Open the <codeph>.env</codeph> file to make the adaptions required for your environment.</p>
+                    <p>Copy the <codeph>docker-compose-Linux-x86_64_1.15.0</codeph> file to the <codeph>/usr/local/bin/</codeph> directory and rename it to <codeph>docker-compose</codeph>.</p>
+                </li>
+                <li>
+                    <p>Open the <codeph>.env</codeph> file in the installation directory to make the adaptions required for your environment.</p>
                 </li>
                 <li>
                     <p>For integrating the Monitoring Service with OpenStack Keystone, you have to specify the following parameters:</p>
