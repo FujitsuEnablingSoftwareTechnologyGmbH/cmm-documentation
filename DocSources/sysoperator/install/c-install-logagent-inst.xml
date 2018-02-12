@@ -17,7 +17,7 @@
                     <p>Prepare an installation directory. </p>
                 </li>
                 <li>
-                    <p>Extract the <codeph>CMM_client_2.0.x.zip</codeph> archive file from the <ph
+                    <p>Extract the <codeph>CMM_client_2.0.x.tar.gz</codeph> archive file from the <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> installation package to the installation directory. The archive provides the following files:</p>
                     <ul>

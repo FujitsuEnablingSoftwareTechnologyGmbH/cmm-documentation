@@ -14,7 +14,7 @@
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> software and documentation for installing and configuring <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
-            <p>The <codeph>CMM_server_2.0.x.zip</codeph> file includes (replace <codeph>x</codeph> with the current version number of <ph
+            <p>The <codeph>CMM_server_2.0.x.tar.gz</codeph> file includes (replace <codeph>x</codeph> with the current version number of <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>): </p>
             <ul>
                 <li>
@@ -33,7 +33,8 @@
                     <p><codeph>.env</codeph>. Docker Compose environment file defining the default environment variables used by Docker Compose.</p>
                 </li>
             </ul>
-            <p>The <codeph>CMM_client_2.0.x.zip</codeph> file includes: </p>
+            <p>The <codeph>CMM_client_2.0.x.tar.gz</codeph> file includes (replace <codeph>x</codeph> with the current version number of <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>):  </p>
             <ul>
                 <li>
                     <p><codeph>monasca-agent-CMM_2.0.x.run</codeph>. Executable for installing a Metrics Agent on an OpenStack node.</p>
@@ -45,9 +46,10 @@
                     <p><codeph>monasca-ui-CMM_2.0.x.run</codeph>. Executable for installing the Horizon Plugin on the node where the OpenStack Horizon Service is deployed.</p>
                 </li>
             </ul>
-            <p>The <codeph>CMM_documentation_2.0.x.zip</codeph> file includes PDF manuals providing an overview of <ph
+            <p>The <codeph>CMM_documentation_2.0.x.tar.gz</codeph> file includes PDF manuals providing an overview of <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> as well as information directed to system operators and application operators.</p>
+                    /> as well as information directed to system operators and application operators (replace <codeph>x</codeph> with the current version number of <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>).</p>
         </section>
     </conbody>
 </concept>
