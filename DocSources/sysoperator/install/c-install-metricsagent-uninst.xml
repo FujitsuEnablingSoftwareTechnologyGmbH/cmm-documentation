@@ -31,7 +31,7 @@ systemctl reset-failed monasca-agent</codeblock>
                     <codeblock>sudo rm -rf &lt;target_dir>
 sudo rm -rf /etc/monasca/agent/
 sudo rm -f /etc/sudoers.d/mon-agent</codeblock>
-                    <p>Replace <codeph>target_dir</codeph> by the directory in which the agent is installed, (e.g. <codeph>/opt/monasca-agent</codeph>).</p>
+                    <p>Replace <codeph>&lt;target_dir></codeph> by the directory in which the agent is installed, (e.g. <codeph>/opt/monasca-agent</codeph>).</p>
                     <p><i>##What about /opt/monasca-agent/share/monasca/agent/conf.d with the templates for additional metrics to be manually enabled</i></p>
                 </li>
                 <li>

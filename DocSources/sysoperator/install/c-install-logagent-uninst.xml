@@ -24,7 +24,7 @@ systemctl reset-failed monasca-log-agent</codeblock><i>##is sudo required for ea
                 <li>
                     <p>Remove all directories and files created by the agent installer:</p>
                     <codeblock>sudo rm -rf &lt;target_dir>/</codeblock>
-                    <p>Replace <codeph>target_dir</codeph> by the directory in which the agent is installed, (e.g. <codeph>/opt/monasca/monasca-log-agent</codeph>. </p>
+                    <p>Replace <codeph>&lt;target_dir></codeph> by the directory in which the agent is installed, (e.g. <codeph>/opt/monasca/monasca-log-agent</codeph>. </p>
                     <p><i>##Is the slash after target dir correct? see metrics agent</i></p>
                 </li>
                 <li>

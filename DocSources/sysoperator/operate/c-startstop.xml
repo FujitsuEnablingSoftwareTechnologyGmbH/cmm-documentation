@@ -47,7 +47,7 @@
             <p>To start individual  <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> agents and services, run <codeph>docker-compose up</codeph> as follows:</p>
             <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d &lt;services> </codeblock>
-            <p>Replace <codeph>services</codeph> by the names of the services you want to start. For a list of the service names, refer to <xref
+            <p>Replace <codeph>&lt;services></codeph> by the names of the services you want to start. For a list of the service names, refer to <xref
                     href="../install/c-install-monservice.xml"/>. </p>
             <p>Example for starting Kafka and the Notification Engine:</p>
             <p>
@@ -77,7 +77,7 @@
             <p>To stop individual <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> agents and services, run <codeph>docker-compose stop</codeph> as follows:</p>
             <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop &lt;services></codeblock>
-            <p>Replace <codeph>services</codeph> by the names of the services you want to stop. For a list of the service names, refer to <xref
+            <p>Replace <codeph>&lt;services></codeph> by the names of the services you want to stop. For a list of the service names, refer to <xref
                     href="../install/c-install-monservice.xml"/>. </p>
             <p>Example for stopping Kafka and the Notification Engine:</p>
             <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop kafka monasca-notification</codeblock>
@@ -88,7 +88,7 @@
             <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml ps</codeblock>
             <p>To view the status of an individual container, run <codeph>docker-compose ps</codeph> as follows:</p>
             <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml ps &lt;services></codeblock>
-            <p>Replace <codeph>services</codeph> by the names of the services you want to stop. For a list of the service names, refer to <xref
+            <p>Replace <codeph>&lt;services></codeph> by the names of the services you want to stop. For a list of the service names, refer to <xref
                     href="../install/c-install-monservice.xml"/>. </p>
             <p>Example:</p>
             <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml ps kafka monasca-notification</codeblock>
