@@ -16,26 +16,26 @@
                 <li>
                     <p>Log in to the OpenStack node on which the agent is installed.</p>
                 </li>
-                <li>
-                    <p>Stop the agent and delete all related files: <i>##sudo for each command##</i></p>
-                    <codeblock>systemctl stop monasca-log-agent
+                <li><p>Stop the <codeph>monasca-log-agent</codeph> service and delete all related files: </p><codeblock>systemctl stop monasca-log-agent
 systemctl disable monasca-log-agent
 rm -f /etc/systemd/system/monasca-log-agent.service
 systemctl daemon-reload
-systemctl reset-failed monasca-log-agent</codeblock>
+systemctl reset-failed monasca-log-agent</codeblock><i>##is sudo required for each command? ##</i></li>
+                <li>
+                    <p>Remove all directories and files created by the agent installer:</p>
+                    <codeblock>sudo rm -rf &lt;target_dir>/</codeblock>
+                    <p>Replace <codeph>target_dir</codeph> by the directory in which the agent is installed, (e.g. <codeph>/opt/monasca/monasca-log-agent</codeph>. </p>
+                    <p><i>##Is the slash after target dir correct? see metrics agent</i></p>
                 </li>
                 <li>
-                    <p>Remove all related directories:<i> ###files? ###sudo? ##slash after target dir?</i></p>
-                    <codeblock>rm -rf &lt;target_dir>/</codeblock>
-                    <p>Replace <codeph>target_dir</codeph> by the directory in which the agent was installed, (e.g. <codeph>/opt/monasca/monasca-log-agent</codeph>.  <i>##Dobek says opt/monasca-log-agent</i></p>
-                </li>
-                <li>
-                    <p>Remove the agent's log files and the log directory:  <i>###???</i></p>
+                    <p>Remove the agent's log files and the log directory: </p>
                     <codeblock>sudo rm -rf /var/log/monasca/agent/</codeblock>
+                    <p><i>##not included in readme </i></p>
                 </li>
                 <li>
-                    <p>Remove the <codeph>mon-agent</codeph> user. Use <codeph>-r</codeph> to also remove the <codeph>mon-agent</codeph> user's home directory. <i> ###???</i></p>
+                    <p>Remove the <codeph>mon-log-agent</codeph> user. Use <codeph>-r</codeph> to also remove the <codeph>mon-log-agent</codeph> user's home directory. </p>
                     <codeblock>sudo userdel -r mon-agent</codeblock>
+                    <p><i>##not included in readme; do we have this technical user as well?</i></p>
                 </li>
             </ol>
         </section>

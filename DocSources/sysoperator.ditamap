@@ -16,7 +16,7 @@
             <series>System Operator's Guide</series>
         </prodinfo>
         <bookid>
-            <edition>Draft Version (2018-02-06)</edition>
+            <edition>Draft Version (2018-02-13)</edition>
             <booknumber/>
         </bookid>
         <bookrights>
@@ -62,19 +62,19 @@
             <topicref format="dita" href="sysoperator/install/c-install-metricsagent-inst.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-metricsagent-upd.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-metricsagent-enh.xml" type="concept"/>
-            <!-- topicref format="dita" href="sysoperator/install/c-install-metricsagent-uninst.xml" type="concept"/ -->
+            <topicref format="dita" href="sysoperator/install/c-install-metricsagent-uninst.xml" type="concept"/>
         </topicref>
         <topicref format="dita" href="sysoperator/install/c-install-logagent.xml" type="concept">
             <topicref format="dita" href="sysoperator/install/c-install-logagent-pre.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-logagent-inst.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-logagent-upd.xml" type="concept"/>
-            <!-- topicref format="dita" href="sysoperator/install/c-install-logagent-uninst.xml" type="concept"/ -->
+            <topicref format="dita" href="sysoperator/install/c-install-logagent-uninst.xml" type="concept"/>
         </topicref>
         <topicref format="dita" href="sysoperator/install/c-install-horizon.xml" type="concept">
             <topicref format="dita" href="sysoperator/install/c-install-horizon-inst.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-horizon-config.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-horizon-access.xml" type="concept"/>
-            <!-- topicref format="dita" href="sysoperator/install/c-install-horizon-uninst.xml" type="concept"/ -->
+            <topicref format="dita" href="sysoperator/install/c-install-horizon-uninst.xml" type="concept"/>
         </topicref>
     </chapter>
     <chapter href="sysoperator/appmon/c-appmon.xml">
