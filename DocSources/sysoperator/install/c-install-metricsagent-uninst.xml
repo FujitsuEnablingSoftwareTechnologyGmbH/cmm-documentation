@@ -19,12 +19,11 @@
                 </li>
                 <li>
                     <p>Stop the <codeph>monasca-agent</codeph> service and delete all related files: </p>
-                    <codeblock>systemctl stop monasca-agent   
-systemctl disable monasca-agent
+                    <codeblock>sudo systemctl stop monasca-agent   
+sudo systemctl disable monasca-agent
 sudo rm -f /etc/systemd/system/monasca-agent.service
-systemctl daemon-reload
-systemctl reset-failed monasca-agent</codeblock>
-                    <p><i>##is sudo required for each command? see above in other sections##</i></p>
+sudo systemctl daemon-reload
+sudo systemctl reset-failed monasca-agent</codeblock>
                 </li>
                 <li>
                     <p>Remove all directories and files created by the agent installer:</p>
@@ -32,7 +31,6 @@ systemctl reset-failed monasca-agent</codeblock>
 sudo rm -rf /etc/monasca/agent/
 sudo rm -f /etc/sudoers.d/mon-agent</codeblock>
                     <p>Replace <codeph>&lt;target_dir></codeph> by the directory in which the agent is installed, (e.g. <codeph>/opt/monasca-agent</codeph>).</p>
-                    <p><i>##What about /opt/monasca-agent/share/monasca/agent/conf.d with the templates for additional metrics to be manually enabled</i></p>
                 </li>
                 <li>
                     <p>Remove the agent's log files and the log directory:</p>
