@@ -114,16 +114,12 @@ MON_AGENT_PROJECT_NAME=monasca</codeblock>
                     <codeblock># Set the path for the data directories of Elasticsearch,  
 # InfluxDB, MySQL, Kafka, and Grafana
 MON_DOCKER_VOL_ROOT=&lt;path_to_data_directories></codeblock>
-                    <p>To restrict access to the data directories, you must change the access permissions. Example:</p>
-                    <codeblock>chmod -R 700 /opt/monasca-containers</codeblock>
                 </li>
                 <li>
                     <p>The installation of the Monitoring Service mounts <codeph>/mount/backup</codeph> as default volume for backing up the databases. </p>
                     <p>If required, you can update the <codeph>MON_BACKUP_DIR</codeph> parameter, and specify a different volume.</p>
                     <codeblock># Set the path for backup directories
 MON_BACKUP_DIR=&lt;path_to_backup_directories></codeblock>
-                    <p>To restrict access to the backup directories, you must change the access permissions. Example:</p>
-                    <codeblock>chmod -R 700 /mount/backup/</codeblock>
                 </li>
                 <li>
                     <p>By default, <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
@@ -157,9 +153,15 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
                                 format="html" href="https://docs.docker.com/compose/reference/up/" scope="external">
                                 <u><i>Docker Compose documentation</i></u></xref> for additional details on the <codeph>docker-compose up</codeph> command.</p>
                     </note>
+                    <p>After a successful deployment, the monitoring pipeline starts within approximately one minute. </p>
+                </li>
+                <li>
+                    <p>To restrict access to the backup and data directories, you must change the access permissions. </p>
+                    <p>Example:</p>
+                    <codeblock>chmod -R 700 /opt/monasca-containers
+chmod -R 700 /mount/backup/</codeblock>
                 </li>
             </ol>
-            <p>After a successful deployment, the monitoring pipeline starts within approximately one minute. </p>
         </section>
         <section>
             <title><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> Services</title>
