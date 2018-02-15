@@ -145,8 +145,8 @@
                                 </li>
                                 <li>
                                         <p>To execute <codeph>curl</codeph> commands in the <codeph>elasticsearch</codeph> container, run <codeph>docker-compose exec</codeph> as follows:</p>
-                                        <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml 
- exec elasticsearch /bin/bash</codeblock>
+                                        <codeblock>$ docker-compose -f docker-compose-metric.yml -f 
+ docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
                                 </li>
                                 <li>
                                         <p>Close all indices of your database.</p>
@@ -242,12 +242,12 @@
                         <title>MySQL Database</title>
                         <p id="For_backing_up_and_restoring_concept_conbody_section_4_p"
                                         >For backing up and restoring your MySQL database, you can use the <codeph>mysqldump</codeph> utility program. <codeph>mysqldump</codeph> performs a logical backup that produces a set of SQL statements. These statements can later be executed to restore the database.</p>
-                        <p>To back up your MySQL database, you must be the owner of the database or a user with superuser privileges. Proceed as follows:</p>
+                        <p>To back up your MySQL database, proceed as follows:</p>
                         <ol>
                                 <li>
                                         <p>Log in to the <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                                /> node.</p>
+                                                /> node as the owner of the database or a user with superuser privileges.</p>
                                 </li>
                                 <li>
                                         <p>Stop all <ph
@@ -266,16 +266,14 @@
                                         <codeblock>$ docker exec &lt;container_id> mysqldump -u root --password=secretmysql 
  &lt;db_name> &gt; &lt;backup_dir>/&lt;name></codeblock>
                                         <p>Replace <codeph>&lt;container_id></codeph> by the ID of the container in which the database is running, <codeph>&lt;db_name></codeph> by the name of the database, <codeph>&lt;backup_dir></codeph> by the directory you have mounted for storing the backup file, and <codeph>&lt;name></codeph> by the name of the backup file to be created. </p>
-                                        <p>For the <codeph>--password</codeph> parameter, check the <codeph>MYSQL_ROOT_PASSWORD</codeph> in the <codeph>docker-compose-metric.yml</codeph> file. It might be different from the above command.  </p>
+                                        <p>For the <codeph>--password</codeph> parameter, check the <codeph>MYSQL_ROOT_PASSWORD</codeph> specified in the <codeph>docker-compose-metric.yml</codeph> file.</p>
                                         <p>The following example creates a backup of the <codeph>mon</codeph> database, running in container <codeph>07e9007e0be8</codeph>, in <codeph>/backup/mon.sql</codeph>:</p>
                                         <codeblock>$ docker exec 07e9007e0be8 mysqldump -u root --password=secretmysql 
  mon &gt; /backup/mon.sql</codeblock>
                                 </li>
                                 <li>
-                                        <p><i>###Now, the result should be quickly checked (human-readable format)! (file could contain an error-message!)###</i></p>
-                                        <p><i>ausgabe file brauch kein .sql ###</i></p>
+                                        <p>Check whether the backup was created successfully.</p>
                                 </li>
-                                <li><i>### logout - exit????</i></li>
                                 <li>
                                         <p>Stop the <codeph>mysql</codeph> service:</p>
                                         <codeblock>$ docker-compose -f docker-compose-metric.yml 
@@ -294,10 +292,12 @@
                                 <li>
                                         <p>Log in to the <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                                /> node as a user with root privileges.</p>
+                                                /> node as the owner of the database or a user with superuser privileges.</p>
                                 </li>
                                 <li>
-                                        <p>Stop all agents and services: </p>
+                                        <p>Stop all <ph
+                                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> agents and services: </p>
                                         <codeblock>$ docker-compose -f docker-compose-metric.yml 
  -f docker-compose-log.yml stop</codeblock>
                                 </li>
@@ -308,10 +308,10 @@
                                 </li>
                                 <li>
                                         <p>Restore the database:</p>
-                                        <codeblock>$ cat &lt;backup_dir>/&lt;name>.sql | docker exec -i &lt;container_id> 
+                                        <codeblock>$ cat &lt;backup_dir>/&lt;name> | docker exec -i &lt;container_id> 
  mysql -u root --password=secretmysql &lt;db_name></codeblock>
                                         <p>Replace <codeph>&lt;backup_dir></codeph> by the directory where the backup file is stored, <codeph>&lt;name></codeph> by the name of the file, <codeph>&lt;container_id></codeph> by the ID of the container in which the database is running, and <codeph>&lt;db_name></codeph> by the name of the database.</p>
-                                        <p>For the <codeph>--password</codeph> parameter, check the <codeph>MYSQL_ROOT_PASSWORD</codeph> in the <codeph>docker-compose-metric.yml</codeph> file. It might be different from the above command.  </p>
+                                        <p>For the <codeph>--password</codeph> parameter, check the <codeph>MYSQL_ROOT_PASSWORD</codeph> specified in the <codeph>docker-compose-metric.yml</codeph> file. </p>
                                         <p>The following example restores the <codeph>mon</codeph> database, running in container <codeph>07e9007e0be8</codeph>, from <codeph>/backup/mon.sql</codeph>:</p>
                                         <codeblock>$ cat /backup/mon.sql | docker exec -i 07e9007e0be8
  mysql -u root --password=secretmysql mon</codeblock>
@@ -330,7 +330,7 @@
                         </ol>
                         <p id="For_additional_information_on_concept_conbody_section_4_p"
                                         >For additional information on backing up and restoring a MySQL database with <codeph>mysqldump</codeph>, refer to the <xref
-                                        format="html" href="https://mariadb.com/kb/en/mariadb/mysqldump/"
+                                                format="html" href="https://dev.mysql.com/doc/refman/5.5/en/backup-and-recovery.html"
                                         scope="external"><u><i>MySQL documentation</i></u></xref>.</p>
                 </section>
     </conbody>
