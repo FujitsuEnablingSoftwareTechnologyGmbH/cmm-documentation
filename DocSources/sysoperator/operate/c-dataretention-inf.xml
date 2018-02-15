@@ -35,7 +35,7 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
                 <li>
                     <p>Start the <codeph>influxdb</codeph> service. For this purpose, run <codeph>docker-compose up</codeph> as follows: </p>
                     <codeblock>$ docker-compose -f docker-compose-metric.yml -f 
- docker-compose-log.yml up influxdb</codeblock>
+ docker-compose-log.yml up -d influxdb</codeblock>
                 </li>
             </ol>
             <p>As soon as the <codeph>influxdb</codeph> service is up and running, your new data retention period takes effect. </p>
