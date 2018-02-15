@@ -200,8 +200,8 @@
                                         <p>For this purpose, execute the following command:</p>
                                         <codeblock>$ docker run --rm -v $INFLUXDB_META_DIR:&lt;meta_data_dir> 
  -v $INFLUXDB_BACKUPS:&lt;backup_dir> influxdb:1.3.4-alpine</codeblock>
-                                        <p>Replace <codeph>&lt;meta_data_dir></codeph> with the directory to be used for synchronizing the meta data, for example <codeph>/var/lib/influxdb</codeph>. </p>
-                                        <p>Replace <codeph>&lt;backup_dir></codeph> with the directory to be used for storing the backup file, for example <codeph>/backup</codeph>. </p>
+                                        <p>Replace <codeph>&lt;meta_data_dir></codeph> by the directory to be used for synchronizing the meta data, for example <codeph>/var/lib/influxdb</codeph>. </p>
+                                        <p>Replace <codeph>&lt;backup_dir></codeph> by the directory to be used for storing the backup file, for example <codeph>/backup</codeph>. </p>
                                 </li>
                                 <li>
                                         <p>For backing up the InfluxDB database, you need to know the ID of the container in which the database is running:</p>
@@ -215,7 +215,7 @@
                                         <p>Back up the database. To create the backup from your local machine, execute the following command:</p>
                                         <codeblock>$ docker exec &lt;container_id> influxd backup -database &lt;db_name> 
  "&lt;backup_dir>/&lt;name>.backup"</codeblock>
-                                        <p>Replace <codeph>&lt;container_id></codeph> with the ID of the container in which the database is running, <codeph>&lt;db_name></codeph> with the name of the database, <codeph>&lt;backup_dir></codeph> with the directory you have mounted for storing the backup file, and <codeph>&lt;name></codeph> with the name of the backup file to be created.</p>
+                                        <p>Replace <codeph>&lt;container_id></codeph> by the ID of the container in which the database is running, <codeph>&lt;db_name></codeph> by the name of the database, <codeph>&lt;backup_dir></codeph> by the directory you have mounted for storing the backup file, and <codeph>&lt;name></codeph> by the name of the backup file to be created.</p>
                                         <p>The following example creates a backup of the <codeph>mon</codeph> database, running in container <codeph>07e9007e0be8</codeph>, in <codeph>/backup/mon.backup</codeph>:</p>
                                         <codeblock>$ docker exec 07e9007e0be8 influxd backup 
  -database mon "/backup/mon.backup"</codeblock>
@@ -229,7 +229,7 @@
  -v &lt;backup_dir>:/backups  influxdb:1.3.4-alpine 
  -c "influxd restore -metadir /var/lib/influxdb/meta 
  -datadir /var/lib/influxdb/data 
- -database mon /backups/&lt;name>.backup"</codeblock>Replace <codeph>&lt;meta_data_dir></codeph> with the directory that was used for synchronizing the meta data (<codeph>/var/lib/influxdb</codeph> in the example), <codeph>&lt;backup_dir></codeph> with the directory for storing the backup file (<codeph>/backup</codeph> in the example), and <codeph>&lt;name></codeph> with the name of the backup file to be restored.</li>
+ -database mon /backups/&lt;name>.backup"</codeblock>Replace <codeph>&lt;meta_data_dir></codeph> by the directory used for synchronizing the meta data (<codeph>/var/lib/influxdb</codeph> in the example), <codeph>&lt;backup_dir></codeph> by the directory for storing the backup file (<codeph>/backup</codeph> in the example), and <codeph>&lt;name></codeph> by the name of the backup file to be restored.</li>
                                 <li>
                                         <p>Start the Docker container for the restored metastore.</p>
                                         <p>Example:</p>
@@ -250,7 +250,9 @@
                                                 /> node.</p>
                                 </li>
                                 <li>
-                                        <p>Stop all agents and services: </p>
+                                        <p>Stop all <ph
+                                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                                /> agents and services: </p>
                                         <codeblock>$ docker-compose -f docker-compose-metric.yml 
  -f docker-compose-log.yml stop</codeblock>
                                 </li>
@@ -263,7 +265,7 @@
                                         <p>Backup the database. To create the backup from your local machine, execute the following command:</p>
                                         <codeblock>$ docker exec &lt;container_id> mysqldump -u root --password=secretmysql 
  &lt;db_name> &gt; &lt;backup_dir>/&lt;name></codeblock>
-                                        <p>Replace <codeph>&lt;container_id></codeph> with the ID of the container in which the database is running,  <codeph>&lt;db_name></codeph> with the name of the database, <codeph>&lt;backup_dir></codeph> with the directory you have mounted for storing the backup file, and <codeph>&lt;name></codeph> with the name of the backup file to be created. </p>
+                                        <p>Replace <codeph>&lt;container_id></codeph> by the ID of the container in which the database is running, <codeph>&lt;db_name></codeph> by the name of the database, <codeph>&lt;backup_dir></codeph> by the directory you have mounted for storing the backup file, and <codeph>&lt;name></codeph> by the name of the backup file to be created. </p>
                                         <p>For the <codeph>--password</codeph> parameter, check the <codeph>MYSQL_ROOT_PASSWORD</codeph> in the <codeph>docker-compose-metric.yml</codeph> file. It might be different from the above command.  </p>
                                         <p>The following example creates a backup of the <codeph>mon</codeph> database, running in container <codeph>07e9007e0be8</codeph>, in <codeph>/backup/mon.sql</codeph>:</p>
                                         <codeblock>$ docker exec 07e9007e0be8 mysqldump -u root --password=secretmysql 
@@ -308,7 +310,7 @@
                                         <p>Restore the database:</p>
                                         <codeblock>$ cat &lt;backup_dir>/&lt;name>.sql | docker exec -i &lt;container_id> 
  mysql -u root --password=secretmysql &lt;db_name></codeblock>
-                                        <p>Replace <codeph>&lt;backup_dir></codeph> with the directory where the backup file is stored, <codeph>&lt;name></codeph> with the name of the file, <codeph>&lt;container_id></codeph> with the ID of the container in which the database is running, and <codeph>&lt;db_name></codeph> with the name of the database.</p>
+                                        <p>Replace <codeph>&lt;backup_dir></codeph> by the directory where the backup file is stored, <codeph>&lt;name></codeph> by the name of the file, <codeph>&lt;container_id></codeph> by the ID of the container in which the database is running, and <codeph>&lt;db_name></codeph> by the name of the database.</p>
                                         <p>For the <codeph>--password</codeph> parameter, check the <codeph>MYSQL_ROOT_PASSWORD</codeph> in the <codeph>docker-compose-metric.yml</codeph> file. It might be different from the above command.  </p>
                                         <p>The following example restores the <codeph>mon</codeph> database, running in container <codeph>07e9007e0be8</codeph>, from <codeph>/backup/mon.sql</codeph>:</p>
                                         <codeblock>$ cat /backup/mon.sql | docker exec -i 07e9007e0be8

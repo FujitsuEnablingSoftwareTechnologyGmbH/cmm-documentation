@@ -73,11 +73,11 @@ Using database mon</codeblock>
                 <li id="To_update_your_data_retention_concept_conbody_section_ol_l">
                     <p>To update your data retention policy, use the <codeph>ALTER RETENTION POLICY</codeph> command:</p>
                     <codeblock>ALTER RETENTION POLICY &lt;policy_name&gt; ON &lt;db_name&gt; DURATION &lt;duration&gt; [SHARD DURATION &lt;shard_duration&gt;] [DEFAULT]</codeblock>
-                    <p>Replace <codeph>&lt;policy_name&gt;</codeph> with the name of the retention policy you define. Multiple policies can be defined, one of them is set as default. <codeph>default_mon</codeph> is the name of the policy that is initially installed by <ph
+                    <p>Replace <codeph>&lt;policy_name&gt;</codeph> by the name of the retention policy you define. Multiple policies can be defined, one of them is set as default. <codeph>default_mon</codeph> is the name of the policy that is initially installed by <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
-                    <p>Replace <codeph>&lt;db_name&gt;</codeph> with the name of your database.</p>
+                    <p>Replace <codeph>&lt;db_name&gt;</codeph> by the name of your database.</p>
                     <p id="Replace_concept_conbody_section_ol_l"
-                        >Replace <codeph>&lt;duration&gt;</codeph> with the time period after which the data is to be deleted. The minimum retention period is one hour. You can use the following options for specifying the time period:</p>
+                        >Replace <codeph>&lt;duration&gt;</codeph> by the time period after which the data is to be deleted. The minimum retention period is one hour. You can use the following options for specifying the time period:</p>
                     <ul>
                         <li><codeph>m</codeph> for minutes</li>
                         <li><codeph>h</codeph> for hours</li>
@@ -93,7 +93,7 @@ Using database mon</codeblock>
                         <li>A database retention period >= 2 days and &lt;= 6 months corresponds to a shard group duration of 1 day.</li>
                         <li>A database retention period > 6 months corresponds to a shard group duration of 7 days</li>
                     </ul>
-                    <p>To deviate from this default, you can replace <codeph>&lt;shard_duration&gt;</codeph> with a different time span for shard groups. You can use the same options as for the database retention period, except for <codeph>INF</codeph>.</p>
+                    <p>To deviate from this default, you can replace <codeph>&lt;shard_duration&gt;</codeph> by a different time span for shard groups. You can use the same options as for the database retention period, except for <codeph>INF</codeph>.</p>
                     <p>Use <codeph>[DEFAULT]</codeph> to set the new retention policy as the default retention policy for your database.</p>
                     <p>Example for deleting data if it is older than 30 days:</p>
                     <codeblock>ALTER RETENTION POLICY default_mon my_policy ON mon DURATION 30d DEFAULT </codeblock>
