@@ -14,23 +14,24 @@
                     <p>Log in to the OpenStack node on which the OpenStack Horizon service is installed.</p>
                 </li>
                 <li>
-                    <p>Remove the links pointing to the Horizon Plugin:<codeblock>rm &lt;monasca_ui_dir>/openstack_dashboard/enabled/_50_admin_add_monitoring_panel.py
+                    <p>Remove the links pointing to the Horizon Plugin:<codeblock>rm &lt;monasca_ui_dir>/openstack_dashboard/enabled/ _50_admin_add_monitoring_panel.py
 rm &lt;monasca_ui_dir>/openstack_dashboard/conf/monitoring_policy.json</codeblock></p>
                     <p>Replace <codeph>&lt;monasca_ui_dir></codeph> by the name of the directory in which the Horizon Plugin is installed. </p>
                 </li>
                 <li>
-                    <p>Remove the path where the plugin is installed from the <codeph>django.wsgi</codeph> file. The WSGI script of your OpenStack platform is located in the Openstack Horizon installation directory in the <codeph>/openstack_dashboard/wsgi</codeph> subdirectory. </p>
+                    <p>Remove the path where the plugin is installed from the <codeph>django.wsgi</codeph> file. The WSGI script of your OpenStack platform is located in the <codeph>/usr/share/openstack-dashboard/ openstack_dashboard/wsgi</codeph> directory.</p>
                     <p>The following line must be removed:</p>
                     <codeblock>sys.path.append("&lt;monasca_ui_dir>/lib/python2.7/site-packages/")</codeblock>
+                </li>
+                <li>
+                    <p>Remove the path where the plugin is installed from the <codeph>manage.py</codeph> file. The <codeph>manage.py</codeph> file is located in the <codeph>/usr/share/openstack-dashboard</codeph> directory. </p>
+                    <p>The following line must be removed:</p>
+                    <codeblock>sys.path.append('&lt;monasca_ui_dir>/lib/python2.7/site-packages')</codeblock>
                 </li>
                 <li>
                     <p>Remove the directories and files created by the installer:</p>
                     <codeblock>rm -rf &lt;monasca_ui_dir>/monasca_ui</codeblock>
                     <p>Replace <codeph>&lt;monasca_ui_dir></codeph> by the name of the directory in which the Horizon Plugin is installed.</p>
-                </li>
-                <li>
-                    <p>Remove the path where the plugin is installed from the <codeph>manage.py</codeph> file. The  <codeph>manage.py</codeph> file is located in the <codeph>/usr/share/openstack-dashboard</codeph> directory. The following line must be removed:</p>
-                    <codeblock>sys.path.append('&lt;monasca_ui_dir>/lib/python2.7/site-packages')</codeblock>
                 </li>
                 <li><p>Restart the server from which you uninstalled the OpenStack Horizon plugin. </p>Example: <codeblock>systemctl restart httpd</codeblock></li>
             </ol>

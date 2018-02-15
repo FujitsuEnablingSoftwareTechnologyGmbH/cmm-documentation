@@ -32,17 +32,17 @@ KIBANA_HOST = getattr(settings, 'KIBANA_HOST',
                     <p>To integrate the Monitoring Service with the OpenStack Horizon service, create links pointing to the Horizon Plugin.</p>
                     <p>Example with <codeph>/opt/monasca-ui/</codeph> as plugin installation directory:</p>
                     <codeblock>ln -s /opt/monasca-ui/lib/python2.7/site-packages/
-  monitoring/enabled/_50_admin_add_monitoring_panel.py \
+ monitoring/enabled/_50_admin_add_monitoring_panel.py \
 /usr/share/openstack-dashboard/openstack_dashboard/
-  local/enabled/_50_admin_add_monitoring_panel.py
+ local/enabled/_50_admin_add_monitoring_panel.py
 
 ln -s /opt/monasca-ui/lib/python2.7/site-packages/
-  monitoring/conf/monitoring_policy.json \
+ monitoring/conf/monitoring_policy.json \
 /etc/openstack-dashboard/monitoring_policy.json</codeblock>
                 </li>
                 <li>
                     <p>Append the virtual env libraries of the Horizon Plugin to the system path of the OpenStack Horizon service. For this purpose, two files must be edited. </p>
-                    <p>Append the path where the plugin is installed to the <codeph>django.wsgi</codeph> file. The WSGI script of your OpenStack platform is located in the <codeph>/usr/share/openstack-dashboard/openstack_dashboard/wsgi</codeph> directory.</p>
+                    <p>Append the path where the plugin is installed to the <codeph>django.wsgi</codeph> file. The WSGI script of your OpenStack platform is located in the <codeph>/usr/share/openstack-dashboard/ openstack_dashboard/wsgi</codeph> directory.</p>
                     <p>Example of <codeph>django.wsgi</codeph> file with <codeph>/opt/monasca-ui/</codeph> as plugin installation directory:</p>
                     <codeblock>import logging
 import os
