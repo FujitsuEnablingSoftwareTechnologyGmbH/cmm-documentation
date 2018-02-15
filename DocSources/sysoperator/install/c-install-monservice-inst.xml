@@ -157,8 +157,8 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
                     <p>To restrict access to the backup and data directories, you must change the access permissions. Example:</p>
-                    <codeblock>chmod -R 700 /opt/monasca-containers
-chmod -R 700 /mount/backup/</codeblock>
+                    <codeblock>$ chmod -R 700 /opt/monasca-containers
+$ chmod -R 700 /mount/backup/</codeblock>
                 </li>
             </ol>
         </section>

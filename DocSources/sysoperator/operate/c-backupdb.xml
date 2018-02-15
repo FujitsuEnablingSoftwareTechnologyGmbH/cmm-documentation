@@ -16,8 +16,9 @@
                                 <li>InfluxDB database </li>
                                 <li>MySQL database </li>
                         </ul>
-                        <p
-                id="It_is_recommended_that_backup_concept_conbody_section_1_p">It is recommended that backup and restore operations for databases are carried out by experienced operators only.</p>
+                        <note othertype="note">
+                                <p>It is recommended that backup and restore operations for databases are carried out by experienced operators only.</p>
+                        </note>
                 </section>
                 <section>
                         <title>Elasticsearch Database</title>
@@ -34,6 +35,10 @@
                                         <codeblock>$ docker-compose -f docker-compose-metric.yml -f 
  docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
                                 </li>
+                                <!--li>
+                                        <p>Change the owner of the backup directory in the <codeph>elasticsearch</codeph> container:</p>
+                                        <codeblock>$ chown -R elasticsearch:elasticsearch /elasticsearch_backup</codeblock>
+                                </li -->
                                 <li>
                                         <p>Create the snapshot repository.</p>
                                         <p>Example:</p>
@@ -44,7 +49,7 @@
        "compress": true
   }
 }'</codeblock>
-                                        <p>The example registers a shared file system repository (<codeph>"type": "fs"</codeph>) that uses the <codeph>/elasticsearch_backup</codeph> directory for storing snapshots. The parent directory for storing snapshots was configured during the installation of the Monitoring Service (<codeph>MON_BACKUP_DIR</codeph> parameter in <codeph>.env</codeph> file). It must have been manually mounted before creating the snapshot. </p>
+                                        <p>The example registers a shared file system repository (with <codeph>"type": "fs"</codeph>) that uses the <codeph>/elasticsearch_backup</codeph> directory for storing snapshots. The parent directory for storing snapshots was configured during the installation of the Monitoring Service (<codeph>MON_BACKUP_DIR</codeph> parameter in <codeph>.env</codeph> file). It must have been manually mounted before creating the snapshot. </p>
                                         <p id="compress_concept_conbody_section_2_o"
                                                 ><codeph>compress</codeph> is turned on to compress the metadata files.</p>
                                 </li>
@@ -63,8 +68,12 @@
   }
 }</codeblock>
                                 </li>
+                                <li>
+                                        <p>Exit the <codeph>elasticsearch</codeph> container:</p>
+                                        <codeblock>$ exit</codeblock>
+                                </li>
                         </ol>
-                        <p>As soon as you have successfully created the repository, you can create a backup of the database. Proceed as follows:</p>
+                        <p>As soon as you have successfully created the repository, you can create regular backups of the database. To create a backup, proceed as follows:</p>
                         <ol>
                                 <li>
                                         <p>Log in to the <ph
@@ -96,7 +105,7 @@
                                         <p>The example creates a snapshot named <codeph>snapshot_1</codeph> for all indices in the <codeph>my_backup</codeph> repository.</p>
                                 </li>
                                 <li>
-                                        <p>Logout.<i> ##Exit the shell ??? what am I doing here? Why?</i></p>
+                                        <p>Exit the <codeph>elasticsearch</codeph> container:</p>
                                         <codeblock>$ exit</codeblock>
                                 </li>
                                 <li>
@@ -112,7 +121,7 @@
  -f docker-compose-log.yml up -d</codeblock>
                                 </li>
                         </ol>
-                        <p>To restore the database instance, proceed as follows:</p>
+                        <p>To restore a database instance, proceed as follows:</p>
                         <ol id="Close_all_indices_of_your_dat_concept_conbody_section_2_o">
                                 <li>
                                         <p>Log in to the <ph
@@ -120,7 +129,7 @@
                                                 /> node.</p>
                                 </li>
                                 <li>
-                                        <p><i>Iriumi-san inserted step: - prepare backup files in the "/mount/backup/easticcsearch_backup/" - I would omit this!</i></p>
+                                        <p>Make sure that the backup of your database is available in the directory that was mounted before creating the snapshot.</p>
                                 </li>
                                 <li>
                                         <p>Stop all <ph
@@ -154,7 +163,7 @@
                                         <p>If the call is successful, Elasticsearch returns <codeph>{"accepted":true}</codeph>.</p>
                                 </li>
                                 <li>
-                                        <p>Logout.<i> ##see above ##</i></p>
+                                        <p>Exit the <codeph>elasticsearch</codeph> container:</p>
                                         <codeblock>$ exit</codeblock>
                                 </li>
                                 <li>
