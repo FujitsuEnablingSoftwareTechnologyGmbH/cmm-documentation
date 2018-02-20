@@ -136,6 +136,17 @@ MON_INFLUXDB_RETENTION=&lt;number of days>d</codeblock>
                     <codeblock>MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30
 MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
+                <!--li>
+                    <p>Enable the notification methods you need in your environment. Email, HipChat, Jira, PagerDuty, Slack, and WebHook can be used to inform <ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                        /> users when a threshold value for an alarm is reached or exceeded.</p>
+                    <p>The notification methods to be enabled must be specified as comma-separated values for the <codeph>NF_PLUGINS</codeph> parameter in the <codeph>Notification plugins</codeph> section.</p>
+                    <p>Example for enabling Email and WebHook as notification methods:</p>
+                    <codeblock>NF_PLUGINS=email,webhook</codeblock>
+                    <p>For each plugin you enable, you have to define the required configuration parameters. For details on the parameters, refer to ##appendix or the information in the <codeph>env</codeph> file.</p>
+                    <p>##TODO Jira is missing in env file</p>
+                    <p>##TODO changing the enabled notification plugins at a later stage >>> restart notification container##</p>
+                </li -->
                 <li>
                     <p>Load the tarred repository from the <codeph>CMM_server_2.0.x.images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>
                     <codeblock>$ docker load -i CMM_server_2.0.x.images.tar</codeblock>
