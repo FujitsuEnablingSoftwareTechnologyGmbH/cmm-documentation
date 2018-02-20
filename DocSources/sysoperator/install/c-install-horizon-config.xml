@@ -33,6 +33,16 @@ KIBANA_HOST = getattr(settings, 'KIBANA_HOST',
                     <p>Replace <codeph>&lt;region></codeph> by the name of your OpenStack region, for example <codeph>RegionOne</codeph>.</p>
                 </li>
                 <li>
+                    <p>Define a group name for log paths in the <codeph>Service group name</codeph> section in your <codeph>local_settings.py</codeph> file. This is required to indicate irregularities in your log data on the <uicontrol>Overview</uicontrol> page in OpenStack Horizon.</p>
+                    <p>Insert the group name as follows:</p>
+                    <codeblock># Service group names (global across all projects): 
+MONITORING_SERVICES_GROUPS = [ 
+    {'name': _('OpenStack Services'), 'groupBy': 'service'}, 
+    {'name': _('Servers'), 'groupBy': 'hostname'}, 
+    {'name': _('Log Paths'), 'groupBy': 'path'} 
+] </codeblock>
+                </li>
+                <li>
                     <p>To integrate the Monitoring Service with the OpenStack Horizon service, create links pointing to the Horizon Plugin.</p>
                     <p>Example with <codeph>/opt/monasca-ui/</codeph> as plugin installation directory:</p>
                     <codeblock>ln -s /opt/monasca-ui/lib/python2.7/site-packages/
