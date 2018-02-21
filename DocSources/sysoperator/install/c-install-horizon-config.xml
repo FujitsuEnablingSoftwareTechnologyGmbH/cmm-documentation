@@ -11,9 +11,19 @@
             <p>The following steps must be performed manually to enable access to the monitoring functionality in OpenStack Horizon:</p>
             <ol compact="no">
                 <li>
-                    <p>Specify the IP address of your <ph
+                    <p>Define a group name for log paths in your <codeph>local_settings.py</codeph> file. The file is located in your plugin installation directory <codeph>&lt;monasca_ui_dir>/lib/python2.7/site-packages/ monitoring/config</codeph>.</p>
+                    <p>The group name is required to indicate irregularities in your log data on the <uicontrol>Overview</uicontrol> page in OpenStack Horizon. Insert the group name in the <codeph>Service group name</codeph> section:</p>
+                    <codeblock># Service group names (global across all projects): 
+MONITORING_SERVICES_GROUPS = [ 
+    {'name': _('OpenStack Services'), 'groupBy': 'service'}, 
+    {'name': _('Servers'), 'groupBy': 'hostname'}, 
+    {'name': _('Log Paths'), 'groupBy': 'path'} 
+] </codeblock>
+                </li>
+                <li>
+                    <p>In addition, specify the IP address of your <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> node in your <codeph>local_settings.py</codeph> file. The file is located in your plugin installation directory <codeph>&lt;monasca_ui_dir>/lib/python2.7/site-packages/monitoring/config</codeph>:</p>
+                            /> node in your <codeph>local_settings.py</codeph> file:</p>
                     <codeblock>GRAFANA_URL = getattr(settings, 'GRAFANA_URL', {'&lt;region>': 
  'http://&lt;grafana_host>:3000/', })
 
@@ -31,16 +41,6 @@ KIBANA_HOST = getattr(settings, 'KIBANA_HOST',
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                             /> node for the <codeph>KIBANA_HOST</codeph> parameter. Example URL: <codeph> http://192.168.10.6:5601/</codeph>. </p>
                     <p>Replace <codeph>&lt;region></codeph> by the name of your OpenStack region, for example <codeph>RegionOne</codeph>.</p>
-                </li>
-                <li>
-                    <p>Define a group name for log paths in the <codeph>Service group name</codeph> section in your <codeph>local_settings.py</codeph> file. This is required to indicate irregularities in your log data on the <uicontrol>Overview</uicontrol> page in OpenStack Horizon.</p>
-                    <p>Insert the group name as follows:</p>
-                    <codeblock># Service group names (global across all projects): 
-MONITORING_SERVICES_GROUPS = [ 
-    {'name': _('OpenStack Services'), 'groupBy': 'service'}, 
-    {'name': _('Servers'), 'groupBy': 'hostname'}, 
-    {'name': _('Log Paths'), 'groupBy': 'path'} 
-] </codeblock>
                 </li>
                 <li>
                     <p>To integrate the Monitoring Service with the OpenStack Horizon service, create links pointing to the Horizon Plugin.</p>
