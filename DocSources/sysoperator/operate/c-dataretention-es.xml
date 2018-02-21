@@ -14,7 +14,8 @@
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> uses Elasticsearch Curator for managing data retention of these indices. Elasticsearch Curator jobs are automatically run by a Cron daemon that executes scheduled commands.</p>
             <p>By default, an Elasticsearch index is automatically deleted in <ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> if it is older than 60 days. The delete job is executed every day at midnight. </p>
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> if it is older than 60 days. The delete job is executed every day at midnight (UTC).</p>
             <p>Proceed as follows to change the data retention settings that were defined when installing the Monitoring Service:</p>
             <ol>
                 <li>

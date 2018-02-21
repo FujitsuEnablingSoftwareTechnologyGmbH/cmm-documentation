@@ -26,7 +26,7 @@ rm &lt;monasca_ui_dir>/openstack_dashboard/conf/monitoring_policy.json</codebloc
                 <li>
                     <p>Remove the path where the plugin is installed from the <codeph>manage.py</codeph> file. The <codeph>manage.py</codeph> file is located in the <codeph>/usr/share/openstack-dashboard</codeph> directory. </p>
                     <p>The following line must be removed:</p>
-                    <codeblock>sys.path.append('&lt;monasca_ui_dir>/lib/python2.7/site-packages')</codeblock>
+                    <codeblock>sys.path.append("&lt;monasca_ui_dir>/lib/python2.7/site-packages")</codeblock>
                 </li>
                 <li>
                     <p>Remove the directories and files created by the installer:</p>

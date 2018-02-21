@@ -68,7 +68,7 @@
                 </li>
                 <li>
                     <p>On the left side of the <uicontrol>Discover</uicontrol> page below the search box, you see the <b>index fields</b> from the indices that match the current index pattern. You can select individual fields to modify which log data is displayed on the right side.</p>
-                    <p>Select a field from the <uicontrol>Available Fields</uicontrol> section for this purpose and use <uicontrol>Add</uicontrol>. To remove a field, select it in the <uicontrol>Selected Fields</uicontrol> section and use <uicontrol>Remove</uicontrol>.</p>
+                    <p>Select a field from the <uicontrol>Available Fields</uicontrol> section for this purpose and use <uicontrol>add</uicontrol>. To remove a field, select it in the <uicontrol>Selected Fields</uicontrol> section and use <uicontrol>remove</uicontrol>.</p>
                     <p>From the field list, you can expand a field by simply clicking it. This shows the most common values for the field. You can also set field values as filter, or you can exclude log data with specific field values. </p>
                 </li>
                 <li>

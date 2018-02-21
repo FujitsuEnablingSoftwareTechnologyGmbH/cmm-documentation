@@ -83,7 +83,7 @@ from django.core.management import execute_from_command_line  # noqa
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE",
                           "openstack_dashboard.settings")
-    sys.path.append('/opt/monasca-ui/lib/python2.7/site-packages')
+    sys.path.append("/opt/monasca-ui/lib/python2.7/site-packages")
     execute_from_command_line(sys.argv)</codeblock>
                 </li>
                 <li>
