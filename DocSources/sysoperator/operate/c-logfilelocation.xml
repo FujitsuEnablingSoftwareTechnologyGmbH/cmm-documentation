@@ -29,28 +29,8 @@
             </p>
             <p>For more information on <codeph>docker-compose logs</codeph>, you can execute the following command:</p>
             <codeblock>docker-compose logs --help</codeblock>
-            <p>By default, Docker uses the <codeph>json-file</codeph> driver to record the logs of your containers. The log output in JSON format can be found in <codeph>/var/lib/docker/containers/&lt;container-id>/ &lt;container-id>-json.log</codeph>. </p>
+            <!-- p>By default, Docker uses the <codeph>json-file</codeph> driver to record the logs of your containers. The log output in JSON format can be found in <codeph>/var/lib/docker/containers/&lt;container-id>/ &lt;container-id>-json.log</codeph>. </p -->
         </section>
-        <!-- section>
-            <title>Bug on log files</title>
-            <p/>
-            <p>##NEW:</p>
-            <p>Docker log driver is configured as `journald` in /etc/sysconfig/docker </p>
-            <p>operating systems are using different default "log-driver". RHEL7.4 uses "journald" Ubuntu uses "json-file"</p>
-            <p># /etc/sysconfig/docker # </p>
-            <p>Modify these options if you want to change the way the docker daemon runs </p>
-            <p>OPTIONS='##selinux-enabled ##log-driver=journald ##signature-verification=false' </p>
-            <p>if [ -z "${DOCKER_CERT_PATH}" ]; then DOCKER_CERT_PATH=/etc/docker fi</p>
-            <p/>
-            <p>Docker includes multiple logging mechanisms to help you get information from running containers and services. These mechanisms are called logging drivers. Each Docker daemon has a default logging driver, which each container uses unless you configure it to use a different logging driver.</p>
-            <p>What do we have on RH 7.4 by default?</p>
-            <p>In RH 7.4, the log driver is automatically set to <codeph>journald</codeph>. </p>
-            <p>You have to retrieve log messages with journalctl. Use the journalctl command to retrieve log messages. For details on the command, refer to ##</p>
-            <p>For information on the journald logging driver options, refer to https://docs.docker.com/config/containers/logging/journald/ </p>
-            <p/>
-            <p>The logs are collected and managed in a so-called journal controlled by the <codeph>journald</codeph> daemon.</p>
-            <p>For details on the <codeph>systemd</codeph> and <codeph>journald</codeph> utilities, refert to the Red Hat Enterprise LINUX documentation. ##https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/part-Basic_System_Configuration.html >>> systemd replaced by rsystemd</p>
-        </section -->
         <section>
             <title>Data Retention for Docker Log Files</title>
             <p id="Log_data_is_stored_in_the_Ela_concept_conbody_section_p_1"
