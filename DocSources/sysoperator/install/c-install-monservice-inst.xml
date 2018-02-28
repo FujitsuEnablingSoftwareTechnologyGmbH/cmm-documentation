@@ -51,10 +51,10 @@
                     <codeblock># Set the IPv4 address of the OpenStack Keystone host
 MON_KEYSTONE_URL=http://&lt;ip_address>:5000
 
-# Enable Kibana authorization (for token received from Horizon Plugin)
+# Enable Kibana authorization via OpenStack Horizon
 MON_MONASCA_PLUGIN_ENABLED=True
 
-# Set the path to mount Kibana to the Horizon proxy (leave as is).
+# Set the path to mount Kibana to the OpenStack Horizon proxy
 MON_BASE_PATH=/dashboard/monitoring/logs_proxy
 
 # Define the Grafana user settings
@@ -81,7 +81,7 @@ MON_GRAFANA_PASSWORD=&lt;OpenStack_admin_password></codeblock>
                     </ul>
                 </li>
                 <li>
-                    <p>For enabling access to OpenStack Keystone, you have to specify credentials for the Metrics Agent and Log Agent, as well as for the Monitoring API and the Log API in the <codeph>OpenStack Keystone credentials</codeph> section: </p>
+                    <p>For enabling access to OpenStack Keystone, you have to specify credentials for the Metrics Agent and Log Agent, as well as for the Monitoring API and the Log API in the <codeph>Set the OpenStack Keystone credentials</codeph> section: </p>
                     <codeblock># Agent credentials 
 MON_AGENT_USERNAME=&lt;user_name>
 MON_AGENT_PASSWORD=&lt;password>
@@ -98,7 +98,7 @@ MON_KEYSTONE_ADMIN_PASSWORD=&lt;OpenStack_admin_password></codeblock>
                                     /> with OpenStack. For details, refer to <xref href="c-install-ksconfig-users.xml"
                                 />. </p>
                             <p>Example:</p>
-                            <codeblock># Set the agent credentials 
+                            <codeblock># Agent credentials 
 MON_AGENT_USERNAME=monasca-agent
 MON_AGENT_PASSWORD=password
 MON_AGENT_PROJECT_NAME=monasca</codeblock>
@@ -110,7 +110,7 @@ MON_AGENT_PROJECT_NAME=monasca</codeblock>
                 </li>
                 <li>
                     <p>The installation of the Monitoring Service mounts <codeph>/opt/monasca-containers</codeph> as default volume for the data directories of Elasticsearch, InfluxDB, MySQL, Kafka, and Grafana. </p>
-                    <p>If required, you can update the <codeph>MON_DOCKER_VOL_ROOT</codeph> parameter in the <codeph>Data directories</codeph> section, and specify a different volume.</p>
+                    <p>If required, you can update the <codeph>MON_DOCKER_VOL_ROOT</codeph> parameter, and specify a different volume.</p>
                     <codeblock># Set the path for the data directories of Elasticsearch,  
 # InfluxDB, MySQL, Kafka, and Grafana
 MON_DOCKER_VOL_ROOT=&lt;path_to_data_directories></codeblock>
@@ -118,35 +118,34 @@ MON_DOCKER_VOL_ROOT=&lt;path_to_data_directories></codeblock>
                 <li>
                     <p>The installation of the Monitoring Service mounts <codeph>/mount/backup</codeph> as default volume for backing up the databases. </p>
                     <p>If required, you can update the <codeph>MON_BACKUP_DIR</codeph> parameter, and specify a different volume.</p>
-                    <codeblock># Set the path for backup directories
+                    <codeblock># Set the path for the backup directories of Elasticsearch,
+# InfluxDb, and MySQL
 MON_BACKUP_DIR=&lt;path_to_backup_directories></codeblock>
                 </li>
                 <li>
                     <p>By default, <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> retains the data stored in the Elasticsearch and InfluxDB database for 60 days. Older data is automatically deleted.</p>
-                    <p>If required, you can change the data retention parameters in the <codeph>Data retention</codeph> section.</p>
-                    <codeblock># Data retention for Elasticsearch database 
+                    <p>If required, you can change the data retention parameters in the <codeph>Configure data retention</codeph> section.</p>
+                    <codeblock># Retention period for Elasticsearch database 
 # Delete job is executed every day at 12 a.m. UTC
 MON_ELASTICSEARCH_DATA_RETENTION_DAYS=&lt;number_of_days>
 
-# Data retention for InfluxDB database
+# Retention period for InfluxDB database
 MON_INFLUXDB_RETENTION=&lt;number of days>d</codeblock>
                     <p>Replace <codeph>&lt;number of days></codeph> by the number of days after which data is to be deleted.</p>
                     <p>Example:</p>
                     <codeblock>MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30
 MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
-                <!--li>
-                    <p>Enable the notification methods you need in your environment. Email, HipChat, Jira, PagerDuty, Slack, and WebHook can be used to inform <ph
+                <li>
+                    <p>Enable the required notification methods. Email, HipChat, PagerDuty, Slack, and WebHook can be used to inform <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> users when a threshold value for an alarm is reached or exceeded.</p>
-                    <p>The notification methods to be enabled must be specified as comma-separated values for the <codeph>NF_PLUGINS</codeph> parameter in the <codeph>Notification plugins</codeph> section.</p>
-                    <p>Example for enabling Email and WebHook as notification methods:</p>
+                    <p>The notification methods to be enabled must be specified as comma-separated values for the <codeph>NF_PLUGINS</codeph> parameter in the <codeph>Enable Notification Engine plugins</codeph> section.</p>
+                    <p>Example for enabling Email and WebHook:</p>
                     <codeblock>NF_PLUGINS=email,webhook</codeblock>
-                    <p>For each plugin you enable, you have to define the required configuration parameters. For details on the parameters, refer to ##appendix or the information in the <codeph>env</codeph> file.</p>
-                    <p>##TODO Jira is missing in env file</p>
-                    <p>##TODO changing the enabled notification plugins at a later stage >>> restart notification container##</p>
-                </li -->
+                    <p>For each plugin, you have to define the required configuration parameters in the <codeph>.env</codeph> file. For details on the parameters, refer to the information in the file.</p>
+                </li>
                 <li>
                     <p>Load the tarred repository from the <codeph>CMM_server_2.0.x.images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>
                     <codeblock>$ docker load -i CMM_server_2.0.x.images.tar</codeblock>
