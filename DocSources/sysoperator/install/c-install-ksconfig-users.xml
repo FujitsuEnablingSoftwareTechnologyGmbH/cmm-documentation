@@ -61,6 +61,7 @@ openstack role create monasca-agent</codeblock>
                             /> and must have the <codeph>monasca-agent</codeph> role in this project.</p>
                 </li>
                 <li>
+                    <!--p>##required for communication with API</p-->
                     <p>The OpenStack <codeph>admin</codeph> user must be assigned to the project prepared for <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                             /> and must have the <codeph>monasca-user</codeph> and <codeph>admin</codeph> roles in this project.</p>
