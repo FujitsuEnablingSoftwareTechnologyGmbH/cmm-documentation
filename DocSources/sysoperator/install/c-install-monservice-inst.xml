@@ -57,11 +57,9 @@ MON_MONASCA_PLUGIN_ENABLED=True
 # Set the path to mount Kibana to the OpenStack Horizon proxy
 MON_BASE_PATH=/dashboard/monitoring/logs_proxy
 
-# Define the Grafana user settings
-MON_GRAFANA_ADMIN_USER=&lt;Grafana_admin>
-MON_GRAFANA_ADMIN_PASSWORD=&lt;Grafana_admin_password>
-MON_GRAFANA_USERNAME=&lt;OpenStack_admin>
-MON_GRAFANA_PASSWORD=&lt;OpenStack_admin_password></codeblock>
+# Define Grafana administrator settings
+MON_GRAFANA_ADMIN_USER=&lt;grafana_admin>
+MON_GRAFANA_ADMIN_PASSWORD=&lt;grafana_admin_password></codeblock>
                     <ul>
                         <li>
                             <p>Replace <codeph>&lt;ip_address></codeph> by the IP address of the node on which the OpenStack Keystone service is deployed. Example URL: <codeph>http://172.31.0.216:5000</codeph>. </p>
@@ -73,10 +71,13 @@ MON_GRAFANA_PASSWORD=&lt;OpenStack_admin_password></codeblock>
                             <p>Set the <codeph>MON_BASE_PATH</codeph> parameter to <codeph>/dashboard/monitoring/logs_proxy</codeph>.</p>
                         </li>
                         <li>
-                            <p>Replace <codeph>&lt;Grafana_admin></codeph> and <codeph>&lt;Grafana_admin_password></codeph> by the credentials of a Grafana administrator. This user is created with installing the Monitoring Service and required for Grafana user management. It must be different from the OpenStack <codeph>admin</codeph> user. </p>
-                        </li>
-                        <li>
-                            <p>Replace <codeph>&lt;OpenStack_admin></codeph> and <codeph>&lt;OpenStack_admin_password></codeph> by the credentials of the OpenStack <codeph>admin</codeph> user. By default, the <codeph>admin</codeph> user is used for installing the Monasca data source in Grafana. </p>
+                            <p>Replace <codeph>&lt;grafana_admin></codeph> and <codeph>&lt;grafana_admin_password></codeph> by the credentials of a Grafana user. This user is automatically created with the installation of the Monitoring Service, and is assigned the <codeph>admin</codeph> flag in Grafana. This flag authorizes him to create, update, and delete metrics dashboards in Grafana.</p>
+                            <note othertype="note">
+                                <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                        /> ships with preconfigured metrics dashboards. The Grafana user created with <codeph>MON_GRAFANA_ADMIN_USER</codeph> is authorized to create additional dashboards for the <ph
+                                        conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                                    /> users, or to update and delete the preconfigured ones, if required.</p>
+                            </note>
                         </li>
                     </ul>
                 </li>
@@ -131,20 +132,20 @@ MON_BACKUP_DIR=&lt;path_to_backup_directories></codeblock>
 MON_ELASTICSEARCH_DATA_RETENTION_DAYS=&lt;number_of_days>
 
 # Retention period for InfluxDB database
-MON_INFLUXDB_RETENTION=&lt;number of days>d</codeblock>
-                    <p>Replace <codeph>&lt;number of days></codeph> by the number of days after which data is to be deleted.</p>
+MON_INFLUXDB_RETENTION=&lt;number_of_days>d</codeblock>
+                    <p>Replace <codeph>&lt;number_of_days></codeph> by the number of days after which data is to be deleted.</p>
                     <p>Example:</p>
                     <codeblock>MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30
 MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
-                    <p>Enable the required notification methods. Email, HipChat, PagerDuty, Slack, and WebHook can be used to inform <ph
+                    <p>Enable the required notification methods. Email, Webhook, PagerDuty,  HipChat, and Slack can be used to inform <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> users when a threshold value for an alarm is reached or exceeded.</p>
-                    <p>The notification methods to be enabled must be specified as comma-separated values for the <codeph>NF_PLUGINS</codeph> parameter in the <codeph>Enable Notification Engine plugins</codeph> section.</p>
+                    <p>The notification methods to be enabled must be specified as comma-separated values for the <codeph>NF_PLUGINS</codeph> parameter in the <codeph>Enable the Notification Engine plugins</codeph> section.</p>
                     <p>Example for enabling Email and WebHook:</p>
                     <codeblock>NF_PLUGINS=email,webhook</codeblock>
-                    <p>For each plugin, you have to define the required configuration parameters in the <codeph>.env</codeph> file. For details on the parameters, refer to the information in the file.</p>
+                    <p>The <codeph>webhook</codeph> plugin is enabled by default. For the other plugins, you have to additionally define the corresponding configuration parameters in the <codeph>.env</codeph> file. For details on the parameters, refer to the information in the file.</p>
                 </li>
                 <li>
                     <p>Load the tarred repository from the <codeph>CMM_server_2.0.x.images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>
