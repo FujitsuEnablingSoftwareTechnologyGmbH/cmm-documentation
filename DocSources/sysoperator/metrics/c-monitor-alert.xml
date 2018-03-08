@@ -24,8 +24,16 @@
                     <p>
                         <note othertype="note">Generic top-level domains such as business domain names are not supported in email addresses (for example, <codeph>user@xyz.company</codeph>).</note>
                     </p>
-                    <p>For <codeph>WebHook</codeph>, the WebHook URL to be notified when an alarm is triggered. </p>
+                    <!-- p>For <codeph>HipChat</codeph>, the ##TODO Notifies via a HipChat message to some room. Destination details to be configured here with the notification. ###FJJ input: Create a notification:
+monasca notification-create HipChatTest HIPCHAT https://api.hipchat.com/v2/room/<Room ID>/notification?auth_token=<access token>
+                    </p -->
                     <p>For <codeph>PagerDuty</codeph>, the PagerDuty Service API Key to be notified when an alarm is triggered. </p>
+                    <!-- p>For <codeph>Slack</codeph>, the ##TODO Notifies via a slack message ## Input from FJJ: monasca notification-create Slack SLACK https://slack.com/api/chat.postMessage?token=<token>&channel=#<channel>
+                    </p -->
+                    <p>For <codeph>WebHook</codeph>, the WebHook URL to be loaded when an alarm is triggered. </p>
+                </li>
+                <li>
+                    <p><uicontrol>Period</uicontrol>. For <codeph>WebHook</codeph> only. The integer value indicates how often a notification is to be resent.</p>
                 </li>
             </ul>
             <p>To create, edit, and delete notifications, use <uicontrol>Monitoring &gt; Notifications</uicontrol>.</p>
