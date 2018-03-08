@@ -24,5 +24,27 @@
                 </ul>
             </p>
         </section>
+        <!-- section>
+            <title>Bug 13835</title>
+            <p>New Section for managing project/user/roles should be added in Chapter 4, and 2.2.2 should be pointed or linked for detailed reference.</p>
+            <p>Customers may find the rule from 2.2.2. But it is better for customers to be clearly described the administrators' role and the combination of roles to be set. FOR CUSTOMERS' POINT OF VIEW, they want to know directly the role set for monitoring and don't want to effort to guess it from several sentences. </p>
+            <p>I think customers want the information about user creation like below: </p>
+            <ul>
+                <li>To monitor tenant data, `monasca-user` role is required</li>
+                <li>To open Grafana, `_member_` role or `admin` role is required </li>
+                <li>To view the data in Grafana, `monasca-user` role is required ### # So, a general tenant user should be added both `_member_` and `monasca-user` role</li>
+                <li> To create data source in Grafana, `admin` role is required</li>
+                <li>The `Monitoring Service operator` means ... and can monitor ... </li>
+                <li>To create a user who has same authority with the `Monitoring Service operator`, assigning to `monasca` project and `admin` and `monasca-user` role is required </li>
+                <li>Users assigned to a tenant with `admin` role can access user management of Horizon, therefor he can modify his account by himself </li>
+            </ul>
+            <p>User with `admin` role can break the multi-tenancy feature of CMM easily. So, please describe clearly :</p>
+            <ul>
+                <li> `admin` role is powerful</li>
+                <li>the situation in which the role is required </li>
+                <li>it should be added only when it is essential</li>
+            </ul>
+            <p>What we are confusing at CMM V2.0 is what CMM USERs (ApplicationOperator and SystemOperator) can/cannot operate with CMM V2.0, and, for these operation, which roles (_member_, admin, monasca-user, monasca-agent) should/should't be assigned.</p>
+        </section -->
     </conbody>
 </concept>

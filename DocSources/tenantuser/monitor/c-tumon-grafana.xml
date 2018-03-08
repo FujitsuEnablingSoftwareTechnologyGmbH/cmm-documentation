@@ -5,19 +5,20 @@
 ]>
 
 <concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB" xml:lang="en-us">
-    <title>Working with Data Visualizations</title>
+    <title>Viewing Metrics Data</title>
     <conbody>
         <section>
-            <p>The user interface for monitoring your services and virtual machines integrates with Grafana for visualizing large-scale monitoring data on metrics dashboards. <ph
+            <p>The user interface for monitoring your services and virtual machines integrates with Grafana, an open-source application for visualizing large-scale metrics data. <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> ships with preconfigured dashboards for Monitoring Service operators and OpenStack operators. As an application operator, you can configure your own dashboard as required. </p>
-            <p>To access the functions for configuring a dashboard, use the options located along the top of the <uicontrol>Overview</uicontrol> page. This allows you to access Grafana and you can instantly start creating dashboards for the metrics data you want to visualize.</p>
+                /> ships with a preconfigured dashboard that visualizes the monitoring data collected from your services and virtual machines. </p>
+            <p>To access the dashboard, use the <uicontrol>Grafana Home</uicontrol> option located along the top of the <uicontrol>Overview</uicontrol> page.</p>
             <p>Dashboard example:</p>
+            <p><i>##To be replaced by screenshot and explanation of Libvirt dashboard that is delivered.</i></p>
             <fig>
                 <image alt="grafana-libvirt.png" height="260" href="../../images/grafana-libvirt.png" width="435"/>
             </fig>
         </section>
-        <section
+        <!-- section
             conref="../../sysoperator/metrics/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Building_Dashboards_concept_conbody_section_4"/>
         <section
             conref="../../sysoperator/metrics/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Creating_a_Dashboard_concept_conbody_section_5"/>
@@ -26,6 +27,6 @@
         <section
             conref="../../sysoperator/metrics/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Editing_Panels_concept_conbody_section_7"/>
         <section
-            conref="../../sysoperator/metrics/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Saving_and_Sharing_Dashboards_concept_conbody_section_8"/>
+            conref="../../sysoperator/metrics/c-monitor-grafana.xml#concept_E8D43EB4494E41D2AB42D4A89396D1AB/Saving_and_Sharing_Dashboards_concept_conbody_section_8"/ -->
     </conbody>
 </concept>
