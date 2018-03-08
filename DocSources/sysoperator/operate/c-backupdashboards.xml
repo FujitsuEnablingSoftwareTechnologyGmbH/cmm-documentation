@@ -9,12 +9,12 @@
     <title>Dashboards</title>
     <conbody>
         <section>
-            <p>Kibana can persist customized log dashboard designs to the Elasticsearch database, and allows you to recall them. For details on saving, loading, and sharing log management dashboards, refer to the <xref
-                    format="html" href="https://www.elastic.co/guide/en/kibana/4.5/dashboard.html#saving-dashboards"
+            <p>Kibana can persist customized dashboard designs to the Elasticsearch database, and allows you to recall them. For details on saving, loading, and sharing dashboards for log management, refer to the <xref
+                    format="html" href="https://www.elastic.co/guide/en/kibana/4.6/dashboard.html#saving-dashboards"
                     scope="external"><u><i>Kibana documentation</i></u></xref>.</p>
-            <p>Grafana allows you to export a monitoring dashboard to a JSON file, and to re-import it when necessary. For backing up and restoring the exported dashboards, use the standard mechanisms of your file system. For details on exporting monitoring dashboards, refer to the <xref
-                    format="html" href="http://docs.grafana.org/" scope="external"
-                            ><u><i>Getting Started</i></u></xref> tutorial of Grafana.  </p>
+            <p>As a Grafana administrator, you are allowed to export dashboards to a JSON file, and to re-import them when necessary. Use the administrator credentials defined in the <codeph>.env</codeph> file for the installation of the Monitoring Service to directly access Grafana and export dashboards. For backing up and restoring the exported dashboards, you can then use the standard mechanisms of your file system. For details on exporting monitoring dashboards, refer to the <xref
+                    format="html" href="http://docs.grafana.org/v4.5" scope="external"
+                        ><u><i>Grafana documentation</i></u></xref>. </p>
         </section>
     </conbody>
 </concept>

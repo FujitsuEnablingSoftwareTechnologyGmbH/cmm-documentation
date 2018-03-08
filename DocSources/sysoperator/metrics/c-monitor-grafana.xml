@@ -5,18 +5,30 @@
 <!-- Copyright FUJITSU ENABLING SOFTWARE TECHNOLOGY GMBH 2018 -->
 <concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
         xml:lang="en-us">
-    <title>Working with Data Visualizations</title>
+    <title>Viewing Metrics Data</title>
     <conbody>
         <section
                     id="The_user_interface_for_monito_concept_conbody_section_1">
-            <p>The user interface for monitoring your services and servers integrates with Grafana, an open-source application for visualizing large-scale monitoring data. Use the options located along the top of the <uicontrol>Overview</uicontrol> page to access Grafana. </p>
+            <p>The user interface for monitoring your environment integrates with Grafana, an open-source application for visualizing large-scale metrics data. Use the <uicontrol>Grafana Home</uicontrol> option located along the top of the <uicontrol>Overview</uicontrol> page to access Grafana. </p>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> ships with preconfigured metrics dashboards. You can instantly use them for monitoring your environment. You can also use them as a starting point for building your own dashboards.</p>
+                /> ships with preconfigured metrics dashboards that allow you to instantly monitor your enviroment:</p>
+            <ul>
+                <li>
+                    <p>The <uicontrol>OpenStack Dashboard</uicontrol> visualizes the metrics data from your OpenStack nodes. </p>
+                </li>
+                <li>
+                    <p>The <uicontrol>Node Dashboard</uicontrol> visualizes the metrics data from the node on which the Monitoring Service is installed.</p>
+                </li>
+            </ul>
+            <p>You are authorized to view the metrics data that is displayed. The Grafana administrator created during the installation of the Monitoring Service is allowed to create, update, and delete dashboards. </p>
+            <p>If it is required to make any changes or enhancements to the data displayed in the preconfigured dashboards, the administrator credentials defined in the <codeph>.env</codeph> file must be used for directly accessing Grafana. For detailed information on the features the administrator can use to change or enhance the dashboards in Grafana, refer to the <xref
+                    format="html" href="http://docs.grafana.org/v4.5/" scope="external"
+                        ><u><i>Grafana documentation</i></u></xref>.</p>
         </section>
         <section
-                    id="Preconfigured_Dashboard_for_O_concept_conbody_section_2">
-            <title>Preconfigured Metrics Dashboards</title>
-            <p>To view the metrics data on the OpenStack services, you use the <uicontrol>Dashboard</uicontrol> option on the <uicontrol>Overview</uicontrol> page.</p>
+                    id="Preconfigured_Dashboard_OS_concept_conbody_section_2">
+            <title>OpenStack</title>
+            <p>To view the metrics data on the OpenStack services and the nodes on which they are deployed, select the <uicontrol>OpenStack Dashboard</uicontrol> option from the <uicontrol>Home</uicontrol> menu located at the top part of the Grafana window. </p>
             <fig>
                 <image
                     alt="grafana-os.png" height="260"
@@ -26,61 +38,49 @@
             <p>The preconfigured dashboard shows the following: </p>
             <ul>
                 <li>
-                    <p>Status of the main OpenStack Services (<codeph>UP</codeph> or <codeph>DOWN</codeph>). Information on Nova, Neutron, Glance, Cinder, Swift, and Keystone is displayed.</p>
+                    <p>Status of the main OpenStack services (<codeph>UP</codeph> or <codeph>DOWN</codeph>). Information on Nova, Neutron, Glance, Cinder, Swift, and Keystone is displayed.</p>
                 </li>
                 <li>
-                    <p>Information on system resources.</p>
-                    <p>The dashboard shows metrics data on CPU usage: the percentage of time the CPU is used in total (<codeph>cpu.percent</codeph>), at user level (<codeph>cpu.user_perc</codeph>), and at system level (<codeph>cpu.system_perc</codeph>), as well as the percentage of time the CPU is idle when no I/O requests are in progress (<codeph>cpu.wait_perc</codeph>).</p>
-                    <p>The dashboard shows metrics data on memory usage: the number of megabytes of total memory (<codeph>mem.total_mb</codeph>), used memory (<codeph>mem.used_mb</codeph>), total swap memory (<codeph>mem.swap_total_mb</codeph>), and used swap memory (<codeph>mem.swap_used_mb</codeph>). In addition, it shows the number of megabytes used for the page cache (<codeph>mem.used_cache</codeph>), and the number of megabytes of used memory minus the memory used for buffers and the page cache (<codeph>mem.used_real_mb</codeph>).</p>
-                    <p>The dashboard shows metrics data on the percentage of disk space that is being used on a device (<codeph>disk.space_used_perc</codeph>).</p>
-                    <p>The dashboard shows metrics data on the <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> system load over different periods (<codeph>load.avg_1_min</codeph>, <codeph>load.avg_5_min</codeph>, and <codeph>load.avg_15_min</codeph>). </p>
+                    <p>Information on the system resources.</p>
+                    <p>CPU usage: The percentage of time the CPU is used in total (<codeph>cpu.percent</codeph>), at user level (<codeph>cpu.user_perc</codeph>), and at system level (<codeph>cpu.system_perc</codeph>), as well as the percentage of time the CPU is idle when no I/O requests are in progress (<codeph>cpu.wait_perc</codeph>).</p>
+                    <p>Memory usage: The number of megabytes of total memory (<codeph>mem.total_mb</codeph>), free memory (<codeph>mem.free_mb</codeph>), total swap memory (<codeph>mem.swap_total_mb</codeph>), and used swap memory (<codeph>mem.swap_used_mb</codeph>). In addition, it shows the number of megabytes used for the page cache (<codeph>mem.used_cache</codeph>), and the number of megabytes of used memory minus the memory used for buffers and the page cache (<codeph>mem.used_real_mb</codeph>).</p>
+                    <p>The percentage of disk space that is being used on a device (<codeph>disk.space_used_perc</codeph>).</p>
+                    <p>The system load over different periods (<codeph>load.avg_1_min</codeph>, <codeph>load.avg_5_min</codeph>, and <codeph>load.avg_15_min</codeph>). </p>
                 </li>
                 <li>
-                    <p>Information on the network usage.</p>
-                    <p>The dashboard shows the number of network bytes received and sent per second (<codeph>net.in_bytes_sec</codeph> and <codeph>net.out_bytes_sec</codeph>).</p>
+                    <p>Network usage: The number of network bytes received and sent per second (<codeph>net.in_bytes_sec</codeph> and <codeph>net.out_bytes_sec</codeph>).</p>
                 </li>
             </ul>
         </section>
         <section
-                    id="Preconfigured_Dashboard_for_concept_conbody_section_3">
+                    id="Preconfigured_Dashboard_CMM_concept_conbody_section_3">
+            <title><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/></title>
             <p>To view the metrics data on <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    /> itself, you use the <uicontrol>Monasca Health</uicontrol> option on the <uicontrol>Overview</uicontrol> page. </p>
+                    /> itself, select the <uicontrol>Node Dashboard</uicontrol> option from the <uicontrol>Home</uicontrol> menu located at the top part of the Grafana window. </p>
             <fig>
                 <image
                     alt="grafana-cmm.png" height="260"
                     href="../../images/grafana-cmm.png"
                             width="435"/>
             </fig>
-            <p>The preconfigured dashboard shows the following: </p>
+            <p>The preconfigured dashboard shows the following information on the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> system resources: </p>
             <ul>
                 <li>
-                    <p>Status of the main <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> components (<codeph>UP</codeph> or <codeph>DOWN</codeph>). </p>
-                    <p>In the upper part of the dashboard the components are grouped into metrics and log management components as well as common components that are used by metrics-based and log-based monitoring.</p>
+                    <p>CPU usage: The time the CPU is used in total (<codeph>cpu.total_time_sec</codeph>).</p>
                 </li>
                 <li>
-                    <p>Information on system resources.</p>
-                    <p>The dashboard shows metrics data on CPU usage: the percentage of time the CPU is used in total (<codeph>cpu.percent</codeph>), at user level (<codeph>cpu.user_perc</codeph>), and at system level (<codeph>cpu.system_perc</codeph>), as well as the percentage of time the CPU is idle when no I/O requests are in progress (<codeph>cpu.wait_perc</codeph>).</p>
-                    <p>The dashboard shows metrics data on memory usage: the number of megabytes of total memory (<codeph>mem.total_mb</codeph>), used memory (<codeph>mem.used_mb</codeph>), total swap memory (<codeph>mem.swap_total_mb</codeph>), and used swap memory (<codeph>mem.swap_used_mb</codeph>). In addition, it shows the number of megabytes used for the page cache (<codeph>mem.used_cache</codeph>), and the number of megabytes of used memory minus the memory used for buffers and the page cache (<codeph>mem.used_real_mb</codeph>).</p>
-                    <p>The dashboard visualizes metrics on the percentage of disk space that is being used on a device (<codeph>disk.space_used_perc</codeph>).</p>
-                    <p>The dashboard shows metrics data on the <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> system load over different periods (<codeph>load.avg_1_min</codeph>, <codeph>load.avg_5_min</codeph>, and <codeph>load.avg_15_min</codeph>). </p>
+                    <p>Memory usage: The used memory in bytes (<codeph>mem.used_bytes</codeph>).</p>
                 </li>
                 <li>
-                    <p>Information on the network usage of <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>.</p>
-                    <p>The dashboard shows the number of network bytes received and sent per second (<codeph>net.in_bytes_sec</codeph> and <codeph>net.out_bytes_sec</codeph>).</p>
+                    <p>Disk space: The number of bytes consumed (<codeph>fs.usage_bytes</codeph>). <i>##info to be added on cAdvisor?</i></p>
                 </li>
                 <li>
-                    <p>Metrics data on each <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> component. The metrics that are visualized differ slightly from component to component. The dashboard shows, for example, the percentage of CPU that is consumed by a component (<codeph>process.cpu_perc.value </codeph>), the amount of physical memory that is allocated to the component (<codeph>process.mem.rss_mbytes.value</codeph>), or the number of processes that exist with the corresponding component name (<codeph>process.pid_count.value</codeph>).</p>
+                    <p>Network traffic: The number of network bytes received and sent per second (<codeph>net.in_bytes_sec</codeph> and <codeph>net.out_bytes_sec</codeph>).</p>
                 </li>
             </ul>
         </section>
-        <section
+        <!-- section
                         id="Building_Dashboards_concept_conbody_section_4">
             <title>Building Dashboards</title>
             <p>Each metrics dashboard is composed of one or more panels that are arranged in one or more rows. A row serves as a logical divider within a dashboard. It organizes your panels in groups. The panel is the basic building block for visualizing your metrics data.</p>
@@ -93,8 +93,8 @@
             <p>The following sections provide introductory information on dashboards, rows, and panels, and make you familiar with the first steps involved in building a dashboard. For more detailed information and a description of the complete set of features that is available, refer to the <xref
                     format="html" href="http://docs.grafana.org/" scope="external"
                     ><u><i>Grafana documentation</i></u></xref>.</p>
-        </section>
-        <section
+        </section -->
+        <!-- section
                     id="Creating_a_Dashboard_concept_conbody_section_5">
             <title>Creating a Dashboard</title>
             <p>To create a new dashboard, use <uicontrol>Open Dashboard</uicontrol> in the top right corner of the window. The option provides access to various features for administrating dashboards. Use <uicontrol>New</uicontrol> to create an empty dashboard that serves as a starting point for adding rows and panels.</p>
@@ -106,14 +106,14 @@
             </fig>
             <p>On the left side of an empty dashboard, a green rectangle is displayed. Hover over this rectangle to access a <uicontrol>Row</uicontrol> menu. To insert your first panel, you can use the options in the <uicontrol>Add Panel</uicontrol> submenu. See below for details on the available panel types.</p>
             <p>As soon as you have inserted an empty panel, you can add additional rows. For this purpose, use the <uicontrol>Add Row</uicontrol> option on the right side of the dashboard.</p>
-        </section>
-        <section
+        </section -->
+        <!-- section
             id="Editing_Rows_concept_conbody_section_6">
             <title>Editing Rows</title>
             <p>Features for editing rows can be accessed via the green rectangle that is displayed to the left of each row. </p>
             <p>In addition to adding panels to a row, you can collapse or remove a row, move the position of a row within your dashboard, or set a row's height. Row settings allow you, for example, to insert a row title or to hide the <uicontrol>Row</uicontrol> menu so that a row can no longer be edited.</p>
-        </section>
-        <section
+        </section -->
+        <!-- section
                     id="Editing_Panels_concept_conbody_section_7">
             <title>Editing Panels</title>
             <p>Grafana distinguishes between different types of panel. The following three panel types are used in the preconfigured metrics dashboards that are shipped with <ph
@@ -136,13 +136,13 @@
             <p>A large number of display and formatting features are provided to define how the content is presented in a panel. Click the panel title to access the corresponding options. The menu that is displayed also allows you to duplicate or remove a panel. To change the size of a panel, click the <uicontrol>+</uicontrol> and <uicontrol>-</uicontrol> icons.</p>
             <p>You can move panels on your dashboard by simply dragging and dropping them within and between rows.</p>
             <p>By default, the time range for panels is controlled by dashboard settings. Use the time picker in the top right corner of your dashboard window to define relative or absolute time ranges. You can also set an auto-refresh interval, or manually refresh the data that is displayed. </p>
-        </section>
-        <section id="Saving_and_Sharing_Dashboards_concept_conbody_section_8">
+        </section -->
+        <!-- section id="Saving_and_Sharing_Dashboards_concept_conbody_section_8">
             <title>Saving and Sharing Dashboards</title>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> allows you to save a metrics dashboard and export it to a JSON file. The JSON file can be edited, shared with other users, and imported to <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> again.</p>
             <p>To save a dashboard, use <uicontrol>Save</uicontrol> in the top right corner of the window. You can enter a name for the dashboard and save it to your browser's local storage. Use <uicontrol>Dashboard JSON</uicontrol> to directly view the corresponding JSON syntax, or use <uicontrol>Export dashboard</uicontrol> to download the JSON file. The JSON file can be forwarded to other users, if required. To import a JSON file, use <uicontrol>Open dashboard</uicontrol> in the top left corner of the window.</p>
-        </section>
+        </section -->
     </conbody>
 </concept>

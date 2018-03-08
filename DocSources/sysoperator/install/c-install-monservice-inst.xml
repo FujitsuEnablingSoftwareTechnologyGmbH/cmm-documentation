@@ -58,7 +58,7 @@ MON_MONASCA_PLUGIN_ENABLED=True
 MON_BASE_PATH=/dashboard/monitoring/logs_proxy
 
 # Define Grafana administrator settings
-MON_GRAFANA_ADMIN_USER=&lt;grafana_admin>
+MON_GRAFANA_ADMIN_USER=&lt;grafana_admin_user_name>
 MON_GRAFANA_ADMIN_PASSWORD=&lt;grafana_admin_password></codeblock>
                     <ul>
                         <li>
@@ -71,10 +71,10 @@ MON_GRAFANA_ADMIN_PASSWORD=&lt;grafana_admin_password></codeblock>
                             <p>Set the <codeph>MON_BASE_PATH</codeph> parameter to <codeph>/dashboard/monitoring/logs_proxy</codeph>.</p>
                         </li>
                         <li>
-                            <p>Replace <codeph>&lt;grafana_admin></codeph> and <codeph>&lt;grafana_admin_password></codeph> by the credentials of a Grafana user. This user is automatically created with the installation of the Monitoring Service, and is assigned the <codeph>admin</codeph> flag in Grafana. This flag authorizes him to create, update, and delete metrics dashboards in Grafana.</p>
+                            <p>Replace <codeph>&lt;grafana_admin_user_name></codeph> and <codeph>&lt;grafana_admin_password></codeph> by the credentials of a Grafana administrator. This user is automatically created with the installation of the Monitoring Service, and is assigned the <codeph>admin</codeph> flag in Grafana.</p>
                             <note othertype="note">
                                 <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                                        /> ships with preconfigured metrics dashboards. The Grafana user created with <codeph>MON_GRAFANA_ADMIN_USER</codeph> is authorized to create additional dashboards for the <ph
+                                        /> ships with preconfigured metrics dashboards. The Grafana administrator created with <codeph>MON_GRAFANA_ADMIN_USER</codeph> is authorized to create additional dashboards for the <ph
                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                     /> users, or to update and delete the preconfigured ones, if required.</p>
                             </note>

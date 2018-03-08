@@ -20,8 +20,9 @@
                             href="c-monitor-alarm.xml"/>. </p>
                 </li>
                 <li>
-                    <p>Access preconfigured dashboards that visualize your metrics data. Starting from these dashboards, you can create your own dashboards for visualizing your metrics data as required. For details, refer to <xref
+                    <p>Access preconfigured dashboards that visualize your metrics data. For details, refer to <xref
                             href="c-monitor-grafana.xml"/>. </p>
+                    <!-- p>Starting from these dashboards, you can create your own dashboards for visualizing your metrics data as required. </p -->
                 </li>
                 <li>
                     <p>Access the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
