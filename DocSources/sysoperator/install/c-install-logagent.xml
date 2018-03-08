@@ -29,7 +29,7 @@
                     <p><ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> supports the file plugin of Logstash as input mechanism. The file plugin enables Logstash to read log data from any log file on your file system. Logstash supports additional plugins. For details, refer to <xref
                             format="html"
-                            href="https://www.elastic.co/guide/en/logstash/2.3/input-plugins.html"
+                            href="https://www.elastic.co/guide/en/logstash/2.4/input-plugins.html"
                             scope="external"><u><i>Logstash Input Plugins</i></u></xref>. Contact your <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> support if you want to integrate a different plugin.</p>
                 </li>
                 <li>
