@@ -39,6 +39,7 @@ KIBANA_HOST = getattr(settings, 'KIBANA_HOST',
                 <li>
                     <p>To handle HTTP proxy requests, enable <codeph>mod_proxy</codeph> and <codeph>mod_proxy_http</codeph> in Apache:</p>
                     <codeblock>a2enmod proxy proxy_http</codeblock>
+                    <p><i>PENDING: Bug 13966</i></p>
                 </li>
                 <li>
                     <p>Configure a proxy path pointing to your Grafana instance for the VHost that hosts your OpenStack Horizon instance. </p>
