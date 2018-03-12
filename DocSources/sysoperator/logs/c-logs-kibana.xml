@@ -55,7 +55,7 @@
                             href="../logs/c-logs-index.xml"/>.</p>
                     <p>For entering strings in the search box, use the Lucene query syntax. Kibana also supports the Elasticsearch Query DSL. For details, refer to the <xref
                             format="html"
-                            href="https://www.elastic.co/guide/en/elasticsearch/reference/2.3/query-dsl.html"
+                            href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/query-dsl.html"
                             scope="external"><u><i>Elasticsearch Reference documentation</i></u></xref>.</p>
                 </li>
                 <li>
