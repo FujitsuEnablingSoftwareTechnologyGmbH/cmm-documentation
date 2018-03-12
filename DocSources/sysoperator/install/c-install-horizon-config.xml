@@ -22,7 +22,7 @@ MONITORING_SERVICES_GROUPS = [
                 </li>
                 <li><p>In addition, specify the IP address of your <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> node in your <codeph>local_settings.py</codeph> file:</p><codeblock>GRAFANA_URL = GRAFANA_URL = getattr(settings, 'GRAFANA_URL', {'&lt;region>':
+                            /> node in your <codeph>local_settings.py</codeph> file:</p><codeblock>GRAFANA_URL = getattr(settings, 'GRAFANA_URL', {'&lt;region>':
  'http://&lt;grafana_host>:3000/grafana', })
 
 ENABLE_KIBANA_BUTTON = getattr(settings, 'ENABLE_KIBANA_BUTTON', True)
@@ -42,7 +42,7 @@ KIBANA_HOST = getattr(settings, 'KIBANA_HOST',
                 </li>
                 <li>
                     <p>Configure a proxy path pointing to your Grafana instance for the VHost that hosts your OpenStack Horizon instance. </p>
-                    <p>Add the following lines to the <codeph>&lt;VirtualHost></codeph> element <codeph><i>##&lt;VirtualHost *:80>##</i></codeph> in the <codeph>15-horizon_vhost.conf</codeph> file. The file is located in the <codeph>etc/httpd/conf.d/</codeph> directory.</p>
+                    <p>Add the following lines to the <codeph>&lt;VirtualHost *:80></codeph> element in the <codeph>15-horizon_vhost.conf</codeph> file. The file is located in the <codeph>etc/httpd/conf.d/</codeph> directory.</p>
                     <codeblock>ProxyPass "/grafana" "http://&lt;grafana_host>:3000"
 ProxyPassReverse "/grafana" "http://&lt;grafana_host>:3000"</codeblock>
                     <p>Replace <codeph>&lt;grafana_host></codeph> by the IP address of the <ph
