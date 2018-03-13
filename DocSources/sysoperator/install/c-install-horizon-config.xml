@@ -37,9 +37,11 @@ KIBANA_HOST = getattr(settings, 'KIBANA_HOST',
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                             /> node for the <codeph>KIBANA_HOST</codeph> parameter. Example URL: <codeph> http://192.168.10.6:5601/</codeph>. </p></li>
                 <li>
-                    <p>To handle HTTP proxy requests, enable <codeph>mod_proxy</codeph> and <codeph>mod_proxy_http</codeph> in Apache:</p>
-                    <codeblock>a2enmod proxy proxy_http</codeblock>
-                    <p><i>PENDING: Bug 13966</i></p>
+                    <p>To handle HTTP proxy requests, the <codeph>mod_proxy</codeph> and <codeph>mod_proxy_http</codeph> modules must be enabled in Apache. Check whether they are already enabled in your environment:</p>
+                    <codeblock>httpd -M</codeblock>
+                    <p>If not yet enabled, add the following lines to the <codeph>httpd.conf</codeph> file. The file is located in the <codeph>/etc/httpd/conf/</codeph> directory.</p>
+                    <codeblock>LoadModule  proxy_module      modules/mod_proxy.so
+LoadModule  proxy_http_module modules/mod_proxy_http.so</codeblock>
                 </li>
                 <li>
                     <p>Configure a proxy path pointing to your Grafana instance for the VHost that hosts your OpenStack Horizon instance. </p>
