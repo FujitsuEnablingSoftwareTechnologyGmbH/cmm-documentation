@@ -139,12 +139,12 @@ MON_INFLUXDB_RETENTION=&lt;number_of_days>d</codeblock>
 MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
-                    <p>Enable the required notification methods. Email, Webhook, PagerDuty,  HipChat, and Slack can be used to inform <ph
+                    <p>Enable the required notification methods. Email, HipChat, PagerDuty, Slack, and Webhook can be used to inform <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> users when a threshold value for an alarm is reached or exceeded.</p>
-                    <p>The notification methods to be enabled must be specified as comma-separated values for the <codeph>NF_PLUGINS</codeph> parameter in the <codeph>Enable the Notification Engine plugins</codeph> section.</p>
+                    <p>The notification methods to be enabled must be specified as comma-separated values for the <codeph>NF_PLUGINS</codeph> parameter in the <codeph>Enable the Notification Engine plugins</codeph> section. Use lower-case characters only.</p>
                     <p>Example for enabling Email and WebHook:</p>
-                    <codeblock>NF_PLUGINS=email,webhook</codeblock>
+                    <codeblock>NF_PLUGINS=webhook,email</codeblock>
                     <p>The <codeph>webhook</codeph> plugin is enabled by default. For the other plugins, you have to additionally define the corresponding configuration parameters in the <codeph>.env</codeph> file. For details on the parameters, refer to the information in the file.</p>
                 </li>
                 <li>

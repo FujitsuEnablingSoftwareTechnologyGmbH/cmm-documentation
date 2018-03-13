@@ -16,20 +16,18 @@
                     <p><uicontrol>Name</uicontrol>. A unique identifier of the notification. The name is offered for selection when defining an alarm.</p>
                 </li>
                 <li>
-                    <p><uicontrol>Type</uicontrol>. The notification method to be used. <ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> supports <codeph>Email</codeph>,  <codeph>WebHook</codeph>, and <codeph>PagerDuty</codeph>.</p>
+                    <p><uicontrol>Type</uicontrol>. The notification method to be used. <codeph>Email</codeph>, <codeph>HipChat</codeph>, <codeph>PagerDuty</codeph>, <codeph>Slack</codeph> or <codeph>WebHook</codeph> can be selected, provided that the methods were enabled when installing the Monitoring Service.</p>
                 </li>
                 <li>
-                    <p><uicontrol>Address</uicontrol>. For <codeph>Email</codeph>, the email address to be notified when an alarm is triggered.</p>
+                    <p><uicontrol>Address</uicontrol>. </p>
+                    <p>For <codeph>Email</codeph>, the email address to be notified when an alarm is triggered.</p>
                     <p>
-                        <note othertype="note">Generic top-level domains such as business domain names are not supported in email addresses (for example, <codeph>user@xyz.company</codeph>).</note>
+                        <note othertype="note"
+                                >Generic top-level domains such as business domain names are not supported in email addresses (for example, <codeph>user@xyz.company</codeph>).</note>
                     </p>
-                    <!-- p>For <codeph>HipChat</codeph>, the ##TODO Notifies via a HipChat message to some room. Destination details to be configured here with the notification. ###FJJ input: Create a notification:
-monasca notification-create HipChatTest HIPCHAT https://api.hipchat.com/v2/room/<Room ID>/notification?auth_token=<access token>
-                    </p -->
+                    <p>For <codeph>HipChat</codeph>, the URL specifying the room to which the notification is to be sent. Example URL with variables for the room ID and access token: <codeph>https://api.hipchat.com/v2/room/&lt;room_id>/notification?auth_token=&lt;access_token></codeph></p>
                     <p>For <codeph>PagerDuty</codeph>, the PagerDuty Service API Key to be notified when an alarm is triggered. </p>
-                    <!-- p>For <codeph>Slack</codeph>, the ##TODO Notifies via a slack message ## Input from FJJ: monasca notification-create Slack SLACK https://slack.com/api/chat.postMessage?token=<token>&channel=#<channel>
-                    </p -->
+                    <p>For <codeph>Slack</codeph>, the URL specifying the channel to which the notification is to be sent. Example URL with variables for the legacy token and the channel: <codeph>https://slack.com/api/chat.postMessage?token=&lt;token>&amp;channel=#&lt;channel></codeph></p>
                     <p>For <codeph>WebHook</codeph>, the WebHook URL to be loaded when an alarm is triggered. </p>
                 </li>
                 <li>
