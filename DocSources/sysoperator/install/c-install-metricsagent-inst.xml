@@ -45,7 +45,7 @@
   --service_type monitoring \
   --keystone_url &lt;openstack_url> \  
   --monasca_statsd_port &lt;port_no> \     
-  --skip_detection_plugins OVS Libvirt </codeblock>
+  --skip_detection_plugins OVS Libvirt</codeblock>
                     <p>The following parameters must be configured for running the installer:</p>
                     <ul>
                         <li>
@@ -60,7 +60,7 @@
                             <p><codeph>--password</codeph>. The password of the user specified in <codeph>--username</codeph>.</p>
                         </li>
                         <li>
-                            <p><codeph>--project_name</codeph>. The name of the OpenStack project for which metrics data is to be retrieved by the agent. <codeph>--project_name</codeph> is not specified, the data is retrieved from the default project assigned to the user specified in <codeph>--username</codeph>.</p>
+                            <p><codeph>--project_name</codeph>. The name of the OpenStack project for which metrics data is to be retrieved by the agent. If <codeph>--project_name</codeph> is not specified, the data is retrieved from the default project assigned to the user specified in <codeph>--username</codeph>.</p>
                         </li>
                         <li>
                             <p><codeph>--user_domain_name</codeph>. The user domain name to be used for user name scoping.</p>
