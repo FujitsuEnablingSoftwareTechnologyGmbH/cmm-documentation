@@ -49,7 +49,7 @@
                     <p>The following parameters must be configured for running the installer:</p>
                     <ul>
                         <li>
-                            <p><codeph>--target</codeph>. The directory in which the agent is installed. The agent must not be installed in <codeph>/root</codeph>, the root user's home directory.</p>
+                            <p><codeph>--target</codeph>. The directory in which the agent is installed. The agent must not be installed in the root user's home directory.</p>
                         </li>
                         <li>
                             <p><codeph>--username</codeph>. The user to be used for authenticating the agent against OpenStack Keystone, for example <codeph>monasca-agent</codeph>. </p>
