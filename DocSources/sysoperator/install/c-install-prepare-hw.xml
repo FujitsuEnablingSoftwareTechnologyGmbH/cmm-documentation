@@ -78,7 +78,7 @@
             </table>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> without any data requires about 2 GB of disk space. The disk capacity required for log data and metrics data varies considerably depending on the number of services and servers to be monitored. For information on how to calculate the required disk space, refer to the section below.</p>
-            <p>The installation mounts a volume for the data directories of Elasticsearch, InfluxDB, MySQL, Kafka, and Grafana. The default installation uses the <codeph>/opt/monasca-containers</codeph> directory.</p>
+            <p>The installation mounts a volume for the data directories of Elasticsearch, InfluxDB, MySQL, Kafka, and Grafana. The default installation uses the <codeph>/opt/monasca-containers/</codeph> directory.</p>
         </section>
         <section>
             <title>Calculating the Required Disk Space</title>

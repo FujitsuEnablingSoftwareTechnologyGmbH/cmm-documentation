@@ -96,9 +96,9 @@
                     <p>The agent tries to auto-detect a specific set of processes and outputs an error message if a process is not found. Irrespective of these messages, the agent is successfully installed.</p>
                 </note>
             </p>
-            <p>The installer creates a <codeph>monasca-agent.service</codeph> file in the <codeph>/etc/systemd/system</codeph> directory, and automatically runs the service file to start the agent after a successful installation.</p>
+            <p>The installer creates a <codeph>monasca-agent.service</codeph> file in the <codeph>/etc/systemd/system/</codeph> directory, and automatically runs the service file to start the agent after a successful installation.</p>
             <p>The agent is provided as a LINUX service. A startup script is created that automatically starts the agent each time the machine is booted. </p>
-            <p>The agent is installed in a virtualenv environment. By default, the virtualenv enviroment is located in the <codeph>/opt/monasca-agent</codeph> directory.</p>
+            <p>The agent is installed in a virtualenv environment. By default, the virtualenv enviroment is located in the <codeph>/opt/monasca-agent/</codeph> directory.</p>
         </section>
     </conbody>
 </concept>

@@ -260,7 +260,7 @@
  -f docker-compose-log.yml stop</codeblock>
                                 </li>
                                 <li>
-                                        <p>Make sure that the backup file is available in the <codeph>&lt;path_to_backup_dir>/influxdb_backup</codeph> directory. <codeph>&lt;path_to_backup_dir></codeph> is the default volume you configured for backing up the databases during the installation of the Monitoring Service ( <codeph>MON_BACKUP_DIR</codeph> parameter in <codeph>.env</codeph> file). </p>
+                                        <p>Make sure that the backup file is available in the <codeph>&lt;path_to_backup_dir>/influxdb_backup</codeph> directory. <codeph>&lt;path_to_backup_dir></codeph> is the default volume you configured for backing up the databases during the installation of the Monitoring Service (<codeph>MON_BACKUP_DIR</codeph> parameter in <codeph>.env</codeph> file). </p>
                                 </li>
                                 <li>
                                         <p>With SELinux enabled, make sure that <codeph>svirt_sandbox_file_t</codeph> is set as security context type for the backup file. </p>

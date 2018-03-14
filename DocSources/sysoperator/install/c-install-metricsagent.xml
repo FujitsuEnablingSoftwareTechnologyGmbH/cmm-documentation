@@ -29,17 +29,17 @@
             <p>The agent installer creates all configuration files required for monitoring. They include the following:</p>
             <ul>
                 <li>
-                    <p><codeph>agent.yaml</codeph> located in the <codeph>/etc/monasca/agent</codeph> directory.</p>
+                    <p><codeph>agent.yaml</codeph> located in the <codeph>/etc/monasca/agent/</codeph> directory.</p>
                     <p>It defines the agent configuration. </p>
                 </li>
                 <li>
-                    <p><codeph>*.yaml</codeph> files located in the <codeph>/etc/monasca/agent/conf.d</codeph> directory. </p>
+                    <p><codeph>*.yaml</codeph> files located in the <codeph>/etc/monasca/agent/conf.d/</codeph> directory. </p>
                     <p>They provide the metrics the agent uses for monitoring. A <codeph>*.yaml</codeph> file is provided for each set of system metrics and for the additional metrics used to monitor the specific applications and OpenStack processes that are auto-detected. The <codeph>*.yaml</codeph> files store the configuration information that is auto-detected during the installation process. </p>
                     <p>For details on the system metrics and the additional metrics, refer to <xref
                             href="../appendix/r-metricsintro.xml"/>.</p>
                 </li>
                 <li>
-                    <p><codeph>*.yaml</codeph> files located in the <codeph>/opt/monasca-agent/share/monasca/agent/conf.d</codeph> directory. </p>
+                    <p><codeph>*.yaml</codeph> files located in the <codeph>/opt/monasca-agent/share/monasca/agent/conf.d/</codeph> directory. </p>
                     <p>They provide metrics that you can activate as enhancement to the metrics that are automatically provided with the agent installation. These files provide template configurations that you can adapt to your environment.</p>
                 </li>
             </ul>

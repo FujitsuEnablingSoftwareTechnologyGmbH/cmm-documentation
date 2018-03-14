@@ -11,7 +11,7 @@
             <p>The following steps must be performed manually to enable access to the monitoring functionality in OpenStack Horizon:</p>
             <ol compact="no">
                 <li>
-                    <p>Define a group name for log paths in your <codeph>local_settings.py</codeph> file. The file is located in your plugin installation directory <codeph>&lt;monasca_ui_dir>/lib/python2.7/site-packages/ monitoring/config</codeph>.</p>
+                    <p>Define a group name for log paths in your <codeph>local_settings.py</codeph> file. The file is located in your plugin installation directory <codeph>&lt;monasca_ui_dir>/lib/python2.7/site-packages/ monitoring/config/</codeph>.</p>
                     <p>The group name is required to indicate irregularities in your log data on the <uicontrol>Overview</uicontrol> page in OpenStack Horizon. Insert the group name in the <codeph>Service group name</codeph> section:</p>
                     <codeblock># Service group names (global across all projects): 
 MONITORING_SERVICES_GROUPS = [ 
@@ -36,13 +36,13 @@ KIBANA_HOST = getattr(settings, 'KIBANA_HOST',
                 <li>
                     <p>To handle HTTP proxy requests, the <codeph>mod_proxy</codeph> and <codeph>mod_proxy_http</codeph> modules must be enabled in Apache. Check whether they are already enabled:</p>
                     <codeblock>httpd -M</codeblock>
-                    <p>The modules are enabled if the command output includes <codeph>proxy_module</codeph> and <codeph>proxy_http_module</codeph>. If not, add the following lines to the <codeph>httpd.conf</codeph> file. The file is located in the <codeph>/etc/httpd/conf</codeph> directory.</p>
+                    <p>The modules are enabled if the command output includes <codeph>proxy_module</codeph> and <codeph>proxy_http_module</codeph>. If not, add the following lines to the <codeph>httpd.conf</codeph> file. The file is located in the <codeph>/etc/httpd/conf/</codeph> directory.</p>
                     <codeblock>LoadModule  proxy_module      modules/mod_proxy.so
 LoadModule  proxy_http_module modules/mod_proxy_http.so</codeblock>
                 </li>
                 <li>
                     <p>Configure a proxy path pointing to your Grafana instance for the VHost that hosts your OpenStack Horizon instance. </p>
-                    <p>Add the following lines to the <codeph>&lt;VirtualHost *:80></codeph> element in the <codeph>15-horizon_vhost.conf</codeph> file. The file is located in the <codeph>/etc/httpd/conf.d</codeph> directory.</p>
+                    <p>Add the following lines to the <codeph>&lt;VirtualHost *:80></codeph> element in the <codeph>15-horizon_vhost.conf</codeph> file. The file is located in the <codeph>/etc/httpd/conf.d/</codeph> directory.</p>
                     <codeblock>ProxyPass "/grafana" "http://&lt;grafana_host>:3000"
 ProxyPassReverse "/grafana" "http://&lt;grafana_host>:3000"</codeblock>
                     <p>Replace <codeph>&lt;grafana_host></codeph> by the IP address of the <ph
@@ -63,7 +63,7 @@ ln -s /opt/monasca-ui/lib/python2.7/site-packages/
                 </li>
                 <li>
                     <p>Append the virtual env libraries of the Horizon Plugin to the system path of the OpenStack Horizon service. For this purpose, two files must be edited. </p>
-                    <p>Append the path where the plugin is installed to the <codeph>django.wsgi</codeph> file. The WSGI script of your OpenStack platform is located in the <codeph>/usr/share/openstack-dashboard/ openstack_dashboard/wsgi</codeph> directory.</p>
+                    <p>Append the path where the plugin is installed to the <codeph>django.wsgi</codeph> file. The WSGI script of your OpenStack platform is located in the <codeph>/usr/share/openstack-dashboard/ openstack_dashboard/wsgi/</codeph> directory.</p>
                     <p>Example of <codeph>django.wsgi</codeph> file with <codeph>/opt/monasca-ui/</codeph> as plugin installation directory:</p>
                     <codeblock>import logging
 import os
@@ -80,7 +80,7 @@ sys.stdout = sys.stderr
 DEBUG = False
 
 application = get_wsgi_application()</codeblock>
-                    <p>Append the path where the plugin is installed to the <codeph>manage.py</codeph> file. The <codeph>manage.py</codeph> file is located in the <codeph>/usr/share/openstack-dashboard</codeph> directory.</p>
+                    <p>Append the path where the plugin is installed to the <codeph>manage.py</codeph> file. The <codeph>manage.py</codeph> file is located in the <codeph>/usr/share/openstack-dashboard/</codeph> directory.</p>
                     <p>Example of <codeph>manage.py</codeph> file with <codeph>/opt/monasca-ui/</codeph> as plugin installation directory:</p>
                     <codeblock>import os
 import sys

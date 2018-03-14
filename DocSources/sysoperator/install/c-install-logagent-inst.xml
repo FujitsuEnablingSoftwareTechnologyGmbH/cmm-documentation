@@ -81,7 +81,7 @@
             <p>For specifying which log data is to be retrieved, replace <codeph>&lt;path_to_log_file1> "&lt;path_to_log_file<i>n</i>>"</codeph>. You have to specify the file paths as absolute paths as in the following example: </p>
             <codeblock>"/var/log/keystone/keystone.log" "/var/log/neutron/firewall.log"</codeblock>
             <p>Any number of input file paths can be specified. You can run the installer without specifying input file paths. Without specifying which data is to be retrieved, however, it is required to update the agent configuration at a later stage.</p>
-            <p>The installer creates a <codeph>monasca-log-agent.service</codeph> file in the <codeph>/etc/systemd/system</codeph> directory, and automatically runs the service file to start the agent. </p>
+            <p>The installer creates a <codeph>monasca-log-agent.service</codeph> file in the <codeph>/etc/systemd/system/</codeph> directory, and automatically runs the service file to start the agent. </p>
             <p>The agent is provided as a LINUX service. A startup script is created that automatically starts the agent each time the machine is booted. </p>
         </section>
     </conbody>
