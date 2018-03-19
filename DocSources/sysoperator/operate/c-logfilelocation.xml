@@ -39,10 +39,10 @@
             <p id="Log_data_is_stored_in_the_Ela_concept_conbody_section_p_1">
                 <ul>
                     <li>You configure data retention for the entire Docker engine, thus for all containers. For details, refer to the <xref
-                            format="html" href="https://docs.docker.com/v1.12/" scope="external">
+                            format="html" href="https://docs.docker.com/v1.13/" scope="external">
                             <u><i>Docker documentation</i></u></xref>.</li>
                     <li>You configure data retention individually for each Docker container by adding a <codeph><codeph>max-size</codeph></codeph> entry to the Docker Compose YAML files. For details, refer to the <xref
-                            format="html" href="https://docs.docker.com/v1.12/compose/overview/" scope="external">
+                            format="html" href="https://docs.docker.com/v1.13/compose/overview/" scope="external">
                             <u><i>Docker Compose documentation</i></u></xref>. </li>
                 </ul>
             </p>

@@ -166,7 +166,7 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
  -f docker-compose-log.yml up -d</codeblock>
                     <note othertype="note">
                         <p>Make sure that the OpenStack Keystone service is up when running <codeph>docker-compose up</codeph>. Use <codeph>-d</codeph> to start the containers in the background and leave them running when the command exits. Refer to the <xref
-                                format="html" href="https://docs.docker.com/compose/reference/up/" scope="external">
+                                format="html" href="https://docs.docker.com/v1.13/compose/reference/up/" scope="external">
                                 <u><i>Docker Compose documentation</i></u></xref> for additional details on the <codeph>docker-compose up</codeph> command.</p>
                     </note>
                     <p>After a successful deployment, the monitoring pipeline starts within approximately one minute. </p>
