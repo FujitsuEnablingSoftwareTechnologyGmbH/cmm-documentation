@@ -213,7 +213,10 @@ instances:
         </section>
         <section>
             <title>libvirt.yaml</title>
-            <p>Libvirt checks provide metrics for virtual machines that run on a hypervisor. The checks provide a set of metrics for the owner of the virtual machine as well as for the owner of the hypervisor.</p>
+            <p>Libvirt checks provide metrics for virtual machines that run on a hypervisor. The checks provide a set of metrics for the owner of the virtual machine as well as for the owner of the hypervisor. For details on configuring the metrics, refer to the <xref
+          format="html"
+          href="https://github.com/openstack/monasca-agent/blob/stable/pike/docs/Libvirt.md#mapping-metrics-to-configuration-parameters"
+          scope="external"><u><i>Monasca documentation</i></u></xref>. </p>
       <p>Check the <codeph>keystone_authtoken</codeph> section in the <codeph>nova.conf</codeph> file for the <codeph>password</codeph>, <codeph>username</codeph>, and <codeph>auth_url</codeph> configuration. </p>
       <p>The user specified in the configuration file must be assigned the <codeph>admin</codeph> role.</p>
       <p>Replace <codeph>&lt;keystone_ip></codeph> in the <codeph>libvirt.yaml.example</codeph> file by the IP address of the node on which the OpenStack Keystone service is deployed. Example URL: <codeph>http://192.168.1.5:35357</codeph>.</p>
