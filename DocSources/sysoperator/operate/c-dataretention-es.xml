@@ -20,14 +20,14 @@
             <ol>
                 <li>
                     <p>Log in to the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                        /> node.</p>
+                        /> node as a user with root privileges.</p>
                 </li>
                 <li>
                     <p>Go to the installation directory. </p>
                 </li>
                 <li>
                     <p>Stop the <codeph>elasticsearch-curator</codeph> service. For this purpose, run <codeph>docker-compose stop</codeph> as follows: </p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f 
+                    <codeblock>docker-compose -f docker-compose-metric.yml -f 
  docker-compose-log.yml stop elasticsearch-curator</codeblock>
                 </li>
                 <li>
@@ -39,7 +39,7 @@ MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30</codeblock>
                 </li>
                 <li>
                     <p>Start the <codeph>elasticsearch-curator</codeph> service. For this purpose, run <codeph>docker-compose up</codeph> as follows: </p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f 
+                    <codeblock>docker-compose -f docker-compose-metric.yml -f 
  docker-compose-log.yml up -d elasticsearch-curator</codeblock>
                 </li>
             </ol>

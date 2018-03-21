@@ -15,15 +15,15 @@
                                         <p>Create the <codeph>monitoring-delegate</codeph> role in OpenStack Keystone. </p>
                                         <p>This role is required for cross-tenant metrics submission. An application operator who has booked a virtual machine must receive only the monitoring data related to his virtual machine. This role enables the agent to submit metrics on behalf of an individual application operator.</p>
                                         <p>Example command for creating the <codeph>monitoring-delegate</codeph> role:</p>
-                                        <codeblock>$ openstack role create monitoring-delegate </codeblock>
+                                        <codeblock>openstack role create monitoring-delegate </codeblock>
                                 </li>
                                 <li>
                                         <p>Assign the <codeph>monitoring-delegate</codeph> role to the OpenStack user you have created for authenticating an agent against OpenStack Keystone, for example, <codeph>monasca-agent</codeph>. The user name and password of this user must be specified in the agent configuration when the agent is installed. For details, refer to <xref
                                                         href="../install/c-install-ksconfig-users.xml"/>. </p>
                                         <p>Example command for assigning the <codeph>monitoring-delegate</codeph> role to the <codeph>monasca-agent</codeph> user:</p>
-                                        <codeblock>$ openstack role add \
-   --project monasca \
-   --user monasca-agent monitoring-delegate </codeblock>
+                                        <codeblock>openstack role add \
+ --project monasca \
+ --user monasca-agent monitoring-delegate </codeblock>
                                 </li>
                         </ul>
                 </section>

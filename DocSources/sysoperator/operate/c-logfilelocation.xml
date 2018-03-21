@@ -20,12 +20,12 @@
             <p>You can also use <codeph>docker-compose logs</codeph> to manually check the log files of the containers deployed on your <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> node. </p>
             <p>To check the log files of individual containers, run <codeph>docker-compose logs</codeph> as follows:</p>
-            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml logs &lt;services> </codeblock>
+            <codeblock>docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml logs &lt;services> </codeblock>
             <p>Replace <codeph>&lt;services></codeph> by the names of the services for which you want to check the log files. For a list of the service names, refer to <xref
                     href="../install/c-install-monservice.xml"/>. </p>
             <p>Example for checking the Kafka and Kibana log files: </p>
             <p>
-                <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml logs kafka kibana</codeblock>
+                <codeblock>docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml logs kafka kibana</codeblock>
             </p>
             <p>For more information on <codeph>docker-compose logs</codeph>, you can execute the following command:</p>
             <codeblock>docker-compose logs --help</codeblock>

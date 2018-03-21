@@ -29,27 +29,27 @@
                     </li>
                     <li>
                         <p>Log in to the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> node. </p>
+                            /> node as a user with root privileges.</p>
                     </li>
                     <li>
                         <p>To execute <codeph>curl</codeph> commands in the <codeph>elasticsearch</codeph> container, run <codeph>docker-compose exec</codeph> as follows:</p>
-                        <codeblock>$ docker-compose -f docker-compose-metric.yml -f 
+                        <codeblock>docker-compose -f docker-compose-metric.yml -f 
  docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
                     </li>
                     <li>
                         <p>Make sure that the data you want to delete exists by executing the following command: </p>
-                        <codeblock>$ curl -XHEAD -i 'http://localhost:&lt;port&gt;/&lt;projectID-date&gt;'</codeblock>
+                        <codeblock>curl -XHEAD -i 'http://localhost:&lt;port&gt;/&lt;projectID-date&gt;'</codeblock>
                         <p>For example, if Elasticsearch is listening at port 9200 (default), the ID of the OpenStack project is <codeph>abc123</codeph>, and you want to check the index of 2015, July 1st, the command is as follows: </p>
-                        <codeblock>$ curl -XHEAD -i 'http://localhost:9200/abc123-2015-07-01'</codeblock>
+                        <codeblock>curl -XHEAD -i 'http://localhost:9200/abc123-2015-07-01'</codeblock>
                         <p>If the HTTP response is <codeph>200</codeph>, the index exists; if the response is <codeph>404</codeph>, it does not exist.</p>
                         <p>For listing all indices stored in your Elasticsearch database, you can execute the following command: </p>
-                        <codeblock>$ curl http://localhost:9200/_cat/indices?v</codeblock>
+                        <codeblock>curl http://localhost:9200/_cat/indices?v</codeblock>
                     </li>
                     <li>
                         <p>Delete an index as follows: </p>
-                        <codeblock>$ curl -XDELETE -i 'http://localhost:&lt;port&gt;/&lt;projectID-date&gt;'</codeblock>
+                        <codeblock>curl -XDELETE -i 'http://localhost:&lt;port&gt;/&lt;projectID-date&gt;'</codeblock>
                         <p>Example: </p>
-                        <codeblock>$ curl -XDELETE -i 'http://localhost:9200/abc123-2015-07-01'</codeblock>
+                        <codeblock>curl -XDELETE -i 'http://localhost:9200/abc123-2015-07-01'</codeblock>
                         <p>This command either returns an error, such as <codeph>IndexMissingException</codeph>, or acknowledges the successful deletion of the index. </p>
                     </li>
                 </ol>
@@ -59,7 +59,7 @@
                     othertype="note">Be aware that the <codeph>-XDELETE</codeph> command immediately deletes the index file!</note>
             </p>
             <p>Both, for <codeph>-XHEAD</codeph> and <codeph>-XDELETE</codeph>, you can use wildcards for processing several indices. For example, you can delete all indices of a specific project for the whole month of July, 2015: </p>
-            <codeblock>$ curl -XDELETE -i 'http://localhost:9200/abc123-2015-07-*'</codeblock>
+            <codeblock>curl -XDELETE -i 'http://localhost:9200/abc123-2015-07-*'</codeblock>
             <note othertype="note">
                 <p>Take extreme care when using wildcards for the deletion of indices. You could delete all existing indices with one single command!</p>
             </note>

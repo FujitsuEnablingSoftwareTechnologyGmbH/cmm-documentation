@@ -12,7 +12,8 @@
             <ol compact="no">
                 <li>
                     <p>Log in to the machine on which to install the Monitoring Service (<ph
-                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> node).</p>
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                        /> node) as a user with root privileges.</p>
                 </li>
                 <li>
                     <p>Prepare an installation directory. </p>
@@ -154,15 +155,15 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
                     <p>Load the tarred repository from the <codeph>CMM_server_2.0.x.images.tar</codeph> file. This restores both the images and the tags from the archive to your installation directory.</p>
-                    <codeblock>$ docker load -i CMM_server_2.0.x.images.tar</codeblock>
+                    <codeblock>docker load -i CMM_server_2.0.x.images.tar</codeblock>
                 </li>
                 <li>
                     <p>Check that the images and tags required for the installation have been loaded.</p>
-                    <codeblock>$ docker images</codeblock>
+                    <codeblock>docker images</codeblock>
                 </li>
                 <li>
                     <p>Run <codeph>docker-compose up</codeph>.</p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml 
+                    <codeblock>docker-compose -f docker-compose-metric.yml 
  -f docker-compose-log.yml up -d</codeblock>
                     <note othertype="note">
                         <p>Make sure that the OpenStack Keystone service is up when running <codeph>docker-compose up</codeph>. Use <codeph>-d</codeph> to start the containers in the background and leave them running when the command exits. Refer to the <xref
@@ -173,8 +174,8 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
                     <p>To restrict access to the backup and data directories, you must change the access permissions. Example:</p>
-                    <codeblock>$ chmod -R 700 /opt/monasca-containers
-$ chmod -R 700 /mount/backup/</codeblock>
+                    <codeblock>chmod -R 700 /opt/monasca-containers
+chmod -R 700 /mount/backup/</codeblock>
                 </li>
             </ol>
         </section>

@@ -28,14 +28,14 @@
             <ol>
                 <li>
                     <p>Log in to the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                        /> node.</p>
+                        /> node as a user with root privileges.</p>
                 </li>
                 <li>
                     <p>Go to the installation directory.</p>
                 </li>
                 <li>
                     <p>Run <codeph>docker-compose up</codeph> as follows: </p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml 
+                    <codeblock>docker-compose -f docker-compose-metric.yml 
  -f docker-compose-log.yml up -d</codeblock>
                     <note othertype="note">
                         <p>Make sure that the OpenStack Keystone service is up when executing the command. Use <codeph>-d</codeph> to start the containers in the background and leave them running when the command exits. Refer to the <xref
@@ -46,12 +46,12 @@
             </ol>
             <p>To start individual  <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> agents and services, run <codeph>docker-compose up</codeph> as follows:</p>
-            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d &lt;services> </codeblock>
+            <codeblock>docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d &lt;services> </codeblock>
             <p>Replace <codeph>&lt;services></codeph> by the names of the services you want to start. For a list of the service names, refer to <xref
                     href="../install/c-install-monservice.xml"/>. </p>
             <p>Example for starting Kafka and the Notification Engine:</p>
             <p>
-                <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d kafka monasca-notification</codeblock>
+                <codeblock>docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d kafka monasca-notification</codeblock>
             </p>
             <p>When starting a service that depends on other services, the other services are automatically started. If you start Kafka, for example, Zookeeper is automatically started when executing the example command. </p>
             <p>
@@ -63,35 +63,35 @@
             <ol>
                 <li>
                     <p>Log in to the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                        /> node.</p>
+                        /> node as a user with root privileges.</p>
                 </li>
                 <li>
                     <p>Go to the installation directory.</p>
                 </li>
                 <li>
                     <p>Run <codeph>docker-compose stop</codeph> as follows: </p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml 
+                    <codeblock>docker-compose -f docker-compose-metric.yml 
  -f docker-compose-log.yml stop</codeblock>
                 </li>
             </ol>
             <p>To stop individual <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     /> agents and services, run <codeph>docker-compose stop</codeph> as follows:</p>
-            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop &lt;services></codeblock>
+            <codeblock>docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop &lt;services></codeblock>
             <p>Replace <codeph>&lt;services></codeph> by the names of the services you want to stop. For a list of the service names, refer to <xref
                     href="../install/c-install-monservice.xml"/>. </p>
             <p>Example for stopping Kafka and the Notification Engine:</p>
-            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop kafka monasca-notification</codeblock>
+            <codeblock>docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop kafka monasca-notification</codeblock>
             <note othertype="note">
                 <p>For stopping the Metrics Agent, it is required to stop the collector service (<codeph>agent-collector</codeph>) and the forwarder service (<codeph>agent-forwarder</codeph>).</p>
             </note>
             <p>To check the status of all agents and services, run <codeph>docker-compose ps</codeph> as follows:</p>
-            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml ps</codeblock>
+            <codeblock>docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml ps</codeblock>
             <p>To view the status of an individual container, run <codeph>docker-compose ps</codeph> as follows:</p>
-            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml ps &lt;services></codeblock>
+            <codeblock>docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml ps &lt;services></codeblock>
             <p>Replace <codeph>&lt;services></codeph> by the names of the services you want to stop. For a list of the service names, refer to <xref
                     href="../install/c-install-monservice.xml"/>. </p>
             <p>Example:</p>
-            <codeblock>$ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml ps kafka monasca-notification</codeblock>
+            <codeblock>docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml ps kafka monasca-notification</codeblock>
             <note othertype="note">
                 <p>Run <codeph>docker-compose ps</codeph> in a separate shell unless you used <codeph>docker-compose up -d</codeph> for installing the Monitoring Service.</p>
             </note>

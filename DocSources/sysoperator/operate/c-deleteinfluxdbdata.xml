@@ -54,7 +54,7 @@
                     </li -->
                     <li>
                         <p>Log in to the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> node.</p>
+                            /> node as a user with root privileges.</p>
                     </li>
                     <li>
                         <p>Connect to InfluxDB as follows: </p>

@@ -16,14 +16,14 @@
             <ol>
                 <li>
                     <p>Log in to the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                        /> node.</p>
+                        /> node as a user with root privileges.</p>
                 </li>
                 <li>
                     <p>Go to the installation directory. </p>
                 </li>
                 <li>
                     <p>Stop the <codeph>influxdb</codeph> service. For this purpose, run <codeph>docker-compose stop</codeph> as follows: </p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f 
+                    <codeblock>docker-compose -f docker-compose-metric.yml -f 
  docker-compose-log.yml stop influxdb</codeblock>
                 </li>
                 <li>
@@ -34,7 +34,7 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
                     <p>Start the <codeph>influxdb</codeph> service. For this purpose, run <codeph>docker-compose up</codeph> as follows: </p>
-                    <codeblock>$ docker-compose -f docker-compose-metric.yml -f 
+                    <codeblock>docker-compose -f docker-compose-metric.yml -f 
  docker-compose-log.yml up -d influxdb</codeblock>
                 </li>
             </ol>
@@ -45,7 +45,7 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
             <ol>
                 <li>
                     <p>Log in to the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                        /> node.</p>
+                        /> node as a user with root privileges.</p>
                 </li>
                 <li>
                     <p>Connect to InfluxDB as follows: </p>
