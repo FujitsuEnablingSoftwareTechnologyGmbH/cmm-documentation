@@ -39,7 +39,7 @@
                             href="../appendix/r-metricsintro.xml"/>.</p>
                 </li>
                 <li>
-                    <p><codeph>*.yaml</codeph> files located in the <codeph>/opt/monasca-agent/share/monasca/agent/conf.d/</codeph> directory. </p>
+                    <p><codeph>*.yaml</codeph> files located in the <codeph>&lt;/&lt;installation_dir>/share/monasca/agent/conf.d/</codeph> directory.</p>
                     <p>They provide metrics that you can activate as enhancement to the metrics that are automatically provided with the agent installation. These files provide template configurations that you can adapt to your environment.</p>
                 </li>
             </ul>
