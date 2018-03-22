@@ -19,10 +19,10 @@
                     <codeblock>GRAFANA_URL = getattr(settings, 'GRAFANA_URL', 
  {'&lt;region>': '/grafana', })</codeblock>
                     <p>Set the <codeph>ENABLE_KIBANA_BUTTON</codeph> to <codeph>True</codeph>. By default, it is set to <codeph>False</codeph>.</p>
-                    <codeblock>ENABLE_KIBANA_BUTTON = getattr(settings, 'ENABLE_KIBANA_BUTTON', False)</codeblock>
+                    <codeblock>ENABLE_KIBANA_BUTTON = getattr(settings, 'ENABLE_KIBANA_BUTTON', True)</codeblock>
                     <p>Replace <codeph>&lt;kibana_host></codeph> by the IP address of the <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                            /> node for the <codeph>KIBANA_HOST</codeph> parameter. Example URL: <codeph> http://192.168.10.6:5601/</codeph>. </p>
+                            /> node for the <codeph>KIBANA_HOST</codeph> parameter. Example URL: <codeph>http://192.168.10.6:5601/</codeph>. </p>
                     <codeblock>KIBANA_HOST = getattr(settings, 'KIBANA_HOST',
  'http://&lt;kibana_host>:5601/')</codeblock>
                 </li>
