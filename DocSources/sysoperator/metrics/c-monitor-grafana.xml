@@ -21,7 +21,7 @@
                 </li>
             </ul>
             <p>You are authorized to view the metrics data that is displayed. The Grafana administrator created during the installation of the Monitoring Service is allowed to create, update, and delete dashboards. </p>
-            <p>If it is required to make any changes or enhancements to the preconfigured dashboards, the administrator credentials defined in the <codeph>.env</codeph> file must be used for directly accessing Grafana. Contact your FUJITSU support organization for information on additional preparations that must be taken. </p>
+            <p>If it is required to make any changes or enhancements to the preconfigured dashboards, the administrator credentials defined in the <codeph>.env</codeph> file must be used for accessing Grafana. Contact your FUJITSU support organization for information on additional preparations that must be taken. </p>
             <!--p>For detailed information on the features the administrator can use to change or enhance the dashboards in Grafana, refer to the <xref
                     format="html" href="http://docs.grafana.org/v4.5/" scope="external"
                         ><u><i>Grafana documentation</i></u></xref>.</p -->
