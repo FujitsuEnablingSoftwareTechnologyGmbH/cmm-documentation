@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright FUJITSU ENABLING SOFTWARE TECHNOLOGY GMBH 2018 -->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                xml:lang="en-us">
+    <title>Managing Projects, Users, and Roles</title>
+    <conbody>
+        <section>
+            <p>As soon as you have successfully installed <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    />, access to the monitoring and log management functionality is enabled for <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> users from OpenStack Horizon. They must fulfill the prerequisites described in the following sections.</p>
+        </section>
+        <section>
+            <title><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> Operator and OpenStack Operator</title>
+            <p>The <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> operator is responsible for monitoring <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    />, the OpenStack operator is responsible for monitoring the OpenStack services and servers. Both must have access to the OpenStack platform as a user with the <codeph>monasca-user</codeph> role or any other role that is authorized to use the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> functions. Additional roles are optional. </p>
+            <p>The <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> operator and the OpenStack operator must be assigned to the OpenStack project that was prepared for <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    />, for example, <codeph>monasca</codeph>.</p>
+            <p>For details on the project, users, and roles prepared for <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>, refer to <xref
+                    href="../install/c-install-ksconfig-users.xml"/>. </p>
+        </section>
+        <section>
+            <title>Application Operator</title>
+            <p>An application operator who is responsible for monitoring a VM must have access to the OpenStack platform as a user with the <codeph>monasca-user</codeph> role or any other role that is authorized to use the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> functions. Additional roles are optional. </p>
+            <p>The application operator must be assigned to the project for the VM to be monitored. </p>
+        </section>
+    </conbody>
+</concept>

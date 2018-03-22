@@ -73,7 +73,6 @@
         <topicref format="dita" href="sysoperator/install/c-install-horizon.xml" type="concept">
             <topicref format="dita" href="sysoperator/install/c-install-horizon-inst.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-horizon-config.xml" type="concept"/>
-            <topicref format="dita" href="sysoperator/install/c-install-horizon-access.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-horizon-uninst.xml" type="concept"/>
         </topicref>
     </chapter>
@@ -84,6 +83,7 @@
         <topicref format="dita" href="sysoperator/appmon/c-appmon-config.xml" type="concept"/>
     </chapter>
     <chapter href="sysoperator/operate/c-operate.xml">
+    	<topicref format="dita" href="sysoperator/operate/c-usermgmt.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/operate/c-startstop.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/operate/c-deletedata.xml" type="concept">
             <topicref format="dita" href="sysoperator/operate/c-removemetrics.xml" type="concept"/>
