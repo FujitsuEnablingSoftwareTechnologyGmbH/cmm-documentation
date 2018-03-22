@@ -34,7 +34,7 @@ sudo rm -f /etc/sudoers.d/mon-agent</codeblock>
                 </li>
                 <li>
                     <p>Remove the agent's log files and the log directory:</p>
-                    <codeblock>sudo rm -rf /var/log/monasca/agent/</codeblock>
+                    <codeblock>sudo rm -rf /var/log/monasca-agent/</codeblock>
                 </li>
                 <li>
                     <p>Remove the <codeph>mon-agent</codeph> user. Use <codeph>-r</codeph> to also remove the <codeph>mon-agent</codeph> user's home directory. </p>

@@ -31,10 +31,10 @@
                     <p>Example:</p>
                     <codeblock>input {
   file {
-    path =&gt; "/var/log/monasca/agent/*.log"
+    path =&gt; "/var/log/monasca-agent/*.log"
   }
   file {
-    path =&gt; "/var/log/monasca/monasca-log-agent/*.log"
+    path =&gt; "/var/log/monasca-log-agent/*.log"
   }
   file {
     add_field => { "dimensions" => { "service" => "keystone" }}
