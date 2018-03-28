@@ -33,6 +33,9 @@ sudo systemctl reset-failed monasca-log-agent</codeblock>
                     <p>Remove the agent's log files and the log directory: </p>
                     <codeblock>sudo rm -rf /var/log/monasca-log-agent/</codeblock>
                 </li>
+                <li>Remove the Logstash script used for defining the position of monitored log files:<p>
+                        <codeblock>sudo rm -f /etc/profile.d/logstash_sincedb_dir.sh</codeblock>
+                    </p></li>
             </ol>
         </section>
     </conbody>
