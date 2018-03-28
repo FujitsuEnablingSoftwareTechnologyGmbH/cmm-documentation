@@ -53,6 +53,8 @@
             <topicref format="dita" href="sysoperator/install/c-install-ksconfig-admin.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-ksconfig-users.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-ksconfig-serv.xml" type="concept"/>
+            <topicref format="dita" href="sysoperator/install/c-install-ksconfig-proxy.xml" type="concept"/>
+            
         </topicref>
         <topicref format="dita" href="sysoperator/install/c-install-monservice.xml" type="concept">
             <topicref format="dita" href="sysoperator/install/c-install-monservice-pre.xml" type="concept"/>

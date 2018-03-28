@@ -27,6 +27,9 @@
                     <li>
                         <p>Defining services and endpoints.</p>
                     </li>
+                    <li>
+                        <p>Configuring the HTTP proxy. </p>
+                    </li>
                 </ul>
             </p>
         </section>

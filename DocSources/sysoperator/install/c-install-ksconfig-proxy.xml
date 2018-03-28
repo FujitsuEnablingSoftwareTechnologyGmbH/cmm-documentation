@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU ENABLING SOFTWARE TECHNOLOGY GMBH 2018 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                xml:lang="en-us">
+    <title>Configuring the HTTP Proxy</title>
+    <conbody>
+        <section>
+            <p>The Horizon Plugin requires the configuration of an HTTP proxy in Apache:</p>
+            <ol compact="no">
+                <li>
+                    <p>To handle HTTP proxy requests, the <codeph>mod_proxy</codeph> and <codeph>mod_proxy_http</codeph> modules must be enabled in Apache. Check whether they are already enabled:</p>
+                    <codeblock>httpd -M</codeblock>
+                    <p>The modules are enabled if the command output includes <codeph>proxy_module</codeph> and <codeph>proxy_http_module</codeph>. If not, add the following lines to the <codeph>httpd.conf</codeph> file. The file is located in the <codeph>/etc/httpd/conf/</codeph> directory.</p>
+                    <codeblock>LoadModule  proxy_module      modules/mod_proxy.so
+LoadModule  proxy_http_module modules/mod_proxy_http.so</codeblock>
+                </li>
+                <li>
+                    <p>Configure a proxy path pointing to your Grafana instance for the VHost that hosts your OpenStack Horizon instance. </p>
+                    <p>Add the following lines to the <codeph>&lt;VirtualHost *:80></codeph> element in the <codeph>15-horizon_vhost.conf</codeph> file. The file is located in the <codeph>/etc/httpd/conf.d/</codeph> directory.</p>
+                    <codeblock>ProxyPass "/grafana" "http://&lt;grafana_host>:3000"
+ProxyPassReverse "/grafana" "http://&lt;grafana_host>:3000"</codeblock>
+                    <p>Replace <codeph>&lt;grafana_host></codeph> by the IP address of the <ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                            /> node. Example URL: <codeph> http://192.168.10.6:3000</codeph>. </p>
+                </li>
+            </ol>
+        </section>
+    </conbody>
+</concept>
