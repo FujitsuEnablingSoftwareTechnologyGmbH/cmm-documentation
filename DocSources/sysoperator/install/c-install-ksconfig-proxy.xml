@@ -26,6 +26,7 @@ ProxyPassReverse "/grafana" "http://&lt;grafana_host>:3000"</codeblock>
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                             /> node. Example URL: <codeph> http://192.168.10.6:3000</codeph>. </p>
                 </li>
+                <li>Restart the server on which the OpenStack Horizon service is running.<p>Example: </p><codeblock>systemctl restart httpd</codeblock></li>
             </ol>
         </section>
     </conbody>
