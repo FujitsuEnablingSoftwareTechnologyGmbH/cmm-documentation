@@ -36,7 +36,7 @@ ProxyPassReverse "/grafana" "http://&lt;grafana_host>:3000"</codeblock>
                 </li>
                 <li>
                     <p>Remove the directories and files created by the installer:</p>
-                    <codeblock>rm -rf &lt;monasca_ui_dir>/monasca_ui</codeblock>
+                    <codeblock>rm -rf &lt;monasca_ui_dir></codeblock>
                     <p>Replace <codeph>&lt;monasca_ui_dir></codeph> by the name of the directory in which the Horizon Plugin is installed.</p>
                 </li>
                 <li><p>Restart the server from which you uninstalled the OpenStack Horizon plugin. </p>Example: <codeblock>systemctl restart httpd</codeblock></li>
