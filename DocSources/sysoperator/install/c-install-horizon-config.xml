@@ -11,7 +11,7 @@
             <p>The following steps must be performed manually to enable access to the monitoring functionality in OpenStack Horizon:</p>
             <ol compact="no">
                 <li>
-                    <p>Edit your <codeph>local_settings.py</codeph> file. The file is located in your plugin installation directory <codeph>&lt;monasca_ui_dir>/lib/python2.7/site-packages/ monitoring/config/</codeph>.</p>
+                    <p>Edit your <codeph>local_settings.py</codeph> file. The file is located in your plugin installation directory <codeph>&lt;monasca_ui_dir>/lib/python2.7/site-packages/monitoring/config/</codeph>.</p>
                     <p>Define a group name for log paths in the file. The group name is required to display irregularities in your log data on the <uicontrol>Overview</uicontrol> page in OpenStack Horizon. </p>
                     <p>Add the following line to the <codeph>MONITORING_SERVICES_GROUPS</codeph> parameter in the <codeph>Service group names</codeph> section: </p>
                     <codeblock>{'name': _('Log Paths'), 'groupBy': 'path'} </codeblock>
