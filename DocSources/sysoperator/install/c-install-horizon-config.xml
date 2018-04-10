@@ -15,6 +15,12 @@
                     <p>Define a group name for log paths in the file. The group name is required to display irregularities in your log data on the <uicontrol>Overview</uicontrol> page in OpenStack Horizon. </p>
                     <p>Add the following line to the <codeph>MONITORING_SERVICES_GROUPS</codeph> parameter in the <codeph>Service group names</codeph> section: </p>
                     <codeblock>{'name': _('Log Paths'), 'groupBy': 'path'} </codeblock>
+                    <p>Do not forget to separate the lines for the group names by a comma. Example:</p>
+                    <codeblock>MONITORING_SERVICES_GROUPS = [
+    {'name': _('OpenStack Services'), 'groupBy': 'service'},
+    {'name': _('Servers'), 'groupBy': 'hostname'},
+    {'name': _('Log Paths'), 'groupBy': 'path'} 
+]</codeblock>
                     <p>Replace <codeph>&lt;region></codeph> by the name of your OpenStack region for the <codeph>GRAFANA_URL</codeph> parameter, for example <codeph>RegionOne</codeph>.</p>
                     <codeblock>GRAFANA_URL = getattr(settings, 'GRAFANA_URL', 
  {'&lt;region>': '/grafana', })</codeblock>
