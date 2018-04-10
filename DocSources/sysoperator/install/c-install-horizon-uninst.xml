@@ -14,9 +14,10 @@
                     <p>Log in to the OpenStack node on which the OpenStack Horizon service is installed.</p>
                 </li>
                 <li>
-                    <p>Remove the links pointing to the Horizon Plugin:<codeblock>rm &lt;monasca_ui_dir>/openstack_dashboard/enabled/ _50_admin_add_monitoring_panel.py
-rm &lt;monasca_ui_dir>/openstack_dashboard/conf/monitoring_policy.json</codeblock></p>
-                    <p>Replace <codeph>&lt;monasca_ui_dir></codeph> by the name of the directory in which the Horizon Plugin is installed. </p>
+                    <p>Remove the links pointing to the Horizon Plugin:</p>
+                    <codeblock>rm /usr/share/openstack-dashboard/openstack_dashboard/
+ local/enabled/_50_admin_add_monitoring_panel.py
+rm /etc/openstack-dashboard/monitoring_policy.json</codeblock>
                 </li>
                 <li>
                     <p>Remove the proxy path pointing to your Grafana instance from the <codeph>15-horizon_vhost.conf</codeph> file. The file is located in the <codeph>/etc/httpd/conf.d/</codeph> directory.</p>
