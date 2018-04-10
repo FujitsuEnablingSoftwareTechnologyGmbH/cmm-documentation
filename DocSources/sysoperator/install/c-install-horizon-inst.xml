@@ -33,7 +33,7 @@
                 <li>
                     <p>To run the Horizon Plugin installer, execute the following command:</p>
                     <codeblock>./monasca-ui-CMM_2.0.x.run --target &lt;monasca_ui_dir></codeblock>
-                    <p>The <codeph>--target</codeph> parameter is mandatory. You have to specify the directory in which to install the plugin. Example: <codeph>/opt/monasca-ui/</codeph>.</p>
+                    <p>The <codeph>--target</codeph> parameter is mandatory. Replace <codeph>&lt;monasca_ui_dir></codeph> by the directory in which to install the plugin. The directory must be specified as absolute path. The plugin must not be installed in the root user's home directory. Example: <codeph>/opt/monasca-ui/</codeph>.</p>
                 </li>
             </ol>
             <p>The installer extracts the plugin with all the required dependencies. The configuration of the plugin and its dependencies is prepared.</p>
