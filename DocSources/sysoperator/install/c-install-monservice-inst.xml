@@ -118,14 +118,14 @@ MON_AGENT_PROJECT_NAME=monasca</codeblock>
                     </ul>
                 </li>
                 <li>
-                    <p>The installation of the Monitoring Service mounts <codeph>/opt/monasca-containers</codeph> as default volume for the data directories of Elasticsearch, InfluxDB, MySQL, Kafka, and Grafana. </p>
+                    <p>The installation of the Monitoring Service mounts <codeph>/opt/monasca-containers/</codeph> as default volume for the data directories of Elasticsearch, InfluxDB, MySQL, Kafka, and Grafana. </p>
                     <p>If required, you can update the <codeph>MON_DOCKER_VOL_ROOT</codeph> parameter, and specify a different volume.</p>
                     <codeblock># Set the path for the data directories of Elasticsearch,  
 # InfluxDB, MySQL, Kafka, and Grafana
 MON_DOCKER_VOL_ROOT=&lt;path_to_data_directories></codeblock>
                 </li>
                 <li>
-                    <p>The installation of the Monitoring Service mounts <codeph>/mount/backup</codeph> as default volume for backing up the databases. </p>
+                    <p>The installation of the Monitoring Service mounts <codeph>/mount/backup/</codeph> as default volume for backing up the databases. </p>
                     <p>If required, you can update the <codeph>MON_BACKUP_DIR</codeph> parameter, and specify a different volume.</p>
                     <codeblock># Set the path for the backup directories of Elasticsearch,
 # InfluxDb, and MySQL
@@ -176,7 +176,7 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
                     <p>To restrict access to the backup and data directories, you must change the access permissions. Example:</p>
-                    <codeblock>chmod -R 700 /opt/monasca-containers
+                    <codeblock>chmod -R 700 /opt/monasca-containers/
 chmod -R 700 /mount/backup/</codeblock>
                 </li>
             </ol>
