@@ -4,13 +4,13 @@
 ]>
 <!-- Copyright FUJITSU ENABLING SOFTWARE TECHNOLOGY GMBH 2018 -->
 <concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
-                            xml:lang="en-us">
-    <title>Uninstallation</title>
+                    xml:lang="en-us">
+    <title>Uninstalling a Log Agent </title>
     <conbody>
         <section>
-            <p>Before uninstalling a Log Agent from an OpenStack node, it is recommended that you make a backup of the agent's configuration settings. They are stored in the <codeph>/&lt;installation_dir>/conf/agent.conf</codeph> file.</p>
-            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> does not offer integrated backup and recovery mechanisms. Use the standard file system mechanisms instead.</p>
+            <p>Before uninstalling a Log Agent from an OpenStack node, it is recommended that you make a backup of the agent's configuration settings. They are stored in the <codeph>/&lt;installation_dir&gt;/conf/agent.conf</codeph> file.</p>
+            <p><ph
+                conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> does not offer integrated backup and recovery mechanisms. Use the standard file system mechanisms instead.</p>
             <p>To uninstall a Log Agent, proceed as follows:</p>
             <ol compact="no">
                 <li>
@@ -26,8 +26,8 @@ sudo systemctl reset-failed monasca-log-agent</codeblock>
                 </li>
                 <li>
                     <p>Remove all directories and files created by the agent installer:</p>
-                    <codeblock>sudo rm -rf &lt;target_dir></codeblock>
-                    <p>Replace <codeph>&lt;target_dir></codeph> by the directory in which the agent is installed, (e.g. <codeph>/opt/monasca/monasca-log-agent/</codeph>). </p>
+                    <codeblock>sudo rm -rf &lt;target_dir&gt;</codeblock>
+                    <p>Replace <codeph>&lt;target_dir&gt;</codeph> by the directory in which the agent is installed, (e.g. <codeph>/opt/monasca/monasca-log-agent/</codeph>). </p>
                 </li>
                 <li>
                     <p>Remove the agent's log files and the log directory: </p>

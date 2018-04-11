@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright FUJITSU ENABLING SOFTWARE TECHNOLOGY GMBH 2018 -->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+
+<concept id="concept_uninstall"
+                            xml:lang="en-us">
+    <title>Uninstallation</title>
+    <conbody>
+        <section>
+            <p>The uninstallation of <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> and its OpenStack extensions includes:</p>
+            <ul>
+                <li>Uninstalling the Monitoring Service.</li>
+                <li>Uninstalling a Metrics Agent from an OpenStack node.</li>
+                <li>Uninstalling a Log Agent from an OpenStack node.</li>
+                <li>Uninstalling the Horizon Plugin from the node where the OpenStack Horizon service is deployed.</li>
+                <li>Removing the projects, users, and roles prepared for the OpenStack integration.</li>
+            </ul>
+            <p><i>##sequence?</i></p>
+        </section>
+    </conbody>
+</concept>

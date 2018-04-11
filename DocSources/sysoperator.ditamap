@@ -54,7 +54,6 @@
             <topicref format="dita" href="sysoperator/install/c-install-ksconfig-users.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-ksconfig-serv.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-ksconfig-proxy.xml" type="concept"/>
-            
         </topicref>
         <topicref format="dita" href="sysoperator/install/c-install-monservice.xml" type="concept">
             <topicref format="dita" href="sysoperator/install/c-install-monservice-pre.xml" type="concept"/>
@@ -64,18 +63,15 @@
             <topicref format="dita" href="sysoperator/install/c-install-metricsagent-inst.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-metricsagent-upd.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-metricsagent-enh.xml" type="concept"/>
-            <topicref format="dita" href="sysoperator/install/c-install-metricsagent-uninst.xml" type="concept"/>
         </topicref>
         <topicref format="dita" href="sysoperator/install/c-install-logagent.xml" type="concept">
             <topicref format="dita" href="sysoperator/install/c-install-logagent-pre.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-logagent-inst.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-logagent-upd.xml" type="concept"/>
-            <topicref format="dita" href="sysoperator/install/c-install-logagent-uninst.xml" type="concept"/>
         </topicref>
         <topicref format="dita" href="sysoperator/install/c-install-horizon.xml" type="concept">
             <topicref format="dita" href="sysoperator/install/c-install-horizon-inst.xml" type="concept"/>
             <topicref format="dita" href="sysoperator/install/c-install-horizon-config.xml" type="concept"/>
-            <topicref format="dita" href="sysoperator/install/c-install-horizon-uninst.xml" type="concept"/>
         </topicref>
     </chapter>
     <chapter href="sysoperator/appmon/c-appmon.xml">
@@ -85,7 +81,7 @@
         <topicref format="dita" href="sysoperator/appmon/c-appmon-config.xml" type="concept"/>
     </chapter>
     <chapter href="sysoperator/operate/c-operate.xml">
-    	<topicref format="dita" href="sysoperator/operate/c-usermgmt.xml" type="concept"/>
+        <topicref format="dita" href="sysoperator/operate/c-usermgmt.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/operate/c-startstop.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/operate/c-deletedata.xml" type="concept">
             <topicref format="dita" href="sysoperator/operate/c-removemetrics.xml" type="concept"/>
@@ -112,6 +108,13 @@
         <topicref format="dita" href="sysoperator/logs/c-logs-kibana.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/logs/c-logs-index.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/logs/c-logs-alarms.xml" type="concept"/>
+    </chapter>
+    <chapter format="dita" href="sysoperator/uninstall/c-uninstall.xml" type="concept">
+        <topicref format="dita" href="sysoperator/uninstall/c-install-monservice-uninst.xml" type="concept"/>
+        <topicref format="dita" href="sysoperator/uninstall/c-install-metricsagent-uninst.xml" type="concept"/>
+        <topicref format="dita" href="sysoperator/uninstall/c-install-logagent-uninst.xml" type="concept"/>
+        <topicref format="dita" href="sysoperator/uninstall/c-install-horizon-uninst.xml" type="concept"/>
+        <topicref format="dita" href="sysoperator/uninstall/c-install-ksconfig-remove.xml" type="concept"/>
     </chapter>
     <appendix href="sysoperator/appendix/r-metricsintro.xml" type="reference">
         <topicref format="dita" href="sysoperator/appendix/r-metricsstandard.xml" type="reference"/>
