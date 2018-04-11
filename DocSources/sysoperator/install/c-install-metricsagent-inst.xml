@@ -88,8 +88,20 @@
                     scope="external"
                 ><u><i>Monasca documentation</i></u></xref>. Help is also available on the configuration settings. For a description of the settings, execute the following command: </p>
             <codeblock>./monasca-agent-&lt;version_number&gt;.run --help</codeblock>
-            <p>In case the installation fails, check your configuration settings and passwords. To collect debugging information, you can retry the installation in verbose mode:</p>
-            <codeblock>./monasca-agent-&lt;version_number&gt;.run --verbose</codeblock>
+            <p>In case the installation fails, check your configuration settings and passwords. </p>
+            <p>To collect debugging information, you can run the agent installer in verbose mode:</p>
+            <codeblock>./monasca-agent-CMM_2.0.x.run \
+  --target /opt/monasca-agent -- \
+  --username &lt;user_name> \
+  --password &lt;password> \
+  --project_name &lt;project_name> \
+  --user_domain_name default \
+  --project_domain_name default \
+  --service_type monitoring \
+  --keystone_url &lt;openstack_url> \
+  --monasca_statsd_port &lt;port_no> \
+  --skip_detection_plugins OVS Libvirt
+  --verbose</codeblock>
             <p>
                 <note othertype="note">
                     <p>When running the installer, you can ignore error messages related to components that do not exist in your OpenStack environment, e.g. <codeph>ERROR: Kibana process has not been found. Plugin for Kibana will not be configured.</codeph></p>
