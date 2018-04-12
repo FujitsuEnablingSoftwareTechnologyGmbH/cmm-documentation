@@ -46,6 +46,9 @@
                 </li>
                 <li>
                     <p>Open the <codeph>.env</codeph> file in the installation directory to make the adaptions required for your environment.</p>
+                    <note othertype="note">
+                        <p>Restrict the access permissions of the <codeph>.env</codeph> file. It specifies passwords that must be protected from unauthorized access!</p>
+                    </note>
                 </li>
                 <li>
                     <p>For integrating the Monitoring Service with OpenStack Keystone, you have to specify the following parameters:</p>
