@@ -8,42 +8,59 @@
     <title>Uninstalling the Monitoring Service</title>
     <conbody>
         <section>
-            <p><i>##TODO Bug 13995</i></p>
-            <p/>
-            <p/>
+            <p><i>##Section created for bug 13995 - Work in progress!</i></p>
         </section>
-        <!-- section>
-            <p/>
-            <p/>
-            <p>To uninstall the Monitoring Service , proceed as follows:</p>
+        <section>
+            <p>To uninstall the Monitoring Service, proceed as follows:</p>
             <ol compact="no">
                 <li>
-                    <p>Log in to the OpenStack node on which the agent is installed.</p>
+                    <p>Log in to the <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                        /> node as a user with root privileges.</p>
                 </li>
                 <li>
-                    <p>Stop the <codeph>monasca-agent</codeph> service and delete all related files: </p>
-                    <codeblock>sudo systemctl stop monasca-agent   
-sudo systemctl disable monasca-agent
-sudo rm -f /etc/systemd/system/monasca-agent.service
-sudo systemctl daemon-reload
-sudo systemctl reset-failed monasca-agent</codeblock>
+                    <p>Go to the installation directory.</p>
                 </li>
                 <li>
-                    <p>Remove all directories and files created by the agent installer:</p>
-                    <codeblock>sudo rm -rf &lt;target_dir&gt;
-sudo rm -rf /etc/monasca/agent/
-sudo rm -f /etc/sudoers.d/mon-agent</codeblock>
-                    <p>Replace <codeph>&lt;target_dir&gt;</codeph> by the directory in which the agent is installed, (e.g. <codeph>/opt/monasca-agent/</codeph>).</p>
+                    <p>To stop all agents and services, run <codeph>docker-compose stop</codeph> as follows: </p>
+                    <codeblock>docker-compose -f docker-compose-metric.yml
+-f docker-compose-log.yml stop</codeblock>
+                    <p><i>##docker-compose stop or docker-compose down?</i></p>
                 </li>
                 <li>
-                    <p>Remove the agent's log files and the log directory:</p>
-                    <codeblock>sudo rm -rf /var/log/monasca-agent/</codeblock>
+                    <p>To remove the stopped docker containers, run <codeph>docker-compose rm</codeph> as follows: </p>
+                    <codeblock>docker-compose -f docker-compose-metric.yml 
+-f docker-compose-log.yml rm</codeblock>
                 </li>
                 <li>
-                    <p>Remove the <codeph>mon-agent</codeph> user. Use <codeph>-r</codeph> to also remove the <codeph>mon-agent</codeph> user's home directory. </p>
-                    <codeblock>sudo userdel -r mon-agent</codeblock>
+                    <p>Remove the instances of the docker images that are no longer needed. </p>
+                    <p>For this purpose, list the images and tags that are available:</p>
+                    <codeblock>docker images</codeblock>
+                    <p>The command shows all top level images, their repository and tags, and their size.</p>
+                    <p>To remove the images that are no longer required, run <codeph>docker rmi</codeph> as follows: </p>
+                    <codeblock>docker rmi &lt;image&gt;</codeblock>
+                    <p>Replace <codeph>&lt;image&gt;</codeph> by the short or long image ID, or its tag. If an image has one or more tags that reference it, you must remove all of them before the image is removed. </p>
+                </li>
+                <li>
+                    <p>Delete the <codeph>docker-compose</codeph> file in the<codeph> /usr/local/bin/</codeph> directory:</p>
+                    <codeblock> rm -f /usr/local/bin/docker-compose</codeblock>
+                </li>
+                <li>
+                    <p>Delete the installation directory of the Monitoring Service to which you extracted the <codeph>CMM_server_2.0.x.tar.gz</codeph> archive file from the <ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                        /> installation package:</p>
+                    <codeblock>rm -f &lt;path_to_installation_directory&gt;</codeblock>
+                </li>
+                <li>
+                    <p>Remove the volume that you mounted for the data directories of Elasticsearch, InfluxDB, MySQL, Kafka, and Grafana:</p>
+                    <p>Example with the default volume:</p>
+                    <codeblock>rm -rf /opt/monasca-containers</codeblock>
+                </li>
+                <li>
+                    <p>Remove the volume that you mounted for backing up the databases. </p>
+                    <p>Example with default volume:</p>
+                    <codeblock>rm -rf /mount/backup/</codeblock>
                 </li>
             </ol>
-        </section -->
+        </section>
     </conbody>
 </concept>
