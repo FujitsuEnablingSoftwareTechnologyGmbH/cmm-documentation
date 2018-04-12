@@ -20,18 +20,18 @@
 rm /etc/openstack-dashboard/monitoring_policy.json</codeblock>
                 </li>
                 <li>
-                    <p>Remove the proxy path pointing to your Grafana instance from the <codeph>15-horizon_vhost.conf</codeph> file. The file is located in the <codeph>/etc/httpd/conf.d/</codeph> directory.</p>
+                    <p>Remove the proxy path pointing to your Grafana instance from the <codeph>15-horizon_vhost.conf</codeph> file. It is located in the <codeph>/etc/httpd/conf.d/</codeph> directory.</p>
                     <p>The following lines must be removed:</p>
                     <codeblock>ProxyPass "/grafana" "http://&lt;grafana_host>:3000"
 ProxyPassReverse "/grafana" "http://&lt;grafana_host>:3000"</codeblock>
                 </li>
                 <li>
-                    <p>Remove the path where the plugin is installed from the <codeph>django.wsgi</codeph> file. The WSGI script of your OpenStack platform is located in the <codeph>/usr/share/openstack-dashboard/ openstack_dashboard/wsgi/</codeph> directory.</p>
+                    <p>Remove the path where the plugin is installed from the <codeph>django.wsgi</codeph> file. It is located in the <codeph>/usr/share/openstack-dashboard/ openstack_dashboard/wsgi/</codeph> directory.</p>
                     <p>The following line must be removed:</p>
                     <codeblock>sys.path.append("&lt;monasca_ui_dir>/lib/python2.7/site-packages/")</codeblock>
                 </li>
                 <li>
-                    <p>Remove the path where the plugin is installed from the <codeph>manage.py</codeph> file. The <codeph>manage.py</codeph> file is located in the <codeph>/usr/share/openstack-dashboard/</codeph> directory. </p>
+                    <p>Remove the path where the plugin is installed from the <codeph>manage.py</codeph> file. It is located in the <codeph>/usr/share/openstack-dashboard/</codeph> directory. </p>
                     <p>The following line must be removed:</p>
                     <codeblock>sys.path.append("&lt;monasca_ui_dir>/lib/python2.7/site-packages")</codeblock>
                 </li>
@@ -39,6 +39,11 @@ ProxyPassReverse "/grafana" "http://&lt;grafana_host>:3000"</codeblock>
                     <p>Remove the directories and files created by the installer:</p>
                     <codeblock>rm -rf &lt;monasca_ui_dir></codeblock>
                     <p>Replace <codeph>&lt;monasca_ui_dir></codeph> by the name of the directory in which the Horizon Plugin is installed.</p>
+                </li>
+                <li>
+                    <p>Since HTTP proxy requests are no longer needed, disable the <codeph>mod_proxy</codeph> and <codeph>mod_proxy_http</codeph> modules in Apache. For this purpose, remove the following lines from the <codeph>httpd.conf</codeph> file located in the <codeph>/etc/httpd/conf/</codeph> directory:</p>
+                    <codeblock>LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so</codeblock>
                 </li>
                 <li><p>Restart the server from which you uninstalled the OpenStack Horizon plugin. </p>Example: <codeblock>systemctl restart httpd</codeblock></li>
             </ol>
