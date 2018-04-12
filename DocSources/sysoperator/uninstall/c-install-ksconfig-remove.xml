@@ -8,7 +8,15 @@
     <title>Removing OpenStack Projects, Users, and Roles</title>
     <conbody>
         <section>
-            <p><i>##TODO Bug 13994</i></p>
+            <p><i>##Section created for bug 13994 - Work in progress!</i></p>
+            <p><i>##Sequence of subsections in Uninstallation chapter? Does it matter?</i></p>
+        </section>
+        <section>
+            <p>To integrate <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                /> with the OpenStack Keystone service, you created a project, a user, and two roles in OpenStack.</p>
+            <p>Remove the project ###</p>
+            <p>Remove the user ###</p>
+            <p>Remove the roles ###</p>
             <p/>
             <p/>
         </section>

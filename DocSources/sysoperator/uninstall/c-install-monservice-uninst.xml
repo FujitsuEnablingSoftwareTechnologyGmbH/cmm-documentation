@@ -21,28 +21,19 @@
                     <p>Go to the installation directory.</p>
                 </li>
                 <li>
-                    <p>To stop all agents and services, run <codeph>docker-compose stop</codeph> as follows: </p>
+                    <p>To stop all agents and services and remove the containers, run <codeph>docker-compose down</codeph> as follows:</p>
                     <codeblock>docker-compose -f docker-compose-metric.yml
--f docker-compose-log.yml stop</codeblock>
-                    <p><i>##docker-compose stop or docker-compose down?</i></p>
+ -f docker-compose-log.yml down</codeblock>
                 </li>
                 <li>
-                    <p>To remove the stopped docker containers, run <codeph>docker-compose rm</codeph> as follows: </p>
-                    <codeblock>docker-compose -f docker-compose-metric.yml 
--f docker-compose-log.yml rm</codeblock>
-                </li>
-                <li>
-                    <p>Remove the instances of the docker images that are no longer needed. </p>
-                    <p>For this purpose, list the images and tags that are available:</p>
+                    <p>Remove the instances of the docker images. You can list the images and tags that are currently loaded.</p>
                     <codeblock>docker images</codeblock>
-                    <p>The command shows all top level images, their repository and tags, and their size.</p>
-                    <p>To remove the images that are no longer required, run <codeph>docker rmi</codeph> as follows: </p>
-                    <codeblock>docker rmi &lt;image&gt;</codeblock>
-                    <p>Replace <codeph>&lt;image&gt;</codeph> by the short or long image ID, or its tag. If an image has one or more tags that reference it, you must remove all of them before the image is removed. </p>
+                    <p>To remove all images, run <codeph>docker rmi</codeph> as follows: </p>
+                    <codeblock>docker rmi  $(docker images -q)</codeblock>
                 </li>
                 <li>
                     <p>Delete the <codeph>docker-compose</codeph> file in the<codeph> /usr/local/bin/</codeph> directory:</p>
-                    <codeblock> rm -f /usr/local/bin/docker-compose</codeblock>
+                    <codeblock>rm -f /usr/local/bin/docker-compose</codeblock>
                 </li>
                 <li>
                     <p>Delete the installation directory of the Monitoring Service to which you extracted the <codeph>CMM_server_2.0.x.tar.gz</codeph> archive file from the <ph
