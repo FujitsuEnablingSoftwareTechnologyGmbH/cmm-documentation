@@ -26,7 +26,7 @@ rm /etc/openstack-dashboard/monitoring_policy.json</codeblock>
 ProxyPassReverse "/grafana" "http://&lt;grafana_host>:3000"</codeblock>
                 </li>
                 <li>
-                    <p>Remove the path where the plugin is installed from the <codeph>django.wsgi</codeph> file. It is located in the <codeph>/usr/share/openstack-dashboard/ openstack_dashboard/wsgi/</codeph> directory.</p>
+                    <p>Remove the path where the plugin is installed from the <codeph>django.wsgi</codeph> file. It is located in the <codeph>/usr/share/openstack-dashboard/openstack_dashboard/wsgi/</codeph> directory.</p>
                     <p>The following line must be removed:</p>
                     <codeblock>sys.path.append("&lt;monasca_ui_dir>/lib/python2.7/site-packages/")</codeblock>
                 </li>
