@@ -15,9 +15,9 @@
         <section id="By_default_the_indices_are_s_concept_conbody_section_2">
             <p>By default, the indices are stored in the following directory on the <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> node: </p>
-            <p><codeph>/opt/monasca-containers/elasticsearch/data/&lt;cluster-name&gt;/nodes/&lt;node-name&gt;/</codeph></p>
+            <p><codeph>/opt/monasca-containers/elasticsearch/data/&lt;cluster-name&gt;/nodes/&lt;node-name&gt;/indices/</codeph></p>
             <p>Example:</p>
-            <p><codeph>/opt/monasca-containers/elasticsearch/data/elasticsearch/nodes/0/</codeph></p>
+            <p><codeph>/opt/monasca-containers/elasticsearch/data/elasticsearch/nodes/0/indices/</codeph></p>
         </section>
         <section>
             <p>If you want to delete outdated or unnecessary log data from the Elasticsearch database, proceed as follows:</p>
