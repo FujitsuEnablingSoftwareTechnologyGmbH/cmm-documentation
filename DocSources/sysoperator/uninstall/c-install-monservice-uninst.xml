@@ -8,9 +8,6 @@
     <title>Uninstalling the Monitoring Service</title>
     <conbody>
         <section>
-            <p><i>##Section created for bug 13995 - Work in progress!</i></p>
-        </section>
-        <section>
             <p>To uninstall the Monitoring Service, proceed as follows:</p>
             <ol compact="no">
                 <li>
@@ -21,16 +18,16 @@
                     <p>Go to the installation directory.</p>
                 </li>
                 <li>
-                    <p>To stop all agents and services and remove the containers, run <codeph>docker-compose down</codeph> as follows:</p>
-                    <codeblock>docker-compose -f docker-compose-metric.yml
- -f docker-compose-log.yml down</codeblock>
+                    <p>To stop all agents and services and remove the containers, the instances of the docker images, and any volumes you mounted for CMM, run <codeph>docker-compose down</codeph> as follows:</p>
+                    <codeblock>docker-compose -f docker-compose-metric.yml 
+ -f docker-compose-log.yml down --rmi all --volumes</codeblock>
                 </li>
-                <li>
+                <!-- li>
                     <p>Remove the instances of the docker images. You can list the images and tags that are currently loaded.</p>
                     <codeblock>docker images</codeblock>
                     <p>To remove all images, run <codeph>docker rmi</codeph> as follows: </p>
                     <codeblock>docker rmi  $(docker images -q)</codeblock>
-                </li>
+                </li -->
                 <li>
                     <p>Delete the <codeph>docker-compose</codeph> file in the<codeph> /usr/local/bin/</codeph> directory:</p>
                     <codeblock>rm -f /usr/local/bin/docker-compose</codeblock>
@@ -41,7 +38,7 @@
                         /> installation package:</p>
                     <codeblock>rm -f &lt;path_to_installation_directory&gt;</codeblock>
                 </li>
-                <li>
+                <!-- li>
                     <p>Remove the volume that you mounted for the data directories of Elasticsearch, InfluxDB, MySQL, Kafka, and Grafana:</p>
                     <p>Example with the default volume:</p>
                     <codeblock>rm -rf /opt/monasca-containers</codeblock>
@@ -50,7 +47,7 @@
                     <p>Remove the volume that you mounted for backing up the databases. </p>
                     <p>Example with default volume:</p>
                     <codeblock>rm -rf /mount/backup/</codeblock>
-                </li>
+                </li -->
             </ol>
         </section>
     </conbody>

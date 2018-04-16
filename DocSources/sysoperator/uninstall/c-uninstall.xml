@@ -18,7 +18,6 @@
                 <li>Uninstalling the Horizon Plugin from the node where the OpenStack Horizon service is deployed.</li>
                 <li>Removing the projects, users, and roles prepared for the OpenStack integration.</li>
             </ul>
-            <p><i>##sequence?</i></p>
         </section>
     </conbody>
 </concept>
