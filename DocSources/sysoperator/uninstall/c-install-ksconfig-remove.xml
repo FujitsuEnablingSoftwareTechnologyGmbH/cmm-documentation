@@ -8,17 +8,32 @@
     <title>Removing OpenStack Projects, Users, and Roles</title>
     <conbody>
         <section>
-            <p><i>##Section created for bug 13994 - Work in progress!</i></p>
-            <p><i>##Sequence of subsections in Uninstallation chapter? Does it matter?</i></p>
+            <p><i>##Section created for bug 13994 - Work in progress</i></p>
         </section>
         <section>
             <p>To integrate <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> with the OpenStack Keystone service, you created a project, a user, and two roles in OpenStack.</p>
-            <p>Remove the project ###</p>
-            <p>Remove the user ###</p>
-            <p>Remove the roles ###</p>
-            <p/>
-            <p/>
+                /> with the OpenStack Keystone service, you created a project, a user, and two roles in OpenStack. </p>
+            <p>To remove them from your OpenStack environment, proceed as follows:</p>
+            <ol>
+                <li>
+                    <p>Remove the OpenStack project that was used for the monitoring data retrieved for <ph
+                            conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                        /> and your OpenStack services and servers.</p>
+                    <p>Example with <codeph>monasca</codeph> as project name:</p>
+                    <codeblock>openstack project delete monasca</codeblock>
+                </li>
+                <li>
+                    <p>Remove the OpenStack user that was used for authenticating an agent against OpenStack Keystone. </p>
+                    <p>Example with <codeph>monasca-agent</codeph> as user name:</p>
+                    <codeblock>openstack user delete monasca-agent</codeblock>
+                </li>
+                <li>
+                    <p>Remove the OpenStack roles that were prepared.</p>
+                    <p>Example with <codeph>monasca-user</codeph> and <codeph>monasca-agent</codeph> as role names:</p>
+                    <codeblock>openstack role delete monasca-user
+openstack role delete monasca-agent</codeblock>
+                </li>
+            </ol>
         </section>
     </conbody>
 </concept>
