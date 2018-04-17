@@ -12,9 +12,10 @@
             <p>Kibana can persist customized dashboard designs to the Elasticsearch database, and allows you to recall them. For details on saving, loading, and sharing dashboards for log management, refer to the <xref
                     format="html" href="https://www.elastic.co/guide/en/kibana/4.6/dashboard.html#saving-dashboards"
                     scope="external"><u><i>Kibana documentation</i></u></xref>.</p>
-            <p>As a Grafana administrator, you are allowed to export dashboards to a JSON file, and to re-import them when necessary. Use the administrator credentials defined in the <codeph>.env</codeph> file for the installation of the Monitoring Service to directly access Grafana and export dashboards. For backing up and restoring the exported dashboards, you can then use the standard mechanisms of your file system. For details on exporting monitoring dashboards, refer to the <xref
+            <p>The Grafana administrator created during the installation of the Monitoring Service is allowed to export dashboards to a JSON file, and to re-import them when necessary. The Grafana administrator credentials defined in the <codeph>.env</codeph> file must be used for accessing Grafana. Contact your FUJITSU support organization for information on additional preparations that must be taken before exporting and importing JSON files in Grafana. </p>
+            <!-- p>As a Grafana administrator, you are allowed to export dashboards to a JSON file, and to re-import them when necessary. Use the administrator credentials defined in the <codeph>.env</codeph> file for the installation of the Monitoring Service to directly access Grafana and export dashboards. For backing up and restoring the exported dashboards, you can then use the standard mechanisms of your file system. For details on exporting monitoring dashboards, refer to the <xref
                     format="html" href="http://docs.grafana.org/v4.5" scope="external"
-                        ><u><i>Grafana documentation</i></u></xref>. </p>
+                        ><u><i>Grafana documentation</i></u></xref>. </p -->
         </section>
     </conbody>
 </concept>

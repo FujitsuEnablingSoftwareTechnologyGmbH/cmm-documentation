@@ -20,8 +20,9 @@
                     <p>The <uicontrol>Node Dashboard</uicontrol> visualizes the metrics data from the node on which the Monitoring Service is installed.</p>
                 </li>
             </ul>
-            <p>You are authorized to view the metrics data that is displayed. The Grafana administrator created during the installation of the Monitoring Service is allowed to create, update, and delete dashboards. </p>
-            <p>If it is required to make any changes or enhancements to the preconfigured dashboards, the administrator credentials defined in the <codeph>.env</codeph> file must be used for accessing Grafana. Contact your FUJITSU support organization for information on additional preparations that must be taken. </p>
+            <p>You are authorized to view the metrics data that is displayed. </p>
+            <p>The Grafana administrator created during the installation of the Monitoring Service is allowed to create, update, and delete dashboards. If it is required to make any changes or enhancements to the preconfigured dashboards, the Grafana administrator credentials defined in the <codeph>.env</codeph> file must be used for accessing Grafana. Contact your FUJITSU support organization for information on additional preparations that must be taken before the Grafana administrator can create, update or delete dashboards for the <ph
+                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> users. </p>
             <!--p>For detailed information on the features the administrator can use to change or enhance the dashboards in Grafana, refer to the <xref
                     format="html" href="http://docs.grafana.org/v4.5/" scope="external"
                         ><u><i>Grafana documentation</i></u></xref>.</p -->
