@@ -14,7 +14,7 @@
         </section>
         <section>
             <title>Dimension</title>
-            <p>A key/value pair that allows for a flexible and concise description of the data to be monitored, for example, region, availability zone, service tier, or resource ID. Each dimension describes a specific characteristic of the metrics to be monitored. </p>
+            <p>A key/value pair that allows for a flexible and concise description of the data to be monitored, for example region, availability zone, service tier, or resource ID. Each dimension describes a specific characteristic of the metrics to be monitored. </p>
             <p>In <ph conref="../product-name.xml#ProductNameTopic/Product_Abbr"
                 />, metrics are uniquely identified by a name and a set of dimensions. Dimensions can serve as a filter for the monitoring data.</p>
         </section>

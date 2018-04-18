@@ -45,7 +45,7 @@
                                 <p>Alarms: Query and delete the alarm history. </p>
                             </li>
                             <li>
-                                <p>Notification Methods: Create and delete notification methods and associate them with alarms. Users can be notified directly when alarms are triggered, for example, via email.</p>
+                                <p>Notification Methods: Create and delete notification methods and associate them with alarms. Users can be notified directly when alarms are triggered, for example via email.</p>
                             </li>
                         </ul></li>
                     <li><b>Message Queue</b><p>A component that primarily receives published metrics from the Monitoring API, alarm state transition messages from the Threshold Engine, and log data from the Log API. The data is consumed by other components, such as the Persister, the Notification Engine, and the Log Persister. The Message Queue is also used to publish and consume other events in the system. It is based on Kafka, a high-performance, distributed, fault-tolerant, and scalable message queue with durability built-in. For administrating the Message Queue, <ph
@@ -67,7 +67,7 @@
                     <li><b>Log Transformer</b>
                         <p>A Logstash component that consumes the log data from the Message Queue, performs transformation and aggregation operations on the data, and publishes the data that it creates back to the Message Queue.</p></li>
                     <li><b>Log Metrics</b>
-                        <p>A Monasca component that consumes log data from the Message Queue, filters the data according to severity, and generates metrics for specific severities, for example, for errors or warnings. The generated metrics are published to the Message Queue and can be further processed by the Threshold Engine like any other metrics. </p></li>
+                        <p>A Monasca component that consumes log data from the Message Queue, filters the data according to severity, and generates metrics for specific severities, for example for errors or warnings. The generated metrics are published to the Message Queue and can be further processed by the Threshold Engine like any other metrics. </p></li>
                     <li><b>Log Persister </b><p>A Logstash component that consumes the transformed and aggregated log data from the Message Queue and stores it in the Log Database.</p></li>
                     <li><b>Kibana Server</b>
                         <p>A Web browser-based analytics and search interface to the Log Database.</p></li>

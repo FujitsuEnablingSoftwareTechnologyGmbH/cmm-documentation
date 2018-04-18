@@ -44,13 +44,12 @@ MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30</codeblock>
                 </li>
             </ol>
             <p>As soon as the <codeph>elasticsearch-curator</codeph> service is up and running, your new data retention policy takes effect. </p>
-            <p
-                    id="For_details_on_Elasticsearch_concept_conbody_section_p_5">For details on Elasticsearch Curator, refer to the <xref
-                    format="html"
-                    href="https://www.elastic.co/guide/en/elasticsearch/client/curator/4.0/index.html"
-                    scope="external"><u><i>Elasticsearch Curator documentation</i></u></xref>. Find details on configuring the Cron daemon, for example, in the <xref
-                    format="html"
-                    href="https://help.ubuntu.com/community/CronHowto" scope="external"><u><i>Ubuntu Wiki</i></u></xref>.</p>
+            <p id="For_details_on_Elasticsearch_concept_conbody_section_p_5"
+                    >For details on Elasticsearch Curator, refer to the <xref format="html"
+                    href="https://www.elastic.co/guide/en/elasticsearch/client/curator/4.0/index.html" scope="external"
+                            ><u><i>Elasticsearch Curator documentation</i></u></xref>. Find details on configuring the Cron daemon in the <xref
+                    format="html" href="https://help.ubuntu.com/community/CronHowto" scope="external"
+                            ><u><i>Ubuntu Wiki</i></u></xref>.</p>
         </section>
     </conbody>
 </concept>

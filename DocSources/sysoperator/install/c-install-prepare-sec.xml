@@ -24,7 +24,7 @@
                 <li>Port <codeph>5601</codeph> for the Kibana Server.</li>
                 <li>Port <codeph>3000</codeph> for Grafana.</li>
             </ul>
-            <p>In addition, access to port <codeph>8081</codeph> is required internally by the Monitoring API, for example, for healthchecks or threads. </p>
+            <p>In addition, access to port <codeph>8081</codeph> is required internally by the Monitoring API, for example for healthchecks or threads. </p>
             <p>To integrate with the required OpenStack services, <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> requires access to the following ports:</p>

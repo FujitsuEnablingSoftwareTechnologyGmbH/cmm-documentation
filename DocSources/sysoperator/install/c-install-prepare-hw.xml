@@ -125,7 +125,7 @@
                 </li>
             </ul>
             <note othertype="note">
-                <p>Depending on the OpenStack nodes to be monitored there might be additional factors that have an impact on the required disk space, for example, enabling debug logging for the OpenStack services.</p>
+                <p>Depending on the OpenStack nodes to be monitored there might be additional factors that have an impact on the required disk space, for example enabling debug logging for the OpenStack services.</p>
             </note>
         </section>
     </conbody>

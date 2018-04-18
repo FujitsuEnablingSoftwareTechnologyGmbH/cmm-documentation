@@ -20,19 +20,19 @@
                 compact="no"
                     id="System_metrics_for_example_concept_conbody_section_3_ul">
                 <li>
-                    <p>Metrics on CPU usage, for example, the percentage of time the CPU is idle when no I/O requests are in progress, or the percentage of time the CPU is used at system level or user level. </p>
+                    <p>Metrics on CPU usage, for example the percentage of time the CPU is idle when no I/O requests are in progress, or the percentage of time the CPU is used at system level or user level. </p>
                 </li>
                 <li>
-                    <p>Metrics on disk space, for example, the percentage of disk space that is used on a device, or the total amount of disk space aggregated across all the disks on a particular node. </p>
+                    <p>Metrics on disk space, for example the percentage of disk space that is used on a device, or the total amount of disk space aggregated across all the disks on a particular node. </p>
                 </li>
                 <li>
-                    <p>Metrics on the average system load over different periods, for example, 1 minute, 5 minutes, or 15 minutes.</p>
+                    <p>Metrics on the average system load over different periods, for example 1 minute, 5 minutes, or 15 minutes.</p>
                 </li>
                 <li>
-                    <p>Metrics on memory usage, for example, the number of megabytes of total memory or free memory, or the percentage of free swap memory. </p>
+                    <p>Metrics on memory usage, for example the number of megabytes of total memory or free memory, or the percentage of free swap memory. </p>
                 </li>
                 <li>
-                    <p>Metrics on the network, for example, the number of network bytes received or sent per second, or the number of network errors on incoming or outgoing network traffic per second.</p>
+                    <p>Metrics on the network, for example the number of network bytes received or sent per second, or the number of network errors on incoming or outgoing network traffic per second.</p>
                 </li>
             </ul>
             <!-- p>The OpenStack operator can configure additional metrics. Please contact your OpenStack operator for information on the additional metrics that you can use for monitoring.</p -->

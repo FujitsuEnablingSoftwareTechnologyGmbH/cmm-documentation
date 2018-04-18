@@ -63,7 +63,7 @@ instances:
             <title>elastic.yaml</title>
             <p>Elastic checks gather metrics for Elasticsearch databases, such as the Log Database of <ph
           conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-          />. The configuration file must specify the URL for HTTP requests. If basic authentication is used, for example, <codeph>elasticsearch-http-basic</codeph>, the configuration file must also specify the user name and password for every instance that requires authentication.</p>
+          />. The configuration file must specify the URL for HTTP requests. If basic authentication is used, for example <codeph>elasticsearch-http-basic</codeph>, the configuration file must also specify the user name and password for every instance that requires authentication.</p>
       <p>The agent installer automatically creates the <codeph>elastic.yaml</codeph> configuration file in the <codeph>/etc/monasca/agent/conf.d/</codeph> directory. If there is an Elasticsearch database instance installed on the machine where the agent is installed, you have to specify the configuration information in the <codeph>elastic.yaml</codeph> file after the installation.</p>
             <p>Example configuration:</p>
             <codeblock>init_config: null

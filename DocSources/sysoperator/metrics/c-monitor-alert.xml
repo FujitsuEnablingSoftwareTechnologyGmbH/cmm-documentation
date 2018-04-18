@@ -23,7 +23,7 @@
                     <p>For <codeph>Email</codeph>, the email address to be notified when an alarm is triggered.</p>
                     <p>
                         <note othertype="note"
-                                >Generic top-level domains such as business domain names are not supported in email addresses (for example, <codeph>user@xyz.company</codeph>).</note>
+                                >Generic top-level domains such as business domain names are not supported in email addresses (for example <codeph>user@xyz.company</codeph>).</note>
                     </p>
                     <p>For <codeph>HipChat</codeph>, the URL specifying the room to which the notification is to be sent. Example URL with variables for the room ID and access token: <codeph>https://api.hipchat.com/v2/room/&lt;room_id>/notification?auth_token=&lt;access_token></codeph></p>
                     <p>For <codeph>PagerDuty</codeph>, the PagerDuty Service API Key to be notified when an alarm is triggered. </p>

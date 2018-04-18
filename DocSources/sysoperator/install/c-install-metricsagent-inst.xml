@@ -53,7 +53,7 @@
                         </li>
                         <li>
                             <p><codeph>--username</codeph>. The user to be used for authenticating the agent against OpenStack Keystone, for example <codeph>monasca-agent</codeph>. </p>
-                            <p>The user specified here must have the <codeph>monasca-agent</codeph> role in OpenStack and be assigned to the OpenStack project that is to be monitored by the agent. The project is specified in <codeph>project_name</codeph>, for example, <codeph>monasca</codeph>.</p>
+                            <p>The user specified here must have the <codeph>monasca-agent</codeph> role in OpenStack and be assigned to the OpenStack project that is to be monitored by the agent. The project is specified in <codeph>project_name</codeph>, for example <codeph>monasca</codeph>.</p>
                             <p>It is recommended that this user is used only for configuration purposes and not for actually monitoring services and servers.</p>
                         </li>
                         <li>

@@ -18,7 +18,7 @@
             <p>Every series can be assigned key tags. In the case of <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     />, this is the <codeph>_tenant_id</codeph> tag. This tag identifies the OpenStack project for which the metrics data has been collected. </p>
-            <p>From time to time, you may want to delete outdated or unnecessary metrics data from the Metrics and Alarms Database, for example, to save space or remove data for metrics you are no longer interested in. To delete data, you use the InfluxDB command line interface, the interactive shell that is provided for the InfluxDB database.</p>
+            <p>From time to time, you may want to delete outdated or unnecessary metrics data from the Metrics and Alarms Database, for example to save space or remove data for metrics you are no longer interested in. To delete data, you use the InfluxDB command line interface, the interactive shell that is provided for the InfluxDB database.</p>
             <p>Proceed as follows to delete metrics data from the database: </p>
             <p>
                 <ol>

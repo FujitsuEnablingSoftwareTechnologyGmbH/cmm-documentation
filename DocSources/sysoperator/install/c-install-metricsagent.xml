@@ -20,7 +20,7 @@
                     <p>It automatically configures the agent to retrieve metrics data from the server and send the data to the Monitoring Service for further processing.</p>
                 </li>
                 <li>
-                    <p>It automatically activates system metrics for monitoring the OpenStack services and the server on which they are running. The metrics include system checks, for example, on CPU usage, disk space, or the average system load. No manual configuration is required for these checks.</p>
+                    <p>It automatically activates system metrics for monitoring the OpenStack services and the server on which they are running. The metrics include system checks, for example on CPU usage, disk space, or the average system load. No manual configuration is required for these checks.</p>
                 </li>
                 <li>
                     <p>As enhancement to the system metrics, the installer auto-detects applications and OpenStack processes that are running on the server. The corresponding metrics are automatically configured. No manual configuration is required.</p>

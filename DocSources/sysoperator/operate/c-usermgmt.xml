@@ -16,18 +16,15 @@
                 /> users from OpenStack Horizon. They must fulfill the prerequisites described in the following sections.</p>
         </section>
         <section>
-            <title><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> Operator and OpenStack Operator</title>
-            <p>The <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    /> operator is responsible for monitoring <ph
+            <title>Monitoring Service Operator and OpenStack Operator</title>
+            <p>The Monitoring Service operator is responsible for monitoring <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     />, the OpenStack operator is responsible for monitoring the OpenStack services and servers. Both must have access to the OpenStack platform as a user with the <codeph>monasca-user</codeph> role or any other role that is authorized to use the <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> functions. Additional roles are optional. </p>
-            <p>The <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    /> operator and the OpenStack operator must be assigned to the OpenStack project that was prepared for <ph
+            <p>The Monitoring Service operator and the OpenStack operator must be assigned to the OpenStack project that was prepared for <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    />, for example, <codeph>monasca</codeph>.</p>
+                    />, for example <codeph>monasca</codeph>.</p>
             <p>For details on the project, users, and roles prepared for <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>, refer to <xref
                     href="../install/c-install-ksconfig-users.xml"/>. </p>

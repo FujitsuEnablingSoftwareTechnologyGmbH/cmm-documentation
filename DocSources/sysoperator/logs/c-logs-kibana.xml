@@ -92,8 +92,8 @@
         </section>
         <section>
             <title>Visualizing Query Results</title>
-            <p><ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> supports you in building graphical representations of your query results. You can choose from different visualization types, for example, pie charts, data tables, line charts, or vertical bar charts. For visualizing your results, you use the <uicontrol>Visualize</uicontrol> page in the log management window:</p>
+            <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+                    /> supports you in building graphical representations of your query results. You can choose from different visualization types, for example pie charts, data tables, line charts, or vertical bar charts. For visualizing your results, you use the <uicontrol>Visualize</uicontrol> page in the log management window:</p>
             <fig>
                 <image
                     alt="kibana.png" height="260"
