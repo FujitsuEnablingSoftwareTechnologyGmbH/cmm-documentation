@@ -103,13 +103,16 @@
                                         <codeblock>curl -XPUT http://localhost:9200/_snapshot/my_backup/snapshot_1?
  wait_for_completion=true</codeblock>
                                         <p>The example creates a snapshot named <codeph>snapshot_1</codeph> for all indices in the <codeph>my_backup</codeph> repository.</p>
-                                        <p>For easier portability and storage, you can create an archive file for the snapshot you have created. To configure the security context, the <codeph>--selinux</codeph> parameter must be specified. Example:</p>
-                                        <codeblock>tar --selinux -zcvf es_snapshot_1.tar.gz -C 
- /mount/backup/elasticsearch_backup/my_backup</codeblock>
                                 </li>
                                 <li>
                                         <p>Exit the <codeph>elasticsearch</codeph> container:</p>
                                         <codeblock>exit</codeblock>
+                                </li>
+                                <li>
+                                        <p>For easier portability and storage, you can create an archive file for the snapshot you have created. To configure the security context, the <codeph>--selinux</codeph> parameter must be specified. </p>
+                                        <p>Example:</p>
+                                        <codeblock>tar --selinux -zcvf es_snapshot_1.tar.gz -C 
+ /mount/backup/elasticsearch_backup/my_backup</codeblock>
                                 </li>
                                 <li>
                                         <p>Stop the <codeph>elasticsearch</codeph> service:</p>
