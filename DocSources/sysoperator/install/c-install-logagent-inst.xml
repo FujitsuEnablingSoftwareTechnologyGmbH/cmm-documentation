@@ -32,7 +32,7 @@
                 <li>
                     <p>Run the agent installer: </p>
                     <codeblock>./log-agent-CMM_2.0.x.run \
-  --target "/opt/monasca/monasca-log-agent" -- \
+  --target "/opt/monasca-log-agent" -- \
   --monasca_log_api_url "&lt;cmm_url>" \   
   --keystone_auth_url "&lt;openstack_url>" \   
   --project_name "&lt;project>" \
