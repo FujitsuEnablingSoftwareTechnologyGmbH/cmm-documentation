@@ -10,14 +10,24 @@
     <conbody>
         <section>
             <p>The uninstallation of <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                /> and its OpenStack extensions includes:</p>
-            <ul>
-                <li>Uninstalling the Monitoring Service.</li>
-                <li>Uninstalling a Metrics Agent from an OpenStack node.</li>
-                <li>Uninstalling a Log Agent from an OpenStack node.</li>
-                <li>Uninstalling the Horizon Plugin from the node where the OpenStack Horizon service is deployed.</li>
-                <li>Removing the projects, users, and roles prepared for the OpenStack integration.</li>
-            </ul>
+                /> and its OpenStack extensions comprises the following steps:</p>
+            <ol>
+                <li>
+                    <p>Uninstalling a Metrics Agent from an OpenStack node.</p>
+                </li>
+                <li>
+                    <p>Uninstalling a Log Agent from an OpenStack node.</p>
+                </li>
+                <li>
+                    <p>Uninstalling the Horizon Plugin from the node where the OpenStack Horizon service is deployed.</p>
+                </li>
+                <li>
+                    <p>Uninstalling the Monitoring Service.</p>
+                </li>
+                <li>
+                    <p>Removing the projects, users, and roles prepared for the OpenStack integration.</p>
+                </li>
+            </ol>
         </section>
     </conbody>
 </concept>
