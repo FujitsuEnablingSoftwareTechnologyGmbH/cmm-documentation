@@ -269,10 +269,11 @@
                                         <p>Make sure that the backup file is available in the <codeph>&lt;path_to_backup_dir>/influxdb_backup</codeph> directory. <codeph>&lt;path_to_backup_dir></codeph> is the default volume you configured for backing up the databases during the installation of the Monitoring Service (<codeph>MON_BACKUP_DIR</codeph> parameter in <codeph>.env</codeph> file). </p>
                                 </li>
                                 <li>
-                                        <p>With SELinux enabled, make sure that <codeph>svirt_sandbox_file_t</codeph> is set as security context type for the backup file. </p>
-                                        <p>Example with <codeph>MON_BACKUP_DIR</codeph> set to <codeph>/mount/backup</codeph>:</p>
+                                        <p>With SELinux enabled, make sure that <codeph>svirt_sandbox_file_t</codeph> or <codeph>container_file_t</codeph> is set as security context type for the backup file. </p>
+                                        <p>Example with <codeph>MON_BACKUP_DIR</codeph> set to <codeph>/mount/backup</codeph> and <codeph>svirt_sandbox_file_t</codeph> set as security context type:</p>
                                         <codeblock># ls -lZ /mount/backup/influxdb_backup/
-drwx------. root root system_u:object_r:svirt_sandbox_file_t:s0:c335,c530 mon.backup</codeblock>
+drwx------. root root 
+system_u:object_r:svirt_sandbox_file_t:s0:c335,c530 mon.backup</codeblock>
                                 </li>
                                 <li>
                                         <p>Restore the database to an ephemeral container:</p>
