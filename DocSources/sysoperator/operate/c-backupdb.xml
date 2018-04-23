@@ -112,7 +112,7 @@
                                         <p>For easier portability and storage, you can create an archive file for the snapshot you have created. To configure the security context, the <codeph>--selinux</codeph> parameter must be specified. </p>
                                         <p>Example:</p>
                                         <codeblock>tar --selinux -zcvf es_snapshot_1.tar.gz -C 
- /mount/backup/elasticsearch_backup/my_backup</codeblock>
+ /mount/backup/elasticsearch_backup/ my_backup</codeblock>
                                 </li>
                                 <li>
                                         <p>Stop the <codeph>elasticsearch</codeph> service:</p>
