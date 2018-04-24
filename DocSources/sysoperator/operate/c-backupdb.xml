@@ -35,10 +35,10 @@
                                         <codeblock>docker-compose -f docker-compose-metric.yml -f 
  docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
                                 </li>
-                                <li>
+                                <!-- li>
                                         <p>Change the owner of the backup directory in the <codeph>elasticsearch</codeph> container:</p>
                                         <codeblock>$ chown -R elasticsearch:elasticsearch /elasticsearch_backup</codeblock>
-                                </li>
+                                </li -->
                                 <li>
                                         <p>Create the snapshot repository.</p>
                                         <p>Example:</p>
