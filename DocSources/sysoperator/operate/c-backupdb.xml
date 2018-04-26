@@ -155,6 +155,33 @@
  docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
                                 </li>
                                 <li>
+                                        <p>Before restoring the database instance, check whether the snapshot repository already exists:</p>
+                                        <p>Example:</p>
+                                        <codeblock>curl -XGET http://localhost:9200/_snapshot/my_backup</codeblock>
+                                        <p>Example response for an existing repository:</p>
+                                        <codeblock>{
+  "my_backup": {
+    "type": "fs",
+    "settings": {
+      "compress": "true",
+      "location": "/elasticsearch_backup/my_backup"
+    }
+  }
+}</codeblock>
+                                </li>
+                                <li>
+                                        <p>If there is no snapshot repository, you have to create it.</p>
+                                        <p>Example:</p>
+                                        <codeblock>curl -XPUT http://localhost:9200/_snapshot/my_backup -d '{
+  "type": "fs",
+  "settings": {
+       "location": "/elasticsearch_backup/my_backup",
+       "compress": true
+  }
+}'</codeblock>
+                                        <p>If the snapshot repository is created successfuly, Elasticsearch returns <codeph>{"acknowledged":true}</codeph>.</p>
+                                </li>
+                                <li>
                                         <p>Close all indices of your database.</p>
                                         <p>Example:</p>
                                         <codeblock>curl -XPOST http://localhost:9200/_all/_close</codeblock>
