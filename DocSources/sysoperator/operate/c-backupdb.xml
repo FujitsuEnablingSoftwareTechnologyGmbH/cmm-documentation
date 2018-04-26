@@ -179,7 +179,7 @@
        "compress": true
   }
 }'</codeblock>
-                                        <p>If the snapshot repository is created successfuly, Elasticsearch returns <codeph>{"acknowledged":true}</codeph>.</p>
+                                        <p>If the snapshot repository is created successfully, Elasticsearch returns <codeph>{"acknowledged":true}</codeph>.</p>
                                 </li>
                                 <li>
                                         <p>Close all indices of your database.</p>
