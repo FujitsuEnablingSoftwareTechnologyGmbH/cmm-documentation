@@ -42,16 +42,16 @@
                         /> installation package:</p>
                     <codeblock>rm -f &lt;path_to_installation_directory&gt;</codeblock>
                 </li>
-                <!-- li>
-                    <p>Remove the volume that you mounted for the data directories of Elasticsearch, InfluxDB, MySQL, Kafka, and Grafana:</p>
+                <li>
+                    <p>Remove the volume you mounted for the data directories of Elasticsearch, InfluxDB, MySQL, Kafka, and Grafana.</p>
                     <p>Example with the default volume:</p>
-                    <codeblock>rm -rf /opt/monasca-containers</codeblock>
+                    <codeblock>rm -rf /opt/monasca-containers/</codeblock>
                 </li>
                 <li>
-                    <p>Remove the volume that you mounted for backing up the databases. </p>
-                    <p>Example with default volume:</p>
+                    <p>Remove the volume you mounted for backing up the databases. </p>
+                    <p>Example with the default volume:</p>
                     <codeblock>rm -rf /mount/backup/</codeblock>
-                </li -->
+                </li>
             </ol>
         </section>
     </conbody>
