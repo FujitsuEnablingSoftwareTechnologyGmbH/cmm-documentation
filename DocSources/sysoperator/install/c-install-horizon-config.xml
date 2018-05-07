@@ -80,6 +80,16 @@ if __name__ == "__main__":
     execute_from_command_line(sys.argv)</codeblock>
                 </li>
                 <li>
+                    <p>Edit your <codeph>monitoring_policy.json</codeph> file. The file is located in your plugin installation directory <codeph>&lt;monasca_ui_dir>/lib/python2.7/site-packages/monitoring/config/</codeph>.</p>
+                    <p>Access to the monitoring functionality in OpenStack Horizon must be restricted to the <codeph>monasca-user</codeph> role. For this purpose, the file content must be adapted as follows:</p>
+                    <codeblock>{
+    "monasca_user_role": "role:monasca-user",
+    "default": "@",
+    "monitoring:monitoring": "rule:monasca_user_role",
+    "monitoring:kibana_access": "rule:monasca_user_role"
+}</codeblock>
+                </li>
+                <li>
                     <p>If it is required to provide the Japanese version of the Horizon plugin, make the following preparation. </p>
                     <p>Example with <codeph>/opt/monasca-ui/</codeph> as plugin installation directory:</p>
                     <codeblock>cd /opt/monasca-ui/lib/python2.7/site-packages/monitoring/
