@@ -370,12 +370,12 @@ system_u:object_r:svirt_sandbox_file_t:s0:c335,c530 mon.backup</codeblock>
                                 <li>
                                         <p>Backup the database. To create the backup from your local machine, execute the following command:</p>
                                         <codeblock>docker exec &lt;container_id> mysqldump -u root --password=secretmysql 
- &lt;db_name> &gt; &lt;backup_dir>/&lt;name></codeblock>
+ &lt;db_name> &gt; &lt;backup_dir>/&lt;name> &amp;&amp; chmod 700 &lt;backup_dir>/&lt;name></codeblock>
                                         <p>Replace <codeph>&lt;container_id></codeph> by the ID of the container in which the database is running, <codeph>&lt;db_name></codeph> by the name of the database, <codeph>&lt;backup_dir></codeph> by the directory you have mounted for storing the backup file, and <codeph>&lt;name></codeph> by the name of the backup file to be created. </p>
                                         <p>For the <codeph>--password</codeph> parameter, check the <codeph>MYSQL_ROOT_PASSWORD</codeph> specified in the <codeph>docker-compose-metric.yml</codeph> file.</p>
                                         <p>The following example creates a backup of the <codeph>mon</codeph> database, running in container <codeph>07e9007e0be8</codeph>, in <codeph>/backup/mon.sql</codeph>:</p>
                                         <codeblock>docker exec 07e9007e0be8 mysqldump -u root --password=secretmysql 
- mon &gt; /backup/mon.sql</codeblock>
+ mon &gt; /backup/mon.sql &amp;&amp; chmod 700 /backup/mon.sql</codeblock>
                                 </li>
                                 <li>
                                         <p>Check whether the backup was created successfully.</p>
