@@ -45,7 +45,7 @@ ProxyPassReverse "/grafana" "http://&lt;grafana_host>:3000"</codeblock>
                     <codeblock>LoadModule proxy_module modules/mod_proxy.so
 LoadModule proxy_http_module modules/mod_proxy_http.so</codeblock>
                 </li>
-                <li><p>Restart the server from which you uninstalled the OpenStack Horizon plugin. </p>Example: <codeblock>systemctl restart httpd</codeblock></li>
+                <li><p>Restart the server from which you uninstalled the Horizon Plugin. </p>Example: <codeblock>systemctl restart httpd</codeblock></li>
             </ol>
         </section>
     </conbody>

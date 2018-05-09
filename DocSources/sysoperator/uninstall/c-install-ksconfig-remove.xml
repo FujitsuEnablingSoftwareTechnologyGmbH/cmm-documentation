@@ -13,6 +13,10 @@
             <p>To remove them from your OpenStack environment, proceed as follows:</p>
             <ol>
                 <li>
+                    <p>Provide the administrator credentials that are required to perform any action in OpenStack Keystone. For details, refer to <xref
+                            href="../install/c-install-ksconfig-admin.xml"/>.</p>
+                </li>
+                <li>
                     <p>Remove the OpenStack project that was used for the monitoring data retrieved for <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                         /> and your OpenStack services and servers.</p>

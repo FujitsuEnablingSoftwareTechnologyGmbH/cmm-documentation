@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+                         "concept.dtd" [<!ENTITY % entities PUBLIC '-//XDOC//ENTITIES//FujitsuUserDoc' 'entities.dtd'>
+]>
+<!-- Copyright FUJITSU ENABLING SOFTWARE TECHNOLOGY GMBH 2018 -->
+<concept id="concept_E8D43EB4494E41D2AB42D4A89396D1AB"
+                    xml:lang="en-us">
+    <title>Removing Services and Endpoints</title>
+    <conbody>
+        <section>
+            <p>For the Horizon Plugin, you defined a set of services and endpoints in OpenStack Keystone. </p>
+            <p>To remove the services and endpoints from your OpenStack environment, proceed as follows:</p>
+            <ol>
+                <li>
+                    <p>Provide the administrator credentials that are required to perform any action in OpenStack Keystone. For details, refer to <xref
+                            href="../install/c-install-ksconfig-admin.xml"/>.</p>
+                </li>
+                <li>
+                    <p>For removing the endpoints, you need to know the endpoint IDs: </p>
+                    <codeblock>openstack endpoint list --service monasca 
+openstack endpoint list --service logs</codeblock>
+                </li>
+                <li>
+                    <p>Remove the endpoints as follows:</p>
+                    <codeblock>openstack endpoint delete &lt;endpoint-id1> &lt;endpoint-id2></codeblock>
+                    <p>Replace <codeph>&lt;endpoint-id1></codeph> and <codeph>&lt;endpoint-id2></codeph> by the endpoints of the two services.</p>
+                </li>
+                <li>
+                    <p>Remove the services as follows:</p>
+                    <codeblock>openstack service delete monasca logs </codeblock>
+                </li>
+            </ol>
+        </section>
+    </conbody>
+</concept>

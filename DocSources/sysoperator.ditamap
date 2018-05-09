@@ -16,7 +16,7 @@
             <series>System Operator's Guide</series>
         </prodinfo>
         <bookid>
-            <edition>Version 2018-05-08</edition>
+            <edition>Version 2018-05-09</edition>
             <booknumber/>
         </bookid>
         <bookrights>
@@ -115,6 +115,7 @@
         <topicref format="dita" href="sysoperator/uninstall/c-install-horizon-uninst.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/uninstall/c-install-monservice-uninst.xml" type="concept"/>
         <topicref format="dita" href="sysoperator/uninstall/c-install-ksconfig-remove.xml" type="concept"/>
+        <topicref format="dita" href="sysoperator/uninstall/c-install-monasca-remove.xml" type="concept"/>
     </chapter>
     <appendix href="sysoperator/appendix/r-metricsintro.xml" type="reference">
         <topicref format="dita" href="sysoperator/appendix/r-metricsstandard.xml" type="reference"/>

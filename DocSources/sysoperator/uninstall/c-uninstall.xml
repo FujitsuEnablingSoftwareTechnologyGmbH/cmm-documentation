@@ -27,6 +27,9 @@
                 <li>
                     <p>Removing the projects, users, and roles prepared for the OpenStack integration.</p>
                 </li>
+                <li>
+                    <p>Removing the services and endpoints prepared for the Horizon Plugin in OpenStack Keystone.</p>
+                </li>
             </ol>
         </section>
     </conbody>
