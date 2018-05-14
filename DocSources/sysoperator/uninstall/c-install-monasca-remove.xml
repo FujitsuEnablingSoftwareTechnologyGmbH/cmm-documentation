@@ -17,8 +17,8 @@
                 </li>
                 <li>
                     <p>For removing the endpoints, you need to know the endpoint IDs: </p>
-                    <codeblock>openstack endpoint list --service monasca 
-openstack endpoint list --service logs</codeblock>
+                    <codeblock>openstack endpoint list | grep monasca
+openstack endpoint list | grep logs</codeblock>
                 </li>
                 <li>
                     <p>Remove the endpoints as follows:</p>
