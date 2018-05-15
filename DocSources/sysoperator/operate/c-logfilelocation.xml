@@ -34,7 +34,7 @@
         <section>
             <title>Data Retention for Docker Log Files</title>
             <p id="Log_data_is_stored_in_the_Ela_concept_conbody_section_p_1"
-                >By default, Docker log files are not rotated or removed once the containers are started. It is recommended to configure data retention for the log files so that they do not become too big. </p>
+                >By default, Docker log files are not rotated or removed once the containers are started. It is recommended that you configure data retention for the log files so that they do not become too big. </p>
             <p id="Log_data_is_stored_in_the_Ela_concept_conbody_section_p_1">You have the following options: </p>
             <p id="Log_data_is_stored_in_the_Ela_concept_conbody_section_p_1">
                 <ul>
