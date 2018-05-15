@@ -17,12 +17,10 @@
         </section>
         <section>
             <title>Monitoring Service Operator and OpenStack Operator</title>
-            <p>The Monitoring Service operator is responsible for monitoring <ph
-                    conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    />, the OpenStack operator is responsible for monitoring the OpenStack services and servers. Both must have access to the OpenStack platform as a user with the <codeph>monasca-user</codeph> role or any other role that is authorized to use the <ph
+            <p>A system operator who either takes on the role of the Monitoring Service operator or the role of the OpenStack operator must have access to the OpenStack platform as a user with the <codeph>monasca-user</codeph> role or any other role that is authorized to use the <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> functions. Additional roles are optional. </p>
-            <p>The Monitoring Service operator and the OpenStack operator must be assigned to the OpenStack project that was prepared for <ph
+            <p>The system operator must be assigned to the OpenStack project that was prepared for <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                     />, for example <codeph>monasca</codeph>.</p>
             <p>For details on the project, users, and roles prepared for <ph
@@ -34,7 +32,7 @@
             <p>An application operator who is responsible for monitoring a VM must have access to the OpenStack platform as a user with the <codeph>monasca-user</codeph> role or any other role that is authorized to use the <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> functions. Additional roles are optional. </p>
-            <p>The application operator must be assigned to the project for the VM to be monitored. </p>
+            <p>The application operator must be assigned to the project that owns the VM to be monitored. </p>
         </section>
     </conbody>
 </concept>
