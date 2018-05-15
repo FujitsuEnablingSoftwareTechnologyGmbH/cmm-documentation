@@ -26,10 +26,10 @@ sudo systemctl reset-failed monasca-agent</codeblock>
                 </li>
                 <li>
                     <p>Remove all directories and files created by the agent installer:</p>
-                    <codeblock>sudo rm -rf &lt;target_dir&gt;
-sudo rm -rf /etc/monasca
+                    <codeblock>sudo rm -rf /opt/monasca-agent/
+sudo rm -rf /etc/monasca/
 sudo rm -f /etc/sudoers.d/mon-agent</codeblock>
-                    <p>Replace <codeph>&lt;target_dir&gt;</codeph> by the directory in which the agent is installed, (e.g. <codeph>/opt/monasca-agent/</codeph>).</p>
+                    <!--p>Replace <codeph>&lt;target_dir&gt;</codeph> by the directory in which the agent is installed, (e.g. <codeph>/opt/monasca-agent/</codeph>).</p -->
                 </li>
                 <li>
                     <p>Remove the agent's log files and the log directory:</p>
