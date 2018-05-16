@@ -20,9 +20,9 @@
                 </li>
             </ul>
             <p>Depending on the Elasticsearch requirements resulting from your production environment, it is recommended that you customize the default Elasticsearch configuration provided by the Monitoring Service installation. For details on preparations related to Elasticsearch in productive use, refer to the <xref
-                    format="html" href="https://github.com/monasca/monasca-docker/blob/master/docs/README.md"
+                    format="html" href="https://github.com/monasca/monasca-docker/blob/master/docs/elasticsearch.md"
                     scope="external">
-                    <u><i>Monasca Docker documentation</i></u></xref>. <i>##Bug 14033 is pending, link must be updated.</i></p>
+                    <u><i>Monasca Docker documentation</i></u></xref>.</p>
             <note>
                 <p>It is recommended that you configure data retention for Docker container logs. Refer to <xref
                         href="../operate/c-logfilelocation.xml"/> for details.</p>
