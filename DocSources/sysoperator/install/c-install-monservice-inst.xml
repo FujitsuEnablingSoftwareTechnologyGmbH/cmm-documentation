@@ -95,7 +95,8 @@ MON_GRAFANA_ADMIN_PASSWORD=&lt;grafana_admin_password></codeblock>
                 </li>
                 <li>
                     <p>For enabling access to OpenStack Keystone, you have to specify credentials for the Metrics Agent and Log Agent, as well as for the Monitoring API and the Log API in the <codeph>Set the OpenStack Keystone credentials</codeph> section: </p>
-                    <codeblock># Credentials of the user used for authenticating the agents against Keystone
+                    <codeblock># Credentials of the user used for authenticating the agents 
+# against Keystone
 MON_AGENT_USERNAME=&lt;user_name>
 MON_AGENT_PASSWORD=&lt;password>
 MON_AGENT_PROJECT_NAME=&lt;project_name>
