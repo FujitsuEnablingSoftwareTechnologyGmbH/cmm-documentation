@@ -9,11 +9,13 @@
     <conbody>
         <section>
             <p>The agent installation automatically configures and activates a comprehensive set of metrics for monitoring your services and servers. The agent ships with additional metrics templates that you can manually adapt to your environment and activate for monitoring, if required.</p>
-            <p>For details on the complete set of metrics that is provided, refer to the <xref format="html"
-                    href="https://github.com/openstack/monasca-agent/blob/stable/pike/docs/Plugins.md" scope="external"
-                            ><u><i>Monasca documentation</i></u></xref>. For a list of the metrics that are supported by <ph
+            <p>For a list of the metrics that are supported by <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>, refer to <xref
-                    href="../appendix/r-metricsintro.xml"/>. </p>
+                    href="../appendix/r-metricsintro.xml"
+                    />. For information on the complete set of metrics that is provided by the Monasca project, refer to the <xref
+                    format="html" href="https://github.com/openstack/monasca-agent/blob/stable/pike/docs/Plugins.md"
+                    scope="external"
+                ><u><i>Monasca documentation</i></u></xref>. If you want to extend your monitoring environment to perform additional checks, contact your FUJITSU support organization.</p>
             <p>To activate additional metrics,  proceed as follows: </p>
             <ol>
                 <li>

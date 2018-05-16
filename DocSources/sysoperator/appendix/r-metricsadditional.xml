@@ -20,10 +20,12 @@
           conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
           />. For details on the complete set of metrics provided by the Monasca project, refer to the <xref
           format="html" href="https://github.com/openstack/monasca-agent/blob/stable/pike/docs/Plugins.md"
-          scope="external"><u><i>Monasca documentation</i></u></xref>.</p>
+          scope="external"
+        ><u><i>Monasca documentation</i></u></xref>. If you want to extend your monitoring environment to perform additional checks, contact your FUJITSU support organization.</p>
         </section>
         <section>
       <title>apache.yaml</title>
+      <p><i>##Input from ST pending</i></p>
       <p>Apache Web Server checks collect metrics from an Apache Web Server. If you want the installer to automatically configure the checks, update the <codeph>apache.cnf</codeph> file in the <codeph>root</codeph> directory before installing the agent.</p>
       <p>Example configuration for <codeph>apache.cnf</codeph>: </p>
       <codeblock>[client]
@@ -38,7 +40,7 @@ instances:
   apache_user: root
   apache_password: password</codeblock>
     </section>
-    <section><title>ceph.yaml</title><p>Ceph checks provide information on one or more Ceph clusters. The configuration file must specify the name of the cluster to be monitored. You can configure the agent so that only a specific set of metrics data is collected.</p>As a prerequisite, the <codeph>ceph-common</codeph> package must be installed. In addition, the user running the agent must have the permission to execute Ceph commands. For this purpose, assign the <codeph>monasca-agent</codeph> user to the <codeph>ceph</codeph> group, and give read permission to the group in the <codeph>ceph.client.admin.keyring</codeph> file:<codeblock>usermod -a -G ceph monasca-agent
+    <!-- section><title>ceph.yaml</title><p>Ceph checks provide information on one or more Ceph clusters. The configuration file must specify the name of the cluster to be monitored. You can configure the agent so that only a specific set of metrics data is collected.</p>As a prerequisite, the <codeph>ceph-common</codeph> package must be installed. In addition, the user running the agent must have the permission to execute Ceph commands. For this purpose, assign the <codeph>monasca-agent</codeph> user to the <codeph>ceph</codeph> group, and give read permission to the group in the <codeph>ceph.client.admin.keyring</codeph> file:<codeblock>usermod -a -G ceph monasca-agent
   chmod 0640 /etc/ceph/ceph.client.admin.keyring</codeblock><p>Alternatively, you can configure <codeph>sudo</codeph> access for the <codeph>monasca-agent</codeph> user.</p><p>Example configuration with <codeph>monasca-user</codeph> assigned to the <codeph>ceph</codeph> group:</p><codeblock>init_config:
  null
 instances:
@@ -48,7 +50,7 @@ instances:
     collect_stats_metrics: True
     collect_mon_metrics: True
     collect_osd_metrics: False
-    collect_pool_metrics: True</codeblock></section>
+    collect_pool_metrics: True</codeblock></section -->
     <section>
             <title>crash.yaml</title>
             <p>Crash checks provide information on system crash dumps. The default directory where the crash dumps are provided is <codeph>/var/crash</codeph>.</p>
@@ -59,7 +61,7 @@ instances:
 - built_by: Crash
   name: crash_stats</codeblock>
     </section>
-        <section>
+        <!-- section>
             <title>elastic.yaml</title>
             <p>Elastic checks gather metrics for Elasticsearch databases, such as the Log Database of <ph
           conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
@@ -74,7 +76,7 @@ instances:
   url: http://localhost:9200
   username: username
   password: password</codeblock>
-        </section>
+        </section -->
         <!--section>
             <title>haproxy.yaml</title>
             <p>HAProxy checks gather metrics from an HAProxy that is used as a load balancer for OpenStack services.</p>
@@ -137,7 +139,7 @@ instances:
     project_name: admin
     password: password</codeblock -->
         </section>
-    <section>
+    <!-- section>
       <title>http_metrics.yaml</title>
       <p>HTTP metrics checks retrieve metrics from any URL that returns a JSON response. Based on a list of URLs, the agent can dispatch an HTTP request and parse the desired metrics from the JSON response.</p>
       <p>The agent installer auto-detects applications and processes on the machine where the agent is installed. It saves the detected settings to the <codeph>http_metrics.yaml</codeph> configuration file, and the configuration is automatically provided in the <codeph>/etc/monasca/agent/conf.d/</codeph> directory.</p>
@@ -161,8 +163,8 @@ instances:
   - name: metrics.published
     path: meters/monasca.api.app.MetricService.metrics.published/count
     type: rate</codeblock>
-    </section>
-        <section>
+    </section -->
+        <!-- section>
             <title>kafka_consumer.yaml</title>
             <p>Kafka consumer checks gather metrics related to services consuming Kafka topics, such as the Persister or Notification Engine of <ph
           conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
@@ -193,8 +195,8 @@ instances:
   kafka_connect_str: 10.140.18.49:9092
   name: 10.140.18.49:9092
   per_partition: false  </codeblock>
-        </section>
-        <section>
+        </section -->
+        <!-- section>
             <title>kibana.yaml </title>
       <p>Kibana checks gather metrics from a Kibana server. The checks access the status endpoint of Kibana (<codeph>curl -XGET http://localhost:5601/api/status</codeph>). The configuration information in the <codeph>kibana.yaml</codeph> file corresponds to the Kibana configuration.  </p>
       <p>The agent installer automatically checks whether a Kibana server instance is installed on the machine where the agent is installed. If a Kibana server instance is detected, the corresponding settings are saved to the <codeph>kibana.yaml</codeph> configuration file, and the configuration is automatically provided in the <codeph>/etc/monasca/agent/conf.d/</codeph> directory. </p>
@@ -210,7 +212,7 @@ instances:
   - req_sec
   - resp_time_max
   - resp_time_avg</codeblock>
-        </section>
+        </section -->
         <section>
             <title>libvirt.yaml</title>
             <p>Libvirt checks provide metrics for virtual machines that run on a hypervisor. The checks provide a set of metrics for the owner of the virtual machine as well as for the owner of the hypervisor. For details on configuring the metrics, refer to the <xref
@@ -284,6 +286,7 @@ instances:
     </section>
         <section>
             <title>ntp.yaml</title>
+      <p><i>##Input from ST pending</i></p>
             <p>Network Time Protocol checks monitor the time offset between the NTP server and the host machine. The configuration file must specify the parameters that you want to monitor.</p>
             <p>Example configuration:</p>
             <codeblock>init_config: null
@@ -293,7 +296,7 @@ instances:
   version: 3
   timeout: 5</codeblock>
         </section>
-    <section>
+    <!-- section>
       <title>ovs.yaml</title>
       <p>Open vSwitch Neutron Router Monitoring checks monitor neutron virtual routers implemented with OpenVSwitch. The checks include rate metrics as well as health-related metrics.</p>
       <p>The agent installer automatically checks whether a neutron virtual router is installed on an OpenStack host. If so, the detected settings are saved to the <codeph>ovs.yaml</codeph> configuration file, and the configuration is automatically provided in the <codeph>/etc/monasca/agent/conf.d/</codeph> directory. </p>
@@ -313,7 +316,7 @@ instances:
   use_health_metrics: true
   use_rate_metrics: true
 instances: {}</codeblock>
-    </section>
+    </section -->
         <section>
             <title>postfix.yaml</title>
             <p>Postfix checks monitor a Postfix mail server. The agent installer automatically checks whether a Postfix mail server instance is installed on the machine where the agent is installed. If so, the detected settings are saved to the <codeph>postfix.yaml</codeph> configuration file, and the configuration is automatically provided in the <codeph>/etc/monasca/agent/conf.d/</codeph> directory. </p>
@@ -328,7 +331,7 @@ instances:
   - active
   - deferred</codeblock>
         </section>
-        <section>
+        <!-- section>
             <title>postgres.yaml</title>
             <p>Postgres checks gather metrics from a PostgreSQL database. </p>
       <p>For PostgreSQL checks, the <codeph>postgresql-devel</codeph> RPM package and the <codeph>psycopg2</codeph> Python package are required. The Python package must be installed in the virtualenv environment of the Metrics Agent. To install the packages in the default directory, execute the following command:</p>
@@ -347,7 +350,7 @@ instances:
     relations:
       - my_table
       - my_other_table</codeblock>
-        </section>
+        </section -->
         <section>
             <title>process.yaml</title>
             <p>Process checks verify that a defined set of processes is up and running. The processes can be identified by specifying the process name or a pattern match.</p>
@@ -375,6 +378,7 @@ instances:
         </section>
         <section>
             <title>rabbitmq.yaml</title>
+      <p><i>##Input from ST pending</i></p>
             <p>RabbitMQ checks gather metrics on nodes, exchanges, and queues from a RabbitMQ server. If you want the installer to automatically configure the checks, update the <codeph>/root/rabbitmq.cnf</codeph> file before installing the agent. </p>
       <p>Example configuration for <codeph>rabbitmq.cnf</codeph>: </p>
       <codeblock>[client]
@@ -396,7 +400,7 @@ instances:
     rabbitmq_user: user
     rabbitmq_pass: pass</codeblock>
         </section>
-        <section>
+        <!-- section>
             <title>zk.yaml</title>
             <p>ZooKeeper checks gather metrics on nodes and connections covered by ZooKeeper, a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. The check parses the result of the ZooKeeper <codeph>stat</codeph> admin command.</p>
       <p>The agent installer automatically checks whether a Zookeeper instance is installed on the machine where the agent is installed. If a Zookeper instance is detected, the corresponding settings are saved to the <codeph>zk.yaml</codeph> configuration file, and the configuration is automatically provided in the <codeph>/etc/monasca/agent/conf.d/</codeph> directory. </p>
@@ -408,6 +412,6 @@ instances:
   name: localhost
   port: 2181
   timeout: 3</codeblock>
-        </section>
+        </section -->
     </refbody>
 </reference>
