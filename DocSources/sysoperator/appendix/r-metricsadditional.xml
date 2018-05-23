@@ -7,11 +7,6 @@
                     xml:lang="en-us">
     <title>Additional Metrics </title>
     <refbody>
-    <!-- section>
-      <p><i><b>NOTE TO REVIEWERS: </b>: </i></p>
-      <p><i>The configuration examples are from 1.1. To be checked whether they must be replaced. </i></p>
-      <p><i>The additional metrics listed in this appendix correspond to those we had in 1.1. ceph.yaml was added. Any other yaml files to be added? Please check.</i></p>
-    </section -->
         <section>
             <p><ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
         /> supports the additional metrics described below for monitoring specific servers and services. The metrics are grouped by metrics types. Each metrics type references a set of related metrics.</p>
@@ -25,9 +20,8 @@
         </section>
         <section>
       <title>apache.yaml</title>
-      <p><i>##Input from ST pending</i></p>
-      <p>Apache Web Server checks collect metrics from an Apache Web Server. If you want the installer to automatically configure the checks, update the <codeph>apache.cnf</codeph> file in the <codeph>root</codeph> directory before installing the agent.</p>
-      <p>Example configuration for <codeph>apache.cnf</codeph>: </p>
+      <p>Apache Web Server checks collect metrics from an Apache Web Server. If you want the installer to automatically configure the checks, update the <codeph>apache.cnf</codeph> file in the <codeph>root</codeph> directory before installing the agent. </p>
+      <p>Example configuration for <codeph>apache.cnf</codeph> with the URL of the server, the user name, and the password: </p>
       <codeblock>[client]
 url=http://localhost/server-status?auto
 user=root
@@ -38,7 +32,12 @@ password=password</codeblock>
 instances:
 - apache_status_url: http://localhost/server-status?auto
   apache_user: root
-  apache_password: password</codeblock>
+  apache_password: password
+  #dimensions:
+      #dim1: value1</codeblock>
+      <note othertype="note">
+        <p>To collect the complete set of metrics from your Apache Web Server, it might additionally be required to update your Apache configuration. Check whether changes resulting from an update are also required in the <codeph>apache.yaml</codeph> file. </p>
+      </note>
     </section>
     <!-- section><title>ceph.yaml</title><p>Ceph checks provide information on one or more Ceph clusters. The configuration file must specify the name of the cluster to be monitored. You can configure the agent so that only a specific set of metrics data is collected.</p>As a prerequisite, the <codeph>ceph-common</codeph> package must be installed. In addition, the user running the agent must have the permission to execute Ceph commands. For this purpose, assign the <codeph>monasca-agent</codeph> user to the <codeph>ceph</codeph> group, and give read permission to the group in the <codeph>ceph.client.admin.keyring</codeph> file:<codeblock>usermod -a -G ceph monasca-agent
   chmod 0640 /etc/ceph/ceph.client.admin.keyring</codeblock><p>Alternatively, you can configure <codeph>sudo</codeph> access for the <codeph>monasca-agent</codeph> user.</p><p>Example configuration with <codeph>monasca-user</codeph> assigned to the <codeph>ceph</codeph> group:</p><codeblock>init_config:
@@ -92,18 +91,29 @@ instances:
         </section -->
         <section>
       <title>host_alive.yaml</title>
-      <p>Host alive checks perform checks on a remote host to determine whether it is alive. The checks use ping (ICMP) or SSH.</p>
+      <p>Host alive checks perform checks on a remote host to determine whether it is alive. The checks use either ping (ICMP) or SSH.</p>
       <p>SSH checks provide extensive tests on the availability of remote host machines. They check the banner that is returned. A remote host machine may still respond to a ping request but may not return an SSH banner. Therefore it is recommended that you use SSH checks instead of ping checks.</p>
       <p>The agent installer automatically creates the <codeph>host_alive.yaml</codeph> configuration file in the <codeph>/etc/monasca/agent/conf.d/</codeph> directory. If there are applications and processes running on the machine where the agent is installed, you have to specify the configuration information in the <codeph>host_alive.yaml</codeph> file after the installation.</p>
       <p>Example configuration:</p>
       <codeblock>init_config:
-    ping_timeout: 1
-    ssh_port: 22
-    ssh_timeout: 0.5
+  ssh_port:       22
+  ssh_timeout:    0.5
+  ping_timeout:   1
+
 instances:
--   alive_test: ssh
-    host_name: 10.140.18.53
-    name: openstack</codeblock>
+# - name: ssh to host1
+#   host_name:     host1.domain.net
+#   alive_test:    ssh
+#   dimensions:
+#     dim1: value1
+
+# - name: ping host1
+#   host_name:     10.140.16.153
+#   alive_test:    ping
+
+- name: ssh to 192.168.0.221
+  host_name:     192.168.0.221
+  alive_test:    ssh</codeblock>
     </section>
         <section>
             <title>http_check.yaml</title>
@@ -112,14 +122,23 @@ instances:
             <p>Example configuration:</p>
       <codeblock>init_config: null
 instances:
-- built_by: MonAPI
+- built_by: Cinder
   dimensions:
-    component: monasca-api
-    service: monitoring
-  include_content: false
-  name: monitoring-monasca-api healthcheck
-  timeout: 5
-  url: http://localhost:8081/healthcheck</codeblock>
+    service: block-storage
+  collect_response_time: true
+  match_pattern: .*version=1.*
+  name: block-storage-api
+  timeout: 10
+  url: http://localhost:8776/v2
+  use_keystone: true
+- built_by: Glance
+  dimensions:
+    service: image-service
+  match_pattern: .*v2.0.*
+  name: image-service-api
+  timeout: 10
+  url: http://localhost:9292
+  use_keystone: true</codeblock>
             <!-- codeblock>init_config: null
 instances:
 - built_by: MonAPI
@@ -217,7 +236,7 @@ instances:
             <title>libvirt.yaml</title>
             <p>Libvirt checks provide metrics for virtual machines that run on a hypervisor. The checks provide a set of metrics for the owner of the virtual machine as well as for the owner of the hypervisor. For details on configuring the metrics, refer to the <xref
           format="html"
-          href="https://github.com/openstack/monasca-agent/blob/stable/pike/docs/Libvirt.md#mapping-metrics-to-configuration-parameters"
+          href="https://github.com/openstack/monasca-agent/blob/stable/pike/docs/Libvirt.md"
           scope="external"><u><i>Monasca documentation</i></u></xref>. </p>
       <p>Check the <codeph>keystone_authtoken</codeph> section in the <codeph>nova.conf</codeph> file for the <codeph>password</codeph>, <codeph>username</codeph>, and <codeph>auth_url</codeph> configuration. </p>
       <p>The user specified in the configuration file must be assigned the <codeph>admin</codeph> role.</p>
@@ -229,28 +248,22 @@ instances:
     project_name: services
     username: nova
     auth_url: 'http://&lt;keystone_ip>:35357'
-    region_name: 'region1'
     endpoint_type: 'publicURL'
     cache_dir: /dev/shm
     nova_refresh: 14400
     vm_probation: 300
     ping_check: sudo -n /sbin/ip exec NAMESPACE 
      /usr/bin/fping -n -c1 -t250 -q
-    max_ping_concurrency: 8
     alive_only: false
     metadata:
     - scale_group
     customer_metadata:
     - scale_group
-    network_use_bits: false
     vm_cpu_check_enable: True
     vm_disks_check_enable: True
+    vm_extended_disks_check_enable: True
     vm_network_check_enable: True
     vm_ping_check_enable: True
-    vm_extended_disks_check_enable: False
-    host_aggregate_re: None
-    disk_collection_period: 0
-    vnic_collection_period: 0
 instances:
 - {}</codeblock>
         </section>
@@ -275,7 +288,7 @@ password=password</codeblock>
 instances:
 - built_by: MySQL
   name: localhost
-  pass: ''
+  pass: password
   port: 3306
   server: localhost
   sock: /var/lib/mysql/mysql.sock
@@ -286,7 +299,6 @@ instances:
     </section>
         <section>
             <title>ntp.yaml</title>
-      <p><i>##Input from ST pending</i></p>
             <p>Network Time Protocol checks monitor the time offset between the NTP server and the host machine. The configuration file must specify the parameters that you want to monitor.</p>
             <p>Example configuration:</p>
             <codeblock>init_config: null
@@ -294,7 +306,12 @@ instances:
 - host: pool.ntp.org
   port: ntp
   version: 3
-  timeout: 5</codeblock>
+  timeout: 5
+# dimensions:
+#     dim1: value1</codeblock>
+      <note othertype="note">
+        <p>To collect the complete set of metrics from the NTP server and the host machine, it might additionally be required to update your NTP server configuration. Check whether changes resulting from an update are also required in the <codeph>ntp.yaml</codeph> file.</p>
+      </note>
         </section>
     <!-- section>
       <title>ovs.yaml</title>
@@ -378,7 +395,6 @@ instances:
         </section>
         <section>
             <title>rabbitmq.yaml</title>
-      <p><i>##Input from ST pending</i></p>
             <p>RabbitMQ checks gather metrics on nodes, exchanges, and queues from a RabbitMQ server. If you want the installer to automatically configure the checks, update the <codeph>/root/rabbitmq.cnf</codeph> file before installing the agent. </p>
       <p>Example configuration for <codeph>rabbitmq.cnf</codeph>: </p>
       <codeblock>[client]
@@ -393,12 +409,33 @@ exchanges=nova,cinder,glance,keystone,neutron,heat</codeblock>
             <p>Example configuration:</p>
             <codeblock>init_config: null
 instances:
-  - exchanges: [nova, cinder, glance, keystone, neutron, heat]
-    nodes: [rabbit@devstack]
-    queues: [conductor]
-    rabbitmq_api_url: http://localhost:15672/api
-    rabbitmq_user: user
-    rabbitmq_pass: pass</codeblock>
+-  rabbitmq_api_url: http://localhost:15672/api/
+   rabbitmq_user: guest
+   rabbitmq_pass: guest
+   nodes:
+    - rabbit@localhost
+    - rabbit2@domain
+   queues:
+    - queue1
+    - queue2
+   whitelist:
+     queue:
+      - message_stats/deliver_details/rate
+      - message_stats/publish_details/rate
+      - message_stats/redeliver_details/rate
+     exchange:
+      - message_stats/publish_out
+      - message_stats/publish_out_details/rate
+      - message_stats/publish_in
+      - message_stats/publish_in_details/rate
+     node:
+      - fd_used
+      - mem_used
+      - run_queue
+      - sockets_used</codeblock>
+      <note othertype="note">
+        <p>To collect the complete set of metrics from the RabbitMQ server, it might additionally be required to update your RabbitMQ server configuration. Check whether changes resulting from an update are also required in the <codeph>rabbitmq.yaml</codeph> file.</p>
+      </note>
         </section>
         <!-- section>
             <title>zk.yaml</title>
