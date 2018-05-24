@@ -69,11 +69,11 @@
             <title>Data Visualization and Analysis</title>
             <p>All <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> user groups work with a graphical user interface that is seamlessly integrated into their cloud infrastructure. Based on OpenStack Horizon, the user interface enables access to all monitoring functionality and the resulting large-scale monitoring data. </p>
-            <p>A convenient dashboard visualizes the health and status of the cloud resources, for example:</p>
+            <p>Convenient dashboards visualize the health and status of the cloud resources, for example:</p>
             <fig>
                 <image alt="grafana-os.png" height="260" href="../../images/grafana-os.png" width="435"/>
             </fig>
-            <p>The dashboard  allows <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
+            <p>The dashboards allow <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> users to experiment with many ways of analyzing the performance of their cloud resources in real-time. They cannot only view but also share and explore visualizations of their monitoring data.</p>
         </section>
         <section>
