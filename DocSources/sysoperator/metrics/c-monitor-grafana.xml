@@ -14,13 +14,13 @@
                 /> ships with preconfigured metrics dashboards that allow you to instantly monitor your enviroment:</p>
             <ul>
                 <li>
-                    <p>The <uicontrol>OpenStack Services</uicontrol> dashboard visualizes the metrics data from your OpenStack nodes. </p>
-                </li>
-                <li>
-                    <p>The <uicontrol>CMM</uicontrol> dashboard visualizes the metrics data from the node on which the Monitoring Service is installed.</p>
+                    <p>The <uicontrol>OpenStack Services</uicontrol> dashboard visualizes the metrics data from your OpenStack node. </p>
                 </li>
                 <li>
                     <p>The <uicontrol>OpenStack Hypervisor</uicontrol> dashboard visualizes the metrics data from your OpenStack hypervisor and the aggregated metrics data from the VMs running on the hypervisor.</p>
+                </li>
+                <li>
+                    <p>The <uicontrol>CMM</uicontrol> dashboard visualizes the metrics data from the node on which the Monitoring Service is installed.</p>
                 </li>
             </ul>
             <p>You are authorized to view the metrics data that is displayed. </p>
@@ -33,7 +33,7 @@
         <section
                     id="Preconfigured_Dashboard_OS_concept_conbody_section_2">
             <title>OpenStack Services</title>
-            <p>To view the metrics data on the OpenStack services and the nodes on which they are deployed, select the <uicontrol>OpenStack Services</uicontrol> dashboard from the <uicontrol>Home</uicontrol> menu located at the top part of the Grafana window. </p>
+            <p>To view the metrics data on the OpenStack services and the node on which they are deployed, select the <uicontrol>OpenStack Services</uicontrol> dashboard from the <uicontrol>Home</uicontrol> menu located at the top part of the Grafana window. </p>
             <fig>
                 <image
                     alt="grafana-os.png" height="260"
@@ -59,24 +59,23 @@
         </section>
         <section id="Preconfigured_Dashboard_Hypervisor">
             <title>OpenStack Hypervisor</title>
-            <p>To view the metrics data on <ph conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
-                    /> itself, select the <uicontrol>OpenStack Hypervisor</uicontrol> dashboard from the <uicontrol>Home</uicontrol> menu located at the top part of the Grafana window. </p>
+            <p>To view the metrics data on your OpenStack hypervisor and the aggregated metrics data from the VMs running on the hypervisor, select the <uicontrol>OpenStack Hypervisor</uicontrol> dashboard from the <uicontrol>Home</uicontrol> menu located at the top part of the Grafana window. </p>
             <fig>
                 <image alt="grafana-cmm.png" height="260" href="../../images/grafana-hypervisor.png" width="435"/>
             </fig>
             <p>The preconfigured dashboard shows the following: </p>
             <ul>
                 <li>
-                    <p>Aggregated metrics from the VMs: The percentage of time the CPU is used by the VMs in total (<codeph>vm.cpu.utilization_perc</codeph>), <codeph>nova.vm.disk.total_allocated_gb</codeph></p>
+                    <p>Aggregated metrics: The number of megabytes of total memory allocated to the VMs (<codeph>nova.vm.mem.total_allocated_mb</codeph>), the number of gigabytes of total disk space allocated to the VMs (<codeph>nova.vm.disk.total_allocated_gb</codeph>), and the total number of CPUs allocated to the VMs (<codeph>nova.vm.cpu.total_allocated</codeph>).</p>
                 </li>
                 <li>
-                    <p>CPU and memory usage:#</p>
+                    <p>CPU and memory usage: The percentage of time the CPU is used by the VMs (<codeph>vm.cpu.utilization_perc</codeph>), the number of megabytes of memory used by the VMs (<codeph>vm.mem.used_mb</codeph>), the number of megabytes of free memory (<codeph>vm.mem.free_mb</codeph>), and the number of megabytes of total memory allocated to the VMs (<codeph>vm.mem.total_mb</codeph>).</p>
                 </li>
                 <li>
-                    <p>Network usage: #</p>
+                    <p>Network usage: The number of network bytes received and sent per second (<codeph>vm.net.in_bytes_sec</codeph> and <codeph>vm.net.out_bytes_sec</codeph>), as well as the total number of network bytes received and sent (<codeph>vm.net.in_bytes</codeph> and <codeph>vm.net.out_bytes</codeph>). </p>
                 </li>
                 <li>
-                    <p>Disk I/O: ##</p>
+                    <p>Disk I/O: The number of bytes written per second (<codeph>vm.io.write_bytes_sec</codeph>), and the number of bytes read per second (<codeph>vm.io.read_bytes_sec</codeph>). </p>
                 </li>
             </ul>
         </section>
