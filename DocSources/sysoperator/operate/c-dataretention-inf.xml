@@ -23,8 +23,8 @@
                 </li>
                 <li>
                     <p>Stop the <codeph>influxdb</codeph> service. For this purpose, run <codeph>docker-compose stop</codeph> as follows: </p>
-                    <codeblock>docker-compose -f docker-compose-metric.yml -f 
- docker-compose-log.yml stop influxdb</codeblock>
+                    <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml stop influxdb</codeblock>
                 </li>
                 <li>
                     <p>Open the <codeph>.env</codeph> file, and update the data retention parameter as required. </p>
@@ -34,8 +34,8 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
                     <p>Start the <codeph>influxdb</codeph> service. For this purpose, run <codeph>docker-compose up</codeph> as follows: </p>
-                    <codeblock>docker-compose -f docker-compose-metric.yml -f 
- docker-compose-log.yml up -d influxdb</codeblock>
+                    <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml up -d influxdb</codeblock>
                 </li>
             </ol>
             <p>As soon as the <codeph>influxdb</codeph> service is up and running, your new data retention period takes effect. </p>
@@ -56,8 +56,8 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
                     <p>Connect to InfluxDB as follows: </p>
-                    <codeblock># docker exec -it &lt;container_id> /bin/sh
-# influx</codeblock>
+                    <codeblock>docker exec -it &lt;container_id> /bin/sh
+influx</codeblock>
                     <p>Replace <codeph>&lt;container_id></codeph> by the ID or name of the container in which the database is running:</p>
                     <p>The output of this command is, for example, as follows: </p>
                     <p>
@@ -68,19 +68,20 @@ InfluxDB shell version: 1.3.3</codeblock>
                 <li id="Connect_to_the_InfluxDB_datab_concept_conbody_section_ol_l"
                         >Connect to the InfluxDB database of <ph
                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> (<codeph>mon</codeph>): <p>
-                        <codeblock>&gt; show databases
+                        <codeblock>show databases
 name: databases
 name
 ----
 mon
 _internal
 
-&gt; use mon
+use mon
 Using database mon</codeblock>
                     </p></li>
                 <li id="To_update_your_data_retention_concept_conbody_section_ol_l">
                     <p>To update your data retention policy, use the <codeph>ALTER RETENTION POLICY</codeph> command:</p>
-                    <codeblock>ALTER RETENTION POLICY &lt;policy_name&gt; ON &lt;db_name&gt; DURATION &lt;duration&gt; [SHARD DURATION &lt;shard_duration&gt;] [DEFAULT]</codeblock>
+                    <codeblock>ALTER RETENTION POLICY &lt;policy_name&gt; ON &lt;db_name&gt; \
+  DURATION &lt;duration&gt; [SHARD DURATION &lt;shard_duration&gt;] [DEFAULT]</codeblock>
                     <p>Replace <codeph>&lt;policy_name&gt;</codeph> by the name of the retention policy you define. Multiple policies can be defined, one of them is set as default. <codeph>default_mon</codeph> is the name of the policy that is initially installed by <ph
                             conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/>. </p>
                     <p>Replace <codeph>&lt;db_name&gt;</codeph> by the name of your database.</p>
@@ -104,7 +105,8 @@ Using database mon</codeblock>
                     <p>To deviate from this default, you can replace <codeph>&lt;shard_duration&gt;</codeph> by a different time span for shard groups. You can use the same options as for the database retention period, except for <codeph>INF</codeph>.</p>
                     <p>Use <codeph>[DEFAULT]</codeph> to set the new retention policy as the default retention policy for your database.</p>
                     <p>Example for deleting data if it is older than 30 days:</p>
-                    <codeblock>ALTER RETENTION POLICY default_mon my_policy ON mon DURATION 30d DEFAULT </codeblock>
+                    <codeblock>ALTER RETENTION POLICY default_mon \
+  my_policy ON mon DURATION 30d DEFAULT </codeblock>
                 </li>
             </ol>
             <p>For an introduction to the InfluxDB command line interface, refer to the <xref format="html"

@@ -48,7 +48,7 @@ openstack role create monasca-agent</codeblock>
             <p>Example:</p>
             <p>
                 <codeblock>openstack user create --project monasca \
---password password monasca-agent</codeblock>
+  --password password monasca-agent</codeblock>
             </p>
         </section>
         <section>

@@ -21,20 +21,20 @@
                                 <li>
                                         <p>Make sure that the host name specified for the <codeph>nova-compute</codeph> service is specified as value for the <codeph>hostname</codeph> parameter in the <codeph>agent.yaml</codeph> configuration file.</p>
                                         <p>For this purpose, check the host name for the <codeph>nova-compute</codeph> service in your environment first. You can execute the following command: </p>
-                                        <codeblock># nova service-list</codeblock>
+                                        <codeblock>nova service-list</codeblock>
                                         <p>The <codeph>Host</codeph> column in the <codeph>nova-compute</codeph> line shows the host name for the <codeph>nova-compute</codeph> service in your environment.</p>
                                 </li>
                                 <li>
                                         <p>To check the <codeph>hostname</codeph> parameter in the <codeph>agent.yaml</codeph> configuration file, open the file with your favorite editor.</p>
                                         <p>Example:</p>
-                                        <codeblock>sudo vim /etc/monasca/agent/agent.yaml</codeblock>
+                                        <codeblock>vim /etc/monasca/agent/agent.yaml</codeblock>
                                 </li>
                                 <li>
                                         <p>If the <codeph>hostname</codeph> parameter does not correspond to the host name for the <codeph>nova-compute</codeph> service in your environment (see Step 2), update it.</p>
                                 </li>
                                 <li>
                                         <p>To start the agent again, execute the following command:</p>
-                                        <codeblock>sudo systemctl start monasca-agent	</codeblock>
+                                        <codeblock>systemctl start monasca-agent	</codeblock>
                                 </li>
                         </ol>
             <p>As soon as the agent is started again, it is available with the updated configuration settings. The application operators can instantly use the libvirt metrics for monitoring.</p>

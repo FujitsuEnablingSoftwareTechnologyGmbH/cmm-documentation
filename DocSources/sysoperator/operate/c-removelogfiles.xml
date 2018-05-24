@@ -33,8 +33,8 @@
                     </li>
                     <li>
                         <p>To execute <codeph>curl</codeph> commands in the <codeph>elasticsearch</codeph> container, run <codeph>docker-compose exec</codeph> as follows:</p>
-                        <codeblock>docker-compose -f docker-compose-metric.yml -f 
- docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
+                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
                     </li>
                     <li>
                         <p>Make sure that the data you want to delete exists by executing the following command: </p>

@@ -23,19 +23,18 @@
                 </li>
                 <li>
                     <p>To stop the agent, execute the following command:</p>
-                    <codeblock>sudo systemctl stop monasca-agent</codeblock>
+                    <codeblock>systemctl stop monasca-agent</codeblock>
                 </li>
                 <li>
                     <p>Copy the required template file.</p>
                     <p>Example:</p>
-                    <codeblock>sudo cp -p \
- /opt/monasca-agent/share/monasca/agent/conf.d/rabbitmq.yaml.example \
- /etc/monasca/agent/conf.d/rabbitmq.yaml</codeblock>
+                    <codeblock>cp -p /opt/monasca-agent/share/monasca/agent/conf.d/*.yaml.example \
+  /etc/monasca/agent/conf.d/*.yaml</codeblock>
                 </li>
                 <li>
                     <p>Open the template file with your favorite editor.</p>
                     <p>Example:</p>
-                    <codeblock>sudo vim /etc/monasca/agent/conf.d/rabbitmq.yaml</codeblock>
+                    <codeblock>vim /etc/monasca/agent/conf.d/rabbitmq.yaml</codeblock>
                 </li>
                 <li>
                     <p>Adapt the configuration to your environment. For configuration examples, refer to <xref
@@ -43,7 +42,7 @@
                 </li>
                 <li>
                     <p>To start the agent again, execute the following command:</p>
-                    <codeblock>sudo systemctl start monasca-agent</codeblock>
+                    <codeblock>systemctl start monasca-agent</codeblock>
                 </li>
             </ol>
             <p>The activated metrics can instantly be used by the agent for retrieving monitoring data.</p>

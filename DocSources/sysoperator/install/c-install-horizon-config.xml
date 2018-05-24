@@ -39,13 +39,13 @@ ProxyPassReverse "/grafana" "http://&lt;grafana_host>:3000"</codeblock><p>Replac
                     <p>To integrate the Monitoring Service with the OpenStack Horizon service, create links pointing to the Horizon Plugin.</p>
                     <p>Example with <codeph>/opt/monasca-ui/</codeph> as plugin installation directory:</p>
                     <codeblock>ln -s /opt/monasca-ui/lib/python2.7/site-packages/
- monitoring/enabled/_50_admin_add_monitoring_panel.py \
-/usr/share/openstack-dashboard/openstack_dashboard/
- local/enabled/_50_admin_add_monitoring_panel.py
+  monitoring/enabled/_50_admin_add_monitoring_panel.py \
+  /usr/share/openstack-dashboard/openstack_dashboard/
+  local/enabled/_50_admin_add_monitoring_panel.py
 
 ln -s /opt/monasca-ui/lib/python2.7/site-packages/
- monitoring/conf/monitoring_policy.json \
-/etc/openstack-dashboard/monitoring_policy.json</codeblock>
+  monitoring/conf/monitoring_policy.json \
+  /etc/openstack-dashboard/monitoring_policy.json</codeblock>
                 </li>
                 <li>
                     <p>Append the virtual env libraries of the Horizon Plugin to the system path of the OpenStack Horizon service. For this purpose, two files must be edited. </p>
@@ -87,8 +87,9 @@ if __name__ == "__main__":
                 <li>
                     <p>If it is required to provide the Japanese version of the Horizon Plugin, make the following preparation. </p>
                     <p>Example with <codeph>/opt/monasca-ui/</codeph> as plugin installation directory:</p>
-                    <codeblock>cd /opt/monasca-ui/lib/python2.7/site-packages/monitoring/
-/opt/monasca-ui/lib/python2.7/site-packages/django/bin/django-admin.py compilemessages -l ja</codeblock>
+                    <codeblock>cd /opt/monasca-ui/lib/python2.7/site-packages/monitoring/ \
+  /opt/monasca-ui/lib/python2.7/site-packages/ 
+  django/bin/django-admin.py compilemessages -l ja</codeblock>
                 </li>
                 <li>
                     <p>Restart the server on which the OpenStack Horizon service is running.</p>

@@ -16,7 +16,7 @@
                 <li>
                     <p>Remove the links pointing to the Horizon Plugin:</p>
                     <codeblock>rm /usr/share/openstack-dashboard/openstack_dashboard/
- local/enabled/_50_admin_add_monitoring_panel.py
+  local/enabled/_50_admin_add_monitoring_panel.py
 rm /etc/openstack-dashboard/monitoring_policy.json</codeblock>
                 </li>
                 <li>

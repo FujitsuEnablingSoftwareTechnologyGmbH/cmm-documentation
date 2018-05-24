@@ -18,26 +18,26 @@
                 </li>
                 <li>
                     <p>Stop the <codeph>monasca-agent</codeph> service and delete all related files: </p>
-                    <codeblock>sudo systemctl stop monasca-agent   
-sudo systemctl disable monasca-agent
-sudo rm -f /etc/systemd/system/monasca-agent.service
-sudo systemctl daemon-reload
-sudo systemctl reset-failed monasca-agent</codeblock>
+                    <codeblock>systemctl stop monasca-agent   
+systemctl disable monasca-agent
+rm -f /etc/systemd/system/monasca-agent.service
+systemctl daemon-reload
+systemctl reset-failed monasca-agent</codeblock>
                 </li>
                 <li>
                     <p>Remove all directories and files created by the agent installer:</p>
-                    <codeblock>sudo rm -rf /opt/monasca-agent/
-sudo rm -rf /etc/monasca/
-sudo rm -f /etc/sudoers.d/mon-agent</codeblock>
+                    <codeblock>rm -rf /opt/monasca-agent/
+rm -rf /etc/monasca/
+rm -f /etc/sudoers.d/mon-agent</codeblock>
                     <!--p>Replace <codeph>&lt;target_dir&gt;</codeph> by the directory in which the agent is installed, (e.g. <codeph>/opt/monasca-agent/</codeph>).</p -->
                 </li>
                 <li>
                     <p>Remove the agent's log files and the log directory:</p>
-                    <codeblock>sudo rm -rf /var/log/monasca-agent/</codeblock>
+                    <codeblock>rm -rf /var/log/monasca-agent/</codeblock>
                 </li>
                 <li>
                     <p>Remove the <codeph>mon-agent</codeph> user. Use <codeph>-r</codeph> to also remove the <codeph>mon-agent</codeph> user's home directory. </p>
-                    <codeblock>sudo userdel -r mon-agent</codeblock>
+                    <codeblock>userdel -r mon-agent</codeblock>
                 </li>
             </ol>
         </section>

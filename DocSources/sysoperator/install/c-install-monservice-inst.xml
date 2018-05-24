@@ -172,8 +172,8 @@ MON_INFLUXDB_RETENTION=30d</codeblock>
                 </li>
                 <li>
                     <p>Run <codeph>docker-compose up</codeph>.</p>
-                    <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml up -d</codeblock>
+                    <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml up -d</codeblock>
                     <note othertype="note">
                         <p>Make sure that the OpenStack Keystone service is up when running <codeph>docker-compose up</codeph>. Use <codeph>-d</codeph> to start the containers in the background and leave them running when the command exits. Refer to the <xref
                                 format="html" href="https://docs.docker.com/v1.13/compose/reference/up/" scope="external">

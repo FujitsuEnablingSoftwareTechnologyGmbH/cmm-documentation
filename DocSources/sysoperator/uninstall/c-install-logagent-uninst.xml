@@ -18,23 +18,23 @@
                 </li>
                 <li>
                     <p>Stop the <codeph>monasca-log-agent</codeph> service and delete all related files: </p>
-                    <codeblock>sudo systemctl stop monasca-log-agent
-sudo systemctl disable monasca-log-agent
-sudo rm -f /etc/systemd/system/monasca-log-agent.service
-sudo systemctl daemon-reload
-sudo systemctl reset-failed monasca-log-agent</codeblock>
+                    <codeblock>systemctl stop monasca-log-agent
+systemctl disable monasca-log-agent
+rm -f /etc/systemd/system/monasca-log-agent.service
+systemctl daemon-reload
+systemctl reset-failed monasca-log-agent</codeblock>
                 </li>
                 <li>
                     <p>Remove all directories and files created by the agent installer:</p>
-                    <codeblock>sudo rm -rf &lt;target_dir&gt;</codeblock>
+                    <codeblock>rm -rf &lt;target_dir&gt;</codeblock>
                     <p>Replace <codeph>&lt;target_dir&gt;</codeph> by the directory in which the agent is installed, (e.g. <codeph>/opt/monasca-log-agent/</codeph>). </p>
                 </li>
                 <li>
                     <p>Remove the agent's log files and the log directory: </p>
-                    <codeblock>sudo rm -rf /var/log/monasca-log-agent/</codeblock>
+                    <codeblock>rm -rf /var/log/monasca-log-agent/</codeblock>
                 </li>
                 <li>Remove the Logstash script used for defining the position of monitored log files:<p>
-                        <codeblock>sudo rm -f /etc/profile.d/logstash_sincedb_dir.sh</codeblock>
+                        <codeblock>rm -f /etc/profile.d/logstash_sincedb_dir.sh</codeblock>
                     </p></li>
             </ol>
         </section>

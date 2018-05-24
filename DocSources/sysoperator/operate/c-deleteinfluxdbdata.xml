@@ -65,8 +65,8 @@
                     </li>
                     <li>
                         <p>Connect to InfluxDB as follows: </p>
-                        <codeblock># docker exec -it &lt;container_id> /bin/sh
-# influx</codeblock>
+                        <codeblock>docker exec -it &lt;container_id> /bin/sh
+influx</codeblock>
                         <p>Replace <codeph>&lt;container_id></codeph> by the ID or name of the container in which the database is running:</p>
                         <p>The output of this command is, for example, as follows: </p>
                         <codeblock>Connected to http://localhost:8086 version 1.3.3
@@ -76,14 +76,14 @@ InfluxDB shell version: 1.3.3</codeblock>
                         <p>Connect to the InfluxDB database of <ph
                                 conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                 /> (<codeph>mon</codeph>): </p>
-                        <codeblock>&gt; show databases
+                        <codeblock>show databases
 name: databases
 name
 ----
 mon
 _internal
 
-&gt; use mon
+use mon
 Using database mon</codeblock>
                     </li>
                     <li>

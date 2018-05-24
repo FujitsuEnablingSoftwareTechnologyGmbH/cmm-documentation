@@ -21,12 +21,12 @@
                 </li>
                 <li>
                     <p>To stop the agent, execute the following command:</p>
-                    <codeblock>sudo systemctl stop monasca-log-agent</codeblock>
+                    <codeblock>systemctl stop monasca-log-agent</codeblock>
                 </li>
                 <li>
                     <p>Open the agent configuration file with your favorite editor.</p>
                     <p>Example:</p>
-                    <codeblock>sudo vim /opt/monasca-log-agent/conf/agent.conf</codeblock>
+                    <codeblock>vim /opt/monasca-log-agent/conf/agent.conf</codeblock>
                 </li>
                 <li>
                     <p>In the <codeph>input</codeph> section, delete the file block for the log data you no longer want to monitor.</p>
@@ -37,7 +37,7 @@
                 </li>
                 <li>
                     <p>To start the agent again, execute the following command:</p>
-                    <codeblock>sudo systemctl start monasca-log-agent</codeblock>
+                    <codeblock>systemctl start monasca-log-agent</codeblock>
                 </li>
             </ol>
         </section>

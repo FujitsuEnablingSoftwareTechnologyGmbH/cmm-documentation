@@ -19,8 +19,8 @@
                 </li>
                 <li>
                     <p>To stop all agents and services and remove the containers, the instances of the docker images, and any volumes you mounted for CMM, run <codeph>docker-compose down</codeph> as follows:</p>
-                    <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml down --rmi all --volumes</codeblock>
+                    <codeblock>docker-compose -f docker-compose-metric.yml \ 
+  -f docker-compose-log.yml down --rmi all --volumes</codeblock>
                     <note othertype="note">
                         <p>When running the command, you can ignore an error message related to removing the image for the <codeph>kafka-log-init</codeph> service. The error message is output because the image is used twice, for setting up Kafka for the metrics pipeline as well as for the log pipeline. </p>
                         <p>Irrespective of this message, all docker images are successfully removed.</p>

@@ -32,8 +32,8 @@
                                 </li>
                                 <li>
                                         <p>To execute <codeph>curl</codeph> commands in the <codeph>elasticsearch</codeph> container, run <codeph>docker-compose exec</codeph> as follows:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml -f 
- docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
                                 </li>
                                 <!-- li>
                                         <p>Change the owner of the backup directory in the <codeph>elasticsearch</codeph> container:</p>
@@ -84,24 +84,24 @@
                                         <p>Stop all <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                                 /> agents and services: </p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml stop</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml stop</codeblock>
                                 </li>
                                 <li>
                                         <p>Start the <codeph>elasticsearch</codeph> service:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml up -d elasticsearch</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml up -d elasticsearch</codeblock>
                                 </li>
                                 <li>
                                         <p>To execute <codeph>curl</codeph> commands in the <codeph>elasticsearch</codeph> container, run <codeph>docker-compose exec</codeph> as follows:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml -f 
- docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
                                 </li>
                                 <li>
                                         <p>Create a snapshot of your database that contains all indices. A repository can contain multiple snapshots of the same database. The name of a snapshot must be unique within the snapshots created for your database.</p>
                                         <p>Example:</p>
                                         <codeblock>curl -XPUT http://localhost:9200/_snapshot
- /my_backup/snapshot_1?wait_for_completion=true </codeblock>
+  /my_backup/snapshot_1?wait_for_completion=true </codeblock>
                                         <p>The example creates a snapshot named <codeph>snapshot_1</codeph> for all indices in the <codeph>my_backup</codeph> repository.</p>
                                 </li>
                                 <li>
@@ -111,20 +111,20 @@
                                 <li>
                                         <p>For easier portability and storage, you can create an archive file for the snapshot you have created. To configure the security context, the <codeph>--selinux</codeph> parameter must be specified. </p>
                                         <p>Example:</p>
-                                        <codeblock>tar --selinux -zcvf es_snapshot_1.tar.gz -C 
- /mount/backup/elasticsearch_backup/ my_backup</codeblock>
+                                        <codeblock>tar --selinux -zcvf es_snapshot_1.tar.gz -C \
+  /mount/backup/elasticsearch_backup/ my_backup</codeblock>
                                 </li>
                                 <li>
                                         <p>Stop the <codeph>elasticsearch</codeph> service:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml stop elasticsearch</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml stop elasticsearch</codeblock>
                                 </li>
                                 <li>
                                         <p>Start all <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                                 /> agents and services:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml up -d</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \ 
+  -f docker-compose-log.yml up -d</codeblock>
                                 </li>
                         </ol>
                         <p>To restore a database instance, proceed as follows:</p>
@@ -141,18 +141,18 @@
                                         <p>Stop all <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                                 /> agents and services: </p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml stop</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \ 
+  -f docker-compose-log.yml stop</codeblock>
                                 </li>
                                 <li>
                                         <p>Start the <codeph>elasticsearch</codeph> service:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml up -d elasticsearch</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml up -d elasticsearch</codeblock>
                                 </li>
                                 <li>
                                         <p>To execute <codeph>curl</codeph> commands in the <codeph>elasticsearch</codeph> container, run <codeph>docker-compose exec</codeph> as follows:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml -f 
- docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml exec elasticsearch /bin/bash</codeblock>
                                 </li>
                                 <li>
                                         <p>Before restoring the database instance, check whether the snapshot repository already exists:</p>
@@ -190,8 +190,8 @@
                                 <li>
                                         <p>Restore all indices from the snapshot you have created.</p>
                                         <p>Example:</p>
-                                        <codeblock>curl -XPOST http://localhost:9200/_snapshot
- /my_backup/snapshot_1/_restore</codeblock>
+                                        <codeblock>curl -XPOST http://localhost:9200/_snapshot \
+  /my_backup/snapshot_1/_restore</codeblock>
                                         <p>The example restores all indices from <codeph>snapshot_1</codeph> that is stored in the <codeph>my_backup</codeph> repository.</p>
                                         <p>If the call is successful, Elasticsearch returns <codeph>{"accepted":true}</codeph>.</p>
                                 </li>
@@ -201,15 +201,15 @@
                                 </li>
                                 <li>
                                         <p>Stop the <codeph>elasticsearch</codeph> service:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml stop elasticsearch</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \ 
+  -f docker-compose-log.yml stop elasticsearch</codeblock>
                                 </li>
                                 <li>
                                         <p>Start all <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                                 /> agents and services:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml up -d</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml up -d</codeblock>
                                 </li>
                         </ol>
                         <p id="For_additional_information_ba_concept_conbody_section_2_p"
@@ -232,13 +232,13 @@
                                         <p>Stop all <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                                 /> agents and services: </p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml stop</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml stop</codeblock>
                                 </li>
                                 <li>
                                         <p>Start the <codeph>influxdb</codeph> service:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml up -d influxdb</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml up -d influxdb</codeblock>
                                 </li>
                                 <!-- li>
                                         <p>It is required to mount a directory for synchronizing the meta data and a directory for storing the database backup file on your local machine.</p>
@@ -257,24 +257,24 @@
                                 </li>
                                 <li>
                                         <p>Back up the database:</p>
-                                        <codeblock>docker exec &lt;container_id> influxd backup -database &lt;db_name> 
- "/influxdb_backup/&lt;name>.backup"</codeblock>
+                                        <codeblock>docker exec &lt;container_id> influxd backup -database &lt;db_name> \
+  "/influxdb_backup/&lt;name>.backup"</codeblock>
                                         <p>Replace <codeph>&lt;container_id></codeph> by the ID of the container in which the database is running, <codeph>&lt;db_name></codeph> by the name of the database, and <codeph>&lt;name></codeph> by the name of the backup file to be created.</p>
                                         <p>The following example creates a backup of the <codeph>mon</codeph> database, running in container <codeph>07e9007e0be8</codeph>, in <codeph>mon.backup</codeph>:</p>
-                                        <codeblock>docker exec c6be4ebebefe influxd backup 
- -database mon "/influxdb_backup/mon.backup"</codeblock>
+                                        <codeblock>docker exec c6be4ebebefe influxd backup \
+  -database mon "/influxdb_backup/mon.backup"</codeblock>
                                 </li>
                                 <li>
                                         <p>Stop the <codeph>influxdb</codeph> service:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml stop influxdb</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml stop influxdb</codeblock>
                                 </li>
                                 <li>
                                         <p>Start all <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                                 /> agents and services:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml up -d</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml up -d</codeblock>
                                 </li>
                         </ol>
                         <!-- p>Before restoring the database, make sure that the container for the InfluxDB database is stopped.</p -->
@@ -289,8 +289,8 @@
                                         <p>Stop all <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                                 /> agents and services: </p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml stop</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml stop</codeblock>
                                 </li>
                                 <li>
                                         <p>Make sure that the backup file is available in the <codeph>&lt;path_to_backup_dir>/influxdb_backup</codeph> directory. <codeph>&lt;path_to_backup_dir></codeph> is the default volume you configured for backing up the databases during the installation of the Monitoring Service (<codeph>MON_BACKUP_DIR</codeph> parameter in <codeph>.env</codeph> file). </p>
@@ -298,19 +298,19 @@
                                 <li>
                                         <p>With SELinux enabled, make sure that <codeph>svirt_sandbox_file_t</codeph> or <codeph>container_file_t</codeph> is set as security context type for the backup file. </p>
                                         <p>Example with <codeph>MON_BACKUP_DIR</codeph> set to <codeph>/mount/backup</codeph> and <codeph>svirt_sandbox_file_t</codeph> set as security context type:</p>
-                                        <codeblock># ls -lZ /mount/backup/influxdb_backup/
+                                        <codeblock>ls -lZ /mount/backup/influxdb_backup/
 drwx------. root root 
 system_u:object_r:svirt_sandbox_file_t:s0:c335,c530 mon.backup</codeblock>
                                 </li>
                                 <li>
                                         <p>Restore the database to an ephemeral container:</p>
-                                        <codeblock># docker run --rm --entrypoint /bin/ash 
- -v &lt;path_to_data_dir>/influxdb:/var/lib/influxdb:Z 
- -v &lt;path_to_backup_dir>/influxdb_backup:/influxdb_backup:Z 
- influxdb:1.3.4-alpine 
- -c "influxd restore -metadir /var/lib/influxdb/meta 
- -datadir /var/lib/influxdb/data 
- -database &lt;db_name> /influxdb_backup/&lt;name>.backup"</codeblock>
+                                        <codeblock>docker run --rm --entrypoint /bin/ash \
+  -v &lt;path_to_data_dir>/influxdb:/var/lib/influxdb:Z \
+  -v &lt;path_to_backup_dir>/influxdb_backup:/influxdb_backup:Z \
+  influxdb:1.3.4-alpine \
+  -c "influxd restore -metadir /var/lib/influxdb/meta \
+  -datadir /var/lib/influxdb/data \
+  -database &lt;db_name> /influxdb_backup/&lt;name>.backup"</codeblock>
                                         <p>Replace the variables as follows: </p>
                                         <ul>
                                                 <li>
@@ -339,8 +339,8 @@ system_u:object_r:svirt_sandbox_file_t:s0:c335,c530 mon.backup</codeblock>
                                         <p>Start all <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                                 /> agents and services:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml up -d</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml up -d</codeblock>
                                 </li>
                         </ol>
                 </section>
@@ -359,38 +359,38 @@ system_u:object_r:svirt_sandbox_file_t:s0:c335,c530 mon.backup</codeblock>
                                         <p>Stop all <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                                 /> agents and services: </p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml stop</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \ 
+  -f docker-compose-log.yml stop</codeblock>
                                 </li>
                                 <li>
                                         <p>Start the <codeph>mysql</codeph> service:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml up -d mysql</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml up -d mysql</codeblock>
                                 </li>
                                 <li>
                                         <p>Backup the database. To create the backup from your local machine, execute the following command:</p>
-                                        <codeblock>docker exec &lt;container_id> mysqldump -u root --password=secretmysql 
- &lt;db_name> &gt; &lt;backup_dir>/&lt;name> &amp;&amp; chmod 700 &lt;backup_dir>/&lt;name></codeblock>
+                                        <codeblock>docker exec &lt;container_id> mysqldump -u root --password=secretmysql \
+  &lt;db_name> &gt; &lt;backup_dir>/&lt;name> &amp;&amp; chmod 700 &lt;backup_dir>/&lt;name></codeblock>
                                         <p>Replace <codeph>&lt;container_id></codeph> by the ID of the container in which the database is running, <codeph>&lt;db_name></codeph> by the name of the database, <codeph>&lt;backup_dir></codeph> by the directory you have mounted for storing the backup file, and <codeph>&lt;name></codeph> by the name of the backup file to be created. </p>
                                         <p>For the <codeph>--password</codeph> parameter, check the <codeph>MYSQL_ROOT_PASSWORD</codeph> specified in the <codeph>docker-compose-metric.yml</codeph> file.</p>
                                         <p>The following example creates a backup of the <codeph>mon</codeph> database, running in container <codeph>07e9007e0be8</codeph>, in <codeph>/backup/mon.sql</codeph>:</p>
-                                        <codeblock>docker exec 07e9007e0be8 mysqldump -u root --password=secretmysql 
- mon &gt; /backup/mon.sql &amp;&amp; chmod 700 /backup/mon.sql</codeblock>
+                                        <codeblock>docker exec 07e9007e0be8 mysqldump -u root --password=secretmysql \ 
+  mon &gt; /backup/mon.sql &amp;&amp; chmod 700 /backup/mon.sql</codeblock>
                                 </li>
                                 <li>
                                         <p>Check whether the backup was created successfully.</p>
                                 </li>
                                 <li>
                                         <p>Stop the <codeph>mysql</codeph> service:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml stop mysql</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml stop mysql</codeblock>
                                 </li>
                                 <li>
                                         <p>Start all <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                                 /> agents and services:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml up -d</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml up -d</codeblock>
                                 </li>
                         </ol>
                         <p>To restore your MySQL database, proceed as follows:</p>
@@ -404,34 +404,34 @@ system_u:object_r:svirt_sandbox_file_t:s0:c335,c530 mon.backup</codeblock>
                                         <p>Stop all <ph
                                                         conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                                                 /> agents and services: </p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml stop</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \ 
+  -f docker-compose-log.yml stop</codeblock>
                                 </li>
                                 <li>
                                         <p>Start the <codeph>mysql</codeph> service:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml up -d mysql</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \ 
+  -f docker-compose-log.yml up -d mysql</codeblock>
                                 </li>
                                 <li>
                                         <p>Restore the database:</p>
-                                        <codeblock>cat &lt;backup_dir>/&lt;name> | docker exec -i &lt;container_id> 
- mysql -u root --password=secretmysql &lt;db_name></codeblock>
+                                        <codeblock>cat &lt;backup_dir>/&lt;name> | docker exec -i &lt;container_id> \ 
+  mysql -u root --password=secretmysql &lt;db_name></codeblock>
                                         <p>Replace <codeph>&lt;backup_dir></codeph> by the directory where the backup file is stored, <codeph>&lt;name></codeph> by the name of the file, <codeph>&lt;container_id></codeph> by the ID of the container in which the database is running, and <codeph>&lt;db_name></codeph> by the name of the database.</p>
                                         <p>For the <codeph>--password</codeph> parameter, check the <codeph>MYSQL_ROOT_PASSWORD</codeph> specified in the <codeph>docker-compose-metric.yml</codeph> file. </p>
                                         <p>The following example restores the <codeph>mon</codeph> database, running in container <codeph>07e9007e0be8</codeph>, from <codeph>/backup/mon.sql</codeph>:</p>
-                                        <codeblock>cat /backup/mon.sql | docker exec -i 07e9007e0be8
- mysql -u root --password=secretmysql mon</codeblock>
+                                        <codeblock>cat /backup/mon.sql | docker exec -i 07e9007e0be8 \
+  mysql -u root --password=secretmysql mon</codeblock>
                                 </li>
                                 <li>
                                         <p>Stop the <codeph>mysql</codeph> service:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml stop mysql</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \
+  -f docker-compose-log.yml stop mysql</codeblock>
                                 </li>
                                 <li>
                                         <p>Start all <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"/> agents and services:</p>
-                                        <codeblock>docker-compose -f docker-compose-metric.yml 
- -f docker-compose-log.yml up -d</codeblock>
+                                        <codeblock>docker-compose -f docker-compose-metric.yml \ 
+  -f docker-compose-log.yml up -d</codeblock>
                                 </li>
                         </ol>
                         <p id="For_additional_information_on_concept_conbody_section_4_p"

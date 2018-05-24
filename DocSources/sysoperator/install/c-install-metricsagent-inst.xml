@@ -100,7 +100,7 @@
   --service_type monitoring \
   --keystone_url &lt;openstack_url> \
   --monasca_statsd_port &lt;port_no> \
-  --skip_detection_plugins OVS Libvirt
+  --skip_detection_plugins OVS Libvirt \
   --verbose</codeblock>
             <p>
                 <note othertype="note">
