@@ -22,9 +22,6 @@
                 <li>
                     <p>The <uicontrol>OpenStack Hypervisor</uicontrol> dashboard visualizes the metrics data from your OpenStack hypervisor and the aggregated metrics data from the VMs running on the hypervisor.</p>
                 </li>
-                <li>
-                    <p><i>##Not part of this manual## </i>The <uicontrol>OpenStack VMs</uicontrol> dashboard visualizes the metrics data from your OpenStack VMs.</p>
-                </li>
             </ul>
             <p>You are authorized to view the metrics data that is displayed. </p>
             <p>The Grafana administrator created during the installation of the Monitoring Service is allowed to create, update, and delete dashboards. If it is required to make any changes or enhancements to the preconfigured dashboards, the Grafana administrator credentials defined in the <codeph>.env</codeph> file must be used for accessing Grafana. Contact your FUJITSU support organization for information on additional preparations that must be taken before the Grafana administrator can create, update or delete dashboards for the <ph
@@ -67,19 +64,19 @@
             <fig>
                 <image alt="grafana-cmm.png" height="260" href="../../images/grafana-hypervisor.png" width="435"/>
             </fig>
-            <p>The preconfigured dashboard shows the following information on the system resources consumed by the hypervisor: </p>
+            <p>The preconfigured dashboard shows the following: </p>
             <ul>
                 <li>
-                    <p>##</p>
+                    <p>Aggregated metrics from the VMs: The percentage of time the CPU is used by the VMs in total (<codeph>vm.cpu.utilization_perc</codeph>), <codeph>nova.vm.disk.total_allocated_gb</codeph></p>
                 </li>
                 <li>
-                    <p>##</p>
+                    <p>CPU and memory usage:#</p>
                 </li>
                 <li>
-                    <p>##</p>
+                    <p>Network usage: #</p>
                 </li>
                 <li>
-                    <p>##</p>
+                    <p>Disk I/O: ##</p>
                 </li>
             </ul>
         </section>

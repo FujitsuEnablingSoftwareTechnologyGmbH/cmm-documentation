@@ -18,7 +18,7 @@
                             href="c-tumon-alarm.xml"/>. </p>
                 </li>
                 <li>
-                    <p>Access a metrics dashboards. For details, refer to <xref href="c-tumon-grafana.xml"/>.</p>
+                    <p>Access a metrics dashboard. For details, refer to <xref href="c-tumon-grafana.xml"/>.</p>
                     <!--p>Starting from these metrics dashboards, you can create your own dashboards for visualizing your metrics data as required. </p -->
                 </li>
             </ul>

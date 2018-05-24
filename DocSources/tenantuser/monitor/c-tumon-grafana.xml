@@ -11,8 +11,7 @@
             <p>The user interface for monitoring your services and virtual machines integrates with Grafana, an open-source application for visualizing large-scale metrics data. <ph
                     conref="../../shared/product-name.xml#ProductNameTopic/Product_Abbr"
                 /> ships with a preconfigured dashboard that visualizes the monitoring data collected from your services and virtual machines. </p>
-            <p>To access the dashboard, use the <uicontrol>Grafana Home</uicontrol> option located along the top of the <uicontrol>Overview</uicontrol> page.</p>
-            <p>Dashboard example:</p>
+            <p>To access the dashboard, use the <uicontrol>Grafana Home</uicontrol> option located along the top of the <uicontrol>Overview</uicontrol> page, and select the <uicontrol>OpenStack VMs</uicontrol> dashboard from the <uicontrol>Home</uicontrol> menu located at the top part of the Grafana window. </p>
             <!--p><i>##To be replaced by screenshot and explanation of the Libvirt dashboard. User Story 23452 is still pending (2018-02-20)</i></p -->
             <fig>
                 <image alt="grafana-libvirt.png" height="260" href="../../images/grafana-libvirt.png" width="435"/>
