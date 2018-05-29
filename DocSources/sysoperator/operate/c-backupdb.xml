@@ -190,8 +190,8 @@
                                 <li>
                                         <p>Restore all indices from the snapshot you have created.</p>
                                         <p>Example:</p>
-                                        <codeblock>curl -XPOST http://localhost:9200/_snapshot \
-  /my_backup/snapshot_1/_restore</codeblock>
+                                        <codeblock>curl -XPOST \
+  http://localhost:9200/_snapshot/my_backup/snapshot_1/_restore</codeblock>
                                         <p>The example restores all indices from <codeph>snapshot_1</codeph> that is stored in the <codeph>my_backup</codeph> repository.</p>
                                         <p>If the call is successful, Elasticsearch returns <codeph>{"accepted":true}</codeph>.</p>
                                 </li>
