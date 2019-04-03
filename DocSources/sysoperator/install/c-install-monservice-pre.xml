@@ -11,7 +11,7 @@
             <p>For installing the Monitoring Service, a machine is required with:</p>
             <ul>
                 <li>
-                    <p>Docker 1.13. For details, refer to the <xref format="html" href="https://docs.docker.com/v1.13/"
+                    <p>Docker 1.13. For details, refer to the <xref format="html" href="https://devdocs.io/docker~1.13/"
                             scope="external">
                             <u><i>Docker documentation</i></u></xref>.</p>
                 </li>
