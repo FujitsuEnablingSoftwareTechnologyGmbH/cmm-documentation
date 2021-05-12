@@ -552,9 +552,7 @@ main components of CMM:
 |-----------------|-------------|
 | agent-collector | Collector service of the Metrics Agent. Based on a configurable interval, the collector component collects the metrics data from the monitored services and servers. |
 | agent-forwarder | Forwarder service of the Metrics Agent. The forwarder component takes the data from the collector and sends them to the Monitoring API. |
-| cadvisor | !TBD! |
 | elasticsearch | Elasticsearch database service. CMM stores the log data in this database. |
-| elasticsearch-curator | Manages retention periods for Elasticsearch indices. |
 | grafana | Grafana service. CMM uses it to enable the integration with the OpenStack Keystone service and to include Monasca as Grafana data source. |
 | influxdb | InfluxDB database service. CMM stores metrics and alarms in this database. |
 | kafka | Message queue service. |
@@ -564,12 +562,10 @@ main components of CMM:
 | log-metrics | Log Metrics. |
 | log-persister | Log Persister. |
 | log-transformer | Log Transformer. |
-| logspout | Provides access to CMM container logs. |
 | memcached | Memcached service. CMM uses it for caching authentication and authorization information required for the communication between the Log API and OpenStack Keystone. |
 | monasca | Monitoring API. |
 | monasca-notification | Notification Engine. |
 | monasca-persister | Persister. |
-| monasca-statsd | !TBD! |
 | mysql | MySQL database service. CMM stores configuration information in this database. |
 | thresh | Threshold Engine. |
 | zookeeper | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. |
