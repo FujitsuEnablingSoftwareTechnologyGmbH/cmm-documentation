@@ -159,7 +159,7 @@ To start an agent, proceed as follows:
 2. To start a Metrics Agent, execute the following command:
 
 ```
-sudo systemctl start monasca-agent
+sudo systemctl start monasca-agent.target
 ```
 
 To start a Log Agent, execute the following command:
@@ -174,7 +174,7 @@ To stop an agent, proceed as follows:
 2. To stop a Metrics Agent, execute the following command:
 
 ```
-sudo systemctl stop monasca-agent
+sudo systemctl stop monasca-agent.target
 ```
 
 To stop a Log Agent, execute the following command:
