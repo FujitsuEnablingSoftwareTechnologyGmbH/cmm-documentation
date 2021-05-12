@@ -148,7 +148,7 @@ To integrate with the required OpenStack services, CMM requires access to the fo
 
 ## 2.1.4 Software prerequisites
 
-Please check the following items:
+Please check the following items for servers where metric agent shall be installed:
 
 
 ### Check if pip is linked to pip3
