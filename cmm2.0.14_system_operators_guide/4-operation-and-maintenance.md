@@ -300,9 +300,12 @@ the interactive shell that is provided for the database. Proceed as follows:
 
 1. Log in to the CMM node as a user with root privileges.
 2. Retrieve the name of influxdb container with the following command:  
-   docker ps | grep influxdb  
+```
+# docker ps | grep influxdb  
+```
    The name is the last parameter returned, ending with influxdb_1.  
    E.g.: monascadocker_influxdb_1  
+  
 3. Connect to InfluxDB as follows:
 
 ```
@@ -313,11 +316,11 @@ the interactive shell that is provided for the database. Proceed as follows:
 The output of this command is, for example, as follows:
 
 ```
-Connected to http://localhost:8086 version 1.3.3
-InfluxDB shell version: 1.3.3
+Connected to http://localhost:8086 version 1.8.5
+InfluxDB shell version: 1.8.5
 ```
 
-3. Connect to the InfluxDB database of CMM (`mon`):
+4. Connect to the InfluxDB database of CMM (`mon`):
 
 ```
 > show databases
@@ -331,7 +334,7 @@ _internal
 Using database mon
 ```
 
-4. To update your data retention policy, use the `ALTER RETENTION POLICY` command:
+5. To update your data retention policy, use the `ALTER RETENTION POLICY` command:
 
 ```
 ALTER RETENTION POLICY <policy_name> ON <db_name> DURATION <duration>
@@ -388,7 +391,7 @@ documentation*. For details on data retention, refer to *Retention Policy Manage
 Log data is stored in the Elasticsearch database. Elasticsearch stores the data in indices. CMM
 uses Elasticsearch Curator for managing data retention of these indices. Elasticsearch Curator
 jobs are automatically run by a Cron daemon that executes scheduled commands.
-By default, an Elasticsearch index is automatically deleted in CMM if it is older than 60 days. The
+By default, an Elasticsearch index is automatically deleted in CMM if it is older than 31 days. The
 delete job is executed every day at midnight (UTC).
 Proceed as follows to change the data retention settings that were defined when installing the
 Monitoring Service:
