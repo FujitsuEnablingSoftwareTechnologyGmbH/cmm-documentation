@@ -299,7 +299,11 @@ Retention period can be changed by using InfluxDB command line interface,
 the interactive shell that is provided for the database. Proceed as follows:
 
 1. Log in to the CMM node as a user with root privileges.
-2. Connect to InfluxDB as follows:
+2. Retrieve the name of influxdb container with the following command:
+   docker ps | grep influxdb
+   The name is the last parameter returned - ending with influxdb_1.
+   E.g.: monascadocker_influxdb_1
+3. Connect to InfluxDB as follows:
 
 ```
 # docker exec -it monascadocker_influxdb_1 /bin/sh
