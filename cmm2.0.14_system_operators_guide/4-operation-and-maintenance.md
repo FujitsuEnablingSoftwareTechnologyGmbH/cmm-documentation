@@ -272,7 +272,9 @@ sudo vim /opt/monasca/monasca-log-agent/conf/agent.conf
 
 ```
 file {
-    path => "/var/log/keystone/*.log"
+    ...
+    path => "/var/log/containers/keystone/keystone.log"
+    ...
   }
 ```
 
