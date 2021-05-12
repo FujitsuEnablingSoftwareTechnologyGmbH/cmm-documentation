@@ -220,7 +220,7 @@ Proceed as follows:
 2. To stop the agent, execute the following command:
 
 ```
-sudo systemctl stop monasca-agent
+sudo systemctl stop monasca-agent.target
 ```
 
 3. Change to the directory that stores the metrics. Example:
@@ -238,7 +238,7 @@ sudo rm -i process.yaml
 5. To start the agent again, execute the following command:
 
 ```
-sudo systemctl start monasca-agent
+sudo systemctl start monasca-agent.target
 ```
 
 
