@@ -187,7 +187,7 @@ sudo systemctl stop monasca-log-agent
 ## 4.3 Data Retention and Cleanup
 
 By default, CMM retains the data stored in the Elasticsearch database and the InfluxDB database
-for 60 days. Older data is automatically deleted. You can change the default data retention
+for 31 days. Older data is automatically deleted. You can change the default data retention
 configuration for the databases, if required. In addition to implementing your data retention
 requirements, you should check for the amount and size of the collected metrics and log data at
 regular intervals, and delete any unnecessary data to free disk space.
