@@ -290,38 +290,13 @@ sudo systemctl start monasca-log-agent
 Metrics and alarm history data is stored in the InfluxDB database. InfluxDB features data retention
 mechanisms that allow you to define your data retention policies as required by your monitoring
 environment. By default, CMM automatically deletes metrics and alarm history data from the
-database if it is older than 60 days.
+database if it is older than 31 days.
 
 Proceed as follows to change the data retention period which was defined when installing the
 Monitoring Service:
 
-1. Log in to the CMM node as a user with root privileges.
-2. Go to the installation directory.
-3. Stop the `influxdb` service. For this purpose, run `docker-compose stop` as follows:
-
-```
-docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop influxdb
-```
-
-4. Open the `.env` file, and update the data retention parameter as required.
-   
-   Example for deleting the data after a period of 30 days:
-
-```
-# Data retention for InfluxDB database
-MON_INFLUXDB_RETENTION=30d
-```
-
-5. Start the `influxdb` service. For this purpose, run `docker-compose up` as follows:
-
-```
-docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d influxdb
-```
-
-As soon as the `influxdb` service is up and running, your new data retention period takes effect.
-
-To change additional data retention settings for your InfluxDB database, you can use the InfluxDB
-command line interface, the interactive shell that is provided for the database. Proceed as follows:
+Retention period can be changed by using InfluxDB command line interface, 
+the interactive shell that is provided for the database. Proceed as follows:
 
 1. Log in to the CMM node as a user with root privileges.
 2. Connect to InfluxDB as follows:
