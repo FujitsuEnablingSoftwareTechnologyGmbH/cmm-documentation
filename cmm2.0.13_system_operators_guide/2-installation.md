@@ -107,7 +107,7 @@ The formula is based on the following assumptions for metrics data:
 - 20 bytes in size
 
 > **Note:** Depending on the OpenStack nodes to be monitored there might be additional factors
-  that have an impact on the required disk space, for example, enabling debug logging for
+  that have an impact on the required disk space, for example enabling debug logging for
   the OpenStack services.
 
 
@@ -137,7 +137,7 @@ Access to the following ports must be enabled, before installing CMM:
 - Port `5601` for the Kibana Server.
 - Port `3000` for Grafana.
 
-In addition, access to port 8081 is required internally by the Monitoring API, for example, for
+In addition, access to port 8081 is required internally by the Monitoring API, for example for
 healthchecks or threads.
 
 To integrate with the required OpenStack services, CMM requires access to the following ports:
@@ -233,8 +233,7 @@ actually monitoring services and servers.
 Example:
 
 ```
-openstack user create --project monasca \
---password password monasca-agent
+openstack user create --project monasca --password password monasca-agent
 ```
 
 ### Assigning Roles
@@ -266,15 +265,13 @@ endpoints. You can create them as follows:
 openstack service create --name monasca monitoring
 openstack service create --name logs logs
 
-openstack endpoint create monasca \
---publicurl http://<cmm_ip>:8070/v2.0 --region <region>
-openstack endpoint create logs \
---publicurl http://<cmm_ip>:5607/v3.0 --region <region>
+openstack endpoint create monasca --publicurl http://<cmm_ip>:8070/v2.0 --region <region>
+openstack endpoint create logs --publicurl http://<cmm_ip>:5607/v3.0 --region <region>
 ```
 
-Replace `<cmm_ip>` by the IP address of the CMM node, for example,
+Replace `<cmm_ip>` by the IP address of the CMM node for example,
 `http://192.168.10.6:8070/v2.0`, and `<region>` by the name of your OpenStack region, for
-example, `RegionOne`.
+example `RegionOne`.
 
 
 ## 2.2.4 Configuring the HTTP Proxy
@@ -288,8 +285,8 @@ The Horizon Plugin requires the configuration of an HTTP proxy in Apache:
 httpd -M
 ```
 
-The modules are enabled if the command output includes `proxy_module` and
-`proxy_http_module`. If not, add the following lines to the `httpd.conf` file. The file is located in
+They are enabled if the command output includes `proxy_module` and
+`proxy_http_module`. If not, add the following lines to the `httpd.conf` file. It is located in
 the `/etc/httpd/conf/` directory.
 
 ```
@@ -300,7 +297,7 @@ LoadModule proxy_http_module modules/mod_proxy_http.so
 2. Configure a proxy path pointing to your Grafana instance for the VHost that hosts your
    OpenStack Horizon instance.
    Add the following lines to the `<VirtualHost *:80>` element in the 15-horizon_vhost.conf
-   file. The file is located in the `/etc/httpd/conf.d/` directory.
+   file. It is located in the `/etc/httpd/conf.d/` directory.
 
 ```
 ProxyPass "/grafana" "http://<grafana_host>:3000"
@@ -333,6 +330,11 @@ For installing the Monitoring Service, a machine is required with:
   sections, it is assumed that you copied the `docker-compose-Linux-x86_64_1.15.0` file to the
   `/usr/local/bin/` directory and renamed it to `docker-compose`.
 
+Depending on the Elasticsearch requirements resulting from your production environment, it
+is recommended that you customize the default Elasticsearch configuration provided by the
+Monitoring Service installation. For details on preparations related to Elasticsearch in productive
+use, refer to the _Monasca Docker documentation_.
+
 > **Note:** It is recommended to configure data retention for Docker container logs. Refer to Log File
   Handling for details.
 
@@ -355,6 +357,10 @@ To install the Monitoring Service, proceed as follows:
    rename it to `docker-compose`.
 5. Open the `.env` file in the installation directory to make the adaptions required for your
    environment.
+
+> **Note:** Restrict the access permissions of the `.env` file. It specifies passwords that must
+  be protected from unauthorized access!
+
 6. For integrating the Monitoring Service with OpenStack Keystone, you have to specify the
    following parameters:
 
@@ -399,8 +405,8 @@ MON_GRAFANA_ADMIN_PASSWORD=<grafana_admin_password>
    OpenStack Keystone credentials" section:
 
 ```
-# Credentials of the user used for authenticating the agents against
-Keystone
+# Credentials of the user used for authenticating the agents
+# against Keystone
 MON_AGENT_USERNAME=<user_name>
 MON_AGENT_PASSWORD=<password>
 MON_AGENT_PROJECT_NAME=<project_name>
@@ -429,7 +435,7 @@ MON_AGENT_PROJECT_NAME=monasca
   the credentials of the OpenStack admin user. By default, the admin user is used for
   authenticating the Monitoring API and the Log API against OpenStack Keystone.
 
-8. The installation of the Monitoring Service mounts `/opt/monasca-containers` as default
+8. The installation of the Monitoring Service mounts `/opt/monasca-containers/` as default
    volume for the data directories of Elasticsearch, InfluxDB, MySQL, Kafka, and Grafana.
    
 If required, you can update the `MON_DOCKER_VOL_ROOT` parameter, and specify a different
@@ -441,7 +447,7 @@ volume.
 MON_DOCKER_VOL_ROOT=<path_to_data_directories>
 ```
 
-9. The installation of the Monitoring Service mounts /mount/backup as default volume for
+9. The installation of the Monitoring Service mounts `/mount/backup/` as default volume for
    backing up the databases.
 
 If required, you can update the `MON_BACKUP_DIR` parameter, and specify a different volume.
@@ -476,8 +482,11 @@ MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30
 MON_INFLUXDB_RETENTION=30d
 ```
 
-11. Enable the required notification methods. Email, HipChat, PagerDuty, Slack, and Webhook can
-    be used to inform CMM users when a threshold value for an alarm is reached or exceeded.
+11. Enable the notification methods to be used to inform CMM users when a threshold value for an
+    alarm is reached or exceeded.
+    Email, Slack, and Webhook are methods supported by CMM. If you want to use HipChat,
+    PagerDuty, or Jira, or need an extension to the Notification Engine for exchanging  information
+    with additional external systems, contact your FUJITSU support organization.
     The notification methods to be enabled must be specified as comma-separated values for
     the NF_PLUGINS parameter in the Enable the Notification Engine plugins section. Use
     lower-case characters only.
@@ -521,7 +530,7 @@ After a successful deployment, the monitoring pipeline starts within approximate
     permissions. Example:
 
 ```
-chmod -R 700 /opt/monasca-containers
+chmod -R 700 /opt/monasca-containers/
 chmod -R 700 /mount/backup/
 ```
 
@@ -566,7 +575,7 @@ tasks:
 - It automatically configures the agent to retrieve metrics data from the server and send the data
   to the Monitoring Service for further processing.
 - It automatically activates system metrics for monitoring the OpenStack services and the server
-  on which they are running. The metrics include system checks, for example, on CPU usage,
+  on which they are running. The metrics include system checks, for example on CPU usage,
   disk space, or the average system load. No manual configuration is required for these checks.
 - As enhancement to the system metrics, the installer auto-detects applications and OpenStack
   processes that are running on the server. The corresponding metrics are automatically
@@ -627,13 +636,13 @@ To install a Metrics Agent, proceed as follows:
 
 The following parameters must be configured for running the installer:
 
-- `--target`. The directory in which the agent is installed. The agent must not be installed in
-  the root user's home directory.
+- `--target`. The directory in which the agent is installed. `--target` must be set to
+  `/opt/monasca-agent`.
 - `--username`. The user to be used for authenticating the agent against OpenStack Keystone,
   for example `monasca-agent`.
   The user specified here must have the `monasca-agent` role in OpenStack and be assigned
   to the OpenStack project that is to be monitored by the agent. The project is specified in
-  project_name, for example, `monasca`.
+  project_name, for example `monasca`.
   It is recommended that this user is used only for configuration purposes and not for actually
   monitoring services and servers.
 - `--password`. The password of the user specified in `--username`.
@@ -665,7 +674,18 @@ In case the installation fails, check your configuration settings and passwords.
 debugging information, you can retry the installation in verbose mode:
 
 ```
-./monasca-agent-<version_number>.run --verbose
+./monasca-agent-CMM_2.0.x.run \
+  --target /opt/monasca-agent -- \
+  --username &lt;user_name> \
+  --password &lt;password> \
+  --project_name &lt;project_name> \
+  --user_domain_name default \
+  --project_domain_name default \
+  --service_type monitoring \
+  --keystone_url &lt;openstack_url> \
+  --monasca_statsd_port &lt;port_no> \
+  --skip_detection_plugins OVS Libvirt \
+  --verbose
 ```
 
 > **Note:** When running the installer, you can ignore error messages related to components that do
@@ -699,20 +719,20 @@ Proceed as follows:
 2. To stop the agent, execute the following command:
 
 ```
-sudo systemctl stop monasca-agent
+systemctl stop monasca-agent
 ```
 
 3. Open the file with your favorite editor. Example:
 
 ```
-sudo vim /etc/monasca/agent/agent.yaml
+vim /etc/monasca/agent/agent.yaml
 ```
 
 4. Adapt the configuration settings as required.
 5. To start the agent again, execute the following command:
 
 ```
-sudo systemctl start monasca-agent
+systemctl start monasca-agent
 ```
 
 The agent is instantly available with the updated configuration settings.
@@ -724,9 +744,11 @@ The agent installation automatically configures and activates a comprehensive se
 monitoring your services and servers. The agent ships with additional metrics templates that you
 can manually adapt to your environment and activate for monitoring, if required.
 
-For details on the complete set of metrics that is provided, refer to the _Monasca documentation_.
-
 For a list of the metrics that are supported by CMM, refer to _Supported Metrics_.
+
+For information on the complete set of metrics that is provided by the Monasca project, refer to the
+_Monasca documentation_. If you want to extend your monitoring environment to perform additional
+checks, contact your FUJITSU support organization.
 
 To activate additional metrics, proceed as follows:
 
@@ -734,21 +756,20 @@ To activate additional metrics, proceed as follows:
 2. To stop the agent, execute the following command:
 
 ```
-sudo systemctl stop monasca-agent
+systemctl stop monasca-agent
 ```
 
 3. Copy the required template file. Example:
 
 ```
-sudo cp -p \
-/opt/monasca-agent/share/monasca/agent/conf.d/rabbitmq.yaml.example \
-/etc/monasca/agent/conf.d/rabbitmq.yaml
+cp -p /opt/monasca-agent/share/monasca/agent/conf.d/*.yaml.example \
+  /etc/monasca/agent/conf.d/*.yaml
 ```
 
 4. Open the template file with your favorite editor. Example:
 
 ```
-sudo vim /etc/monasca/agent/conf.d/rabbitmq.yaml
+vim /etc/monasca/agent/conf.d/rabbitmq.yaml
 ```
 
 5. Adapt the configuration to your environment. For configuration examples, refer to _Additional_
@@ -756,56 +777,10 @@ sudo vim /etc/monasca/agent/conf.d/rabbitmq.yaml
 6. To start the agent again, execute the following command:
 
 ```
-sudo systemctl start monasca-agent
+systemctl start monasca-agent
 ```
 
 The activated metrics can instantly be used by the agent for retrieving monitoring data.
-
-
-## 2.4.4 Uninstallation
-
-Before uninstalling a Metrics Agent from an OpenStack node, it is recommended that you make
-a backup of the configuration files created for operation. The configuration files for an agent are
-located in the `/etc/monasca/agent/` directory.
-
-CMM does not offer integrated backup and recovery mechanisms. Use the standard file system
-mechanisms instead.
-
-To uninstall a Metrics Agent, proceed as follows:
-
-1. Log in to the OpenStack node on which the agent is installed.
-2. Stop the `monasca-agent` service and delete all related files:
-
-```
-sudo systemctl stop monasca-agent
-sudo systemctl disable monasca-agent
-sudo rm -f /etc/systemd/system/monasca-agent.service
-sudo systemctl daemon-reload
-sudo systemctl reset-failed monasca-agent
-```
-
-3. Remove all directories and files created by the agent installer:
-
-```
-sudo rm -rf <target_dir>
-sudo rm -rf /etc/monasca/agent/
-sudo rm -f /etc/sudoers.d/mon-agent
-```
-
-Replace `<target_dir>` by the directory in which the agent is installed, (e.g.
-`/opt/monasca-agent/`).
-
-4. Remove the agent's log files and the log directory:
-
-```
-sudo rm -rf /var/log/monasca-agent/
-```
-
-5. Remove the `mon-agent` user. Use `-r` to also remove the `mon-agent` user's home directory.
-
-```
-sudo userdel -r mon-agent
-```
 
 
 ## 2.5 Installing a Log Agent on the OpenStack Platform
@@ -858,7 +833,7 @@ To install a Log Agent, proceed as follows:
 
 ```
 ./log-agent-CMM_2.0.x.run \
---target "/opt/monasca/monasca-log-agent" -- \
+--target "/opt/monasca-log-agent" -- \
 --monasca_log_api_url "<cmm_url>" \
 --keystone_auth_url "<openstack_url>" \
 --project_name "<project>" \
@@ -933,13 +908,13 @@ Proceed as follows:
 2. To stop the agent, execute the following command:
 
 ```
-sudo systemctl stop monasca-log-agent
+systemctl stop monasca-log-agent
 ```
 
 3. Open the file with your favorite editor. Example:
 
 ```
-sudo vim /opt/monasca/monasca-log-agent/conf/agent.conf
+vim /opt/monasca/monasca-log-agent/conf/agent.conf
 ```
 
 4. Adapt the input section, if required.
@@ -994,54 +969,11 @@ output {
 6. To start the agent again, execute the following command:
 
 ```
-sudo systemctl start monasca-log-agent
+systemctl start monasca-log-agent
 ```
 
 The agent is instantly available with the updated configuration settings.
 
-
-## 2.5.4 Uninstallation
-
-Before uninstalling a Log Agent from an OpenStack node, it is recommended that you make a
-backup of the agent's configuration settings. They are stored in the `/<installation_dir>/conf/
-agent.conf` file.
-
-CMM does not offer integrated backup and recovery mechanisms. Use the standard file system
-mechanisms instead.
-
-To uninstall a Log Agent, proceed as follows:
-
-1. Log in to the OpenStack node on which the agent is installed.
-2. Stop the `monasca-log-agent` service and delete all related files:
-
-```
-sudo systemctl stop monasca-log-agent
-sudo systemctl disable monasca-log-agent
-sudo rm -f /etc/systemd/system/monasca-log-agent.service
-sudo systemctl daemon-reload
-sudo systemctl reset-failed monasca-log-agent
-```
-
-3. Remove all directories and files created by the agent installer:
-
-```
-sudo rm -rf <target_dir>
-```
-
-Replace `<target_dir>` by the directory in which the agent is installed, (e.g.
-`/opt/monasca/monasca-log-agent/`).
-
-4. Remove the agent's log files and the log directory:
-
-```
-sudo rm -rf /var/log/monasca-log-agent/
-```
-
-5. Remove the Logstash script used for defining the position of monitored log files:
-
-```
-sudo rm -f /etc/profile.d/logstash_sincedb_dir.sh
-```
 
 ## 2.6 Installing the Horizon Plugin
 
@@ -1072,8 +1004,9 @@ To install the Horizon Plugin, proceed as follows:
 ./monasca-ui-CMM_2.0.x.run --target <monasca_ui_dir>
 ```
 
-The `--target parameter` is mandatory. You have to specify the directory in which to install the
-plugin. Example: `/opt/monasca-ui/`.
+The `--target parameter` is mandatory. Replace `<monasca_ui_dir>` by the directory in which
+to install the plugin. The directory must be specified as absolute path. The plugin must not be
+installed in the root user's home directory. Example: `/opt/monasca-ui/`.
 
 The installer extracts the plugin with all the required dependencies. The configuration of the plugin
 and its dependencies is prepared.
@@ -1085,7 +1018,7 @@ The following steps must be performed manually to enable access to the monitorin
 in OpenStack Horizon:
 
 1. Edit your `local_settings.py` file. The file is located in your plugin installation directory
-    `<monasca_ui_dir>/lib/python2.7/site-packages/ monitoring/config/`
+    `<monasca_ui_dir>/lib/python2.7/site-packages/monitoring/config/`
     Define a group name for log paths in the file. The group name is required to display
     irregularities in your log data on the **Overview** page in OpenStack Horizon.
     Add the following line to the `MONITORING_SERVICES_GROUPS` parameter in the `Service group
@@ -1093,6 +1026,16 @@ in OpenStack Horizon:
 
 ```
 {'name': _('Log Paths'), 'groupBy': 'path'}
+```
+
+Do not forget to separate the lines for the group names by a comma. Example:
+
+```
+MONITORING_SERVICES_GROUPS = [
+    {'name': _('OpenStack Services'), 'groupBy': 'service'},
+    {'name': _('Servers'), 'groupBy': 'hostname'},
+    {'name': _('Log Paths'), 'groupBy': 'path'} 
+]
 ```
 
 Replace `<region>` by the name of your OpenStack region for the `GRAFANA_URL` parameter, for
@@ -1122,14 +1065,11 @@ KIBANA_HOST = getattr(settings, 'KIBANA_HOST',
     Example with `/opt/monasca-ui/` as plugin installation directory:
 
 ```
-ln -s /opt/monasca-ui/lib/python2.7/site-packages/
-monitoring/enabled/_50_admin_add_monitoring_panel.py \
-/usr/share/openstack-dashboard/openstack_dashboard/
-local/enabled/_50_admin_add_monitoring_panel.py
+ln -s /opt/monasca-ui/lib/python2.7/site-packages/monitoring/enabled/_50_admin_add_monitoring_panel.py \
+  /usr/share/openstack-dashboard/openstack_dashboard/local/enabled/_50_admin_add_monitoring_panel.py
 
-ln -s /opt/monasca-ui/lib/python2.7/site-packages/
-monitoring/conf/monitoring_policy.json \
-/etc/openstack-dashboard/monitoring_policy.json
+ln -s /opt/monasca-ui/lib/python2.7/site-packages/monitoring/conf/monitoring_policy.json \
+  /etc/openstack-dashboard/monitoring_policy.json
 ```
 
 3. Append the virtual env libraries of the Horizon Plugin to the system path of the OpenStack
@@ -1176,7 +1116,17 @@ if __name__ == "__main__":
     execute_from_command_line(sys.argv)
 ```
 
-4. If it is required to provide the Japanese version of the Horizon plugin, make the following
+4. Edit your `monitoring_policy.json` file. The file is located in your plugin installation
+   directory `<monasca_ui_dir>/lib/python2.7/site-packages/monitoring/conf/`
+
+   To restrict access to the metrics dashboards from OpenStack Horizon to the `monasca-user`
+   role, adapt the rule assigned to the `monitoring:monitoring` policy as follows:
+
+```
+"monitoring:monitoring": "rule:monasca_user_role",
+```
+
+5. If it is required to provide the Japanese version of the Horizon plugin, make the following
     preparation.
     Example with `/opt/monasca-ui/` as plugin installation directory:
 
@@ -1185,63 +1135,7 @@ cd /opt/monasca-ui/lib/python2.7/site-packages/monitoring/
 /opt/monasca-ui/lib/python2.7/site-packages/django/bin/django-admin.py compilemessages -l ja
 ```
 
-5. Restart the server on which the OpenStack Horizon service is running. Example:
-
-```
-systemctl restart httpd
-```
-
-## 2.6.3 Uninstallation
-
-To uninstall the Horizon Plugin, proceed as follows:
-
-1. Log in to the OpenStack node on which the OpenStack Horizon service is installed.
-2. Remove the links pointing to the Horizon Plugin:
-
-```
-rm <monasca_ui_dir>/openstack_dashboard/enabled/_50_admin_add_monitoring_panel.py
-rm <monasca_ui_dir>/openstack_dashboard/conf/monitoring_policy.json
-```
-
-Replace `<monasca_ui_dir>` by the name of the directory in which the Horizon Plugin is
-installed.
-
-3. Remove the proxy path pointing to your Grafana instance from the `15-horizon_vhost.conf`
-    file. The file is located in the `/etc/httpd/conf.d/` directory.
-
-The following lines must be removed:
-
-```
-ProxyPass "/grafana" "http://<grafana_host>:3000"
-ProxyPassReverse "/grafana" "http://<grafana_host>:3000"
-```
-
-4. Remove the path where the plugin is installed from the `django.wsgi` file. The WSGI
-    script of your OpenStack platform is located in the `/usr/share/openstack-dashboard/openstack_dashboard/wsgi/` directory.
-    The following line must be removed:
-
-```
-sys.path.append("<monasca_ui_dir>/lib/python2.7/site-packages/")
-```
-
-5. Remove the path where the plugin is installed from the `manage.py` file. The manage.py file is
-    located in the `/usr/share/openstack-dashboard/` directory.
-    The following line must be removed:
-
-```
-sys.path.append("<monasca_ui_dir>/lib/python2.7/site-packages")
-```
-
-6. Remove the directories and files created by the installer:
-
-```
-rm -rf <monasca_ui_dir>/monasca_ui
-```
-
-Replace `<monasca_ui_dir>` by the name of the directory in which the Horizon Plugin is
-installed.
-
-7. Restart the server from which you uninstalled the OpenStack Horizon plugin. Example:
+6. Restart the server on which the OpenStack Horizon service is running. Example:
 
 ```
 systemctl restart httpd

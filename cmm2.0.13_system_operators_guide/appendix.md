@@ -5,24 +5,6 @@ The sections below describe the metrics supported by CMM:
 - Standard metrics for general monitoring of servers and networks.
 - Additional metrics for monitoring specific servers and services.
 
-When taking on the role of the Monitoring Service operator, the following metrics are of relevance
-for monitoring CMM:
-
-- All the standard metrics.
-- The following additional metrics: `crash`, `elastic`, `host_alive`, `http_check`, `http_metrics`,
-  `kafka_consumer`, `kibana`, `mysql`, `postfix`, `process`, `zk`.
-
-When taking on the role of the OpenStack operator, the following metrics are of relevance for
-monitoring the servers and services of your OpenStack platform:
-
-- All the standard metrics.
-- The following additional metrics: `apache`, `ceph`, `crash`, `host_alive`, `http_check`,
-  `http_metrics`, `libvirt`, `mysql`, `ntp`, `ovs`, `postfix`, `process`, `rabbitmq`.
-
-The Metrics Agent can also run Nagios plugins and send status codes returned by the plugins as
-metrics to the Monitoring API. For information on how to use Nagios checks in CMM, contact your
-CMM support.
-
 > **Note:** Adding dimensions for metrics is not supported by CMM. The installer auto-detects
   applications and processes that are running on your machine and saves the
   corresponding settings to the agent's configuration file. Additional dimensions cannot be
@@ -77,7 +59,8 @@ agent configuration if you do not want to monitor the metrics they include.
 
 > **Note:** that in addition to the metrics below, many more metrics are provided by the Monasca
   project. These are not automatically installed by CMM. For details on the complete set of metrics
-  provided by the Monasca project, refer to the _Monasca documentation_.
+  provided by the Monasca project, refer to the _Monasca documentation_. If you want to extend your
+  monitoring environment to perform additional checks, contact your FUJITSU support organization.
 
 
 ### apache.yaml
@@ -86,13 +69,15 @@ Apache Web Server checks collect metrics from an Apache Web Server. If you want 
 to automatically configure the checks, update the `apache.cnf` file in the `root` directory before
 installing the agent.
 
-Example configuration for `apache.cnf`:
+Example configuration for `apache.cnf` with the URL of the server, the user name, and the password:
 
 ```
 [client]
 url=http://localhost/server-status?auto
 user=root
 password=password
+#dimensions:
+    #dim1: value1
 ```
 
 Specify the configuration information in the `apache.yaml` file after the installation.
@@ -163,7 +148,7 @@ instances:
 
 Elastic checks gather metrics for Elasticsearch databases, such as the Log Database of CMM.
 The configuration file must specify the URL for HTTP requests. If basic authentication is used, for
-example, `elasticsearch-http-basic`, the configuration file must also specify the user name and
+example `elasticsearch-http-basic`, the configuration file must also specify the user name and
 password for every instance that requires authentication.
 
 The agent installer automatically creates the `elastic.yaml` configuration file in the `/etc/
@@ -189,7 +174,7 @@ instances:
 ### host_alive.yaml
 
 Host alive checks perform checks on a remote host to determine whether it is alive. The checks
-use ping (ICMP) or SSH.
+use either ping (ICMP) or SSH.
 
 SSH checks provide extensive tests on the availability of remote host machines. They check the
 banner that is returned. A remote host machine may still respond to a ping request but may not
@@ -205,13 +190,23 @@ Example configuration:
 
 ```
 init_config:
-ping_timeout: 1
-ssh_port: 22
-ssh_timeout: 0.5
+  ssh_port:     22
+  ssh_timeout:  0.5
+  ping_timeout: 1
 instances:
-- alive_test: ssh
-  host_name: 10.140.18.53
-  name: openstack
+# - name: ssh to host1
+#   host_name:     host1.domain.net
+#   alive_test:    ssh
+#   dimensions:
+#     dim1: value1
+
+# - name: ping host1
+#   host_name:     10.140.16.153
+#   alive_test:    ping
+
+- name: ssh to 192.168.0.221
+  host_name:     192.168.0.221
+  alive_test:    ssh
 ```
 
 ### http_check.yaml
@@ -228,14 +223,23 @@ Example configuration:
 ```
 init_config: null
 instances:
-- built_by: MonAPI
+- built_by: Cinder
   dimensions:
-  component: monasca-api
-  service: monitoring
-  include_content: false
-  name: monitoring-monasca-api healthcheck
-  timeout: 5
-  url: http://localhost:8081/healthcheck
+    service: block-storage
+  collect_response_time: true
+  match_pattern: .*version=1.*
+  name: block-storage-api
+  timeout: 10
+  url: http://localhost:8776/v2
+  use_keystone: true
+- built_by: Glance
+  dimensions:
+    service: image-service
+  match_pattern: .*v2.0.*
+  name: image-service-api
+  timeout: 10
+  url: http://localhost:9292
+  use_keystone: true
 ```
 
 ### http_metrics.yaml
@@ -370,13 +374,11 @@ init_config:
     project_name: services
     username: nova
     auth_url: 'http://<keystone_ip>:35357'
-    region_name: 'region1'
     endpoint_type: 'publicURL'
     cache_dir: /dev/shm
     nova_refresh: 14400
     vm_probation: 300
     ping_check: sudo -n /sbin/ip exec NAMESPACE /usr/bin/fping -n -c1 -t250 -q
-    max_ping_concurrency: 8
     alive_only: false
     metadata:
     - scale_group
@@ -385,6 +387,7 @@ init_config:
     network_use_bits: false
     vm_cpu_check_enable: True
     vm_disks_check_enable: True
+    vm_extended_disks_check_enable: True
     vm_network_check_enable: True
     vm_ping_check_enable: True
     vm_extended_disks_check_enable: False
@@ -437,7 +440,7 @@ init_config: null
 instances:
 - built_by: MySQL
   name: localhost
-  pass: ''
+  pass: password
   port: 3306
   server: localhost
   sock: /var/lib/mysql/mysql.sock
@@ -462,8 +465,13 @@ instances:
   port: ntp
   version: 3
   timeout: 5
+# dimensions:
+#     dim1: value1
 ```
 
+> **Note:** To collect the complete set of metrics from the NTP server and the host machine,
+  it might additionally be required to update your NTP server configuration. Check whether
+  changes resulting from an update are also required in the `ntp.yaml` file.
 
 ### ovs.yaml
 
@@ -611,34 +619,32 @@ Example configuration:
 ```
 init_config: null
 instances:
-  - exchanges: [nova, cinder, glance, keystone, neutron, heat]
-    nodes: [rabbit@devstack]
-    queues: [conductor]
-    rabbitmq_api_url: http://localhost:15672/api
-    rabbitmq_user: user
-    rabbitmq_pass: pass
+-  rabbitmq_api_url: http://localhost:15672/api/
+   rabbitmq_user: guest
+   rabbitmq_pass: guest
+   nodes:
+    - rabbit@localhost
+    - rabbit2@domain
+   queues:
+    - queue1
+    - queue2
+   whitelist:
+     queue:
+      - message_stats/deliver_details/rate
+      - message_stats/publish_details/rate
+      - message_stats/redeliver_details/rate
+     exchange:
+      - message_stats/publish_out
+      - message_stats/publish_out_details/rate
+      - message_stats/publish_in
+      - message_stats/publish_in_details/rate
+     node:
+      - fd_used
+      - mem_used
+      - run_queue
+      - sockets_used
 ```
 
-### zk.yaml
-
-ZooKeeper checks gather metrics on nodes and connections covered by ZooKeeper, a centralized
-service for maintaining configuration information, naming, providing distributed synchronization,
-and providing group services. The check parses the result of the ZooKeeper `stat` admin
-command.
-
-The agent installer automatically checks whether a Zookeeper instance is installed on the machine
-where the agent is installed. If a Zookeper instance is detected, the corresponding settings are
-saved to the `zk.yaml` configuration file, and the configuration is automatically provided in the
-`/etc/monasca/agent/conf.d/` directory.
-
-Example configuration:
-
-```
-init_config: null
-instances:
-- built_by: Zookeeper
-  host: localhost
-  name: localhost
-  port: 2181
-  timeout: 3
-```
+> **Note:** To collect the complete set of metrics from the RabbitMQ server, it might additionally be
+  required to update your RabbitMQ server configuration. Check whether changes resulting
+  from an update are also required in the `rabbitmq.yaml` file.

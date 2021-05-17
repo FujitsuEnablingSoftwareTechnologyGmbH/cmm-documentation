@@ -128,7 +128,7 @@ window:
 ### Visualizing Query Results
 
 CMM supports you in building graphical representations of your query results. You can choose
-from different visualization types, for example, pie charts, data tables, line charts, or vertical bar
+from different visualization types, for example pie charts, data tables, line charts, or vertical bar
 charts. For visualizing your results, you use the **Visualize** page in the log management window:
 
 ![Visualizing Query Results](./images/visualizing-query-results_01.png)

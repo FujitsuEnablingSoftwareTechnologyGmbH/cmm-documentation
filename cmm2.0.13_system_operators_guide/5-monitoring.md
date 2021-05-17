@@ -49,28 +49,31 @@ On the **Overview** page, you can:
 ## 5.2 Viewing Metrics Data
 
 The user interface for monitoring your environment integrates with Grafana, an open-source
-application for visualizing large-scale metrics data. Use the **Grafana Home* option located along
+application for visualizing large-scale metrics data. Use the **Grafana Home** option located along
 the top of the **Overview** page to access Grafana.
 
 CMM ships with preconfigured metrics dashboards that allow you to instantly monitor your
 enviroment:
 
-- The **OpenStack Dashboard** visualizes the metrics data from your OpenStack nodes.
-- The **Node Dashboard** visualizes the metrics data from the node on which the Monitoring
-  Service is installed.
+- The **OpenStack Services** dashboard visualizes the metrics data from your OpenStack node.
+- The **OpenStack Hypervisor** dashboard visualizes the metrics data from your OpenStack hypervisor
+  and the aggregated metrics data from the VMs running on the hypervisor.
+- The **CMM** dashboard visualizes the metrics data from the node on which the Monitoring Service
+  is installed.
 
-You are authorized to view the metrics data that is displayed. The Grafana administrator
-created during the installation of the Monitoring Service is allowed to create, update, and delete
-dashboards.
+You are authorized to view the metrics data that is displayed.
 
-If it is required to make any changes or enhancements to the preconfigured dashboards, the
+The Grafana administrator created during the installation of the Monitoring Service is allowed
+to export dashboards to a JSON file, and to re-import them when necessary. The Grafana
 administrator credentials defined in the `.env` file must be used for accessing Grafana. Contact
-your FUJITSU support organization for information on additional preparations that must be taken.
+your FUJITSU support organization for information on additional preparations that must be taken
+before exporting and importing JSON files in Grafana.
 
-### OpenStack
 
-To view the metrics data on the OpenStack services and the nodes on which they are deployed,
-select the **OpenStack Dashboard** option from the **Home** menu located at the top part of the
+### OpenStack Services
+
+To view the metrics data on the OpenStack services and the node on which they are deployed,
+select the **OpenStack Services** dashboard from the **Home** menu located at the top part of the
 Grafana window.
 
 ![OpenStack](./images/openstack_01.png)
@@ -98,9 +101,38 @@ The preconfigured dashboard shows the following:
 - Network usage: The number of network bytes received and sent per second
   (`net.in_bytes_sec` and `net.out_bytes_sec`).
 
+
+### OpenStack Hypervisor
+
+To view the metrics data on your OpenStack hypervisor and the aggregated metrics data from
+the VMs running on the hypervisor, select the `OpenStack Hypervisor` dashboard from the `Home`
+menu located at the top part of the Grafana window.
+
+![OpenStack](./images/hypervisor_01.png)
+
+The preconfigured dashboard shows the following:
+
+- Aggregated metrics: The number of megabytes of total memory allocated to the VMs
+  (`nova.vm.mem.total_allocated_mb`), the number of gigabytes of total disk space allocated
+  to the VMs (`nova.vm.disk.total_allocated_gb`), and the total number of CPUs allocated to
+  the VMs (`nova.vm.cpu.total_allocated`).
+
+- CPU and memory usage: The percentage of time the CPU is used by the VMs
+  (`vm.cpu.utilization_perc`), the number of megabytes of memory used by the VMs
+  (`vm.mem.used_mb`), the number of megabytes of free memory (`vm.mem.free_mb`), and the
+  number of megabytes of total memory allocated to the VMs (`vm.mem.total_mb`).
+
+- Network usage: The number of network bytes received and sent per second
+  (`vm.net.in_bytes_sec` and `vm.net.out_bytes_sec`), as well as the total number of network
+  bytes received and sent (`vm.net.in_bytes` and `vm.net.out_bytes`).
+
+- Disk I/O: The number of bytes written per second (`vm.io.write_bytes_sec`), and the number
+  of bytes read per second (`vm.io.read_bytes_sec`).
+
+
 ### CMM
 
-To view the metrics data on CMM itself, select the **Node Dashboard** option from the **Home** menu
+To view the metrics data on CMM itself, select the **CMM** Dashboard from the **Home** menu
 located at the top part of the Grafana window.
 
 ![CMM](./images/cmm_01.png)
@@ -192,7 +224,7 @@ To define an alarm expression, proceed as follows:
    
    Dimensions filter the data to be monitored. They narrow down the evaluation to specific
    entities. Each dimension consists of a key/value pair that allows for a flexible and concise
-   description of the data to be monitored, for example, region, availability zone, service tier, or
+   description of the data to be monitored, for example region, availability zone, service tier, or
    resource ID.
    
    The dimensions available for the selected metrics are displayed in the **Matching Metrics**
@@ -203,7 +235,7 @@ To define an alarm expression, proceed as follows:
    operator `<`, `>`, `<=`, or `>=`.
    
    The unit of the threshold value is related to the metrics for which you define the threshold, for
-   example, the unit is percentage for `cpu.idle_perc` or MB for `disk.total_used_space_mb`.
+   example the unit is percentage for `cpu.idle_perc` or MB for `disk.total_used_space_mb`.
 
 5. Switch on the **Deterministic** option if you evaluate a metrics for which data is received only
    sporadically. The option should be switched on, for example, for all log metrics. This ensures
@@ -274,21 +306,14 @@ For a notification, you specify the following elements:
 
 - **Name**. A unique identifier of the notification. The name is offered for selection when defining an
   alarm.
-- **Type**. The notification method to be used. `Email`, `HipChat`, `PagerDuty`, `Slack` or `WebHook` can
+- **Type**. The notification method to be used. `Email`, `Slack` or `WebHook` can
   be selected, provided that the methods were enabled when installing the Monitoring Service.
 - **Address**.
   For `Email`, the email address to be notified when an alarm is triggered.
   
   > **Note:** Generic top-level domains such as business domain names are not supported in email
-    addresses (for example, `user@xyz.company`).
+    addresses (for example `user@xyz.company`).
   
-  For `HipChat`, the URL specifying the room to which the notification is to be sent. Example
-  URL with variables for the room ID and access token:
-  
-  `https://api.hipchat.com/v2/room/<room_id>/notification?auth_token=<access_token>`
-
-  For `PagerDuty`, the PagerDuty Service API Key to be notified when an alarm is triggered.
-
   For `Slack`, the URL specifying the channel to which the notification is to be sent. Example
   URL with variables for the legacy token and the channel:
   
