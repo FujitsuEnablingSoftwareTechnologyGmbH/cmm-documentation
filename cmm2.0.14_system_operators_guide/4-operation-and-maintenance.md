@@ -699,13 +699,13 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml exec elast
 3. Create the snapshot repository. Example:
 
 ```
-curl -XPUT http://localhost:9200/_snapshot/my_backup -d '{
-  "type": "fs",
-  "settings": {
-    "location": "/elasticsearch_backup/my_backup",
-    "compress": true
-  }
-}'
+curl -XPUT http://localhost:9200/_snapshot/my_backup -H'Content-Type: application/json' -d '{
+ "type": "fs",
+ "settings": {
+ "location": "/usr/share/elasticsearch/backup",
+ "compress": true
+ }
+ }'
 ```
 
 The example registers a shared file system repository (with `"type": "fs"`) that uses the
