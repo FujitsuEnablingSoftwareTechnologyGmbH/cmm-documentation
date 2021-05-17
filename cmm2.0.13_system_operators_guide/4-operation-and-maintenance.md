@@ -21,18 +21,18 @@ functionality is enabled for CMM users from OpenStack Horizon. They must fulfill
 described in the following sections.
 
 
-### CMM Operator and OpenStack Operator
+### Monitoring Service Operator and OpenStack Operator
 
-The CMM operator is responsible for monitoring CMM, the OpenStack operator is responsible
-for monitoring the OpenStack services and servers. Both must have access to the OpenStack
-platform as a user with the `monasca-user` role or any other role that is authorized to use the CMM
-functions. Additional roles are optional.
+A system operator who either takes on the role of the Monitoring Service operator or the role
+of the OpenStack operator must have access to the OpenStack platform as a user with the
+`monasca-user` role or any other role that is authorized to use the CMM functions. Additional
+roles are optional.
 
-The CMM operator and the OpenStack operator must be assigned to the OpenStack project that
-was prepared for CMM, for example, `monasca`.
+The system operator must be assigned to the OpenStack project that was prepared for CMM, for
+example `monasca`.
 
-For details on the project, users, and roles prepared for CMM, refer to Creating Projects, Users,
-and Roles.
+For details on the project, users, and roles prepared for CMM, refer to _Creating Projects, Users,
+and Roles_.
 
 
 ### Application Operator
@@ -41,7 +41,7 @@ An application operator who is responsible for monitoring a VM must have access 
 OpenStack platform as a user with the `monasca-user` role or any other role that is authorized to
 use the CMM functions. Additional roles are optional.
 
-The application operator must be assigned to the project for the VM to be monitored.
+The application operator must be assigned to the project that owns the VM to be monitored.
 
 
 ## 4.2 Starting and Stopping Agents and Services
@@ -159,13 +159,13 @@ To start an agent, proceed as follows:
 2. To start a Metrics Agent, execute the following command:
 
 ```
-sudo systemctl start monasca-agent
+systemctl start monasca-agent
 ```
 
 To start a Log Agent, execute the following command:
 
 ```
-sudo systemctl start monasca-log-agent
+systemctl start monasca-log-agent
 ```
 
 To stop an agent, proceed as follows:
@@ -174,13 +174,13 @@ To stop an agent, proceed as follows:
 2. To stop a Metrics Agent, execute the following command:
 
 ```
-sudo systemctl stop monasca-agent
+systemctl stop monasca-agent
 ```
 
 To stop a Log Agent, execute the following command:
 
 ```
-sudo systemctl stop monasca-log-agent
+systemctl stop monasca-log-agent
 ```
 
 
@@ -220,7 +220,7 @@ Proceed as follows:
 2. To stop the agent, execute the following command:
 
 ```
-sudo systemctl stop monasca-agent
+systemctl stop monasca-agent
 ```
 
 3. Change to the directory that stores the metrics. Example:
@@ -232,13 +232,13 @@ cd /etc/monasca/agent/conf.d
 4. Delete the `.yaml` file. Example:
 
 ```
-sudo rm -i process.yaml
+rm -i process.yaml
 ```
 
 5. To start the agent again, execute the following command:
 
 ```
-sudo systemctl start monasca-agent
+systemctl start monasca-agent
 ```
 
 
@@ -257,13 +257,13 @@ Proceed as follows:
 2. To stop the agent, execute the following command:
 
 ```
-sudo systemctl stop monasca-log-agent
+systemctl stop monasca-log-agent
 ```
 
 3. Open the agent configuration file with your favorite editor. Example:
 
 ```
-sudo vim /opt/monasca/monasca-log-agent/conf/agent.conf
+vim /opt/monasca-log-agent/conf/agent.conf
 ```
 
 4. In the `input` section, delete the file block for the log data you no longer want to monitor.
@@ -279,7 +279,7 @@ file {
 5. To start the agent again, execute the following command:
 
 ```
-sudo systemctl start monasca-log-agent
+systemctl start monasca-log-agent
 ```
 
 
@@ -322,11 +322,26 @@ To change additional data retention settings for your InfluxDB database, you can
 command line interface, the interactive shell that is provided for the database. Proceed as follows:
 
 1. Log in to the CMM node as a user with root privileges.
-2. Connect to InfluxDB as follows:
+2. For connecting to InfluxDB, you need to know the ID or name of the container in which the
+   database is running:
 
 ```
-# docker exec -it monascadocker_influxdb_1 /bin/sh
-# influx
+docker ps | grep influxd
+```
+
+   Example output with `c6be4ebebefe` as container ID and `monascadocker_influxdb_1` as
+   container name:
+
+```
+c6be4ebebefe   influxdb:1.3.4-alpine   "/entrypoint.sh infl…"   
+19 hours ago  Up 6 seconds   8086/tcp   monascadocker_influxdb_1
+```
+
+3. Connect to InfluxDB as follows:
+
+```
+docker exec -it <container_id> /bin/sh
+influx
 ```
 
 The output of this command is, for example, as follows:
@@ -336,25 +351,25 @@ Connected to http://localhost:8086 version 1.3.3
 InfluxDB shell version: 1.3.3
 ```
 
-3. Connect to the InfluxDB database of CMM (`mon`):
+4. Connect to the InfluxDB database of CMM (`mon`):
 
 ```
-> show databases
+show databases
 name: databases
 name
 ----
 mon
 _internal
 
-> use mon
+use mon
 Using database mon
 ```
 
-4. To update your data retention policy, use the `ALTER RETENTION POLICY` command:
+5. To update your data retention policy, use the `ALTER RETENTION POLICY` command:
 
 ```
-ALTER RETENTION POLICY <policy_name> ON <db_name> DURATION <duration>
-[SHARD DURATION <shard_duration>] [DEFAULT]
+ALTER RETENTION POLICY <policy_name> ON <db_name> \
+  DURATION <duration> [SHARD DURATION <shard_duration>] [DEFAULT]
 ```
 
 Replace `<policy_name>` by the name of the retention policy you define. Multiple policies can
@@ -394,8 +409,8 @@ Use `[DEFAULT]` to set the new retention policy as the default retention policy 
 Example for deleting data if it is older than 30 days:
 
 ```
-ALTER RETENTION POLICY default_mon my_policy ON mon DURATION 30d
-DEFAULT
+ALTER RETENTION POLICY default_mon \
+  my_policy ON mon DURATION 30d DEFAULT
 ```
 
 For an introduction to the InfluxDB command line interface, refer to the *InfluxDB CLI/Shell
@@ -461,7 +476,7 @@ Every series can be assigned key tags. In the case of CMM, this is the `_tenant_
 identifies the OpenStack project for which the metrics data has been collected.
 
 From time to time, you may want to delete outdated or unnecessary metrics data from the Metrics
-and Alarms Database, for example, to save space or remove data for metrics you are no longer
+and Alarms Database, for example to save space or remove data for metrics you are no longer
 interested in. To delete data, you use the InfluxDB command line interface, the interactive shell
 that is provided for the InfluxDB database.
 
@@ -469,12 +484,29 @@ Proceed as follows to delete metrics data from the database:
 
 1. Create a backup of the database. For details, refer to _Backup and Recovery_.
 2. Log in to the CMM node as a user with root privileges.
-3. Connect to InfluxDB as follows:
+3. For connecting to InfluxDB, you need to know the ID or name of the container in which the
+   database is running:
 
 ```
-# docker exec -it monascadocker_influxdb_1 /bin/sh
+docker ps | grep influxd
+```
+
+   Example output with `c6be4ebebefe` as container ID and `monascadocker_influxdb_1` as
+   container name:
+
+```
+c6be4ebebefe   influxdb:1.3.4-alpine   "/entrypoint.sh infl…"   
+19 hours ago  Up 6 seconds   8086/tcp   monascadocker_influxdb_1
+```
+
+4. Connect to InfluxDB as follows:
+
+```
+# docker exec -it <container_id> /bin/sh
 # influx
 ```
+
+Replace `<container_id>` by the ID or name of the container in which the database is running:
 
 The output of this command is, for example, as follows:
 
@@ -483,21 +515,21 @@ Connected to http://localhost:8086 version 1.3.3
 InfluxDB shell version: 1.3.3
 ```
 
-4. Connect to the InfluxDB database of CMM (mon):
+5. Connect to the InfluxDB database of CMM (mon):
 
 ```
-> show databases
+show databases
 name: databases
 name
 ----
 mon
-_internal
+_ internal
 
-> use mon
+use mon
 Using database mon
 ```
 
-5. Check the outdated or unnecessary data to be deleted.
+6. Check the outdated or unnecessary data to be deleted.
 
 - You can view all measurements for a specific project as follows:
 
@@ -511,7 +543,7 @@ SHOW MEASUREMENTS WHERE _tenant_id = '<project ID>'
 SHOW SERIES FROM "cpu.user_perc" WHERE _tenant_id = '<project ID>'
 ```
 
-6. Delete the desired data.
+7. Delete the desired data.
 
 - When a project is no longer relevant or a specific tenant is no longer used, delete all series
 for the project as follows:
@@ -547,11 +579,11 @@ index per day is created for every OpenStack project.
 
 By default, the indices are stored in the following directory on the CMM node:
 
-`/usr/share/elasticsearch/data/<cluster-name>/nodes/<node-name>`
+`/opt/monasca-containers/elasticsearch/data/<cluster-name>/nodes/<node-name>/indices`
 
 Example:
 
-`/usr/share/elasticsearch/data/elasticsearch/nodes/0`
+`/opt/monasca-containers/elasticsearch/data/elasticsearch/nodes/0/indices`
 
 If you want to delete outdated or unnecessary log data from the Elasticsearch database, proceed
 as follows:
@@ -652,7 +684,7 @@ docker-compose logs --help
 ### Data Retention for Docker Log Files
 
 By default, Docker log files are not rotated or removed once the containers are started. It is
-recommended to configure data retention for the log files so that they do not become too big.
+recommended that you configure data retention for the log files so that they do not become too big.
 
 You have the following options:
 
@@ -776,7 +808,7 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml exec elast
    snapshots created for your database. Example:
 
 ```
-curl -XPUT http://localhost:9200/_snapshot/my_backup/snapshot_1? wait_for_completion=true
+curl -XPUT http://localhost:9200/_snapshot/my_backup/snapshot_1?wait_for_completion=true
 ```
 
 The example creates a snapshot named `snapshot_1` for all indices in the `my_backup`
@@ -788,12 +820,21 @@ repository.
 exit
 ```
 
-7. Stop the `elasticsearch` service:
+7. For easier portability and storage, you can create an archive file for the snapshot you have
+   created. To configure the security context, the `--selinux` parameter must be specified.
+   Example:
+
+```   
+tar --selinux -zcvf es_snapshot_1.tar.gz -C \
+  /mount/backup/elasticsearch_backup/ my_backup
+```
+
+8. Stop the `elasticsearch` service:
 
 ```
 docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop elasticsearch
 ```
-8. Start all CMM agents and services:
+9. Start all CMM agents and services:
 
 ```
 docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d
@@ -823,7 +864,43 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d elas
 docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml exec elasticsearch /bin/bash
 ```
 
-6. Close all indices of your database. Example:
+6. Before restoring the database instance, check whether the snapshot repository already exists:
+   Example:
+
+```
+curl -XGET http://localhost:9200/_snapshot/my_backup
+```
+
+   Example response for an existing repository:
+
+```
+{
+  "my_backup": {
+    "type": "fs",
+    "settings": {
+      "compress": "true",
+      "location": "/elasticsearch_backup/my_backup"
+    }
+  }
+}
+```
+
+7. If there is no snapshot repository, you have to create it.
+   Example:
+
+```
+curl -XPUT http://localhost:9200/_snapshot/my_backup -d '{
+  "type": "fs",
+  "settings": {
+       "location": "/elasticsearch_backup/my_backup",
+       "compress": true
+  }
+}'
+```
+
+   If the snapshot repository is created successfully, Elasticsearch returns `{"acknowledged":true}`
+
+8. Close all indices of your database. Example:
 
 ```
 curl -XPOST http://localhost:9200/_all/_close
@@ -831,7 +908,7 @@ curl -XPOST http://localhost:9200/_all/_close
 
 If the call is successful, Elasticsearch returns `{"acknowledged":true}`.
 
-7. Restore all indices from the snapshot you have created. Example:
+9. Restore all indices from the snapshot you have created. Example:
 
 ```
 curl -XPOST http://localhost:9200/_snapshot/my_backup/snapshot_1/_restore
@@ -840,19 +917,19 @@ curl -XPOST http://localhost:9200/_snapshot/my_backup/snapshot_1/_restore
 The example restores all indices from `snapshot_1` that is stored in the `my_backup` repository.
 If the call is successful, Elasticsearch returns `{"accepted":true}`.
 
-8. Exit the elasticsearch container:
+10. Exit the elasticsearch container:
 
 ```
 exit
 ```
 
-9. Stop the `elasticsearch` service:
+11. Stop the `elasticsearch` service:
 
 ```
 docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop elasticsearch
 ```
 
-10.Start all CMM agents and services:
+12. Start all CMM agents and services:
 
 ```
 docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d
@@ -934,26 +1011,28 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop
    directory. `<path_to_backup_dir>` is the default volume you configured for backing up the
    databases during the installation of the Monitoring Service (`MON_BACKUP_DIR` parameter in
    `.env` file).
-4. With SELinux enabled, make sure that `svirt_sandbox_file_t` is set as security context type
-   for the backup file.
+4. With SELinux enabled, make sure that `svirt_sandbox_file_t` or `container_file_t` is set as
+   security context type for the backup file.
    
-   Example with `MON_BACKUP_DIR` set to `/mount/backup`:
+   Example with `MON_BACKUP_DIR` set to `/mount/backup` and `svirt_sandbox_file_t` set as
+   security context type:
 
 ```
-# ls -lZ /mount/backup/influxdb_backup/
-drwx------. root root system_u:object_r:svirt_sandbox_file_t:s0:c335,c530 mon.backup
+ls -lZ /mount/backup/influxdb_backup/
+drwx------. root root 
+system_u:object_r:svirt_sandbox_file_t:s0:c335,c530 mon.backup
 ```
 
 5. Restore the database to an ephemeral container:
 
 ```
-# docker run --rm --entrypoint /bin/ash
--v <path_to_data_dir>/influxdb:/var/lib/influxdb:Z
--v <path_to_backup_dir>/influxdb_backup:/influxdb_backup:Z
-influxdb:1.3.4-alpine
--c "influxd restore -metadir /var/lib/influxdb/meta
--datadir /var/lib/influxdb/data
--database <db_name> /influxdb_backup/<name>.backup"
+docker run --rm --entrypoint /bin/ash \
+ -v <path_to_data_dir>/influxdb:/var/lib/influxdb:Z \
+ -v <path_to_backup_dir>/influxdb_backup:/influxdb_backup:Z \
+ influxdb:1.3.4-alpine \
+ -c "influxd restore -metadir /var/lib/influxdb/meta \
+ -datadir /var/lib/influxdb/data \
+ -database <db_name> /influxdb_backup/<name>.backup"
 ```
 
 Replace the variables as follows:
@@ -998,7 +1077,8 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d mysq
    command:
 
 ```
-docker exec <container_id> mysqldump -u root --password=secretmysql <db_name> > <backup_dir>/<name>
+docker exec <container_id> mysqldump -u root --password=secretmysql <db_name> > <backup_dir>/<name> &&
+chmod 700 <backup_dir>/<name>
 ```
 
 Replace `<container_id>` by the ID of the container in which the database is running,
@@ -1011,7 +1091,8 @@ The following example creates a backup of the `mon` database, running in contain
 `07e9007e0be8`, in `/backup/mon.sql`:
 
 ```
-docker exec 07e9007e0be8 mysqldump -u root --password=secretmysql mon > /backup/mon.sql
+docker exec 07e9007e0be8 mysqldump -u root --password=secretmysql mon > /backup/mon.sql &&
+chmod 700 /backup/mon.sql
 ```
 
 5. Check whether the backup was created successfully.

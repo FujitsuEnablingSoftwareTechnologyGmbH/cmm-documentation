@@ -4,6 +4,7 @@
 
 # System Operator's Guide
 
+## 28.05.2018
 
 ## Contents
 
@@ -31,16 +32,13 @@
     - [2.4.1 Installation](./2-installation.md#241-installation)
     - [2.4.2 Updating the Configuration File](./2-installation.md#242-updating-the-configuration-file)
     - [2.4.3 Activating Additional Metrics](./2-installation.md#243-activating-additional-metrics)
-    - [2.4.4 Uninstallation](./2-installation.md#244-uninstallation)
   - [2.5 Installing a Log Agent on the OpenStack Platform](./2-installation.md#25-installing-a-log-agent-on-the-openstack-platform)
     - [2.5.1 Prerequisites](./2-installation.md#251-prerequisites)
     - [2.5.2 Installation](./2-installation.md#252-installation)
     - [2.5.3 Updating the Configuration File](./2-installation.md#253-updating-the-configuration-file)
-    - [2.5.4 Uninstallation](./2-installation.md#254-uninstallation)
   - [2.6 Installing the Horizon Plugin](./2-installation.md#26-installing-the-horizon-plugin)
     - [2.6.1 Installation](./2-installation.md#261-installation)
     - [2.6.2 Configuration](./2-installation.md#262-configuration)
-    - [2.6.3 Uninstallation](./2-installation.md#263-uninstallation)
 
 - [3 Preparations for Application Operators](./3-preparations-for-application-operators.md#3-preparations-for-application-operators)
   - [3.1 Creating an OpenStack Role](./3-preparations-for-application-operators.md#31-creating-an-openstack-role)
@@ -73,6 +71,14 @@
   - [6.1 Working with the Log Management Window](./6-log-management.md#61-working-with-the-log-management-window)
   - [6.2 Configuring Index Patterns](./6-log-management.md#62-configuring-index-patterns)
   - [6.3 Monitoring Log Data](./6-log-management.md#63-monitoring-log-data)
+
+- [7 Uninstallation](./7-uninstallation.md#7-uninstallation)
+  - [7.1 Uninstalling a Metrics Agent](./7-uninstallation.md#71-uninstalling-a-metrics-agent)
+  - [7.2 Uninstalling a Log Agent](./7-uninstallation.md#72-uninstalling-a-log-agent)
+  - [7.3 Uninstalling the Horizon Plugin](./7-uninstallation.md#73-uninstalling-the-horizon-plugin)
+  - [7.4 Uninstalling the Monitoring Service](./7-uninstallation.md#74-uninstalling-the-monitoring-service)
+  - [7.5 Removing OpenStack Projects, Users and Roles](./7-uninstallation.md#75-removing-openstack-projects-users-and-roles)
+  - [7.6 Removing Services and Endpoints](./7-uninstallation.md#76-removing-services-and-endpoints)
 
 - [Appendix A Supported Metrics](./appendix.md#appendix-a-supported-metrics)
   - [A.1 Standard Metrics](./appendix.md#a1-standard-metrics)
