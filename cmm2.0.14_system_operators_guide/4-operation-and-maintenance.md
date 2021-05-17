@@ -1072,4 +1072,4 @@ As a Grafana administrator, you are allowed to export dashboards to a JSON file,
 them when necessary. Use the administrator credentials defined in the `.env` file for the installation
 of the Monitoring Service to directly access Grafana and export dashboards. For backing up
 and restoring the exported dashboards, you can then use the standard mechanisms of your file
-system. For details on exporting m
+system. For details on exporting monitoring dashboards, refer to the *Grafana documentation*.
