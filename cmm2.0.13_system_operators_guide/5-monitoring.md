@@ -108,7 +108,7 @@ To view the metrics data on your OpenStack hypervisor and the aggregated metrics
 the VMs running on the hypervisor, select the `OpenStack Hypervisor` dashboard from the `Home`
 menu located at the top part of the Grafana window.
 
-ToDo Add image
+![OpenStack](./images/hypervisor_01.png)
 
 The preconfigured dashboard shows the following:
 
