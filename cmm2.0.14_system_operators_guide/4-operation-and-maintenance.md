@@ -829,21 +829,29 @@ curl -XPOST http://localhost:9200/_snapshot/my_backup/snapshot_1/_restore
 ```
 
 The example restores all indices from `snapshot_1` that is stored in the `my_backup` repository.
-If the call is successful, Elasticsearch returns `{"accepted":true}`.
+If the call is successful, Elasticsearch returns `{"accepted":true}`.  
 
-8. Exit the elasticsearch container:
+8. Now, only the data restored from is visible in your repository.  
+If you want to see all data created after the backup has been taken, one additional step is required:  
+Restore all indices from the snapshot you have created. Example:  
+
+```
+curl -XPOST http://localhost:9200/_all/_close
+```
+
+9. Exit the elasticsearch container:
 
 ```
 exit
 ```
 
-9. Stop the `elasticsearch` service:
+10. Stop the `elasticsearch` service:
 
 ```
 docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop elasticsearch
 ```
 
-10.Start all CMM agents and services:
+11.Start all CMM agents and services:
 
 ```
 docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d
