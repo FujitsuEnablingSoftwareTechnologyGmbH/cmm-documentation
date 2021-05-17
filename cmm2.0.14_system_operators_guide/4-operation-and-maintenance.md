@@ -767,7 +767,7 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml exec elast
    snapshots created for your database. Example:
 
 ```
-curl -XPUT http://localhost:9200/_snapshot/my_backup/snapshot_1? wait_for_completion=true
+curl -XPUT http://localhost:9200/_snapshot/my_backup/snapshot_1?wait_for_completion=true
 ```
 
 The example creates a snapshot named `snapshot_1` for all indices in the `my_backup`
