@@ -453,7 +453,14 @@ Proceed as follows to delete metrics data from the database:
 
 1. Create a backup of the database. For details, refer to _Backup and Recovery_.
 2. Log in to the CMM node as a user with root privileges.
-3. Connect to InfluxDB as follows:
+3. Retrieve the name of influxdb container with the following command:  
+```
+# docker ps | grep influxdb  
+```
+   The name is the last parameter returned, ending with influxdb_1.  
+   E.g.: monascadocker_influxdb_1  
+   
+4. Connect to InfluxDB as follows:
 
 ```
 # docker exec -it monascadocker_influxdb_1 /bin/sh
@@ -463,11 +470,11 @@ Proceed as follows to delete metrics data from the database:
 The output of this command is, for example, as follows:
 
 ```
-Connected to http://localhost:8086 version 1.3.3
-InfluxDB shell version: 1.3.3
+Connected to http://localhost:8086 version 1.8.5
+InfluxDB shell version: 1.8.5
 ```
 
-4. Connect to the InfluxDB database of CMM (mon):
+5. Connect to the InfluxDB database of CMM (mon):
 
 ```
 > show databases
@@ -481,7 +488,7 @@ _internal
 Using database mon
 ```
 
-5. Check the outdated or unnecessary data to be deleted.
+6. Check the outdated or unnecessary data to be deleted.
 
 - You can view all measurements for a specific project as follows:
 
@@ -495,7 +502,7 @@ SHOW MEASUREMENTS WHERE _tenant_id = '<project ID>'
 SHOW SERIES FROM "cpu.user_perc" WHERE _tenant_id = '<project ID>'
 ```
 
-6. Delete the desired data.
+7. Delete the desired data.
 
 - When a project is no longer relevant or a specific tenant is no longer used, delete all series
 for the project as follows:
