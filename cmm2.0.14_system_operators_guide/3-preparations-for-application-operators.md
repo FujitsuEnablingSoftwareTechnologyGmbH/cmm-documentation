@@ -92,7 +92,7 @@ vim /etc/monasca/agent/agent.yaml
 5. To start the agent again, execute the following command:
 
 ```
-systemctl start monasca-agent
+systemctl start monasca-agent.target
 ```
 
 As soon as the agent is started again, it is available with the updated configuration settings. The
