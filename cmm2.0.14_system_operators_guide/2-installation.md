@@ -52,14 +52,14 @@ need to take before installing CMM.
 
 CMM can be installed on a host machine with the following operating systems:
 
-- Red Hat Enterprise Linux 7.7 for Intel64.
+- Red Hat Enterprise Linux 7.4 (for Intel64).
 
 > **Note:** Make sure that you use a clean operating system. This avoids compatibility-related
   issues during the installation.
 
 As underlying platform technology, the following OpenStack platforms are supported:
 
-- Red Hat Enterprise Linux OpenStack Platform 16.1 installed on Red Hat Enterprise Linux 8.2
+- Red Hat Enterprise Linux OpenStack Platform 10
 
 The following hardware resources are recommended:
 
@@ -107,7 +107,7 @@ The formula is based on the following assumptions for metrics data:
 - 20 bytes in size
 
 > **Note:** Depending on the OpenStack nodes to be monitored there might be additional factors
-  that have an impact on the required disk space, for example, enabling debug logging for
+  that have an impact on the required disk space, for example enabling debug logging for
   the OpenStack services.
 
 
@@ -115,9 +115,9 @@ The formula is based on the following assumptions for metrics data:
 
 CMM has been tested with the following Web browsers:
 
-- Google Chrome 90.
-- Microsoft Edge 90
-- Mozilla Firefox 68.
+- Google Chrome 63.
+- Microsoft Internet Explorer 11.0 (with Compatibility View disabled)
+- Mozilla Firefox 57.
 
 
 ## 2.1.3 Security
@@ -137,65 +137,13 @@ Access to the following ports must be enabled, before installing CMM:
 - Port `5601` for the Kibana Server.
 - Port `3000` for Grafana.
 
-In addition, access to port 8081 is required internally by the Monitoring API, for example, for
+In addition, access to port 8081 is required internally by the Monitoring API, for example for
 healthchecks or threads.
 
 To integrate with the required OpenStack services, CMM requires access to the following ports:
 
 - Port `80` for the OpenStack Horizon service.
 - Port `5000` and `35357` for the OpenStack Keystone service.
-
-
-## 2.1.4 Software prerequisites
-
-Please check the following items:
-
-
-### Check if pip is linked to pip3
-
-- Execute:
-```
-# which pip
-```
-
-- If a path is returned execute:
-```
-# ls –l <path of pip>
-```
-
-- If it’s a link to pip3: OK, no more action is needed.
-- If no path is returned:
-  * `which pip3`: returns `<path_of_pip3>` (usually: `/usr/bin/pip3`)
-  * Create a symbolic link for pip:
-```
-ln –s <path_of_pip3> /usr/bin/pip
-```
-
-### Check if virtualenv is installed
-
-- Execute:
-```
-which virtualenv
-```
-
-- If a path is returned: OK, no more action is needed.
-- If no path is returned install virtualenv:
-```
-pip install ‘virtualenv==16.7.5’
-```
-
-### Check if gcc is installed
-
-- Execute:
-```
-which gcc
-```
-
-- If a path is returned: OK, no more action is needed.
-- If no path is returned install gcc:
-```
-dnf install gcc
-```
 
 
 ## 2.2 Preparing the OpenStack Integration
@@ -317,13 +265,55 @@ endpoints. You can create them as follows:
 openstack service create --name monasca monitoring
 openstack service create --name logs logs
 
-openstack endpoint create monasca public http://<cmm_ip>:8070/v2.0 --region <region>
-openstack endpoint create logs public http://<cmm_ip>:5607/v2.0 --region <region>
+openstack endpoint create monasca --publicurl http://<cmm_ip>:8070/v2.0 --region <region>
+openstack endpoint create logs --publicurl http://<cmm_ip>:5607/v3.0 --region <region>
 ```
 
-Replace `<cmm_ip>` by the IP address of the CMM node, for example,
+Replace `<cmm_ip>` by the IP address of the CMM node for example,
 `http://192.168.10.6:8070/v2.0`, and `<region>` by the name of your OpenStack region, for
-example, `RegionOne`.
+example `RegionOne`.
+
+
+## 2.2.4 Configuring the HTTP Proxy
+
+The Horizon Plugin requires the configuration of an HTTP proxy in Apache:
+
+1. To handle HTTP proxy requests, the mod_proxy and `mod_proxy_http` modules must be
+   enabled in Apache. Check whether they are already enabled:
+
+```
+httpd -M
+```
+
+They are enabled if the command output includes `proxy_module` and
+`proxy_http_module`. If not, add the following lines to the `httpd.conf` file. It is located in
+the `/etc/httpd/conf/` directory.
+
+```
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+```
+
+2. Configure a proxy path pointing to your Grafana instance for the VHost that hosts your
+   OpenStack Horizon instance.
+   Add the following lines to the `<VirtualHost *:80>` element in the 15-horizon_vhost.conf
+   file. It is located in the `/etc/httpd/conf.d/` directory.
+
+```
+ProxyPass "/grafana" "http://<grafana_host>:3000"
+ProxyPassReverse "/grafana" "http://<grafana_host>:3000"
+```
+
+Replace `<grafana_host>` by the IP address of the CMM node. Example URL:
+`http://192.168.10.6:3000`.
+
+3. Restart the server on which the OpenStack Horizon service is running.
+
+Example:
+
+```
+systemctl restart httpd
+```
 
 
 ## 2.3 Installing the Monitoring Service
@@ -333,13 +323,17 @@ for your OpenStack platform.
 
 ## 2.3.1 Prerequisites
 
-For installing the Monitoring Service, a server with RHEL7.7 is required with:
+For installing the Monitoring Service, a machine is required with:
 
-- Docker-CE 19.03.15 For details, refer to the _Docker documentation_. RPMs are included in the
-  `CMM_server_2.0.14-x.tar.gz` file.
-- Docker Compose binary as included in the `CMM_server_2.0.14-x.tar.gz` file. In the subsequent
-  sections, it is assumed that you copied the `docker-compose-Linux-x86_64_1.27.4` file to the
+- Docker 1.13. For details, refer to the _Docker documentation_.
+- Docker Compose binary as included in the `CMM_server_2.0.x.tar.gz` file. In the subsequent
+  sections, it is assumed that you copied the `docker-compose-Linux-x86_64_1.15.0` file to the
   `/usr/local/bin/` directory and renamed it to `docker-compose`.
+
+Depending on the Elasticsearch requirements resulting from your production environment, it
+is recommended that you customize the default Elasticsearch configuration provided by the
+Monitoring Service installation. For details on preparations related to Elasticsearch in productive
+use, refer to the _Monasca Docker documentation_.
 
 > **Note:** It is recommended to configure data retention for Docker container logs. Refer to Log File
   Handling for details.
@@ -352,28 +346,22 @@ To install the Monitoring Service, proceed as follows:
 1. Log in to the machine on which to install the Monitoring Service (CMM node) as a user with
    root privileges.
 2. Prepare an installation directory.
-3. Extract the `CMM_server_2.0.14-x.tar.gz` archive file from the CMM installation package to the
+3. Extract the `CMM_server_2.0.x.tar.gz` archive file from the CMM installation package to the
    installation directory. The archive provides the following files:
-    - `CMM_server_2.0.14-x.images.tar`
-    - `containerd.io-1.4.4-3.1.el7.x86_64.rpm`
-    - `docker-ce-19.03.15-3.el7.x86_64.rpm`
-    - `docker-ce-cli-19.03.15-3.el7.x86_64.rpm`
-    - `docker-compose-Linux-x86_64_1.27.4`
+    - `CMM_server_2.0.x.images.tar`
+    - `docker-compose-Linux-x86_64_1.15.0`
     - `docker-compose-metric.yml`
     - `docker-compose-log.yml`
     - `.env`
-4. Install Docker-CE 19.03.15
-> **Note:** Docker-CE requires the package `container-selinux` which is available in the repository
-   `rhel-7-server-extras-rpms` please enable it.
-```
-# yum install docker-ce-19.03.15-3.el7.x86_64.rpm docker-ce-cli-19.03.15-3.el7.x86_64.rpm containerd.io-1.4.4-3.1.el7.x86_64.rpm
-```
-
-5. Copy the `docker-compose-Linux-x86_64_1.27.4` file to the `/usr/local/bin/` directory and
+4. Copy the `docker-compose-Linux-x86_64_1.15.0` file to the `/usr/local/bin/` directory and
    rename it to `docker-compose`.
-6. Open the `.env` file in the installation directory to make the adaptions required for your
+5. Open the `.env` file in the installation directory to make the adaptions required for your
    environment.
-7. For integrating the Monitoring Service with OpenStack Keystone, you have to specify the
+
+> **Note:** Restrict the access permissions of the `.env` file. It specifies passwords that must
+  be protected from unauthorized access!
+
+6. For integrating the Monitoring Service with OpenStack Keystone, you have to specify the
    following parameters:
 
 ```
@@ -417,8 +405,8 @@ MON_GRAFANA_ADMIN_PASSWORD=<grafana_admin_password>
    OpenStack Keystone credentials" section:
 
 ```
-# Credentials of the user used for authenticating the agents against
-Keystone
+# Credentials of the user used for authenticating the agents
+# against Keystone
 MON_AGENT_USERNAME=<user_name>
 MON_AGENT_PASSWORD=<password>
 MON_AGENT_PROJECT_NAME=<project_name>
@@ -447,7 +435,7 @@ MON_AGENT_PROJECT_NAME=monasca
   the credentials of the OpenStack admin user. By default, the admin user is used for
   authenticating the Monitoring API and the Log API against OpenStack Keystone.
 
-8. The installation of the Monitoring Service mounts `/opt/monasca-containers` as default
+8. The installation of the Monitoring Service mounts `/opt/monasca-containers/` as default
    volume for the data directories of Elasticsearch, InfluxDB, MySQL, Kafka, and Grafana.
    
 If required, you can update the `MON_DOCKER_VOL_ROOT` parameter, and specify a different
@@ -459,7 +447,7 @@ volume.
 MON_DOCKER_VOL_ROOT=<path_to_data_directories>
 ```
 
-9. The installation of the Monitoring Service mounts /mount/backup as default volume for
+9. The installation of the Monitoring Service mounts `/mount/backup/` as default volume for
    backing up the databases.
 
 If required, you can update the `MON_BACKUP_DIR` parameter, and specify a different volume.
@@ -470,7 +458,7 @@ If required, you can update the `MON_BACKUP_DIR` parameter, and specify a differ
 MON_BACKUP_DIR=<path_to_backup_directories>
 ```
 
-10. By default, CMM retains the data stored in the Elasticsearch and InfluxDB database for 31
+10. By default, CMM retains the data stored in the Elasticsearch and InfluxDB database for 60
     days. Older data is automatically deleted.
 
 If required, you can change the data retention parameters in the Configure data retention
@@ -494,8 +482,11 @@ MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30
 MON_INFLUXDB_RETENTION=30d
 ```
 
-11. Enable the required notification methods. Email, HipChat, PagerDuty, Slack, and Webhook can
-    be used to inform CMM users when a threshold value for an alarm is reached or exceeded.
+11. Enable the notification methods to be used to inform CMM users when a threshold value for an
+    alarm is reached or exceeded.
+    Email, Slack, and Webhook are methods supported by CMM. If you want to use HipChat,
+    PagerDuty, or Jira, or need an extension to the Notification Engine for exchanging  information
+    with additional external systems, contact your FUJITSU support organization.
     The notification methods to be enabled must be specified as comma-separated values for
     the NF_PLUGINS parameter in the Enable the Notification Engine plugins section. Use
     lower-case characters only.
@@ -509,11 +500,11 @@ The `webhook` plugin is enabled by default. For the other plugins, you have to a
 the corresponding configuration parameters in the `.env` file. For details on the parameters,
 refer to the information in the file.
 
-12. Load the tarred repository from the `CMM_server_2.0.14-x.images.tar` file. This restores both the
+12. Load the tarred repository from the `CMM_server_2.0.x.images.tar` file. This restores both the
     images and the tags from the archive to your installation directory.
 
 ```
-docker load -i CMM_server_2.0.14-x.images.tar
+docker load -i CMM_server_2.0.x.images.tar
 ```
 
 13. Check that the images and tags required for the installation have been loaded.
@@ -539,7 +530,7 @@ After a successful deployment, the monitoring pipeline starts within approximate
     permissions. Example:
 
 ```
-chmod -R 700 /opt/monasca-containers
+chmod -R 700 /opt/monasca-containers/
 chmod -R 700 /mount/backup/
 ```
 
@@ -575,7 +566,7 @@ Monitoring Service installation as well as a number of containers with direct de
 services listed above.
 
 
-## 2.4 Metrics Agent on the OpenStack Platform
+## 2.4 Installing a Metrics Agent on the OpenStack Platform
 
 For monitoring OpenStack services in your environment, you need to install a Metrics Agent on
 the OpenStack node on which the services are running. The agent installer performs the following
@@ -584,7 +575,7 @@ tasks:
 - It automatically configures the agent to retrieve metrics data from the server and send the data
   to the Monitoring Service for further processing.
 - It automatically activates system metrics for monitoring the OpenStack services and the server
-  on which they are running. The metrics include system checks, for example, on CPU usage,
+  on which they are running. The metrics include system checks, for example on CPU usage,
   disk space, or the average system load. No manual configuration is required for these checks.
 - As enhancement to the system metrics, the installer auto-detects applications and OpenStack
   processes that are running on the server. The corresponding metrics are automatically
@@ -614,7 +605,7 @@ you can update the `agent.yaml` file, and you can activate metrics in addition t
 automatically provided with the installation.
 
 
-## 2.4.1 Metric Agent Installation
+## 2.4.1 Installation
 
 To install a Metrics Agent, proceed as follows:
 
@@ -645,13 +636,13 @@ To install a Metrics Agent, proceed as follows:
 
 The following parameters must be configured for running the installer:
 
-- `--target`. The directory in which the agent is installed. The agent must not be installed in
-  the root user's home directory.
+- `--target`. The directory in which the agent is installed. `--target` must be set to
+  `/opt/monasca-agent`.
 - `--username`. The user to be used for authenticating the agent against OpenStack Keystone,
   for example `monasca-agent`.
   The user specified here must have the `monasca-agent` role in OpenStack and be assigned
   to the OpenStack project that is to be monitored by the agent. The project is specified in
-  project_name, for example, `monasca`.
+  project_name, for example `monasca`.
   It is recommended that this user is used only for configuration purposes and not for actually
   monitoring services and servers.
 - `--password`. The password of the user specified in `--username`.
@@ -683,7 +674,18 @@ In case the installation fails, check your configuration settings and passwords.
 debugging information, you can retry the installation in verbose mode:
 
 ```
-./monasca-agent-<version_number>.run --verbose
+./monasca-agent-CMM_2.0.x.run \
+  --target /opt/monasca-agent -- \
+  --username &lt;user_name> \
+  --password &lt;password> \
+  --project_name &lt;project_name> \
+  --user_domain_name default \
+  --project_domain_name default \
+  --service_type monitoring \
+  --keystone_url &lt;openstack_url> \
+  --monasca_statsd_port &lt;port_no> \
+  --skip_detection_plugins OVS Libvirt \
+  --verbose
 ```
 
 > **Note:** When running the installer, you can ignore error messages related to components that do
@@ -695,7 +697,7 @@ debugging information, you can retry the installation in verbose mode:
   installed.
 
 
-The installer creates a `monasca-agent.target` file in the `/etc/systemd/system/` directory, and
+The installer creates a `monasca-agent.service` file in the `/etc/systemd/system/` directory, and
 automatically runs the service file to start the agent after a successful installation.
 
 The agent is provided as a LINUX service. A startup script is created that automatically starts the
@@ -705,7 +707,7 @@ The agent is installed in a virtualenv environment. By default, the virtualenv e
 in the `/opt/monasca-agent/` directory.
 
 
-## 2.4.2 Metric Agent Updating the Configuration File
+## 2.4.2 Updating the Configuration File
 
 CMM allows you to change the configuration of an agent that is up and running. This might be
 required, for example, due to changes in your environment. To change the agent configuration,
@@ -717,20 +719,20 @@ Proceed as follows:
 2. To stop the agent, execute the following command:
 
 ```
-sudo systemctl stop monasca-agent.target
+systemctl stop monasca-agent
 ```
 
 3. Open the file with your favorite editor. Example:
 
 ```
-sudo vim /etc/monasca/agent/agent.yaml
+vim /etc/monasca/agent/agent.yaml
 ```
 
 4. Adapt the configuration settings as required.
 5. To start the agent again, execute the following command:
 
 ```
-sudo systemctl start monasca-agent.target
+systemctl start monasca-agent
 ```
 
 The agent is instantly available with the updated configuration settings.
@@ -742,9 +744,11 @@ The agent installation automatically configures and activates a comprehensive se
 monitoring your services and servers. The agent ships with additional metrics templates that you
 can manually adapt to your environment and activate for monitoring, if required.
 
-For details on the complete set of metrics that is provided, refer to the _Monasca documentation_.
-
 For a list of the metrics that are supported by CMM, refer to _Supported Metrics_.
+
+For information on the complete set of metrics that is provided by the Monasca project, refer to the
+_Monasca documentation_. If you want to extend your monitoring environment to perform additional
+checks, contact your FUJITSU support organization.
 
 To activate additional metrics, proceed as follows:
 
@@ -752,21 +756,20 @@ To activate additional metrics, proceed as follows:
 2. To stop the agent, execute the following command:
 
 ```
-sudo systemctl stop monasca-agent.target
+systemctl stop monasca-agent
 ```
 
 3. Copy the required template file. Example:
 
 ```
-sudo cp -p \
-/opt/monasca-agent/share/monasca/agent/conf.d/rabbitmq.yaml.example \
-/etc/monasca/agent/conf.d/rabbitmq.yaml
+cp -p /opt/monasca-agent/share/monasca/agent/conf.d/*.yaml.example \
+  /etc/monasca/agent/conf.d/*.yaml
 ```
 
 4. Open the template file with your favorite editor. Example:
 
 ```
-sudo vim /etc/monasca/agent/conf.d/rabbitmq.yaml
+vim /etc/monasca/agent/conf.d/rabbitmq.yaml
 ```
 
 5. Adapt the configuration to your environment. For configuration examples, refer to _Additional_
@@ -774,59 +777,13 @@ sudo vim /etc/monasca/agent/conf.d/rabbitmq.yaml
 6. To start the agent again, execute the following command:
 
 ```
-sudo systemctl start monasca-agent.target
+systemctl start monasca-agent
 ```
 
 The activated metrics can instantly be used by the agent for retrieving monitoring data.
 
 
-## 2.4.4 Metric Agent Uninstallation
-
-Before uninstalling a Metrics Agent from an OpenStack node, it is recommended that you make
-a backup of the configuration files created for operation. The configuration files for an agent are
-located in the `/etc/monasca/agent/` directory.
-
-CMM does not offer integrated backup and recovery mechanisms. Use the standard file system
-mechanisms instead.
-
-To uninstall a Metrics Agent, proceed as follows:
-
-1. Log in to the OpenStack node on which the agent is installed.
-2. Stop the `monasca-agent` target and delete all related files:
-
-```
-sudo systemctl stop monasca-agent.target
-sudo systemctl disable monasca-agent.target
-sudo rm -f /etc/systemd/system/monasca-agent.target
-sudo systemctl daemon-reload
-sudo systemctl reset-failed monasca-agent.target
-```
-
-3. Remove all directories and files created by the agent installer:
-
-```
-sudo rm -rf <target_dir>
-sudo rm -rf /etc/monasca/agent/
-sudo rm -f /etc/sudoers.d/mon-agent
-```
-
-Replace `<target_dir>` by the directory in which the agent is installed, (e.g.
-`/opt/monasca-agent/`).
-
-4. Remove the agent's log files and the log directory:
-
-```
-sudo rm -rf /var/log/monasca-agent/
-```
-
-5. Remove the `mon-agent` user. Use `-r` to also remove the `mon-agent` user's home directory.
-
-```
-sudo userdel -r mon-agent
-```
-
-
-## 2.5 Log Agent on the OpenStack Platform
+## 2.5 Installing a Log Agent on the OpenStack Platform
 
 For monitoring OpenStack services in your environment, you need to install a Log Agent on the
 OpenStack node on which the services are running. The agent installer configures the agent so
@@ -850,7 +807,7 @@ The file is composed of an input and an output section:
   the Monitoring Service for further processing.
 
 
-## 2.5.1 Log Agent Prerequisites
+## 2.5.1 Prerequisites
 
 The Log Agent installer requires a Java Runtime Environment on the host machine where the
 agent is installed.
@@ -860,31 +817,32 @@ Before running the installer, you have to install the following OpenJDK package:
 - `java-1.8.0-openjdk`
 
 
-## 2.5.2 Log Agent Installation
+## 2.5.2 Installation
 
 To install a Log Agent, proceed as follows:
 
 1. Log in to the OpenStack node on which to install the Log Agent.
 2. Prepare an installation directory.
-3. Extract the CMM_client_2.0.14-x.tar.gz archive file from the CMM installation package to the
+3. Extract the CMM_client_2.0.x.tar.gz archive file from the CMM installation package to the
    installation directory. The archive provides the following files:
      - log-agent-CMM_2.0.x.run
      - monasca-agent-CMM_2.0.x.run
-     - monasca-ui-<version>-CMM_2.0.14-x.run
+     - monasca-ui-CMM_2.0.x.run
 4. Change the access permission of the `log-agent-CMM_2.0.x.run` file to Execute.
 5. Run the agent installer:
 
 ```
-./log-agent-7.3.0_2.0.1-CMM2.0.14-x.run \
-  --target "/opt/monasca-log-agent" -- \
-  --monasca_log_api_url "http://<cmm-server-ip>:5607/v2.0" \
-  --keystone_auth_url "http://<keystone-ip>:35357/v3" \
-  --project_name "<project>" \
-  --username "<user-name>" \
-  --password "<password>" \
-  --user_domain_name "<user-domain-name>" \
-  --project_domain_name "<user-domain-name>" \
-  --hostname "<hostname>"
+./log-agent-CMM_2.0.x.run \
+--target "/opt/monasca-log-agent" -- \
+--monasca_log_api_url "<cmm_url>" \
+--keystone_auth_url "<openstack_url>" \
+--project_name "<project>" \
+--username "<user_name>" \
+--password "<password>" \
+--user_domain_name default \
+--project_domain_name default \
+--hostname "<openstack_hostname>" \
+"<path_to_log_file1>" "<path_to_log_file n >"
 ```
 
 The following parameters must be configured for running the installer. Each value must be
@@ -893,9 +851,7 @@ enclosed in double quotes (").
 - `--target`. The directory in which the agent is installed. The agent must not be installed in
   the root user's home directory.
 - `--monasca_log_api_url`. The URL used to access the server where the Monitoring
-  Service is installed. Example: `http://192.168.1.6:5607/v2.0`
-> **Note:** In CMM2.0.13 the `monasca_log_api_url` was `http://<cmm-server-ip>:5607/v3.0`\
-  in CMM2.0.14 it uses the unified API, then it is `http://<cmm-server-ip>:5607/v2.0`.
+  Service is installed. Example: `http://192.168.1.6:5607/v3.0`
 - `--keystone_auth_url`. The URL used to access the server where the OpenStack
   Keystone service is installed. The service is used for authenticating the user specified in
   username. It must be a V3 endpoint. Example: `http://192.168.1.5:35357/v3`
@@ -909,11 +865,9 @@ enclosed in double quotes (").
   It is recommended that this user is used only for configuration purposes and not for actually
   monitoring services and servers.
 - `--password`. The password of the user specified in `username`.
-- `--user_domain_name`. The user domain name to be used for user name scoping. For example
-  `Default`.
+- `--user_domain_name`. The user domain name to be used for user name scoping.
 - `--project_domain_name`. The project domain name used for authenticating the agent
-  against OpenStack Keystone. For example
-  `Default`.
+  against OpenStack Keystone.
 - `--hostname`. Meta information to be collected with the log data that is retrieved by the
   agent, for example `node1`. If `--hostname` is not specified when running the installer, the host
   name defined in `/etc/hostname` is configured as dimension.
@@ -921,33 +875,27 @@ enclosed in double quotes (").
   as one or more fields in the log management window. For the user who is working with the
   log data, dimensions provide additional filtering options.
 
-> **Note:** In order to use the default list of OSP16.1 log-paths avoid to pass any log-path in the
-  configuration.\
-  The updated list of OSP16.1 log-paths has been taken from:
-  [RHOSP16.1 Location of log files for OpenStack services](https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/16.1/html/logging_monitoring_and_troubleshooting_guide/installing-and-configuring-the-logs-service_osp#location-of-log-files-for-openstack-services_installing-and-configuring-the-logs-service)
-  
-- If you decided not to use th default list of OSP16.1 log-paths, add the parameter `"<path_to_log_file1>"`
-`"<path_to_log_file n >"`. You have to specify the log-paths as absolute paths as in the following
+
+For specifying which log data is to be retrieved, replace `<path_to_log_file1>`
+`"<path_to_log_file n >"`. You have to specify the file paths as absolute paths as in the following
 example:
 
 ```
-./log-agent-7.3.0_2.0.1-CMM2.0.14-x.run \
-  --target "/opt/monasca-log-agent" -- \
-  --monasca_log_api_url "http://<cmm-server-ip>:5607/v2.0" \
-  --keystone_auth_url "http://<keystone-ip>:35357/v3" \
-  --project_name "<project>" \
-  --username "<user-name>" \
-  --password "<password>" \
-  --user_domain_name "<user-domain-name>" \
-  --project_domain_name "<user-domain-name>" \
-  --hostname "<hostname>" \
-  "/var/log/keystone/keystone.log" "/var/log/neutron/firewall.log"
+"/var/log/keystone/keystone.log" "/var/log/neutron/firewall.log"
 ```
 
-Any number of input file paths can be specified.
+Any number of input file paths can be specified. You can run the installer without specifying input
+file paths. Without specifying which data is to be retrieved, however, it is required to update the
+agent configuration at a later stage.
+
+The installer creates a `monasca-log-agent.service` file in the `/etc/systemd/system/` directory,
+and automatically runs the service file to start the agent.
+
+The agent is provided as a LINUX service. A startup script is created that automatically starts the
+agent each time the machine is booted.
 
 
-## 2.5.3 Log Agent Updating the Configuration File
+## 2.5.3 Updating the Configuration File
 
 CMM allows you to change the configuration of an agent that is up and running. It might
 be required, for example, that you want to monitor additional logs due to changes in your
@@ -960,13 +908,13 @@ Proceed as follows:
 2. To stop the agent, execute the following command:
 
 ```
-sudo systemctl stop monasca-log-agent
+systemctl stop monasca-log-agent
 ```
 
 3. Open the file with your favorite editor. Example:
 
 ```
-sudo vim /opt/monasca/monasca-log-agent/conf/agent.conf
+vim /opt/monasca/monasca-log-agent/conf/agent.conf
 ```
 
 4. Adapt the input section, if required.
@@ -1002,7 +950,7 @@ Example:
 ```
 output {
   monasca_log_api {
-    monasca_log_api_url => "http://192.168.1.6:5607/v2.0"
+    monasca_log_api_url => "http://192.168.1.6:5607/v3.0"
     keystone_api_url => "http://192.168.1.5:35357/v3"
     project_name => "monasca"
     username => "monasca-agent"
@@ -1021,56 +969,13 @@ output {
 6. To start the agent again, execute the following command:
 
 ```
-sudo systemctl start monasca-log-agent
+systemctl start monasca-log-agent
 ```
 
 The agent is instantly available with the updated configuration settings.
 
 
-## 2.5.4 Log Agent Uninstallation
-
-Before uninstalling a Log Agent from an OpenStack node, it is recommended that you make a
-backup of the agent's configuration settings. They are stored in the `/<installation_dir>/conf/
-agent.conf` file.
-
-CMM does not offer integrated backup and recovery mechanisms. Use the standard file system
-mechanisms instead.
-
-To uninstall a Log Agent, proceed as follows:
-
-1. Log in to the OpenStack node on which the agent is installed.
-2. Stop the `monasca-log-agent` service and delete all related files:
-
-```
-sudo systemctl stop monasca-log-agent
-sudo systemctl disable monasca-log-agent
-sudo rm -f /etc/systemd/system/monasca-log-agent.service
-sudo systemctl daemon-reload
-sudo systemctl reset-failed monasca-log-agent
-```
-
-3. Remove all directories and files created by the agent installer:
-
-```
-sudo rm -rf <target_dir>
-```
-
-Replace `<target_dir>` by the directory in which the agent is installed, (e.g.
-`/opt/monasca/monasca-log-agent/`).
-
-4. Remove the agent's log files and the log directory:
-
-```
-sudo rm -rf /var/log/monasca-log-agent/
-```
-
-5. Remove the Logstash script used for defining the position of monitored log files:
-
-```
-sudo rm -f /etc/profile.d/logstash_sincedb_dir.sh
-```
-
-## 2.6 Horizon Plugin (Monasca-UI)
+## 2.6 Installing the Horizon Plugin
 
 To make the monitoring functionality accessible in OpenStack Horizon, you have to install the
 Horizon Plugin on the node where the OpenStack Horizon service is deployed. After a successful
@@ -1078,191 +983,160 @@ installation, additional manual configuration steps must be performed before CMM
 access the monitoring and log management functionality in OpenStack Horizon.
 
 
-## 2.6.1 Horizon Plugin (Monasca-UI) Installation and Configuration
+## 2.6.1 Installation
 
 Before you run the Horizon Plugin installer, make sure that you have made the required
 OpenStack Keystone preparations.
 
 To install the Horizon Plugin, proceed as follows:
 
-1. Log in as root to the OpenStack node on which the OpenStack Horizon service is installed.
-2. Create the directory /opt/monasca-ui inside Horizon container:
+1. Log in to the OpenStack node on which the OpenStack Horizon service is installed.
+2. Prepare an installation directory.
+3. Extract the `CMM_client_2.0.x.tar.gz` archive file from the CMM installation package to the
+    installation directory. The archive provides the following files:
+    - `log-agent-CMM_2.0.x.run`
+    - `monasca-agent-CMM_2.0.x.run`
+    - `monasca-ui-CMM_2.0.x.run`
+4. Change the access permission of the `monasca-ui-CMM_2.0.x.run` file to Execute.
+5. To run the Horizon Plugin installer, execute the following command:
+
 ```
-# podman exec -it horizon mkdir -p /opt/monasca-ui/
+./monasca-ui-CMM_2.0.x.run --target <monasca_ui_dir>
 ```
 
-3. Copy the file monasca-ui-1.17.x-CMM2.0.14-x.tar.gz into Horizon container:
+The `--target parameter` is mandatory. Replace `<monasca_ui_dir>` by the directory in which
+to install the plugin. The directory must be specified as absolute path. The plugin must not be
+installed in the root user's home directory. Example: `/opt/monasca-ui/`.
+
+The installer extracts the plugin with all the required dependencies. The configuration of the plugin
+and its dependencies is prepared.
+
+
+## 2.6.2 Configuration
+
+The following steps must be performed manually to enable access to the monitoring functionality
+in OpenStack Horizon:
+
+1. Edit your `local_settings.py` file. The file is located in your plugin installation directory
+    `<monasca_ui_dir>/lib/python2.7/site-packages/monitoring/config/`
+    Define a group name for log paths in the file. The group name is required to display
+    irregularities in your log data on the **Overview** page in OpenStack Horizon.
+    Add the following line to the `MONITORING_SERVICES_GROUPS` parameter in the `Service group
+    names` section:
+
 ```
-# podman cp monasca-ui-1.17.x-CMM2.0.14-x.tar.gz horizon:/opt/monasca-ui/
+{'name': _('Log Paths'), 'groupBy': 'path'}
 ```
 
-4. Enter into Horizon container:
-```
-# podman exec -it horizon /bin/sh
-```
-
-5. Extract the archive:
-```
-$ tar -xzvf /opt/monasca-ui/monasca-ui-1.17.x-CMM2.0.14-x.tar.gz -C /opt/monasca-ui/
-```
-
-6. Install the libraries:
-```
-$ python3.6 -m pip install --no-index --find-links="/opt/monasca-ui" monasca-ui==1.17.x
-```
-
-7. Create symbolic links:
-```
-$ ln -sf /usr/local/lib/python3.6/site-packages/monitoring/conf/monitoring_policy.json \
-/etc/openstack-dashboard/monitoring_policy.json
-
-$ ln -sf /usr/local/lib/python3.6/site-packages/monitoring/enabled/_50_admin_add_monitoring_panel.py \
-/usr/share/openstack-dashboard/openstack_dashboard/local/enabled/_50_admin_add_monitoring_panel.py
-
-$ ln -sf /usr/local/lib/python3.6/site-packages/monitoring/config/local_settings.py \
-/usr/share/openstack-dashboard/openstack_dashboard/local/local_settings.d/_50_monasca_ui_settings.py
-```
-
-8. Update configuration. Change the following entries in file:\
-`/usr/local/lib/python3.6/site-packages/monitoring/config/local_settings.py`
+Do not forget to separate the lines for the group names by a comma. Example:
 
 ```
 MONITORING_SERVICES_GROUPS = [
     {'name': _('OpenStack Services'), 'groupBy': 'service'},
     {'name': _('Servers'), 'groupBy': 'hostname'},
-    {'name': _('Log Paths'), 'groupBy': 'path'}
+    {'name': _('Log Paths'), 'groupBy': 'path'} 
 ]
 ```
 
-```
-GRAFANA_URL = getattr(settings, 'GRAFANA_URL', {'<REGION>': '/grafana', })
-```
+Replace `<region>` by the name of your OpenStack region for the `GRAFANA_URL` parameter, for
+example `RegionOne`.
 
 ```
-KIBANA_HOST = getattr(settings, 'KIBANA_HOST', 'http://<CMM-SERVER-IP>:5601/')
+GRAFANA_URL = getattr(settings, 'GRAFANA_URL',
+{'<region>': '/grafana', })
 ```
 
-Please replace:
+Set the `ENABLE_KIBANA_BUTTON` to `True`. By default, it is set to False.
 
-- `<REGION>` by OpenStack region, e.g.:
 ```
-GRAFANA_URL = getattr(settings, 'GRAFANA_URL', {'regionOne': '/grafana', })
-```
-
-- `<CMM-SERVER-IF>` by IP address of CMM-server, e.g.:
-```
-KIBANA_HOST = getattr(settings, KIBANA_HOST', ‘http://10.140.99.78:5601/’)
+ENABLE_KIBANA_BUTTON = getattr(settings, 'ENABLE_KIBANA_BUTTON', True)
 ```
 
-9. Update Django settings:
+Replace `<kibana_host>` by the IP address of the CMM node for the KIBANA_HOST parameter.
+Example URL: `http://192.168.10.6:5601/`
+
 ```
-$ python3 /usr/share/openstack-dashboard/manage.py collectstatic --noinput
-$ python3 /usr/share/openstack-dashboard/manage.py compress --force
+KIBANA_HOST = getattr(settings, 'KIBANA_HOST',
+'http://<kibana_host>:5601/')
 ```
 
-> **Note:** Expected CSS Error messages:\
-  `ERROR:scss.ast:Function not found: twbs-font-path:1`\
-  `ERROR:scss.compiler:Mixin not found: dropdown-arrow:0`\
-  `ERROR:scss.compiler:Maximum number of supported selectors in Internet Explorer (4095) exceeded!`
+2. To integrate the Monitoring Service with the OpenStack Horizon service, create links pointing to
+    the Horizon Plugin.
+    Example with `/opt/monasca-ui/` as plugin installation directory:
 
-10. Exit from Horizon container:
 ```
-$ exit
-```
+ln -s /opt/monasca-ui/lib/python2.7/site-packages/monitoring/enabled/_50_admin_add_monitoring_panel.py \
+  /usr/share/openstack-dashboard/openstack_dashboard/local/enabled/_50_admin_add_monitoring_panel.py
 
-11. Add Proxy Modules at the end of file in httpd.conf. Location of file:\
-`/var/lib/config-data/puppet-generated/horizon/etc/httpd/conf/httpd.conf`
-
-Add these lines at the end:
-```
-LoadModule proxy_module modules/mod_proxy.so
-LoadModule proxy_http_module modules/mod_proxy_http.so
+ln -s /opt/monasca-ui/lib/python2.7/site-packages/monitoring/conf/monitoring_policy.json \
+  /etc/openstack-dashboard/monitoring_policy.json
 ```
 
-12. Add the Proxy configuration inside VirtualHost section in 10-horizon_vhost.conf. Location of file:\
-`/var/lib/config-data/puppet-generated/horizon/etc/httpd/conf.d/10-horizon_vhost.conf`
+3. Append the virtual env libraries of the Horizon Plugin to the system path of the OpenStack
+    Horizon service. For this purpose, two files must be edited.
+    Append the path where the plugin is installed to the `django.wsgi` file. The WSGI script
+    of your OpenStack platform is located in the `/usr/share/openstack-dashboard/`
+    `openstack_dashboard/wsgi/` directory.
+    Example of `django.wsgi` file with `/opt/monasca-ui/` as plugin installation directory:
 
-Add lines:
 ```
-  ProxyPass        "/grafana" "http://<CMM-SERVER-IP>:3000"
-  ProxyPassReverse "/grafana" "http://<CMM-SERVER-IP>:3000"
-```
+import logging
+import os
+import sys
+sys.path.append("/opt/monasca-ui/lib/python2.7/site-packages")
+from django.core.wsgi import get_wsgi_application
+from django.conf import settings
 
-before line:\
-`</VirtualHost>`
+# Add this file path to sys.path in order to import settings
+sys.path.insert(0,
+ os.path.join(os.path.dirname(os.path.realpath(__file__)), '../..'))
+os.environ['DJANGO_SETTINGS_MODULE'] = 'openstack_dashboard.settings'
+sys.stdout = sys.stderr
 
-Replace <CMM-SERVER-IP> by CMM Server IP Address, e.g.:
-```
-  ProxyPass        "/grafana" "http://10.140.99.76:3000"
-  ProxyPassReverse "/grafana" "http://10.140.99.76:3000"
-```
+DEBUG = False
 
-13. Restart Horizon container:
-```
-# systemctl restart tripleo_horizon
-```
-
-14. Go to Horizon in the browser and login as admin, then choose the project monasca:
-    The Monitoring tab is now present.
-
-
-## 2.6.2 Horizon Plugin (Monasca-UI) Uninstallation
-
-To uninstall the Horizon Plugin (Monasca-UI), proceed as follows:
-
-1. Log in as root to the OpenStack node on which the OpenStack Horizon service is installed.
-2. Enter into Horizon container:
-```
-# podman exec -it horizon /bin/sh
+application = get_wsgi_application()
 ```
 
-3. Remove monasca-ui directory:
+Append the path where the plugin is installed to the `manage.py` file. The `manage.py` file is
+located in the `/usr/share/openstack-dashboard/` directory.
+
+Example of `manage.py` file with `/opt/monasca-ui/` as plugin installation directory:
+
 ```
-$ rm -rf /opt/monasca-ui/
+import os
+import sys
+
+from django.core.management import execute_from_command_line # noqa
+
+if __name__ == "__main__":
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE",
+                          "openstack_dashboard.settings")
+    sys.path.append("/opt/monasca-ui/lib/python2.7/site-packages")
+    execute_from_command_line(sys.argv)
 ```
 
-4. Uninstall monasca-ui:
+4. Edit your `monitoring_policy.json` file. The file is located in your plugin installation
+   directory `<monasca_ui_dir>/lib/python2.7/site-packages/monitoring/conf/`
+
+   To restrict access to the metrics dashboards from OpenStack Horizon to the `monasca-user`
+   role, adapt the rule assigned to the `monitoring:monitoring` policy as follows:
+
 ```
-$ python3.6 -m pip uninstall monasca-ui
+"monitoring:monitoring": "rule:monasca_user_role",
 ```
 
-5. Remove the symbolic links:
+5. If it is required to provide the Japanese version of the Horizon plugin, make the following
+    preparation.
+    Example with `/opt/monasca-ui/` as plugin installation directory:
+
 ```
-$ rm /etc/openstack-dashboard/monitoring_policy.json
-$ rm /usr/share/openstack-dashboard/openstack_dashboard/local/enabled/_50_admin_add_monitoring_panel.py
-$ rm /usr/share/openstack-dashboard/openstack_dashboard/local/local_settings.d/_50_monasca_ui_settings.py
+cd /opt/monasca-ui/lib/python2.7/site-packages/monitoring/
+/opt/monasca-ui/lib/python2.7/site-packages/django/bin/django-admin.py compilemessages -l ja
 ```
 
-6. Update Django settings:
-```
-$ python3 /usr/share/openstack-dashboard/manage.py collectstatic --noinput
-$ python3 /usr/share/openstack-dashboard/manage.py compress --force
-```
+6. Restart the server on which the OpenStack Horizon service is running. Example:
 
-7. Exit from Horizon container:
 ```
-$ exit
-```
-
-8. Remove Proxy Modules from file httpd.conf. Location of file:\
-`/var/lib/config-data/puppet-generated/horizon/etc/httpd/conf/httpd.conf`
-
-Remove these lines:
-```
-LoadModule proxy_module modules/mod_proxy.so
-LoadModule proxy_http_module modules/mod_proxy_http.so
-```
-
-9. Remove the Proxy configuration inside VirtualHost section in 10-horizon_vhost.conf. Location of file:\
-`/var/lib/config-data/puppet-generated/horizon/etc/httpd/conf.d/10-horizon_vhost.conf`
-
-Remove these lines:
-```
-  ProxyPass        "/grafana" "http://<CMM-SERVER-IP>:3000"
-  ProxyPassReverse "/grafana" "http://<CMM-SERVER-IP>:3000"
-```
-
-10. Restart Horizon container:
-```
-# systemctl restart tripleo_horizon
+systemctl restart httpd
 ```
