@@ -33,7 +33,7 @@ openstack role create monitoring-delegate
 ```
 
 - Assign the monitoring-delegate role to the OpenStack user you have created for
-  authenticating an agent against OpenStack Keystone, for example, monasca-agent. The user
+  authenticating an agent against OpenStack Keystone, for example monasca-agent. The user
   name and password of this user must be specified in the agent configuration when the agent is
   installed. For details, refer to _Creating Projects, Users, and Roles_.
   
@@ -74,7 +74,7 @@ To reconfigure the agent, proceed as follows:
    You can execute the following command:
 
 ```
-# nova service-list
+nova service-list
 ```
 
    The `Host` column in the nova-compute line shows the host name for the `nova-compute` service
@@ -84,7 +84,7 @@ To reconfigure the agent, proceed as follows:
    Example:
 
 ```
-sudo vim /etc/monasca/agent/agent.yaml
+vim /etc/monasca/agent/agent.yaml
 ```
 
 4. If the `hostname` parameter does not correspond to the host name for the `nova-compute` service
@@ -92,7 +92,7 @@ sudo vim /etc/monasca/agent/agent.yaml
 5. To start the agent again, execute the following command:
 
 ```
-sudo systemctl start monasca-agent.target
+systemctl start monasca-agent
 ```
 
 As soon as the agent is started again, it is available with the updated configuration settings. The
