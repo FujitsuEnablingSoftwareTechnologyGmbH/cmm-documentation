@@ -224,24 +224,27 @@ For details on user management, refer to the _OpenStack documentation_.
 CMM is distributed in the CMM installation package. It contains archive files with the CMM
 software and documentation for installing and configuring CMM.
 
-The `CMM_server_2.0.x.tar.gz` file includes (replace x with the current version number of CMM):
+The `CMM_server_2.0.14-x.tar.gz` file includes (replace x with the current version number of CMM):
 
-- `CMM_server_2.0.x.images.tar` Tarred archive file with the Docker images required for
+- `CMM_server_2.0.14-x.images.tar` Tarred archive file with the Docker images required for
     installing and configuring CMM.
-- `docker-compose-Linux-x86_64_1.15.0` Docker Compose binary required to install CMM.
+- `docker-compose-Linux-x86_64_1.27.4` Docker Compose binary required to install CMM.
+- `containerd.io-1.4.4-3.1.el7.x86_64.rpm` Docker-CE dependency rpm.
+- `docker-ce-19.03.15-3.el7.x86_64.rpm` Docker-CE rpm.
+- `docker-ce-cli-19.03.15-3.el7.x86_64.rpm` Docker-CLI rpm.
 - `docker-compose-metric.yml` and `docker-compose-log.yml` Docker Compose YAML files
     required for installing and configuring CMM.
 - `.env` Docker Compose environment file defining the default environment variables used by
     Docker Compose.
 
-The `CMM_client_2.0.x.tar.gz` file includes (replace x with the current version number of CMM):
+The `CMM_client_2.0.14-x.tar.gz` file includes (replace x with the current version number of CMM):
 
-- `monasca-agent-CMM_2.0.x.run` Executable for installing a Metrics Agent on an OpenStack
+- `monasca-agent-CMM_2.0.14-x.run` Executable for installing a Metrics Agent on an OpenStack
     node.
-- `log-agent-CMM_2.0.x.run` Executable for installing a Log Agent on an OpenStack node.
-- `monasca-ui-CMM_2.0.x.run` Executable for installing the Horizon Plugin on the node where
+- `log-agent-CMM_2.0.14-x.run` Executable for installing a Log Agent on an OpenStack node.
+- `monasca-ui-CMM_2.0.14-x.run` Executable for installing the Horizon Plugin on the node where
     the OpenStack Horizon Service is deployed.
 
-The `CMM_documentation_2.0.x.tar.gz` file includes PDF manuals providing an overview of
+The `CMM_documentation_2.0.14-x.tar.gz` file includes Markdown manuals providing an overview of
 CMM as well as information directed to system operators and application operators (replace `x` with
 the current version number of CMM).
