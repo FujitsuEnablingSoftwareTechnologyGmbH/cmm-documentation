@@ -146,44 +146,6 @@ To integrate with the required OpenStack services, CMM requires access to the fo
 - Port `5000` and `35357` for the OpenStack Keystone service.
 
 
-## 2.1.4 Software prerequisites
-
-Please check the following items for servers where metric agent (bare metal) shall be installed::
-
-
-### Check if pip is linked to pip3
-
-- Execute:
-```
-# which pip
-```
-
-- If a path is returned execute:
-```
-# ls –l <path of pip>
-```
-
-- If it’s a link to pip3: OK, no more action is needed.
-- If no path is returned:
-  * `which pip3`: returns `<path_of_pip3>` (usually: `/usr/bin/pip3`)
-  * Create a symbolic link for pip:
-```
-ln –s <path_of_pip3> /usr/bin/pip
-```
-
-### Check if virtualenv is installed
-
-- Execute:
-```
-which virtualenv
-```
-
-- If a path is returned: OK, no more action is needed.
-- If no path is returned install virtualenv:
-```
-pip install ‘virtualenv==16.7.5’
-```
-
 ### Check if gcc is installed
 
 - Execute:
@@ -636,7 +598,59 @@ you can update the `agent.yaml` file, and you can activate metrics in addition t
 automatically provided with the installation.
 
 
-## 2.4.1 Metric Agent Installation
+## 2.4.1 Metric Agent Prerequisites
+
+Please check the following items for servers where metric agent (bare metal) shall be installed::
+
+
+### Check if pip is linked to pip3
+
+- Execute:
+```
+# which pip
+```
+
+- If a path is returned execute:
+```
+# ls –l <path of pip>
+```
+
+- If it’s a link to pip3: OK, no more action is needed.
+- If no path is returned:
+  * `which pip3`: returns `<path_of_pip3>` (usually: `/usr/bin/pip3`)
+  * Create a symbolic link for pip:
+```
+ln –s <path_of_pip3> /usr/bin/pip
+```
+
+### Check if virtualenv is installed
+
+- Execute:
+```
+which virtualenv
+```
+
+- If a path is returned: OK, no more action is needed.
+- If no path is returned install virtualenv:
+```
+pip install ‘virtualenv==16.7.5’
+```
+
+### Check if gcc is installed
+
+- Execute:
+```
+which gcc
+```
+
+- If a path is returned: OK, no more action is needed.
+- If no path is returned install gcc:
+```
+dnf install gcc
+```
+
+
+## 2.4.2 Metric Agent Installation
 
 To install a Metrics Agent, proceed as follows:
 
@@ -738,7 +752,7 @@ The agent is installed in a virtualenv environment. By default, the virtualenv e
 in the `/opt/monasca-agent/` directory.
 
 
-## 2.4.2 Metric Agent Updating the Configuration File
+## 2.4.3 Metric Agent Updating the Configuration File
 
 CMM allows you to change the configuration of an agent that is up and running. This might be
 required, for example, due to changes in your environment. To change the agent configuration,
@@ -769,7 +783,7 @@ systemctl start monasca-agent.target
 The agent is instantly available with the updated configuration settings.
 
 
-## 2.4.3 Activating Additional Metrics
+## 2.4.4 Activating Additional Metrics
 
 The agent installation automatically configures and activates a comprehensive set of metrics for
 monitoring your services and servers. The agent ships with additional metrics templates that you
