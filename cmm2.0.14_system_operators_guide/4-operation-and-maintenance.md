@@ -889,7 +889,7 @@ If you want to see all data created after the backup has been taken, one additio
 Restore all indices from the snapshot you have created. Example: 
 
 ```
-curl -XPOST http://localhost:9200/_all/_close
+curl -XPOST http://localhost:9200/_all/_open
 ```
 
 11. Exit the elasticsearch container:
