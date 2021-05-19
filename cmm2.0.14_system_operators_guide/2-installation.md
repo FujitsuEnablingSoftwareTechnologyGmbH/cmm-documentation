@@ -646,7 +646,7 @@ To install a Metrics Agent, proceed as follows:
    installation directory. The archive provides the following files:
      - `log-agent-CMM_2.0.x.run`
      - `monasca-agent-CMM_2.0.x.run`
-     - `monasca-ui-CMM_2.0.x.run`
+     - `monasca-ui-1.17.x-CMM_2.0.x.tar.gz`
 4. Change the access permission of the `monasca-agent-CMM_2.0.x.run` file to Execute.
 5. Make sure that your `/root/.my.cnf` file does not define any passwords in single quotes.
 6. Run the agent installer:
