@@ -1004,7 +1004,7 @@ system_u:object_r:svirt_sandbox_file_t:s0:c335,c530 mon.backup
 docker run --rm --entrypoint /bin/ash \
  -v <path_to_data_dir>/influxdb:/var/lib/influxdb:Z \
  -v <path_to_backup_dir>/influxdb_backup:/influxdb_backup:Z \
- influxdb:1.3.4-alpine \
+ influxdb:1.8-alpine \
  -c "influxd restore -metadir /var/lib/influxdb/meta \
  -datadir /var/lib/influxdb/data \
  -database <db_name> /influxdb_backup/<name>.backup"
