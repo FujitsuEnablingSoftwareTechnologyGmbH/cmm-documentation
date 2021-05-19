@@ -159,7 +159,7 @@ To start an agent, proceed as follows:
 2. To start a Metrics Agent, execute the following command:
 
 ```
-systemctl start monasca-agent
+systemctl start monasca-agent.target
 ```
 
 To start a Log Agent, execute the following command:
@@ -174,7 +174,7 @@ To stop an agent, proceed as follows:
 2. To stop a Metrics Agent, execute the following command:
 
 ```
-systemctl stop monasca-agent
+systemctl stop monasca-agent.target
 ```
 
 To stop a Log Agent, execute the following command:
@@ -187,7 +187,7 @@ systemctl stop monasca-log-agent
 ## 4.3 Data Retention and Cleanup
 
 By default, CMM retains the data stored in the Elasticsearch database and the InfluxDB database
-for 60 days. Older data is automatically deleted. You can change the default data retention
+for 31 days. Older data is automatically deleted. You can change the default data retention
 configuration for the databases, if required. In addition to implementing your data retention
 requirements, you should check for the amount and size of the collected metrics and log data at
 regular intervals, and delete any unnecessary data to free disk space.
@@ -220,7 +220,7 @@ Proceed as follows:
 2. To stop the agent, execute the following command:
 
 ```
-systemctl stop monasca-agent
+systemctl stop monasca-agent.target
 ```
 
 3. Change to the directory that stores the metrics. Example:
@@ -238,7 +238,7 @@ rm -i process.yaml
 5. To start the agent again, execute the following command:
 
 ```
-systemctl start monasca-agent
+systemctl start monasca-agent.target
 ```
 
 
@@ -272,7 +272,9 @@ vim /opt/monasca-log-agent/conf/agent.conf
 
 ```
 file {
-    path => "/var/log/keystone/*.log"
+
+    path => "/var/log/containers/keystone/keystone/*.log"
+
   }
 ```
 
@@ -288,10 +290,13 @@ systemctl start monasca-log-agent
 Metrics and alarm history data is stored in the InfluxDB database. InfluxDB features data retention
 mechanisms that allow you to define your data retention policies as required by your monitoring
 environment. By default, CMM automatically deletes metrics and alarm history data from the
-database if it is older than 60 days.
+database if it is older than 31 days.
 
 Proceed as follows to change the data retention period which was defined when installing the
 Monitoring Service:
+
+Retention period can be changed by using InfluxDB command line interface, 
+the interactive shell that is provided for the database. Proceed as follows:
 
 1. Log in to the CMM node as a user with root privileges.
 2. Go to the installation directory.
@@ -422,7 +427,7 @@ documentation*. For details on data retention, refer to *Retention Policy Manage
 Log data is stored in the Elasticsearch database. Elasticsearch stores the data in indices. CMM
 uses Elasticsearch Curator for managing data retention of these indices. Elasticsearch Curator
 jobs are automatically run by a Cron daemon that executes scheduled commands.
-By default, an Elasticsearch index is automatically deleted in CMM if it is older than 60 days. The
+By default, an Elasticsearch index is automatically deleted in CMM if it is older than 31 days. The
 delete job is executed every day at midnight (UTC).
 Proceed as follows to change the data retention settings that were defined when installing the
 Monitoring Service:
@@ -484,21 +489,13 @@ Proceed as follows to delete metrics data from the database:
 
 1. Create a backup of the database. For details, refer to _Backup and Recovery_.
 2. Log in to the CMM node as a user with root privileges.
-3. For connecting to InfluxDB, you need to know the ID or name of the container in which the
-   database is running:
-
+3. Retrieve the name of influxdb container with the following command:  
 ```
-docker ps | grep influxd
+# docker ps | grep influxdb  
 ```
-
-   Example output with `c6be4ebebefe` as container ID and `monascadocker_influxdb_1` as
-   container name:
-
-```
-c6be4ebebefe   influxdb:1.3.4-alpine   "/entrypoint.sh infl…"   
-19 hours ago  Up 6 seconds   8086/tcp   monascadocker_influxdb_1
-```
-
+   The name is the last parameter returned, ending with influxdb_1.  
+   E.g.: monascadocker_influxdb_1  
+   
 4. Connect to InfluxDB as follows:
 
 ```
@@ -506,13 +503,11 @@ c6be4ebebefe   influxdb:1.3.4-alpine   "/entrypoint.sh infl…"
 # influx
 ```
 
-Replace `<container_id>` by the ID or name of the container in which the database is running:
-
 The output of this command is, for example, as follows:
 
 ```
-Connected to http://localhost:8086 version 1.3.3
-InfluxDB shell version: 1.3.3
+Connected to http://localhost:8086 version 1.8.5
+InfluxDB shell version: 1.8.5
 ```
 
 5. Connect to the InfluxDB database of CMM (mon):
@@ -740,12 +735,12 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml exec elast
 3. Create the snapshot repository. Example:
 
 ```
-curl -XPUT http://localhost:9200/_snapshot/my_backup -d '{
-  "type": "fs",
-  "settings": {
-    "location": "/elasticsearch_backup/my_backup",
-    "compress": true
-  }
+curl -XPUT http://localhost:9200/_snapshot/my_backup -H'Content-Type: application/json' -d '{
+ "type": "fs",
+ "settings": {
+ "location": "/usr/share/elasticsearch/backup",
+ "compress": true
+ }
 }'
 ```
 
@@ -917,19 +912,27 @@ curl -XPOST http://localhost:9200/_snapshot/my_backup/snapshot_1/_restore
 The example restores all indices from `snapshot_1` that is stored in the `my_backup` repository.
 If the call is successful, Elasticsearch returns `{"accepted":true}`.
 
-10. Exit the elasticsearch container:
+10. Now, only the data restored from is visible in your repository.  
+If you want to see all data created after the backup has been taken, one additional step is required:  
+Restore all indices from the snapshot you have created. Example: 
+
+```
+curl -XPOST http://localhost:9200/_all/_close
+```
+
+11. Exit the elasticsearch container:
 
 ```
 exit
 ```
 
-11. Stop the `elasticsearch` service:
+12. Stop the `elasticsearch` service:
 
 ```
 docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop elasticsearch
 ```
 
-12. Start all CMM agents and services:
+13. Start all CMM agents and services:
 
 ```
 docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d
