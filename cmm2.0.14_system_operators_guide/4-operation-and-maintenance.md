@@ -546,11 +546,11 @@ index per day is created for every OpenStack project.
 
 By default, the indices are stored in the following directory on the CMM node:
 
-`/opt/monasca-containers/elasticsearch/data/<cluster-name>/nodes/<node-name>/indices`
+`/opt/monasca-containers/elasticsearch/data/nodes/<node-name>/indices`
 
 Example:
 
-`/opt/monasca-containers/elasticsearch/data/elasticsearch/nodes/0/indices`
+`/opt/monasca-containers/elasticsearch/data/nodes/0/indices`
 
 If you want to delete outdated or unnecessary log data from the Elasticsearch database, proceed
 as follows:
@@ -566,14 +566,14 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml exec elast
 4. Make sure that the data you want to delete exists by executing the following command:
 
 ```
-curl -XHEAD -i 'http://localhost:<port>/<projectID-date>'
+curl -XHEAD -i 'http://localhost:<port>/logs-<projectID-date>'
 ```
 
 For example, if Elasticsearch is listening at port 9200 (default), the ID of the OpenStack project
 is abc123, and you want to check the index of 2015, July 1st, the command is as follows:
 
 ```
-curl -XHEAD -i 'http://localhost:9200/abc123-2015-07-01'
+curl -XHEAD -i 'http://localhost:9200/logs-abc123-2015-07-01'
 ```
 
 If the HTTP response is `200` , the index exists; if the response is `404` , it does not exist.
