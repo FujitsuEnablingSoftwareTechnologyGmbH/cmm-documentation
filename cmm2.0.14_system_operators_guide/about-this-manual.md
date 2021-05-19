@@ -99,7 +99,7 @@ respective owners.
 
 ### Copyright
 
-Copyright FUJITSU ENABLING SOFTWARE TECHNOLOGY GMBH 2018
+Copyright FUJITSU ENABLING SOFTWARE TECHNOLOGY GMBH 2021
 
 All rights reserved, including those of translation into other languages. No part of this manual may
 be reproduced in any form whatsoever without the written permission of FUJITSU ENABLING
