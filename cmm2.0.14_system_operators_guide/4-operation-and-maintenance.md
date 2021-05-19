@@ -299,34 +299,6 @@ Retention period can be changed by using InfluxDB command line interface,
 the interactive shell that is provided for the database. Proceed as follows:
 
 1. Log in to the CMM node as a user with root privileges.
-2. Go to the installation directory.
-3. Stop the `influxdb` service. For this purpose, run `docker-compose stop` as follows:
-
-```
-docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop influxdb
-```
-
-4. Open the `.env` file, and update the data retention parameter as required.
-   
-   Example for deleting the data after a period of 30 days:
-
-```
-# Data retention for InfluxDB database
-MON_INFLUXDB_RETENTION=30d
-```
-
-5. Start the `influxdb` service. For this purpose, run `docker-compose up` as follows:
-
-```
-docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d influxdb
-```
-
-As soon as the `influxdb` service is up and running, your new data retention period takes effect.
-
-To change additional data retention settings for your InfluxDB database, you can use the InfluxDB
-command line interface, the interactive shell that is provided for the database. Proceed as follows:
-
-1. Log in to the CMM node as a user with root privileges.
 2. For connecting to InfluxDB, you need to know the ID or name of the container in which the
    database is running:
 
@@ -338,7 +310,7 @@ docker ps | grep influxd
    container name:
 
 ```
-c6be4ebebefe   influxdb:1.3.4-alpine   "/entrypoint.sh infl…"   
+c6be4ebebefe   influxdb:1.8-alpine   "/entrypoint.sh infl…"   
 19 hours ago  Up 6 seconds   8086/tcp   monascadocker_influxdb_1
 ```
 
@@ -352,8 +324,8 @@ influx
 The output of this command is, for example, as follows:
 
 ```
-Connected to http://localhost:8086 version 1.3.3
-InfluxDB shell version: 1.3.3
+Connected to http://localhost:8086 version 1.8.5
+InfluxDB shell version: 1.8.5
 ```
 
 4. Connect to the InfluxDB database of CMM (`mon`):
@@ -574,11 +546,11 @@ index per day is created for every OpenStack project.
 
 By default, the indices are stored in the following directory on the CMM node:
 
-`/opt/monasca-containers/elasticsearch/data/<cluster-name>/nodes/<node-name>/indices`
+`/opt/monasca-containers/elasticsearch/data/nodes/<node-name>/indices`
 
 Example:
 
-`/opt/monasca-containers/elasticsearch/data/elasticsearch/nodes/0/indices`
+`/opt/monasca-containers/elasticsearch/data/nodes/0/indices`
 
 If you want to delete outdated or unnecessary log data from the Elasticsearch database, proceed
 as follows:
@@ -594,14 +566,14 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml exec elast
 4. Make sure that the data you want to delete exists by executing the following command:
 
 ```
-curl -XHEAD -i 'http://localhost:<port>/<projectID-date>'
+curl -XHEAD -i 'http://localhost:<port>/logs-<projectID-date>'
 ```
 
 For example, if Elasticsearch is listening at port 9200 (default), the ID of the OpenStack project
 is abc123, and you want to check the index of 2015, July 1st, the command is as follows:
 
 ```
-curl -XHEAD -i 'http://localhost:9200/abc123-2015-07-01'
+curl -XHEAD -i 'http://localhost:9200/logs-abc123-2015-07-01'
 ```
 
 If the HTTP response is `200` , the index exists; if the response is `404` , it does not exist.

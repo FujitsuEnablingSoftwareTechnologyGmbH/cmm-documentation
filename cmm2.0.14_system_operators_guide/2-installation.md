@@ -148,7 +148,7 @@ To integrate with the required OpenStack services, CMM requires access to the fo
 
 ## 2.1.4 Software prerequisites
 
-Please check the following items for servers where metric agent shall be installed::
+Please check the following items for servers where metric agent (bare metal) shall be installed::
 
 
 ### Check if pip is linked to pip3
@@ -204,7 +204,7 @@ All authentication and authorization in CMM is done through OpenStack Keystone. 
 of CMM with OpenStack must therefore be prepared before you install the Monitoring Service on
 the CMM node and the OpenStack extensions on an OpenStack node.
 
-You need to take the following preparations:
+You need to take the following preparations on an OpenStack node:
 
 - Setting the OpenStack administator credentials.
 - Creating a project, a user, and the required roles.
@@ -222,15 +222,18 @@ Example:
 ```
 export OS_USERNAME=admin
 export OS_PROJECT_NAME=admin
-export OS_PASSWORD=admin_password
-export OS_AUTH_URL=http://10.140.16.154:5000
-export OS_REGION_NAME=regionOne
+export OS_PASSWORD=<admin_password>
+export OS_AUTH_URL=<http://<os_auth_ip>:5000
+export OS_REGION_NAME=<region>
 export OS_PROJECT_DOMAIN_NAME=Default
 export OS_USER_DOMAIN_NAME=Default
-
-
 ```
 
+Please replace:
+*  `<admin_password>` by password of OpenStack admin user
+*  `<os_auth_ip>` by IP of the server where OpenStack keystone service is running
+*  `<region>` by the name of your OpenStack region, e.g. `regionOne`.  
+  
 You can verify the provided credentials with the following command:
 
 ```
@@ -327,7 +330,7 @@ openstack endpoint create logs public http://<cmm_ip>:5607/v2.0 --region <region
 
 Replace `<cmm_ip>` by the IP address of the CMM node for example,
 `http://192.168.10.6:8070/v2.0`, and `<region>` by the name of your OpenStack region, for
-example, `RegionOne`.
+example, `regionOne`.
 
 
 ## 2.3 Installing the Monitoring Service
@@ -341,17 +344,16 @@ For installing the Monitoring Service, a server with RHEL7.7 is required with:
 
 - Docker-CE 19.03.15 For details, refer to the _Docker documentation_. RPMs are included in the
   `CMM_server_2.0.14-x.tar.gz` file.
-- Docker Compose binary as included in the `CMM_server_2.0.14-x.tar.gz` file. In the subsequent
-  sections, it is assumed that you copied the `docker-compose-Linux-x86_64_1.27.4` file to the
-  `/usr/local/bin/` directory and renamed it to `docker-compose`.
+- Docker Compose binary as included in the `CMM_server_2.0.14-x.tar.gz` file. 
+
+Installation of docker and docker-compose is described in the following chapter.  
 
 Depending on the Elasticsearch requirements resulting from your production environment, it
 is recommended that you customize the default Elasticsearch configuration provided by the
 Monitoring Service installation. For details on preparations related to Elasticsearch in productive
 use, refer to the _Monasca Docker documentation_.
 
-> **Note:** It is recommended to configure data retention for Docker container logs. Refer to Log File
-  Handling for details.
+
 
 
 ## 2.3.2 Installation
@@ -371,22 +373,26 @@ To install the Monitoring Service, proceed as follows:
     - `docker-compose-metric.yml`
     - `docker-compose-log.yml`
     - `.env`
-4. Install Docker-CE 19.03.15
+4. go to the installation directory:  `cd <install_dir>`
+5. Install Docker-CE 19.03.15
 > **Note:** Docker-CE requires the package `container-selinux` which is available in the repository
    `rhel-7-server-extras-rpms` please enable it.
 ```
 # yum install docker-ce-19.03.15-3.el7.x86_64.rpm docker-ce-cli-19.03.15-3.el7.x86_64.rpm containerd.io-1.4.4-3.1.el7.x86_64.rpm
 ```
-
-5. Copy the `docker-compose-Linux-x86_64_1.27.4` file to the `/usr/local/bin/` directory and
+  
+> **Note:** It is recommended to configure data retention for Docker container logs. Refer to Log File
+  Handling for details.  
+  
+6. Copy the `docker-compose-Linux-x86_64_1.27.4` file to the `/usr/local/bin/` directory and
    rename it to `docker-compose`.
-6. Open the `.env` file in the installation directory to make the adaptions required for your
+7. Open the `.env` file in the installation directory to make the adaptions required for your
    environment.
 
 > **Note:** Restrict the access permissions of the `.env` file. It specifies passwords that must
   be protected from unauthorized access!
 
-7. For integrating the Monitoring Service with OpenStack Keystone, you have to specify the
+8. For integrating the Monitoring Service with OpenStack Keystone, you have to specify the
    following parameters:
 
 ```
@@ -425,7 +431,7 @@ MON_GRAFANA_ADMIN_PASSWORD=<grafana_admin_password>
   with `MON_GRAFANA_ADMIN_USER` is authorized to create additional dashboards for the
   CMM users, or to update and delete the preconfigured ones, if required.
 
-7. For enabling access to OpenStack Keystone, you have to specify credentials for the Metrics
+9. For enabling access to OpenStack Keystone, you have to specify credentials for the Metrics
    Agent and Log Agent, as well as for the Monitoring API and the Log API in the "Set the
    OpenStack Keystone credentials" section:
 
@@ -460,7 +466,7 @@ MON_AGENT_PROJECT_NAME=monasca
   the credentials of the OpenStack admin user. By default, the admin user is used for
   authenticating the Monitoring API and the Log API against OpenStack Keystone.
 
-8. The installation of the Monitoring Service mounts `/opt/monasca-containers/` as default
+10. The installation of the Monitoring Service mounts `/opt/monasca-containers/` as default
    volume for the data directories of Elasticsearch, InfluxDB, MySQL, Kafka, and Grafana.
    
 If required, you can update the `MON_DOCKER_VOL_ROOT` parameter, and specify a different
@@ -472,7 +478,7 @@ volume.
 MON_DOCKER_VOL_ROOT=<path_to_data_directories>
 ```
 
-9. The installation of the Monitoring Service mounts `/mount/backup/` as default volume for
+11. The installation of the Monitoring Service mounts `/mount/backup/` as default volume for
    backing up the databases.
 
 If required, you can update the `MON_BACKUP_DIR` parameter, and specify a different volume.
@@ -483,7 +489,7 @@ If required, you can update the `MON_BACKUP_DIR` parameter, and specify a differ
 MON_BACKUP_DIR=<path_to_backup_directories>
 ```
 
-10. By default, CMM retains the data stored in the Elasticsearch and InfluxDB database for 31
+12. By default, CMM retains the data stored in the Elasticsearch and InfluxDB database for 31
     days. Older data is automatically deleted.
 
 If required, you can change the data retention parameters in the Configure data retention
@@ -507,7 +513,7 @@ MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30
 MON_INFLUXDB_RETENTION=30d
 ```
 
-11. Enable the notification methods to be used to inform CMM users when a threshold value for an
+13. Enable the notification methods to be used to inform CMM users when a threshold value for an
     alarm is reached or exceeded.
     Email, Slack, and Webhook are methods supported by CMM. If you want to use HipChat,
     PagerDuty, or Jira, or need an extension to the Notification Engine for exchanging  information
@@ -525,20 +531,20 @@ The `webhook` plugin is enabled by default. For the other plugins, you have to a
 the corresponding configuration parameters in the `.env` file. For details on the parameters,
 refer to the information in the file.
 
-12. Load the tarred repository from the `CMM_server_2.0.14-x.images.tar` file. This restores both the
+14. Load the tarred repository from the `CMM_server_2.0.14-x.images.tar` file. This restores both the
     images and the tags from the archive to your installation directory.
 
 ```
 docker load -i CMM_server_2.0.14-x.images.tar
 ```
 
-13. Check that the images and tags required for the installation have been loaded.
+15. Check that the images and tags required for the installation have been loaded.
 
 ```
 docker images
 ```
 
-14. Run docker-compose up.
+16. Run docker-compose up.
 
 ```
 docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d
@@ -551,7 +557,7 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d
 
 After a successful deployment, the monitoring pipeline starts within approximately one minute.
 
-15. To restrict access to the backup and data directories, you must change the access
+17. To restrict access to the backup and data directories, you must change the access
     permissions. Example:
 
 ```
@@ -640,7 +646,7 @@ To install a Metrics Agent, proceed as follows:
    installation directory. The archive provides the following files:
      - `log-agent-CMM_2.0.x.run`
      - `monasca-agent-CMM_2.0.x.run`
-     - `monasca-ui-CMM_2.0.x.run`
+     - `monasca-ui-1.17.x-CMM_2.0.x.tar.gz`
 4. Change the access permission of the `monasca-agent-CMM_2.0.x.run` file to Execute.
 5. Make sure that your `/root/.my.cnf` file does not define any passwords in single quotes.
 6. Run the agent installer:
@@ -850,9 +856,9 @@ To install a Log Agent, proceed as follows:
 2. Prepare an installation directory.
 3. Extract the CMM_client_2.0.14-x.tar.gz archive file from the CMM installation package to the
    installation directory. The archive provides the following files:
-     - log-agent-CMM_2.0.x.run
-     - monasca-agent-CMM_2.0.x.run
-     - monasca-ui-<version>-CMM_2.0.14-x.run
+     - `log-agent-CMM_2.0.x.run`
+     - `monasca-agent-CMM_2.0.x.run`
+     - `monasca-ui-1.17.x-CMM_2.0.x.tar.gz`
 4. Change the access permission of the `log-agent-CMM_2.0.x.run` file to Execute.
 5. Run the agent installer:
 
@@ -1055,7 +1061,15 @@ $ tar -xzvf /opt/monasca-ui/monasca-ui-1.17.x-CMM2.0.14-x.tar.gz -C /opt/monasca
 ```
 $ python3.6 -m pip install --no-index --find-links="/opt/monasca-ui" monasca-ui==1.17.x
 ```
-
+ 
+Pls. replace `x` in monasca-ui version the following way:  
+```
+ls  /opt/monasca-ui/monasca-ui-1.17.*.zip
+```
+`x` shall be replaced by the digit(s) between `1.17.` and `.zip`  
+Sample result: `/opt/monasca-ui/monasca-ui-1.17.2.dev4.zip`   
+In the sample, `x` shall be replaced by `2.dev4`  
+  
 7. Create symbolic links:
 ```
 $ ln -sf /usr/local/lib/python3.6/site-packages/monitoring/conf/monitoring_policy.json \
