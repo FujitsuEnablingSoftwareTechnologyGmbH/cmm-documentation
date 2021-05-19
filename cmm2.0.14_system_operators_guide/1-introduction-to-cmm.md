@@ -106,7 +106,7 @@ The Monitoring Service consists of the following components:
   - Alarm Definitions: Create, update, query, and delete alarm definitions.
   - Alarms: Query and delete the alarm history.
   - Notification Methods: Create and delete notification methods and associate them with
-    alarms. Users can be notified directly when alarms are triggered, for example, via email.
+    alarms. Users can be notified directly when alarms are triggered, for example via email.
 - **Message Queue**
   A component that primarily receives published metrics from the Monitoring API, alarm state
   transition messages from the Threshold Engine, and log data from the Log API. The data
@@ -144,7 +144,7 @@ The Monitoring Service consists of the following components:
   back to the Message Queue.
 - **Log Metrics**
   A Monasca component that consumes log data from the Message Queue, filters the data
-  according to severity, and generates metrics for specific severities, for example, for errors or
+  according to severity, and generates metrics for specific severities, for example for errors or
   warnings. The generated metrics are published to the Message Queue and can be further
   processed by the Threshold Engine like any other metrics.
 - **Log Persister**

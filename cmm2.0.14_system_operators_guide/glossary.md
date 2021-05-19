@@ -10,7 +10,7 @@ activities. An application operator has limited access to cloud resources in Ope
 ### Dimension
 
 A key/value pair that allows for a flexible and concise description of the data to be monitored,
-for example, region, availability zone, service tier, or resource ID. Each dimension describes a
+for example region, availability zone, service tier, or resource ID. Each dimension describes a
 specific characteristic of the metrics to be monitored.
 
 In CMM, metrics are uniquely identified by a name and a set of dimensions. Dimensions can serve
