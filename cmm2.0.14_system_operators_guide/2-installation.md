@@ -744,7 +744,7 @@ Proceed as follows:
 2. To stop the agent, execute the following command:
 
 ```
-systemctl stop monasca-agent
+systemctl stop monasca-agent.target
 ```
 
 3. Open the file with your favorite editor. Example:
@@ -757,7 +757,7 @@ vim /etc/monasca/agent/agent.yaml
 5. To start the agent again, execute the following command:
 
 ```
-systemctl start monasca-agent
+systemctl start monasca-agent.target
 ```
 
 The agent is instantly available with the updated configuration settings.
