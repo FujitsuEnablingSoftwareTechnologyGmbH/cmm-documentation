@@ -222,15 +222,18 @@ Example:
 ```
 export OS_USERNAME=admin
 export OS_PROJECT_NAME=admin
-export OS_PASSWORD=admin_password
-export OS_AUTH_URL=http://10.140.16.154:5000
-export OS_REGION_NAME=regionOne
+export OS_PASSWORD=<admin_password>
+export OS_AUTH_URL=<http://<os_auth_ip>:5000
+export OS_REGION_NAME=<region>
 export OS_PROJECT_DOMAIN_NAME=Default
 export OS_USER_DOMAIN_NAME=Default
-
-
 ```
 
+Please replace:
+*  `<admin_password>` by password of OpenStack admin user
+*  `<os_auth_ip>` by IP of the server where OpenStack keystone service is running
+*  `<region>` by the name of your OpenStack region, e.g. `regionOne`.  
+  
 You can verify the provided credentials with the following command:
 
 ```
@@ -327,7 +330,7 @@ openstack endpoint create logs public http://<cmm_ip>:5607/v2.0 --region <region
 
 Replace `<cmm_ip>` by the IP address of the CMM node for example,
 `http://192.168.10.6:8070/v2.0`, and `<region>` by the name of your OpenStack region, for
-example, `RegionOne`.
+example, `regionOne`.
 
 
 ## 2.3 Installing the Monitoring Service
