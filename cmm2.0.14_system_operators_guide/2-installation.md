@@ -204,7 +204,7 @@ All authentication and authorization in CMM is done through OpenStack Keystone. 
 of CMM with OpenStack must therefore be prepared before you install the Monitoring Service on
 the CMM node and the OpenStack extensions on an OpenStack node.
 
-You need to take the following preparations:
+You need to take the following preparations on an OpenStack node:
 
 - Setting the OpenStack administator credentials.
 - Creating a project, a user, and the required roles.
