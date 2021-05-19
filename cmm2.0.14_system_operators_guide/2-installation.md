@@ -1059,9 +1059,17 @@ $ tar -xzvf /opt/monasca-ui/monasca-ui-1.17.x-CMM2.0.14-x.tar.gz -C /opt/monasca
 
 6. Install the libraries:
 ```
-$ python3.6 -m pip install --no-index --find-links="/opt/monasca-ui" monasca-ui==1.17.x
+$ python3.6 -m pip install --no-index --find-links="/opt/monasca-ui" monasca-ui==1.17.x.dev4
 ```
-
+ 
+Pls. replace `x` in monasca-ui version the following way:  
+```
+ls  /opt/monasca-ui/monasca-ui-1.17.*.zip
+```
+`x` shall be replaced by the digit following `1.17`  
+Sample result: `/opt/monasca-ui/monasca-ui-1.17.2.dev4.zip`   
+In the sample, `x` shall be replaced by `2`  
+  
 7. Create symbolic links:
 ```
 $ ln -sf /usr/local/lib/python3.6/site-packages/monitoring/conf/monitoring_policy.json \
