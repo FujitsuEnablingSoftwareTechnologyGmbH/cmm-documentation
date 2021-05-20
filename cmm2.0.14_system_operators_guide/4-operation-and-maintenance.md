@@ -940,7 +940,7 @@ docker ps | grep influxd
 Example output with `c6be4ebebefe` as container ID:
 
 ```
-c6be4ebebefe influxdb:1.3.4-alpine "/entrypoint.sh infl..."
+c6be4ebebefe influxdb:1.8-alpine "/entrypoint.sh infl..."
 19 hours ago Up 6 seconds 8086/tcp monascadocker_influxdb_1
 ```
 
