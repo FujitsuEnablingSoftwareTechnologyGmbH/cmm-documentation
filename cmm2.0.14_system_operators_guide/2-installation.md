@@ -1035,6 +1035,57 @@ systemctl start monasca-log-agent
 The agent is instantly available with the updated configuration settings.
 
 
+## 2.5.4 Configure Log Rotation for Log Agent
+
+**Introduction**  
+
+Monasca-log-agent is based on logstash-7.3. Logstash 7.3 is using log4j2.
+With log4j, log rotation can be configured.  
+Configuration file for logstash in CMM installation is located in
+<install-directory monasca-log-agent> / logstash-7.3.0/config/log4j2.properties.  
+E.g.: /opt/monasca-log-agent/logstash-7.3.0/config/log4j2.properties  
+
+As default, the following configuration is used:  
+
+* Rotation:  if the file size exceeds 100 MB  
+* Rotated files will be compressed (gz file is stored)  
+* A max. of 30 files/day is kept  
+* Log files are not deleted automatically  
+
+**How to configure different values**  
+  
+Let’s assume the following requirements:  
+  
+* A max. of 500 MB/day of log information shall be stored  
+* A new log file shall be created when log file has reached 250 MB  
+  -> A max. of 2 log files shall be archived every day  
+* Archived log files older than 30 days shall be deleted  
+  
+Pls. proceed as follows:  
+  
+1. Open /opt/monasca-log-agent/logstash-7.3.0/config/log4j2.properties with editor  
+2. Change the following values:  
+  
+   appender.rolling.strategy.max = 30 -> appender.rolling.strategy.max = 2  
+   appender.rolling.policies.size.size = 100MB -> appender.rolling.policies.size.size = 250MB  
+  
+3. Add the following lines:  
+  
+   appender.rolling.strategy.action.type = Delete  
+   appender.rolling.strategy.action.basepath = ${sys:ls.logs}  
+   appender.rolling.strategy.action.ifLastModified.type = IfLastModified  
+   appender.rolling.strategy.action.ifLastModified.age = 30d  
+  
+4. Save your changes  
+5. Stop monasca-log-agent: systemctl stop monasca-log-agent.service
+6. Start monasca-log-agent systemctl start monasca-log-agent.service
+
+**Further information**
+* Link to official documentation: https://logging.apache.org/log4j/2.x/manual/appenders.html#RollingFileAppender
+* The following document provides an introduction to handling rolling files in log4j2:  
+  https://howtodoinjava.com/log4j2/log4j2-rollingfileappender-example/
+
+
 ## 2.6 Horizon Plugin (Monasca-UI)
 
 To make the monitoring functionality accessible in OpenStack Horizon, you have to install the

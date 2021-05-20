@@ -34,6 +34,7 @@
     - [2.5.1 Log Agent Prerequisites](./2-installation.md#251-log-agent-prerequisites)
     - [2.5.2 Log Agent Installation](./2-installation.md#252-log-agent-installation)
     - [2.5.3 Log Agent Updating the Configuration File](./2-installation.md#253-log-agent-updating-the-configuration-file)
+    - [2.5.4 Configure Log Rotation for Log Agent](./2-installation.md#254-configure-log-rotation-for-log-agent)
   - [2.6 Horizon Plugin (Monasca-UI)](./2-installation.md#26-horizon-plugin-monasca-ui)
     - [2.6.1 Horizon Plugin (Monasca-UI) Installation and Configuration](./2-installation.md#261-horizon-plugin-monasca-ui-installation-and-configuration)
 
