@@ -34,6 +34,7 @@
     - [2.5.1 Prerequisites](./2-installation.md#251-prerequisites)
     - [2.5.2 Installation](./2-installation.md#252-installation)
     - [2.5.3 Updating the Configuration File](./2-installation.md#253-updating-the-configuration-file)
+    - [2.5.4 Configure Log Rotation for Log Agent](./2-installation.md#254-configure-log-rotation-for-log-agent)
   - [2.6 Installing the Horizon Plugin](./2-installation.md#26-installing-the-horizon-plugin)
     - [2.6.1 Installation](./2-installation.md#261-installation)
     - [2.6.2 Configuration](./2-installation.md#262-configuration)
