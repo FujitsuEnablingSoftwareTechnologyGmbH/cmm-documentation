@@ -133,7 +133,7 @@ The preconfigured dashboard shows the following:
 
 ### CMM
 
-To view the metrics data on CMM itself, select the **CMM** Dashboard from the **Home** menu
+To view the metrics data on CMM itself, select the **CMM Stats** Dashboard from the **Home** menu
 located at the top part of the Grafana window.
 
 ![CMM](./images/cmm_01.png)
