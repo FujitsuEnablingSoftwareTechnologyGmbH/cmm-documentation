@@ -56,8 +56,9 @@ CMM ships with preconfigured metrics dashboards that allow you to instantly moni
 enviroment:
 
 - The **OpenStack Services** dashboard visualizes the metrics data from your OpenStack node.
-- The **OpenStack Hypervisor** dashboard visualizes the metrics data from your OpenStack hypervisor
-  and the aggregated metrics data from the VMs running on the hypervisor.
+- The **OpenStack Hypervisor** and **OpenStack VMs** dashboards visualize the metrics data from your 
+  OpenStack hypervisor (aggregated metrics) and the  metrics data from the VMs (per tenant metrics) respectively. 
+  To display the correct data on the OpenStack VMs dashboard you need to be logged in OSP with the tenant of the VMs.
 - The **CMM** dashboard visualizes the metrics data from the node on which the Monitoring Service
   is installed.
 
