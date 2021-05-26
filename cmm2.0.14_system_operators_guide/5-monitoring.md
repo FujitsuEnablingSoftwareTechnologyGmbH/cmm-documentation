@@ -136,15 +136,27 @@ The preconfigured dashboard shows the following:
 To view the metrics data on CMM itself, select the **CMM Stats** Dashboard from the **Home** menu
 located at the top part of the Grafana window.
 
-![CMM](./images/cmm_01.png)
+![CMM](./images/CMM-Stats-1.png)
+
+![CMM](./images/CMM-Stats-2.png)
 
 The preconfigured dashboard shows the following information on the CMM system resources:
 
-- CPU usage: The time the CPU is used in total (`cpu.total_time_sec`).
-- Memory usage: The used memory in bytes (`mem.used_bytes`).
-- Disk space: The number of bytes consumed (`fs.usage_bytes`).
-- Network traffic: The number of network bytes received and sent per second
-  (`net.in_bytes_sec` and `net.out_bytes_sec`).
+- First section: Quick view on current status:
+  - Number of containers running
+  - Total Memory usage (%)
+  - Total Usage of Docker overlay space (%)
+-  CMM Containers: Following rows show utilization by individual containers:
+   - Container utilization CPU (%): CPU usage in percentage.
+   - Container utilization MEM (%): Memory usage in percentage.
+   - Container io writes: write operations (MB/sec)
+   - Container io reads: read operations (MB/sec)
+ - CMM Host: Information about CMM server:
+   - CPU usage: The time the CPU is used in total (`cpu.total_time_sec`).
+   - Memory Used: Memory used (GB)
+   - Overlay Disk Space Used: Percentage of available overlay disk space used (%)
+- Network stats: The number of network bytes received and sent per second
+  (`net.in_bytes_sec` and `net.out_bytes_sec`).    
 
 
 ## 5.3 Defining Alarms
