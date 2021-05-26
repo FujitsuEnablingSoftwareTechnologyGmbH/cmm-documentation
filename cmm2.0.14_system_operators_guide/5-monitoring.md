@@ -146,17 +146,17 @@ The preconfigured dashboard shows the following information on the CMM system re
   - Number of containers running
   - Total Memory usage (%)
   - Total Usage of Docker overlay space (%)
--  CMM Containers: Following rows show utilization by individual containers:
+-  CMM Containers: Utilization by individual containers:
    - Container utilization CPU (%): CPU usage in percentage.
    - Container utilization MEM (%): Memory usage in percentage.
    - Container io writes: write operations (MB/sec)
    - Container io reads: read operations (MB/sec)
- - CMM Host: Information about CMM server:
+ - CMM Host: Utilization of CMM server:
    - CPU usage: The time the CPU is used in total (`cpu.total_time_sec`).
    - Memory Used: Memory used (GB)
    - Overlay Disk Space Used: Percentage of available overlay disk space used (%)
-- Network stats: The number of network bytes received and sent per second
-  (`net.in_bytes_sec` and `net.out_bytes_sec`).    
+   - Network stats: The number of network bytes received and sent per second
+     (`net.in_bytes_sec` and `net.out_bytes_sec`).    
 
 
 ## 5.3 Defining Alarms
