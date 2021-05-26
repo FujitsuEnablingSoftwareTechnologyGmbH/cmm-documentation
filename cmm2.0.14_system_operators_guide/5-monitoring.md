@@ -143,18 +143,18 @@ located at the top part of the Grafana window.
 The preconfigured dashboard shows the following information on the CMM system resources:
 
 - First section: Quick view on current status:
-  - Number of containers running
-  - Total Memory usage (%)
-  - Total Usage of Docker overlay space (%)
--  CMM Containers: Utilization by individual containers:
-   - Container utilization CPU (%): CPU usage in percentage.
-   - Container utilization MEM (%): Memory usage in percentage.
-   - Container io writes: write operations (MB/sec)
-   - Container io reads: read operations (MB/sec)
- - CMM Host: Utilization of CMM server:
+  - Number of containers running (container.running_count)
+  - Total Memory usage (mem.used_perc)
+  - Total Usage of Docker overlay space (fs.usage_perc)
+-  **CMM Containers**: Utilization by individual containers:
+   - Container utilization CPU: CPU usage (container.cpu.utilization_perc).
+   - Container utilization MEM (%): Memory usage (container.mem.used_perc).
+   - Container io writes: write operations (container.io.write_bytes_sec)
+   - Container io reads: read operations (container.io.read_bytes_sec)
+ - **CMM Host**: Utilization of CMM server:
    - CPU usage: The time the CPU is used in total (`cpu.total_time_sec`).
-   - Memory Used: Memory used (GB)
-   - Overlay Disk Space Used: Percentage of available overlay disk space used (%)
+   - Memory Used: Memory used (mem.used_bytes)
+   - Overlay Disk Space Used: Available overlay disk space used (fs.usage_perc)
    - Network stats: The number of network bytes received and sent per second
      (`net.in_bytes_sec` and `net.out_bytes_sec`).    
 
