@@ -110,16 +110,15 @@ On the **Discover** page the following elements assist you in analyzing your log
   time filter.
 
 Queries can be saved and re-used. They can also be shared with other users. For this purpose,
-use the options located to the right of the search box along the top of the log management
-window:
+use the options provided above the search box:
 
-- To save a query, use **Save Search**. Saving a query means saving both the query syntax and
+- To save a query, use **Save**. Saving a query means saving both the query syntax and
   the current index pattern.
 
-- To load a query, use **Load Saved Search**. A saved query can be loaded and used by any
+- To load a query, use **Open**. A saved query can be loaded and used by any
   OpenStack or Monitoring Service operator.
 
-- To share a query with other users, use **Share Search**. The option displays a direct link to the
+- To share a query with other users, use **Share**. The option displays a direct link to the
   query that you can forward. As a prerequisite for using a direct link, a user must have CMM
   access.
 
