@@ -182,7 +182,7 @@ provided for arranging containers:
 - Remove a container by clicking the wheel symbol using in the top right corner of the container and selecting 
   **Delete from dashboard** from **OPTIONS** displayed.
   
-**Options** sub-menu provides other funtionality, like **Edit visualization/saved search**. This allows you 
+**OPTIONS** sub-menu provides other funtionality, like **Edit visualization/saved search**. This allows you 
 to design the graphical representation or edit the query.
 
 For each dashboard, you can configure a refresh interval to automatically refresh its content
