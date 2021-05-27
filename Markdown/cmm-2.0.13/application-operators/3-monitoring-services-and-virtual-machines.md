@@ -36,8 +36,7 @@ To access the dashboard, use the **Grafana Home** option located along the top o
 page.
 
 Dashboard example:
-
-ToDo Add image
+![View Metrics Data](./images/view-metrics-data_01.png)
 
 
 ## 3.3 Defining Alarms
@@ -56,7 +55,7 @@ They are described in the following sections.
 
 ### Details
 
-ToDo Add image
+![Details](./images/details_01.png)
 
 For an alarm definition, you specify the following details:
 
@@ -75,7 +74,7 @@ For an alarm definition, you specify the following details:
 
 ### Expression
 
-ToDo Add image
+![Expression](./images/expression_01.png)
 
 The expression defines how to evaluate the metrics. The expression syntax is based on a simple
 expressive grammar. For details, refer to the _Monasca API documentation_.
@@ -163,7 +162,7 @@ To define an alarm expression, proceed as follows:
 
 ### Notifications
 
-ToDo Add image
+![Notifications](./images/notifications_01.png)
 
 You can enable notifications for an alarm definition. As soon as an alarm is triggered, the enabled
 notifications will be sent.
