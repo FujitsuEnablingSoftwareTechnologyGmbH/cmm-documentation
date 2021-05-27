@@ -126,7 +126,10 @@ use the options provided above the search box:
 
 CMM supports you in building graphical representations of your query results. You can choose
 from different visualization types, for example pie charts, data tables, line charts, or vertical bar
-charts. For visualizing your results, you use the **Visualize** page in the log management window:
+charts. For visualizing your results, please proceed the following way:
+- click on **Visualize** symobol located on the right side
+- If no visualizations have been created yet: Confirm "Create New Visualization"
+- The following screen will be displayed:
 
 ![Visualizing Query Results](./images/visualizing-query-results_01.png)
 
