@@ -105,14 +105,14 @@ On the **Discover** page the following elements assist you in analyzing your log
   specific field values.
 
 - If a time field is configured for the current index pattern, the distribution of log entries over time
-  is displayed in a **histogram**in the top right part of the **Discover** page.
+  is displayed in a **histogram** in the top right part of the **Discover** page.
   
   By default, the histogram shows the number of logs entries versus time, matched by the
   underlying query and time filter. You can click the bars in the histogram to narrow down the
   time filter.
 
 Queries can be saved and re-used. They can also be shared with other users. For this purpose,
-use the options use the options located to the right of the search box along the top of the log management
+use the options located to the right of the search box along the top of the log management
 window:
 
 - To save a query, use **Save Search**. Saving a query means saving both the query syntax and
