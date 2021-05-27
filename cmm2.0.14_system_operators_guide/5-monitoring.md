@@ -319,7 +319,7 @@ For a notification, you specify the following elements:
 
 - **Name**. A unique identifier of the notification. The name is offered for selection when defining an
   alarm.
-- **Type**. The notification method to be used. `Email`, `Slack` or `WebHook` can
+- **Type**. The notification method to be used. `Email`, `Pagerduty` or `WebHook` can
   be selected, provided that the methods were enabled when installing the Monitoring Service.
 - **Address**.
   For `Email`, the email address to be notified when an alarm is triggered.
