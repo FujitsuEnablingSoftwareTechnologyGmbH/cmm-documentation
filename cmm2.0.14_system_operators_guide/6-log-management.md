@@ -67,7 +67,7 @@ additional details, refer to the _Kibana documentation_.
 For querying log data, you use the **Discover** page in the log management window. It is instantly
 displayed when you access the window. It shows the most recently collected log data:
 
-![Querying Log Data](./images/querying-log-data_01.png)
+![Querying Log Data](./images/Kibana-Discover.png)
 
 The **Discover** page allows you to access the log data in every index that matches the current
 index pattern. In addition to submitting queries, you can view, filter, and analyze the log data that is
