@@ -93,19 +93,17 @@ On the **Discover** page the following elements assist you in analyzing your log
   search queries. Depending on whether you have filtered the data by index fields, the log data is
   either restricted to these fields or entire records are displayed.
 
-- On the left side of the **Discover** page below the search box, you see the **index fields** from the
-  indices that match the current index pattern. You can select individual fields to modify which log
-  data is displayed on the right side.
+- Above the histogram of log count, you see the **Selected fields** from the indices that match the 
+  current index pattern. You can select individual fields to modify which log data is displayed below.
   
   Select a field from the **Available Fields** section for this purpose and use **add**. To remove a
   field, select it in the **Selected Fields** section and use **remove**.
   
-  From the field list, you can expand a field by simply clicking it. This shows the most common
-  values for the field. You can also set field values as filter, or you can exclude log data with
-  specific field values.
+  When selecting a field from the field list, the most common values for the field are shown. You can 
+  also set field values as filter, or you can exclude log data with specific field values.
 
 - If a time field is configured for the current index pattern, the distribution of log entries over time
-  is displayed in a **histogram** in the top right part of the **Discover** page.
+  is displayed in a **histogram** above the display of log data.
   
   By default, the histogram shows the number of logs entries versus time, matched by the
   underlying query and time filter. You can click the bars in the histogram to narrow down the
