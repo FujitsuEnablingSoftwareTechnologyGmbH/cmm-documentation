@@ -89,7 +89,7 @@ On the **Discover** page the following elements assist you in analyzing your log
   minutes. You can deviate from this default. Multiple options are provided for defining relative or
   absolute time ranges. The time range you define is instantly applied to all log data.
 
-- In the bottom right part of the **Discover** page, you can view the **log data** returned by your
+- In the bottom part of the **Discover** page, you can view the **log data** returned by your
   search queries. Depending on whether you have filtered the data by index fields, the log data is
   either restricted to these fields or entire records are displayed.
 
