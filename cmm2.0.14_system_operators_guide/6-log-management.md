@@ -75,7 +75,7 @@ returned by your queries.
 
 On the **Discover** page the following elements assist you in analyzing your log data:
 
-- Below the main navigation bar at the top of the window, there is a **search box** for querying the
+- In the header section on top of the window, there is a **search box** for querying the
   log data. By submitting a query, you search all indices that match the current index pattern. The
   name of the current index pattern is displayed directly below the search box on the left side.
   You can select a different index pattern, if required. For details on configuring and selecting
