@@ -142,14 +142,13 @@ representation in a visualization editor. Multiple design options and a preview 
 provided for creating, modifying, and viewing the graphical representation.
 
 You can save and re-use visualizations. You can also share them with other users. For
-this purpose, use the options located to the right of the search box along the top of the log
-management window:
+this purpose, use the options provided above the search box:
 
-- To save a visualization, use **Save Visualization**.
-- To load a visualization, use **Load Saved Visualization**. A saved visualization can be loaded
+- To save a visualization, use **Save**.
+- To load a visualization, use **Open**. A saved visualization can be loaded
   and used by any OpenStack or Monitoring Service operator.
-- To share a visualization with other users, use **Share Visualization**. The option displays an
-  HTML snippet that can be used to embed the visualization in a Web page. It also displays a
+- To share a visualization with other users, use **Share**. The option displays an HTML 
+  snippet that can be used to embed the visualization in a Web page. It also displays a
   direct link to the visualization that you can forward. As a prerequisite for using an embedded
   visualization or a direct link, a user must have CMM access.
 
