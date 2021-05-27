@@ -26,7 +26,7 @@ CMM covers all aspects of a Monitoring as a Service solution:
 The basic usage scenario of setting up and using the monitoring features of CMM looks as
 follows:
 
-ToDo Add image
+![Basic Usage Scenario](./images/basic-usage-scenario_01.png)
 
 As an **application operator** , you have booked virtual machines in OpenStack to provide services
 to end users or to host services that you need for your own development activities. CMM helps
@@ -111,7 +111,7 @@ For details on the monitoring functions, refer to _Monitoring Services and Virtu
 
 The following illustration provides an overview of the CMM components:
 
-ToDo Add image
+![Components](./images/components_01.png)
 
 
 ### OpenStack
