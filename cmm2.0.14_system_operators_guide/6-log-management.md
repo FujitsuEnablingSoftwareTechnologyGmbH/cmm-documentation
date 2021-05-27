@@ -81,8 +81,8 @@ On the **Discover** page the following elements assist you in analyzing your log
   You can select a different index pattern, if required. For details on configuring and selecting
   index patterns, refer to _Configuring Index Patterns_.
   
-  For entering strings in the search box, use the Lucene query syntax. Kibana also supports the
-  Elasticsearch Query DSL. For details, refer to the _Elasticsearch Reference documentation_.
+  For entering strings in the search box, you can  use Kibana Query Language (KQL) or Lucene query syntax. 
+  KQL can be switched on or off with a button located besides the search box. For details, refer to the _Elasticsearch Reference documentation_.
 
 - Use the **clock icon** at the top right of the log management window to define a time range
   for filtering the log data. By default, CMM displays the log data collected during the last 15
