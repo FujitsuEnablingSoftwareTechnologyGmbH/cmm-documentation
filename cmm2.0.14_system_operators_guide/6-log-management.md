@@ -160,36 +160,36 @@ dashboards. In order to create a new dashboard, please proceed the following way
 - Click on Dashboard symbol located on the right side
 - Confirm "Create new dashboard"
 
-![Combining Visualizations in Dashboards](./images/combining-visualizations-in-dashboards_01.png)
+![Combining Visualizations in Dashboards](./images/Kibana-Dashboard.png)
 
-To create a dashboard from scratch, you use **New Dashboard** located to the right of the search
-box along the top of the window. To add a visualization from a list of existing visualizations, use
-**Add Visualization**. You need at least one saved visualization to create a dashboard. In addition to
-adding visualizations, you can also place the tabular output of query results on your dashboards.
-Switch to the **Searches** tab when adding a visualization, and select a saved query. This adds the
-query result to your dashboard.
+Possible operations have been provided above the search box:
+
+- To save a dashboard, use **Save**.
+- To add a visualization from a list of existing visualizations to the dashboard, use **Add**.
+  Saved visualizations and saved queries can be added.
+  You need at least one saved visualization or query to create a dashboard.
+
+- To share a dashboard with other users, use **Share**. The option displays an HTML 
+  snippet that can be used to embed the visualization in a Web page. It also displays a
+  direct link to the visualization that you can forward. As a prerequisite for using an embedded
+  visualization or a direct link, a user must have CMM access.
 
 A visualization or query result is displayed in a container on your dashboard. Various options are
 provided for arranging containers:
 
 - Move a container by clicking and dragging its title bar.
 - Resize a container by dragging its bottom right corner.
-- Remove a container using **Delete** in the top right corner of the container.
-
-Using **Edit** in the top right corner of a container, you can switch to the **Visualize** or **Discover**
-page. This allows you to design the graphical representation or edit the query. To view the raw
-data behind a visualization, you can click the bar at the bottom of the container. This replaces your
-visualization by the underlying raw data. You can export the raw data, if required.
+- Remove a container by clicking the wheel symbol using in the top right corner of the container and selecting 
+  **Delete from dashboard** from **OPTIONS** displayed.
+  
+**Options** sub-menu provides other funtionality, like **Edit visualization/saved search**. This allows you 
+to design the graphical representation or edit the query.
 
 For each dashboard, you can configure a refresh interval to automatically refresh its content
-with the latest data. The current interval is displayed in the top right part of the log management
-window. Click the interval if you want to change it. You can define the interval in absolute or
-relative terms. Use **Auto-Refresh** next to the interval in the top right part of the log management
-window to instantly submit the underlying queries and refresh the dashboard content.
-
-By default, dashboards are displayed with a light background. Using **Options** in the top right part
-of the log management window, you can switch to a dark color scheme.
-
+with the latest data. The current interval is displayed in a box besides the calender button.
+If you want to change it, click the calendar button and select the appropriate time interval. 
+In the dialog box shown, a refresh interval for automated refresh can be defined to instantly submit the 
+underlying queries and refresh the dashboard content.
 
 ### Filtering Query Results
 
