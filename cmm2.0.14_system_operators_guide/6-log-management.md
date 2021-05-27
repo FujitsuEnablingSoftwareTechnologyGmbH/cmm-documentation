@@ -84,8 +84,8 @@ On the **Discover** page the following elements assist you in analyzing your log
   For entering strings in the search box, you can  use Kibana Query Language (KQL) or Lucene query syntax. 
   KQL can be switched on or off with a button located besides the search box. For details, refer to the _Elasticsearch Reference documentation_.
 
-- Use the **clock icon** at the top right of the log management window to define a time range
-  for filtering the log data. By default, CMM displays the log data collected during the last 15
+- Use the **calender icon** located besides the search box to define a time range for filtering the 
+  log data. By default, CMM displays the log data collected during the last 15
   minutes. You can deviate from this default. Multiple options are provided for defining relative or
   absolute time ranges. The time range you define is instantly applied to all log data.
 
