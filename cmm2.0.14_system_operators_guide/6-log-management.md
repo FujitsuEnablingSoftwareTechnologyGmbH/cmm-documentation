@@ -89,39 +89,36 @@ On the **Discover** page the following elements assist you in analyzing your log
   minutes. You can deviate from this default. Multiple options are provided for defining relative or
   absolute time ranges. The time range you define is instantly applied to all log data.
 
-- In the bottom right part of the **Discover** page, you can view the **log data** returned by your
+- In the bottom part of the **Discover** page, you can view the **log data** returned by your
   search queries. Depending on whether you have filtered the data by index fields, the log data is
   either restricted to these fields or entire records are displayed.
 
-- On the left side of the **Discover** page below the search box, you see the **index fields** from the
-  indices that match the current index pattern. You can select individual fields to modify which log
-  data is displayed on the right side.
+- Above the histogram of log count, you see the **Selected fields** from the indices that match the 
+  current index pattern. You can select individual fields to modify which log data is displayed below.
   
   Select a field from the **Available Fields** section for this purpose and use **add**. To remove a
   field, select it in the **Selected Fields** section and use **remove**.
   
-  From the field list, you can expand a field by simply clicking it. This shows the most common
-  values for the field. You can also set field values as filter, or you can exclude log data with
-  specific field values.
+  When selecting a field from the field list, the most common values for the field are shown. You can 
+  also set field values as filter, or you can exclude log data with specific field values.
 
 - If a time field is configured for the current index pattern, the distribution of log entries over time
-  is displayed in a **histogram** in the top right part of the **Discover** page.
+  is displayed in a **histogram** above the display of log data.
   
   By default, the histogram shows the number of logs entries versus time, matched by the
   underlying query and time filter. You can click the bars in the histogram to narrow down the
   time filter.
 
 Queries can be saved and re-used. They can also be shared with other users. For this purpose,
-use the options located to the right of the search box along the top of the log management
-window:
+use the options provided above the search box:
 
-- To save a query, use **Save Search**. Saving a query means saving both the query syntax and
+- To save a query, use **Save**. Saving a query means saving both the query syntax and
   the current index pattern.
 
-- To load a query, use **Load Saved Search**. A saved query can be loaded and used by any
+- To load a query, use **Open**. A saved query can be loaded and used by any
   OpenStack or Monitoring Service operator.
 
-- To share a query with other users, use **Share Search**. The option displays a direct link to the
+- To share a query with other users, use **Share**. The option displays a direct link to the
   query that you can forward. As a prerequisite for using a direct link, a user must have CMM
   access.
 
@@ -129,12 +126,15 @@ window:
 
 CMM supports you in building graphical representations of your query results. You can choose
 from different visualization types, for example pie charts, data tables, line charts, or vertical bar
-charts. For visualizing your results, you use the **Visualize** page in the log management window:
+charts.  
 
-![Visualizing Query Results](./images/visualizing-query-results_01.png)
+In order to create a new visualization of your results, please proceed the following way:
+- click on **Visualize** symobol located on the right side
+- Confirm "Create New Visualization"
 
-To create a visualization, use **New Visualization** located to the right of the search box along the
-top of the window. You have to select a visualization type and the query to be used. You can either
+![Visualizing Query Results](./images/Kibana-Visualize.png)
+
+You have to select a visualization type and the query to be used. You can either
 create a new query or load a query you have already saved.
 
 Based on the visualization type and the query, you can proceed with designing the graphical
