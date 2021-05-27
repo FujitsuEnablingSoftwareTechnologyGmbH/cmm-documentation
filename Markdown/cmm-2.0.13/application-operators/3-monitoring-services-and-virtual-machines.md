@@ -55,7 +55,7 @@ They are described in the following sections.
 
 ### Details
 
-![Details](./images/details_01.png)
+![Details](./images/defining-alarms_01.png)
 
 For an alarm definition, you specify the following details:
 
@@ -162,7 +162,7 @@ To define an alarm expression, proceed as follows:
 
 ### Notifications
 
-![Notifications](./images/notifications_01.png)
+![Notifications](./images/notification_01.png)
 
 You can enable notifications for an alarm definition. As soon as an alarm is triggered, the enabled
 notifications will be sent.
