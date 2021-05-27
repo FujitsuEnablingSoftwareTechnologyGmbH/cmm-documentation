@@ -129,7 +129,7 @@ from different visualization types, for example pie charts, data tables, line ch
 charts.  
 
 In order to create a new visualization of your results, please proceed the following way:
-- click on **Visualize** symobol located on the right side
+- Click on **Visualize** symbol located on the right side
 - Confirm "Create New Visualization"
 
 ![Visualizing Query Results](./images/Kibana-Visualize.png)
@@ -155,7 +155,10 @@ this purpose, use the options provided above the search box:
 ### Combining Visualizations in Dashboards
 
 For correlating related information or providing an overview, you can combine visualizations in
-dashboards. Use the **Dashboard** page in the log management window for this purpose:
+dashboards. In order to create a new dashboard, please proceed the following way:
+
+- Click on Dashboard symbol located on the right side
+- Confirm "Create new dashboard"
 
 ![Combining Visualizations in Dashboards](./images/combining-visualizations-in-dashboards_01.png)
 
