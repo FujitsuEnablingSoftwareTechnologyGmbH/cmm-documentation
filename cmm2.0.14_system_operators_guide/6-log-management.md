@@ -196,7 +196,7 @@ underlying queries and refresh the dashboard content.
 By submitting a query on the data displayed in a dashboard, you can filter out specific sets of data
 that you want to aggregate while not changing the logic of the individual visualizations.
 
-Use the search box below the main navigation bar at the top of the log management window for
+Use the search box above the Dashboard in the header section of the window for
 entering a query on the whole dashboard. If a visualization is already based on a saved query,
 both queries apply.
 
