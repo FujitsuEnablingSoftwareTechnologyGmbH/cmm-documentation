@@ -126,15 +126,13 @@ use the options provided above the search box:
 
 CMM supports you in building graphical representations of your query results. You can choose
 from different visualization types, for example pie charts, data tables, line charts, or vertical bar
-charts. For visualizing your results, please proceed the following way:
+charts. In order to create a new visualization of your results, please proceed the following way:
 - click on **Visualize** symobol located on the right side
-- If no visualizations have been created yet: Confirm "Create New Visualization"
-- The following screen will be displayed:
+- Confirm "Create New Visualization"
 
-![Visualizing Query Results](./images/visualizing-query-results_01.png)
+![Visualizing Query Results](./images/Kibana-Visualize.png)
 
-To create a visualization, use **New Visualization** located to the right of the search box along the
-top of the window. You have to select a visualization type and the query to be used. You can either
+You have to select a visualization type and the query to be used. You can either
 create a new query or load a query you have already saved.
 
 Based on the visualization type and the query, you can proceed with designing the graphical
