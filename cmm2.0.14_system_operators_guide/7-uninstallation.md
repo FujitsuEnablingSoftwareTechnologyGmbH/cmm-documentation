@@ -193,7 +193,7 @@ rm -f /usr/local/bin/docker-compose
    `CMM_server_2.0.x.tar.gz` archive file from the CMM installation package:
 
 ```
-rm -f <path_to_installation_directory>
+rm -rf <path_to_installation_directory>
 ```
 
 6. Remove the volume you mounted for the data directories of Elasticsearch, InfluxDB, MySQL,
