@@ -205,52 +205,9 @@ both queries apply.
 
 ## 6.2 Configuring Index Patterns
 
-CMM enables the dynamic mapping of fields. After configuring an index pattern, the indices that
-match the pattern are automatically scanned to display the list of index fields. This guarantees that
-the fields are correctly visualized in the dashboard.
-
 CMM ships with a preconfigured index pattern that allows you to instantly explore your
-Elasticsearch indices when accessing the dashboard for the first time. You can create additional
-patterns to view and analyze specific sets of data. One or multiple patterns can be created per
-project. When you create additional patterns, you have to set one of them as the default.
-
-To configure an additional index pattern, use Settings > Indices. Click the index pattern that is
-displayed in the Index Patterns field on the left, and use the Add New option.
-
-Indices that match the pattern you define must exist in the Elasticsearch database, and they must
-contain data. For an index pattern, you specify the following elements:
-
-- **Index contains time-based events**. It is recommended that this option is selected. This
-  improves search performance by enabling searches only on those indices that contain data on
-  time-based events.
-
-- **Use event times to create index names**. It is recommended that this option is selected. This
-  improves search performance by enabling searches only on those indices that contain data in
-  the time range you specify.
-
-- **Index pattern interval**. Select Daily as index pattern interval. Daily intervals are supported by
-  the Monitoring Service.
-
-- **Index name or pattern**. The pattern allows you to define dynamic index names. Static text
-  in a pattern is denoted using brackets. Replace the predefined pattern (`[logstash-]*` or
-  `[logstash-]YYYY.MM.DD`) as follows:
-  
-  Replace `logstash-` by the project ID of the OpenStack project whose log data is to be
-  visualized in the dashboard.
-  
-  Replace `*` or `YYYY.MM.DD` by `YYYY-MM-DD` as naming pattern. This naming pattern is supported
-  by the Monitoring Service.
-  
-  Example: `[557aff4bf007473d84069aca202a1633-]YYYY-MM-DD`
-
-- **Time-field name**. Select `@timestamp` as time-field name. `@timestamp` matches the
-  `YYYY-MM-DD` naming pattern.
-
-The default index pattern is automatically loaded when you access the log management window.
-It is marked with an asterisk in front of the pattern name in the **Index Patterns** field at the top
-left corner of the **Settings** page. Select the pattern you want to set as the default from the **Index
-Patterns** field. The content of the log management window is instantly updated.
-
+Elasticsearch indices when accessing the dashboard for the first time.  Thus, configuring additional
+index patterns is not required.
 
 ## 6.3 Monitoring Log Data
 
