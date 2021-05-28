@@ -25,11 +25,11 @@ To uninstall a Metrics Agent, proceed as follows:
 2. Stop the `monasca-agent` service and delete all related files:
 
 ```
-systemctl stop monasca-agent
-systemctl disable monasca-agent
+systemctl stop monasca-agent.target
+systemctl disable monasca-agent.target
 rm -f /etc/systemd/system/monasca-agent.service
 systemctl daemon-reload
-systemctl reset-failed monasca-agent
+systemctl reset-failed monasca-agent.target
 ```
 
 3. Remove all directories and files created by the agent installer:
