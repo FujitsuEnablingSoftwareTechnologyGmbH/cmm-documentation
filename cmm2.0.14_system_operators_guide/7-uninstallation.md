@@ -25,11 +25,14 @@ To uninstall a Metrics Agent, proceed as follows:
 2. Stop the `monasca-agent` service and delete all related files:
 
 ```
-systemctl stop monasca-agent
-systemctl disable monasca-agent
-rm -f /etc/systemd/system/monasca-agent.service
+systemctl stop monasca-agent.target
+systemctl disable monasca-agent.target
+rm -f /etc/systemd/system/monasca-agent.target
+rm -f /etc/systemd/system/monasca-collector.service
+rm -f /etc/systemd/system/monasca-forwarder.service
+rm -f /etc/systemd/system/monasca-statsd.service
 systemctl daemon-reload
-systemctl reset-failed monasca-agent
+systemctl reset-failed monasca-agent.target
 ```
 
 3. Remove all directories and files created by the agent installer:
@@ -190,7 +193,7 @@ rm -f /usr/local/bin/docker-compose
    `CMM_server_2.0.x.tar.gz` archive file from the CMM installation package:
 
 ```
-rm -f <path_to_installation_directory>
+rm -rf <path_to_installation_directory>
 ```
 
 6. Remove the volume you mounted for the data directories of Elasticsearch, InfluxDB, MySQL,
