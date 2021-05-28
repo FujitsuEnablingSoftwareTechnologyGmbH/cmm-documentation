@@ -73,7 +73,7 @@
 - [7 Uninstallation](./7-uninstallation.md#7-uninstallation)
   - [7.1 Uninstalling a Metrics Agent](./7-uninstallation.md#71-uninstalling-a-metrics-agent)
   - [7.2 Uninstalling a Log Agent](./7-uninstallation.md#72-uninstalling-a-log-agent)
-  - [7.3 Uninstalling the Horizon Plugin](./7-uninstallation.md#73-uninstalling-the-horizon-plugin)
+  - [7.3 Uninstalling the Horizon Plugin (Monasca-UI)](./7-uninstallation.md#73-uninstalling-the-horizon-plugin-monasca-ui)
   - [7.4 Uninstalling the Monitoring Service](./7-uninstallation.md#74-uninstalling-the-monitoring-service)
   - [7.5 Removing OpenStack Projects, Users and Roles](./7-uninstallation.md#75-removing-openstack-projects-users-and-roles)
   - [7.6 Removing Services and Endpoints](./7-uninstallation.md#76-removing-services-and-endpoints)
