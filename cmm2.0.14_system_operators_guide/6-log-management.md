@@ -158,7 +158,8 @@ For correlating related information or providing an overview, you can combine vi
 dashboards. In order to create a new dashboard, please proceed the following way:
 
 - Click on Dashboard symbol located on the right side
-- Confirm "Create new dashboard"
+- If you want to create a new dashboard: Confirm "Create new dashboard"
+- If you want to work with an existing dashboard: Select the dashboard from the list of existing dashboards
 
 ![Combining Visualizations in Dashboards](./images/Kibana-Dashboard.png)
 
@@ -171,9 +172,11 @@ Possible operations have been provided above the search box:
 
 - To share a dashboard with other users, use **Share**. The option displays an HTML 
   snippet that can be used to embed the visualization in a Web page. It also displays a
-  direct link to the visualization that you can forward. As a prerequisite for using an embedded
-  visualization or a direct link, a user must have CMM access.
-
+  direct link to the visualization that you can forward. 
+  Prerequisites for sharing dashboards:
+  - User must have CMM access.
+  - User must be logged in to OpenStack before accessing the dashboard.
+ 
 A visualization or query result is displayed in a container on your dashboard. Various options are
 provided for arranging containers:
 
@@ -199,26 +202,6 @@ that you want to aggregate while not changing the logic of the individual visual
 Use the search box above the Dashboard in the header section of the window for
 entering a query on the whole dashboard. If a visualization is already based on a saved query,
 both queries apply.
-
-### Sharing Dashboards
-
-Dashboards can be saved and re-used. They can also be shared with other users. For
-this purpose, use the options located to the right of the search box along the top of the log
-management window:
-
-- To save a dashboard, use **Save Dashboard**. By default, saving a dashboard also saves the
-  time filter that is defined at the time of saving. You can disable this default by clearing the
-  **Store time with dashboard** option. Disabling the default means that the time filter is set to the
-  currently selected time each time the dashboard is loaded.
-
-- To load a dashboard, use **Load Saved Dashboard**. A saved dashboard can be loaded and
-  used by any OpenStack or Monitoring Service operator.
-
-- To share a dashboard with other users, use **Share Dashboard**. The option displays an HTML
-  snippet that can be used to embed the dashboard in a Web page. It also displays a direct link
-  to the dashboard that you can forward. As a prerequisite for using an embedded dashboard or
-  a direct link, a user must have CMM access.
-
 
 ## 6.2 Configuring Index Patterns
 
