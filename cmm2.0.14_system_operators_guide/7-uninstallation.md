@@ -95,71 +95,68 @@ rm -rf /var/log/monasca-log-agent/
 rm -f /etc/profile.d/logstash_sincedb_dir.sh
 ```
 
-## 7.3 Uninstalling the Horizon Plugin
 
-To uninstall the Horizon Plugin, proceed as follows:
+## 7.3 Uninstalling the Horizon Plugin (Monasca-UI)
 
-1. Log in to the OpenStack node on which the OpenStack Horizon service is installed.
-2. Remove the links pointing to the Horizon Plugin:
+To uninstall the Horizon Plugin (Monasca-UI), proceed as follows:
 
+1. Log in as root to the OpenStack node on which the OpenStack Horizon service is installed.
+2. Enter into Horizon container:
 ```
-rm /usr/share/openstack-dashboard/openstack_dashboard/
-  local/enabled/_50_admin_add_monitoring_panel.py
-rm /etc/openstack-dashboard/monitoring_policy.json
+# podman exec -it horizon /bin/sh
 ```
 
-3. Remove the proxy path pointing to your Grafana instance from the `15-horizon_vhost.conf`
-   file. It is located in the /etc/httpd/conf.d/ directory.
-
-   The following lines must be removed:
-
+3. Remove monasca-ui directory:
 ```
-ProxyPass "/grafana" "http://<grafana_host>:3000"
-ProxyPassReverse "/grafana" "http://<grafana_host>:3000"
+$ rm -rf /opt/monasca-ui/
 ```
 
-4. Remove the path where the plugin is installed from the django.wsgi file. It is located in the
-   `/usr/share/openstack-dashboard/openstack_dashboard/wsgi/` directory.
-
-   The following line must be removed:
-
+4. Uninstall monasca-ui:
 ```
-sys.path.append("<monasca_ui_dir>/lib/python2.7/site-packages/")
+$ python3.6 -m pip uninstall monasca-ui
 ```
 
-5. Remove the path where the plugin is installed from the `manage.py` file. It is located in the
-   `/usr/share/openstack-dashboard/` directory.
-
-   The following line must be removed:
-
+5. Remove the symbolic links:
 ```
-sys.path.append("<monasca_ui_dir>/lib/python2.7/site-packages")
+$ rm /etc/openstack-dashboard/monitoring_policy.json
+$ rm /usr/share/openstack-dashboard/openstack_dashboard/local/enabled/_50_admin_add_monitoring_panel.py
+$ rm /usr/share/openstack-dashboard/openstack_dashboard/local/local_settings.d/_50_monasca_ui_settings.py
 ```
 
-6. Remove the directories and files created by the installer:
-
+6. Update Django settings:
 ```
-rm -rf <monasca_ui_dir>
+$ python3 /usr/share/openstack-dashboard/manage.py collectstatic --noinput
+$ python3 /usr/share/openstack-dashboard/manage.py compress --force
 ```
 
-   Replace `<monasca_ui_dir>` by the name of the directory in which the Horizon Plugin is
-   installed.
+7. Exit from Horizon container:
+```
+$ exit
+```
 
-7. Since HTTP proxy requests are no longer needed, disable the mod_proxy and
-   `mod_proxy_http` modules in Apache. For this purpose, remove the following lines from the
-   `httpd.conf` file located in the /etc/httpd/conf/ directory:
+8. Remove Proxy Modules from file httpd.conf. Location of file:\
+`/var/lib/config-data/puppet-generated/horizon/etc/httpd/conf/httpd.conf`
 
+Remove these lines:
 ```
 LoadModule proxy_module modules/mod_proxy.so
 LoadModule proxy_http_module modules/mod_proxy_http.so
 ```
 
-8. Restart the server from which you uninstalled the Horizon Plugin.
-   Example:
+9. Remove the Proxy configuration inside VirtualHost section in 10-horizon_vhost.conf. Location of file:\
+`/var/lib/config-data/puppet-generated/horizon/etc/httpd/conf.d/10-horizon_vhost.conf`
 
+Remove these lines:
 ```
-systemctl restart httpd
+  ProxyPass        "/grafana" "http://<CMM-SERVER-IP>:3000"
+  ProxyPassReverse "/grafana" "http://<CMM-SERVER-IP>:3000"
 ```
+
+10. Restart Horizon container:
+```
+# systemctl restart tripleo_horizon
+```
+
 
 ## 7.4 Uninstalling the Monitoring Service
 
