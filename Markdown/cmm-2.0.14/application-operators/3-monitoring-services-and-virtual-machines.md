@@ -184,16 +184,12 @@ For a notification, you specify the following elements:
 
 - **Name**. A unique identifier of the notification. The name is offered for selection when defining an
   alarm.
-- **Type**. The notification method to be used. `Email`, `Slack`, or `WebHook` can be selected provided
+- **Type**. The notification method to be used. `Email`, `Pagerduty`, or `WebHook` can be selected provided
   that the methods were enabled when installing the Monitoring Service.
 - **Address**. For `Email`, the email address to be notified when an alarm is triggered.
 
 > **Note:** Generic top-level domains such as business domain names are not supported in email
 addresses (for example `user@xyz.company`).
-
-- **Address**. For `Slack`, the URL specifying the channel to which the notification is to be sent. Example URL
-  with variables for the legacy token and the channel:
-  `https://slack.com/api/chat.postMessage?token=<token>&channel=#<channel>`
 
 - **Address**. For `WebHook`, the WebHook URL to be loaded when an alarm is triggered.
 
