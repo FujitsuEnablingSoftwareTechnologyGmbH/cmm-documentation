@@ -19,7 +19,7 @@ CMM covers all aspects of an enterprise-class log management solution:
 The basic usage scenario of setting up and using the log management features of CMM looks as
 follows:
 
-ToDo Add image
+![Logs Basic Usage Scenario](./images/logs-basic-usage-scenario_01.png)
 
 The Monitoring Service operator is responsible for providing the CMM log management features
 to the OpenStack operator. He uses the features himself for retrieving log data on CMM.
@@ -43,7 +43,7 @@ CMM supports advanced data visualization and analysis of the log data in a varie
 tables, or maps. Visualizations can easily be combined in dynamic dashboards that display query
 results in real-time, for example:
 
-ToDo Add image
+![Data Visualization and Analysis](./images/logs-data-visualization-and-analysis_01.png)
 
 Based on OpenStack Horizon, the customizable dashboards are seamlessly integrated into the
 cloud infrastructure. They enable user access to all log management functionality.

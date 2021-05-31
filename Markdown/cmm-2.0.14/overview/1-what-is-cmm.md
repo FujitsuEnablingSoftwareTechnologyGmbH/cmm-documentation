@@ -1,4 +1,4 @@
-## What is CMM?
+## 1 What is CMM?
 
 As more and more applications are deployed on cloud systems and cloud systems are growing in
 complexity, managing the cloud infrastructure is becoming increasingly difficult. Cloud Monitoring
