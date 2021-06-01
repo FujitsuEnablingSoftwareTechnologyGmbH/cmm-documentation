@@ -92,8 +92,7 @@ By default, the `deterministic` property is not set for an alarm expression.
 Monasca Pike comes with a plugin system for the Notification Engine. It facilitates the
 development of plugins for additional notification methods, thus also allowing customers to
 implement and configure their own notification methods as required.
-CMM supports the following notification methods: `Email`, `HipChat`, `PagerDuty`, `Slack`, and
-`WebHook`.
+CMM supports the following notification methods: `Email`, `PagerDuty` and `WebHook`.
 
 
 ## 1.8 Data Retention for the InfluxDB Database
@@ -102,7 +101,7 @@ The CMM Operator can configure data retention for the Metrics and Alarms Databas
 the data retention features offered by InfluxDB.
 
 By default, metrics and alarm history data is automatically deleted from the database if it is older
-than 60 days. This default is set with the installation of CMM. The CMM Operator can either
+than 31 days. This default is set with the installation of CMM. The CMM Operator can either
 change the default when installing CMM, or update the data retention configuration at a later
 stage.
 
@@ -115,7 +114,7 @@ automatically run by a Cron daemon, a time-based job scheduler that executes com
 defined in a `crontab` configuration file. The file specifies shell commands for running jobs
 periodically according to a given schedule.
 
-By default, an Elasticsearch index is automatically deleted if it is older than 60 days. This default is
+By default, an Elasticsearch index is automatically deleted if it is older than 31 days. This default is
 set with the installation of CMM. The CMM Operator can either change the default when installing
 CMM, or update the data retention configuration at a later stage.
 
@@ -175,23 +174,22 @@ It is based on the following database components:
 
 CMM can be installed on a host machine with the following operating systems:
 
-- Red Hat Enterprise Linux 7.4 (for Intel64)
+- Red Hat Enterprise Linux 7.7 (for Intel64)
 
 
 ### Supported OpenStack Platforms
 
 As underlying platform technology, the following OpenStack platforms are supported:
 
-- Red Hat Enterprise Linux OpenStack Platform 10
+- Red Hat Enterprise Linux OpenStack Platform 16.1
 
 
 ### Supported Web Browsers
 
 CMM has been tested with the following Web browsers:
 
-- Google Chrome 63.
-- Microsoft Internet Explorer 11.0 (with Compatibility View disabled)
-- Mozilla Firefox 57.
+- Google Chrome 90.
+- Mozilla Firefox 58.
 
 
 ## 1.13 Documentation
