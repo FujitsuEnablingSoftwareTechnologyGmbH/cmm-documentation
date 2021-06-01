@@ -145,20 +145,6 @@ To integrate with the required OpenStack services, CMM requires access to the fo
 - Port `5000` and `35357` for the OpenStack Keystone service.
 
 
-### Check if gcc is installed
-
-- Execute:
-```
-which gcc
-```
-
-- If a path is returned: OK, no more action is needed.
-- If no path is returned install gcc:
-```
-dnf install gcc
-```
-
-
 ## 2.2 Preparing the OpenStack Integration
 
 All authentication and authorization in CMM is done through OpenStack Keystone. The integration
