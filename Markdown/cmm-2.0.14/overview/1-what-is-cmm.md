@@ -59,7 +59,7 @@ thresholds and combine multiple warnings and thresholds to support the processin
 events. Combined with a notification system, these alerting features enable them to quickly
 identify, analyze, and resolve problems in the cloud infrastructure.
 
-For details, refer to Monitoring.
+For details, refer to [Monitoring](./2-monitoring.md).
 
 
 ### Log Management
@@ -78,7 +78,7 @@ Based on CMM's alerting features and notification system, users can configure wa
 critical thresholds for log data. If the number of critical log entries reaches a defined threshold, the
 users receive a warning and can instantly analyze their logs and start troubleshooting.
 
-For details, refer to Log Management.
+For details, refer to [Log Management](./3-log-management.md).
 
 ### Integration with OpenStack
 
