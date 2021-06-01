@@ -2,6 +2,33 @@
 
 This chapter describes known restrictions of this release.
 
+### Update of Alarm Definitions  
+
+Update of alarm definitions does not work as expected when updating the following parameters:
+
+- Function
+- Time/Times
+- Deterministic
+
+If you want to change one of these parameters, pls. delete the existing alarm definition and create a new alarm definition.
+
+**Note:**  
+Time/Times cannot be specified in CMM UI when you create an alarm definition.  
+If you want to specify values for time/times, please use monasca CLI.  
+Syntax to create an alarm definition with monasca CLI:  
+```
+monasca alarm-definition-create [-h] [--description <DESCRIPTION>]  
+[--severity <SEVERITY>]  
+[--match-by <MATCH_BY_DIMENSION_KEY1,MATCH_BY_DIMENSION_KEY2,...>]  
+[--alarm-actions <NOTIFICATION-ID>]  
+[--ok-actions <NOTIFICATION-ID>]  
+[--undetermined-actions <NOTIFICATION-ID>] [-j]  
+<ALARM_DEFINITION_NAME> <EXPRESSION>  
+```
+Pls. write `<EXPRESSION>` in quotes.  
+Simple example:  
+`monasca alarm-definition-create TEST-ALARM-DEF "avg(cpu_perc{hostname=host1},120)>90 times 5"`
+
 
 ### Triggering Alarms for Compound Alarm Definitions
 
