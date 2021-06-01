@@ -1,8 +1,10 @@
 # FUJITSU Software
 
-# Cloud Monitoring Manager v2.0.14-x
+# Cloud Monitoring Manager v2.0.14
 
 # System Operator's Guide
+
+## May 2021
 
 ## Contents
 
