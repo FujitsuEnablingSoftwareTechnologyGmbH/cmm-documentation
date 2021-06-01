@@ -59,7 +59,7 @@ thresholds and combine multiple warnings and thresholds to support the processin
 events. Combined with a notification system, these alerting features enable them to quickly
 identify, analyze, and resolve problems in the cloud infrastructure.
 
-For details, refer to Monitoring.
+For details, refer to [Monitoring](./2-monitoring.md).
 
 
 ### Log Management
@@ -78,7 +78,7 @@ Based on CMM's alerting features and notification system, users can configure wa
 critical thresholds for log data. If the number of critical log entries reaches a defined threshold, the
 users receive a warning and can instantly analyze their logs and start troubleshooting.
 
-For details, refer to Log Management.
+For details, refer to [Log Management](./3-log-management.md).
 
 ### Integration with OpenStack
 
@@ -102,7 +102,7 @@ and private clouds. OpenStack consists of a series of interrelated projects deli
 components for a cloud infrastructure solution and allowing for the deployment and management
 of Infrastructure as a Service (IaaS) platforms.
 
-For details on OpenStack, refer to the _OpenStack documentation_.
+For details on OpenStack, refer to the [OpenStack documentation](https://docs.openstack.org/train/).
 
 
 ### Monitoring Service
@@ -114,14 +114,14 @@ The Monitoring Service relies on Monasca. It uses Monasca for high-speed metrics
 log management, and integrates the streaming alarm engine as well as the notification engine of
 Monasca.
 
-For details, refer to _Monasca_.
+For details, refer to [Monasca](http://monasca.io/).
 
 ### Horizon Plugin
 
 CMM comes with a plugin for the OpenStack Horizon dashboard. The plugin extends the main
 dashboard in OpenStack with a view for monitoring and log management. This enables CMM
 users to access the CMM functionality from a central Web-based graphical user interface. For
-details, refer to the _OpenStack Horizon documentation_.
+details, refer to the [OpenStack Horizon documentation](https://docs.openstack.org/horizon/latest/).
 
 Based on the Monitoring Service, metrics and log data are visualized on convenient and
 user-friendly dashboards which fully integrate with the following applications:
@@ -141,7 +141,7 @@ sources as well as a number of built-in system and service checks.
 A Metrics Agent can be installed on each virtual or physical server to be monitored.
 
 The agent functionality is fully integrated into the source code base of the Monasca project. For
-details, refer to _Monasca_.
+details, refer to [Monasca](http://monasca.io/).
 
 
 ### Log Agent
@@ -151,7 +151,7 @@ data to the Monitoring Service for further processing. It can be installed on ea
 server from which log data is to be retrieved.
 
 The agent functionality is fully integrated into the source code base of the Monasca project. For
-details, refer to _Monasca_.
+details, refer to [Monasca](http://monasca.io/).
 
 
 ## 1.3 Users and Roles
@@ -197,7 +197,7 @@ CMM users are created and administrated in OpenStack:
   Application operators in CMM can monitor the set of resources that is defined for the projects
   to which they are assigned.
 
-For details on user management, refer to the _OpenStack documentation_.
+For details on user management, refer to the [OpenStack documentation](https://docs.openstack.org/train/).
 
 ## 1.4 Extensions and Add-Ons
 
