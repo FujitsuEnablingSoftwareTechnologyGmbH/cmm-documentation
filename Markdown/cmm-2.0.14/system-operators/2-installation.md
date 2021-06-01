@@ -116,8 +116,7 @@ The formula is based on the following assumptions for metrics data:
 CMM has been tested with the following Web browsers:
 
 - Google Chrome 90.
-- Microsoft Edge 90
-- Mozilla Firefox 68.
+- Mozilla Firefox 58.
 
 
 ## 2.1.3 Security
