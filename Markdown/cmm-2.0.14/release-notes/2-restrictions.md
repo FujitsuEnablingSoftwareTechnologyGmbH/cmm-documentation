@@ -2,20 +2,32 @@
 
 This chapter describes known restrictions of this release.
 
+### Update of Alarm Definitions  
 
-### Caching in Internet Explorer 11.
+Update of alarm definitions does not work as expected when updating the following parameters:
 
-Errors occur due to problems with caching in Internet Explorer 11.0. When the browser accesses
-a page, it uses data stored in its cache to load the page. If the page is often receiving new data,
-however, the page may appear to be not loading properly.
+- Function
+- Time/Times
+- Deterministic
 
+If you want to change one of these parameters, pls. delete the existing alarm definition and create a new alarm definition.
 
-### Workaround:
-
-Edit your cache configuration. For this purpose, select **Tools** -> **Internet options** in the Internet
-Explorer. On the **General** tab, in the **Browsing history** section, click **Settings**. In the **Check for
-newer versions of stored pages** section, make sure that **Every time I visit the webpage** is
-selected.
+**Note:**  
+Time/Times cannot be specified in CMM UI when you create an alarm definition.  
+If you want to specify values for time/times, please use monasca CLI.  
+Syntax to create an alarm definition with monasca CLI:  
+```
+monasca alarm-definition-create [-h] [--description <DESCRIPTION>]  
+[--severity <SEVERITY>]  
+[--match-by <MATCH_BY_DIMENSION_KEY1,MATCH_BY_DIMENSION_KEY2,...>]  
+[--alarm-actions <NOTIFICATION-ID>]  
+[--ok-actions <NOTIFICATION-ID>]  
+[--undetermined-actions <NOTIFICATION-ID>] [-j]  
+<ALARM_DEFINITION_NAME> <EXPRESSION>  
+```
+Pls. write `<EXPRESSION>` in quotes.  
+Simple example:  
+`monasca alarm-definition-create TEST-ALARM-DEF "avg(cpu_perc{hostname=host1},120)>90 times 5"`
 
 
 ### Triggering Alarms for Compound Alarm Definitions
@@ -37,29 +49,9 @@ be not loading properly.
 
 ### Workaround:
 
-When Internet Explorer 11.0 or Chrome 63.0 is used, you have to manually reload the Kibana
-page. For this purpose, click **clear your session** or **Go back** in the message window that is
-displayed. Alternatively, you can also use the default options of your browser to reload the page.
+When Chrome 63.0 is used, you have to manually reload the Kibana page. For this purpose, 
+click **clear your session** or **Go back** in the message window that is displayed. 
+Alternatively, you can also use the default options of your browser to reload the page.
 
 When Firefox 57.0 is used, you have to clear the Firefox cache, close the browser window, and
 restart Firefox.
-
-
-### Accessing the Kibana Dashboard in Internet Explorer 11.
-
-An error occurs when trying to access Kibana. When Internet Explorer 11.0 is used, you are
-prompted to download a file and the Kibana dashboard is not loaded.
-
-
-### Workaround:
-
-Click **Cancel** in the message window that is displayed, or simply close the message window. Then
-click **Log Management** on the **Overview** page again.
-
-
-### Sorting in Wrong Order
-
-Due to a known issue in the Horizon Plugin, alarm definitions, alarms, and notifications are
-displayed in a wrong sort order on the **Monitoring** tab in OpenStack Horizon. Alarm definitions,
-alarms, and notifications are not sorted by name, but by `alarm_definition_id`, `alarm_id`, and
-`notification_method_id`.
