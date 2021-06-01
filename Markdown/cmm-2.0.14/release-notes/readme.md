@@ -10,7 +10,7 @@
 
 - [About this Manual](./about-this-manual.md#about-this-manual)
 - [1 Main Features](./1-main-features.md#1-main-features)
-  - [1.1 Multi-Plataform Support](./1-main-features.md#11-multi-platform-support)
+  - [1.1 Multi-Platform Support](./1-main-features.md#11-multi-platform-support)
   - [1.2 Multi Tenancy for Log management](./1-main-features.md#12-multi-tenancy-for-log-management)
   - [1.3 Log Metrics](./1-main-features.md#13-log-metrics)
   - [1.4 Preconfigured Metrics Dashboards](./1-main-features.md#14-preconfigured-metrics-dashboards)
