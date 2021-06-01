@@ -43,7 +43,7 @@ CMM supports advanced data visualization and analysis of the log data in a varie
 tables, or maps. Visualizations can easily be combined in dynamic dashboards that display query
 results in real-time, for example:
 
-![Data Visualization and Analysis](./images/logs-data-visualization-and-analysis_01.png)
+![Data Visualization and Analysis](./images/Kibana-Dashboard.png)
 
 Based on OpenStack Horizon, the customizable dashboards are seamlessly integrated into the
 cloud infrastructure. They enable user access to all log management functionality.
