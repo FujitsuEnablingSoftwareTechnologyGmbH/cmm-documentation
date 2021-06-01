@@ -121,7 +121,7 @@ For details, refer to [Monasca](http://monasca.io/).
 CMM comes with a plugin for the OpenStack Horizon dashboard. The plugin extends the main
 dashboard in OpenStack with a view for monitoring and log management. This enables CMM
 users to access the CMM functionality from a central Web-based graphical user interface. For
-details, refer to the _OpenStack Horizon documentation_.
+details, refer to the [OpenStack Horizon documentation](https://docs.openstack.org/horizon/latest/).
 
 Based on the Monitoring Service, metrics and log data are visualized on convenient and
 user-friendly dashboards which fully integrate with the following applications:
