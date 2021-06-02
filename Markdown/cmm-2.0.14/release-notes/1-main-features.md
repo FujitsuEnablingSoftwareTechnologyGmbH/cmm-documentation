@@ -148,23 +148,23 @@ This release of CMM is based on the Pike version of Monasca.
 
 It is based on the following middleware components:
 
-| CMM Component    | CMM 2.0    |
-|------------------|------------|
-| Apache Kafka     | V0.9.0.1   |
-| Apache Storm     | V1.1.1     |
-| Apache Zookeeper | V3.4.11    |
-| Grafana          | V4.5.2     |
-| Kibana           | V4.6.3     |
-| Logstash         | V2.4.1     |
-| Memcached        | V1.5.3     |
+| CMM Component    | CMM 2.0     |
+|------------------|-------------|
+| Apache Kafka     | V2.11-2.0.11|
+| Apache Storm     | V1.2.3      |
+| Apache Zookeeper | V3.4.14     |
+| Grafana          | V7.4.3      |
+| Kibana           | V7.3.0      |
+| Logstash         | V7.3.0      |
+| Memcached        | 1.5-alpine  |
 
 It is based on the following database components:
 
 | CMM Component    | CMM 2.0    |
 |------------------|------------|
-| Elasticsearch    | V2.4.6     |
-| InfluxDB         | V1.3.4     |
-| MySQL            | V5.5       |
+| Elasticsearch    | V7.3.0     |
+| InfluxDB         | V1.8-alpine |
+| MySQL            | V5.7.34    |
 
 
 ## 1.12 System Environment
