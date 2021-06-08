@@ -67,6 +67,8 @@ complex expressions. Subexpressions can be added and connected with AND or OR op
 Subexpressions can be removed, as required. They can also be reorganized within the
 expression.
 
+> **Note:** Restrictions apply to compound alarm definitions. Please refer to  [2 Restrictions](./2-restrictions.md#triggering-alarms-for-compound-alarm-definitions)
+for details.
 
 ## 1.6 Deterministic Alarms
 
@@ -89,7 +91,7 @@ By default, the `deterministic` property is not set for an alarm expression.
 
 ## 1.7 Notification Engine Plugin System
 
-Monasca Pike comes with a plugin system for the Notification Engine. It facilitates the
+Monasca Ussuri comes with a plugin system for the Notification Engine. It facilitates the
 development of plugins for additional notification methods, thus also allowing customers to
 implement and configure their own notification methods as required.
 CMM supports the following notification methods: `Email`, `PagerDuty` and `WebHook`.
