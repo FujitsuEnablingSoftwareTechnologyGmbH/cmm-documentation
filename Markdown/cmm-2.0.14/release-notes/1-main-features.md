@@ -11,7 +11,7 @@ CMM is composed of.
 
 CMM follows a multi-platform approach. The Docker-based installation can be used for different
 OpenStack distributions. CMM supports and has been tested with Red Hat Enterprise Linux
-OpenStack Platform 10.
+OpenStack Platform 16.1.
 
 
 ## 1.2 Multi Tenancy for Log Management
