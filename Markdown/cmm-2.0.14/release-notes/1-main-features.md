@@ -18,7 +18,7 @@ OpenStack Platform 16.1.
 
 CMM comes with multi-tenancy support for log management. The log data is securely isolated for
 each tenant. Access is provided only to the log data of the project to which the tenant is assigned.
-If tenant is assigned to more than one project, the project to be monitored can be selected.
+If a user is assigned to more than one project, the project to be monitored can be selected.
 
 It is not required to configure an index pattern when accessing the log management dashboard in
 CMM for the first time. Based on a default index pattern, the user can instantly view and analyze
