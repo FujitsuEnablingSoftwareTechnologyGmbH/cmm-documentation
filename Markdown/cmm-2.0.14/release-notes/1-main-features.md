@@ -191,6 +191,7 @@ As underlying platform technology, the following OpenStack platforms are support
 CMM has been tested with the following Web browsers:
 
 - Google Chrome 90.
+- Microsoft Edge 91.
 - Mozilla Firefox 58.
 
 
