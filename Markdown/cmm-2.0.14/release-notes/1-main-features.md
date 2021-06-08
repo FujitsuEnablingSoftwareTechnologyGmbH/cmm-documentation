@@ -146,7 +146,7 @@ from the FUJITSU support organizations.
 
 ## 1.11 CMM Components
 
-This release of CMM is based on the Pike version of Monasca.
+This release of CMM is based on the Ussuri version of Monasca.
 
 It is based on the following middleware components:
 
