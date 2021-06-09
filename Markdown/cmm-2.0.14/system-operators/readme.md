@@ -80,6 +80,9 @@
   - [7.5 Removing OpenStack Projects, Users and Roles](./7-uninstallation.md#75-removing-openstack-projects-users-and-roles)
   - [7.6 Removing Services and Endpoints](./7-uninstallation.md#76-removing-services-and-endpoints)
 
+- [8 Migration](./8-migration.md#8-migration)
+  - [8.1 MySQL Database Migration](./8-migration.md#81-mysql-database-migration)
+
 - [Appendix A Supported Metrics](./appendix.md#appendix-a-supported-metrics)
   - [A.1 Standard Metrics](./appendix.md#a1-standard-metrics)
   - [A.2 Additional Metrics](./appendix.md#a2-additional-metrics)
