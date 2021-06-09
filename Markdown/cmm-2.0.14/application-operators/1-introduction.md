@@ -30,8 +30,7 @@ follows:
 
 As an **application operator** , you have booked virtual machines in OpenStack to provide services
 to end users or to host services that you need for your own development activities. CMM helps
-you ensure that the virtual machines on which these services are provided are working as
-required.
+you ensure that the virtual machines on which these services are provided are working as required.
 
 The **OpenStack operator** uses CMM to monitor physical and virtual servers, hypervisors, and
 services of the underlying platform. In addition, an OpenStack operator is responsible for the 
@@ -42,8 +41,7 @@ The **Monitoring Service operator** is responsible for providing the cloud monit
 application operators and the OpenStack operator. This enables the application operators and the
 OpenStack operator to focus on the operation and quality of their services without having to carry
 out the tedious tasks implied by setting up and administrating their own monitoring software. The
-Monitoring Service operator uses the monitoring features for monitoring the operation of
-CMM.
+Monitoring Service operator uses the monitoring features for monitoring the operation of CMM.
 
 Depending on the distribution of tasks in your environment, the tasks of the Monitoring Service
 operator and the OpenStack Operator are jointly performed by one system operator or separately
