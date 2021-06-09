@@ -87,6 +87,6 @@ CMM supports GUI-based alarm and notification management. Template-based alarm d
 allow for monitoring a dynamically changing set of resources without the need for reconfiguration.
 While the number of underlying virtual machines is changing, this ensures the efficient monitoring
 of scalable cloud services. Alarm definitions allow CMM users to specify expressions that are
-evaluated based on the metrics data that is received. Alarm definitions can be combined to form
-compound alarms. Compound alarms allow users to track and process even more complex
-events. Notifications can be configured in order to inform CMM users when an alarm is triggered.
+evaluated based on the metrics data that is received. Notifications can be configured in order to inform 
+CMM users when an alarm is triggered. For details on alarm definitions and notifications, refer to 
+the _Application Operator's Guide_.
