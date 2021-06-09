@@ -34,15 +34,15 @@ you ensure that the virtual machines on which these services are provided are wo
 required.
 
 The **OpenStack operator** uses CMM to monitor physical and virtual servers, hypervisors, and
-services of the underlying platform. In addition, he is responsible for the middleware components,
-for example the database services. The OpenStack operator also prepares the monitoring
+services of the underlying platform. In addition, an OpenStack operator is responsible for the 
+middleware components, for example the database services. The OpenStack operator also prepares the monitoring
 environment including available metrics for application operators.
 
 The **Monitoring Service operator** is responsible for providing the cloud monitoring features to the
 application operators and the OpenStack operator. This enables the application operators and the
 OpenStack operator to focus on the operation and quality of their services without having to carry
 out the tedious tasks implied by setting up and administrating their own monitoring software. The
-Monitoring Service operator uses the monitoring features himself for monitoring the operation of
+Monitoring Service operator uses the monitoring features for monitoring the operation of
 CMM.
 
 Depending on the distribution of tasks in your environment, the tasks of the Monitoring Service
