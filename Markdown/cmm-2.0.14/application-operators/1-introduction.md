@@ -52,7 +52,7 @@ by different system operators.
 
 ## 1.2 The Application Operator's Tasks
 
-The OpenStack operator is responsible for preparing your monitoring environment. He activates
+The OpenStack operator is responsible for preparing your monitoring environment and activates
 the metrics that you can use for monitoring the virtual machines you have booked.
 
 
