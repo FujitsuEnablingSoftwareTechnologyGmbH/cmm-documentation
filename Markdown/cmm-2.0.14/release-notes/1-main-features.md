@@ -11,14 +11,14 @@ CMM is composed of.
 
 CMM follows a multi-platform approach. The Docker-based installation can be used for different
 OpenStack distributions. CMM supports and has been tested with Red Hat Enterprise Linux
-OpenStack Platform 10.
+OpenStack Platform 16.1.
 
 
 ## 1.2 Multi Tenancy for Log Management
 
 CMM comes with multi-tenancy support for log management. The log data is securely isolated for
 each tenant. Access is provided only to the log data of the project to which the tenant is assigned.
-If he is assigned to more than one project, he can select the project to be monitored.
+If a user is assigned to more than one project, the project to be monitored can be selected.
 
 It is not required to configure an index pattern when accessing the log management dashboard in
 CMM for the first time. Based on a default index pattern, the user can instantly view and analyze
@@ -67,6 +67,8 @@ complex expressions. Subexpressions can be added and connected with AND or OR op
 Subexpressions can be removed, as required. They can also be reorganized within the
 expression.
 
+> **Note:** Restrictions apply to compound alarm definitions. Please refer to  [2 Restrictions](./2-restrictions.md#triggering-alarms-for-compound-alarm-definitions)
+for details.
 
 ## 1.6 Deterministic Alarms
 
@@ -89,7 +91,7 @@ By default, the `deterministic` property is not set for an alarm expression.
 
 ## 1.7 Notification Engine Plugin System
 
-Monasca Pike comes with a plugin system for the Notification Engine. It facilitates the
+Monasca Ussuri comes with a plugin system for the Notification Engine. It facilitates the
 development of plugins for additional notification methods, thus also allowing customers to
 implement and configure their own notification methods as required.
 CMM supports the following notification methods: `Email`, `PagerDuty` and `WebHook`.
@@ -144,7 +146,7 @@ from the FUJITSU support organizations.
 
 ## 1.11 CMM Components
 
-This release of CMM is based on the Pike version of Monasca.
+This release of CMM is based on the Ussuri version of Monasca.
 
 It is based on the following middleware components:
 
@@ -194,6 +196,7 @@ As underlying platform technology, the following OpenStack platforms are support
 CMM has been tested with the following Web browsers:
 
 - Google Chrome 90.
+- Microsoft Edge 91.
 - Mozilla Firefox 58.
 
 
