@@ -94,9 +94,7 @@ of resources without the need for reconfiguration. This ensures the efficient mo
 cloud services.
 
 Alarm definitions allow you to specify expressions that are evaluated based on the metrics data
-that is received. Multiple definitions can be combined to form compound alarms. Compound
-alarms allow you to track and process even complex events. Notifications can be configured in
-order to inform CMM users when an alarm is triggered.
+that is received. Notifications can be configured in order to inform CMM users when an alarm is triggered.
 
 As an application operator, you:
 
@@ -104,7 +102,8 @@ As an application operator, you:
 - Create, update, and delete alarms.
 - Create, update, and delete notifications.
 
-For details on the monitoring functions, refer to _Monitoring Services and Virtual Machines_.
+For details on the monitoring functions, refer to 
+[Monitoring Services and Virtual Machines](./3-monitoring-services-and-virtual-machines.md)
 
 
 ### 1.3 Components
