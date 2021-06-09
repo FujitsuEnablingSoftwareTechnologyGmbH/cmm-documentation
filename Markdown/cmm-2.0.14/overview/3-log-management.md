@@ -21,8 +21,8 @@ follows:
 
 ![Logs Basic Usage Scenario](./images/logs-basic-usage-scenario_01.png)
 
-The Monitoring Service operator is responsible for providing the CMM log management features
-to the OpenStack operator. He uses the features himself for retrieving log data on CMM.
+The **Monitoring Service operator** is responsible for providing the CMM log management features
+to the OpenStack operator. A Monitoring Service operator uses the features for retrieving log data on CMM.
 
 The **OpenStack operator** uses the log management features for retrieving log data on the
 OpenStack services and the middleware components that make up the underlying OpenStack
