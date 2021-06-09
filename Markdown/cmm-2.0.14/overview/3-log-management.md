@@ -53,11 +53,11 @@ cloud infrastructure. They enable user access to all log management functionalit
 GUI-based alarm and notification management is supported for the log data. Based on a template
 mechanism, CMM allows system operators to configure alarms and notifications for monitoring the
 number of critical log events over time. When the number of critical log entries exceeds a defined
-threshold, a corresponding notification is sent.
+threshold, a corresponding notification is sent. For details on alarm definitions and notifications, 
+refer to the _Application Operator's Guide_.
 
 The template mechanism is not limited to a single cloud resource but can be used to analyze
-a scalable set of resources. Compound alarms can be created for analyzing more complex log
-events.
+a scalable set of resources. 
 
 The automation of log handling guarantees that system operators identify problems in their
 infrastructure early and find the root cause of these problems quickly.
