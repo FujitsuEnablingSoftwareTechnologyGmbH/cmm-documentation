@@ -18,4 +18,5 @@ assigned. Before you start, select the project you want to work on.
 To perform monitoring tasks, you must use one of the Web browsers supported by CMM:
 
 - Google Chrome 90.
+- Microsoft Edge 91.
 - Mozilla Firefox 58.
