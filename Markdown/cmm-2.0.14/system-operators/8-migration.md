@@ -8,7 +8,7 @@ This chapter describes the process of migration from CMM v2.0.13 to CMM v2.0.14
   [MySQL Database Backup and Recovery](./4-operation-and-maintenance.md#mysql-database)
   Steps.
 
-> **Note 2:** It is assumed that the tenant and its tenant-id used for monitoring have not changed..
+> **Note 2:** It is assumed that the tenant and its tenant-id used for monitoring have not changed.
 
 ### Back up CMM v2.0.13 MySQL database:
 
