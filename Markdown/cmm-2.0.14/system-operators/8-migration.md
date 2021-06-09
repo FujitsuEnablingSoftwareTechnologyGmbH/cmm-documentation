@@ -5,7 +5,7 @@ This chapter describes the process of migration from CMM v2.0.13 to CMM v2.0.14
 ## 8.1 MySQL Database Migration
 
 > **Note 1:** The migration process of MySQL Database from CMM v2.0.13 to CMM v2.0.14 is based on the
-  [MySQL Database Backup and Recovery](./system-operators/4-operation-and-maintenance.md#mysql-database)
+  [MySQL Database Backup and Recovery](./4-operation-and-maintenance.md#mysql-database)
   Steps.
 
 > **Note 2:** It is assumed that the tenant and its tenant-id used for monitoring have not changed..
@@ -54,7 +54,7 @@ vim /backup/mon.sql
 
 > **Note:** In this step it is assumed that the CMM node with v 2.0.14 was successfully installed and
   all containers are running as described in chapter
-  [2.3 Installing the Monitoring Service](./system-operators/2-installation.md#23-installing-the-monitoring-service)
+  [2.3 Installing the Monitoring Service](./2-installation.md#23-installing-the-monitoring-service)
 
 1. Log in to the new CMM node with v2.0.14 as a user with root privileges and
    transfer the file `mon.sql`.
