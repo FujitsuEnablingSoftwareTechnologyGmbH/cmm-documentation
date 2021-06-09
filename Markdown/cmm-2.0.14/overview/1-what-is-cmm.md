@@ -158,18 +158,18 @@ details, refer to [Monasca](http://monasca.io/).
 
 CMM users can be grouped by their role. The following user roles are distinguished:
 
-- An **application operator** acts as a service provider in the OpenStack environment. He books
-  virtual machines in OpenStack to provide services to end users or to host services that he
-  needs for his own development activities. CMM helps application operators to ensure the
-  quality of their services in the cloud.
+- An **application operator** acts as a service provider in the OpenStack environment. An 
+  application operator books virtual machines in OpenStack to provide services to end users 
+  or to host services required for own development activities. CMM helps application operators 
+  to ensure the quality of their services in the cloud.
   For details on the tasks of the application operator, refer to the _Application Operator's Guide_.
 - The **OpenStack operator** is responsible for administrating and maintaining the underlying
   OpenStack platform and ensures the availability and quality of the OpenStack services (e.g.
   Heat, Nova, Cinder, Swift, Glance, or Keystone).
   For details on the tasks of the OpenStack operator, refer to the _System Operator's Guide_.
 - The **Monitoring Service operator** is responsible for administrating and maintaining CMM.
-  He provides the cloud monitoring services to the other users and ensures the quality of the
-  Monitoring Service.
+  A Monitoring Service operator provides the cloud monitoring services to the other users and 
+  ensures the quality of the Monitoring Service.
   For details on the tasks of the Monitoring Service operator, refer to the _System Operator's_
   _Guide_.
 
