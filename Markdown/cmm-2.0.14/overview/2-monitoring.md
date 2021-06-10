@@ -27,7 +27,7 @@ The **Monitoring Service operator** is responsible for providing the CMM monitor
 application operators and the OpenStack operator. This enables the application operators and the
 OpenStack operator to focus on operation and ensure the quality of their services without having
 to carry out the tedious tasks implied by setting up and administrating their own system monitoring
-software. The Monitoring Service operator uses the features himself for monitoring the operation
+software. The Monitoring Service operator uses the features for monitoring the operation
 of CMM.
 
 **Application operators** monitor the virtual machines on which they provide services to **end users**
@@ -35,8 +35,8 @@ or services they need for their own development activities. They ensure that the
 virtual servers on which their services are provided are up and running as required.
 
 The **OpenStack operator** monitors physical and virtual servers, hypervisors, and services of the
-underlying platform. In addition, he is responsible for the middleware components, for example the
-database services.
+underlying platform. In addition, an OpenStack operator is responsible for the middleware components, 
+for example the database services.
 
 
 ### Metrics
@@ -87,6 +87,6 @@ CMM supports GUI-based alarm and notification management. Template-based alarm d
 allow for monitoring a dynamically changing set of resources without the need for reconfiguration.
 While the number of underlying virtual machines is changing, this ensures the efficient monitoring
 of scalable cloud services. Alarm definitions allow CMM users to specify expressions that are
-evaluated based on the metrics data that is received. Alarm definitions can be combined to form
-compound alarms. Compound alarms allow users to track and process even more complex
-events. Notifications can be configured in order to inform CMM users when an alarm is triggered.
+evaluated based on the metrics data that is received. Notifications can be configured in order to inform 
+CMM users when an alarm is triggered. For details on alarm definitions and notifications, refer to 
+the _Application Operator's Guide_.
