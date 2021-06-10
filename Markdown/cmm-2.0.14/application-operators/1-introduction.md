@@ -30,20 +30,18 @@ follows:
 
 As an **application operator** , you have booked virtual machines in OpenStack to provide services
 to end users or to host services that you need for your own development activities. CMM helps
-you ensure that the virtual machines on which these services are provided are working as
-required.
+you ensure that the virtual machines on which these services are provided are working as required.
 
 The **OpenStack operator** uses CMM to monitor physical and virtual servers, hypervisors, and
-services of the underlying platform. In addition, he is responsible for the middleware components,
-for example the database services. The OpenStack operator also prepares the monitoring
+services of the underlying platform. In addition, an OpenStack operator is responsible for the 
+middleware components, for example the database services. The OpenStack operator also prepares the monitoring
 environment including available metrics for application operators.
 
 The **Monitoring Service operator** is responsible for providing the cloud monitoring features to the
 application operators and the OpenStack operator. This enables the application operators and the
 OpenStack operator to focus on the operation and quality of their services without having to carry
 out the tedious tasks implied by setting up and administrating their own monitoring software. The
-Monitoring Service operator uses the monitoring features himself for monitoring the operation of
-CMM.
+Monitoring Service operator uses the monitoring features for monitoring the operation of CMM.
 
 Depending on the distribution of tasks in your environment, the tasks of the Monitoring Service
 operator and the OpenStack Operator are jointly performed by one system operator or separately
@@ -52,7 +50,7 @@ by different system operators.
 
 ## 1.2 The Application Operator's Tasks
 
-The OpenStack operator is responsible for preparing your monitoring environment. He activates
+The OpenStack operator is responsible for preparing your monitoring environment and activates
 the metrics that you can use for monitoring the virtual machines you have booked.
 
 
@@ -94,9 +92,7 @@ of resources without the need for reconfiguration. This ensures the efficient mo
 cloud services.
 
 Alarm definitions allow you to specify expressions that are evaluated based on the metrics data
-that is received. Multiple definitions can be combined to form compound alarms. Compound
-alarms allow you to track and process even complex events. Notifications can be configured in
-order to inform CMM users when an alarm is triggered.
+that is received. Notifications can be configured in order to inform CMM users when an alarm is triggered.
 
 As an application operator, you:
 
@@ -104,7 +100,8 @@ As an application operator, you:
 - Create, update, and delete alarms.
 - Create, update, and delete notifications.
 
-For details on the monitoring functions, refer to _Monitoring Services and Virtual Machines_.
+For details on the monitoring functions, refer to 
+[Monitoring Services and Virtual Machines](./3-monitoring-services-and-virtual-machines.md)
 
 
 ### 1.3 Components
