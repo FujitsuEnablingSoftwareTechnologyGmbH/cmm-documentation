@@ -710,7 +710,7 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml exec elast
 curl -XPUT http://localhost:9200/_snapshot/my_backup -H'Content-Type: application/json' -d '{
  "type": "fs",
  "settings": {
- "location": "/usr/share/elasticsearch/backup",
+ "location": "/usr/share/elasticsearch/backup/my_backup",
  "compress": true
  }
 }'
