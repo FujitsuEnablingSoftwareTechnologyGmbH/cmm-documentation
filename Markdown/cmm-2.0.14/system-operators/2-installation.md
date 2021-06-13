@@ -585,55 +585,10 @@ automatically provided with the installation.
 
 ## 2.4.1 Metric Agent Prerequisites
 
-Please check the following items for servers where metric agent (bare metal) shall be installed::
+Please check the following items for servers where metric agent (bare metal) shall be installed:
 
-
-### Check if pip is linked to pip3
-
-- Execute:
-```
-# which pip
-```
-
-- If a path is returned execute:
-```
-# ls –l <path of pip>
-```
-
-- If it’s a link to pip3: OK, no more action is needed.
-- If no path is returned:
-  * `which pip3`: returns `<path_of_pip3>` (usually: `/usr/bin/pip3`)
-  * Create a symbolic link for pip:
-```
-ln –s <path_of_pip3> /usr/bin/pip
-```
-
-### Check if virtualenv is installed
-
-- Execute:
-```
-which virtualenv
-```
-
-- If a path is returned: OK, no more action is needed.
-- If no path is returned install virtualenv:
-```
-pip install ‘virtualenv==16.7.5’
-```
-
-### Check if gcc is installed
-
-- Execute:
-```
-which gcc
-```
-
-- If a path is returned: OK, no more action is needed.
-- If no path is returned install gcc:
-```
-dnf install gcc
-```
-
+- OS: `RHEL 8.2`
+- OpenStack: `RHOSP16.1`
 
 ## 2.4.2 Metric Agent Installation
 
@@ -706,14 +661,14 @@ debugging information, you can retry the installation in verbose mode:
 ```
 ./monasca-agent-CMM_2.0.14-x.run \
   --target /opt/monasca-agent -- \
-  --username &lt;user_name> \
-  --password &lt;password> \
-  --project_name &lt;project_name> \
+  --username <user_name> \
+  --password <password> \
+  --project_name <project_name> \
   --user_domain_name default \
   --project_domain_name default \
   --service_type monitoring \
-  --keystone_url &lt;openstack_url> \
-  --monasca_statsd_port &lt;port_no> \
+  --keystone_url <openstack_url> \
+  --monasca_statsd_port <port_no> \
   --skip_detection_plugins OVS Libvirt \
   --verbose
 ```
