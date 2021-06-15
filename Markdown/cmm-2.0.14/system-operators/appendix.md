@@ -227,7 +227,7 @@ instances:
   dimensions:
     service: block-storage
   collect_response_time: true
-  match_pattern: .*version=1.*
+  match_pattern: .*version=[1-3].*
   name: block-storage-api
   timeout: 10
   url: http://localhost:8776/v2
@@ -399,22 +399,31 @@ instances:
 ```
 
 
-### mysql.yamL
+### mysql.yaml
 
 MySQL checks gather metrics from a MySQL database server. The metrics are related to the
 server status variables of MySQL.
 
-The agent installer automatically configures the MySQL checks. As a prerequisite, you must
-update the `.my.cnf` file in the `root` directory before installing the agent.
+The agent installer automatically configures the MySQL checks. As a prerequisite, you need to find out the MySQL password credentials stored in  `/root/.my.cnf` file inside the galera-bundle-podman container.
 
-Example configuration for `.my.cnf`:
+Run following commands:
+```
+podman exec -it galera-bundle-podman-0 /bin/sh
+cat /root/.my.cnf
+```
+
+Example configuration for `/root.my.cnf`:
 
 ```
 [client]
-host=localhost
 user=root
-password=password
+password="FRjSTiKbzaq"
+
+[mysql]
+user=root
+password="FRjSTiKbzaq"
 ```
+Edit the file `mysql.yaml` in `/etc/monasca/agent/conf.d/` and insert the password as obtained before. 
 
 > **Note:** Make sure that the password is set correctly. The agent installer fails if you specify the
   password enclosed in quotation marks.
@@ -428,11 +437,6 @@ Metrics Agent. To install it in the default directory, execute the following com
 # deactivate
 ```
 
-The agent installer automatically checks whether a MySQL database instance is installed on the
-machine where the agent is installed. If so, the detected settings are saved to the `mysql.yaml`
-configuration file, and the configuration is automatically provided in the `/etc/monasca/agent/conf.d/`
-directory.
-
 Example configuration:
 
 ```
@@ -440,7 +444,7 @@ init_config: null
 instances:
 - built_by: MySQL
   name: localhost
-  pass: password
+  pass: FRjSTiKbzaq
   port: 3306
   server: localhost
   sock: /var/lib/mysql/mysql.sock
