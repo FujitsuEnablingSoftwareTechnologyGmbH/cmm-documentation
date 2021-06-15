@@ -437,7 +437,7 @@ Metrics Agent. To install it in the default directory, execute the following com
 # deactivate
 ```
 
-Example configuration for mysql.yaml:
+Example configuration for `mysql.yaml`:
 
 ```
 init_config: null
