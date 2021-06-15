@@ -220,7 +220,7 @@ Proceed as follows:
 2. To stop the agent, execute the following command:
 
 ```
-systemctl stop monasca-agent.target
+systemctl stop monasca-collector
 ```
 
 3. Change to the directory that stores the metrics. Example:
@@ -238,7 +238,7 @@ rm -i process.yaml
 5. To start the agent again, execute the following command:
 
 ```
-systemctl start monasca-agent.target
+systemctl start monasca-collector 
 ```
 
 
@@ -386,8 +386,7 @@ Use `[DEFAULT]` to set the new retention policy as the default retention policy 
 Example for deleting data if it is older than 30 days:
 
 ```
-ALTER RETENTION POLICY default_mon \
-  my_policy ON mon DURATION 30d DEFAULT
+ALTER RETENTION POLICY default_mon ON mon DURATION 30d DEFAULT
 ```
 
 For an introduction to the InfluxDB command line interface, refer to the *InfluxDB CLI/Shell
@@ -406,11 +405,11 @@ Monitoring Service:
 
 1. Log in to the CMM node as a user with root privileges.
 2. Go to the installation directory.
-3. Stop the `elasticsearch-curator` service. For this purpose, run `docker-compose stop` as
+3. Stop and remove the `elasticsearch-curator` service. For this purpose, run `docker-compose stop` as
    follows:
 
 ```
-docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop elasticsearch-curator
+docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml down elasticsearch-curator
 ```
 
 4. Open the `.env` file, and update the data retention parameter as required.
@@ -587,13 +586,13 @@ curl http://localhost:9200/_cat/indices?v
 5. Delete an index as follows:
 
 ```
-curl -XDELETE -i 'http://localhost:<port>/<projectID-date>'
+curl -XDELETE -i 'http://localhost:<port>/logs-<projectID-date>'
 ```
 
 Example:
 
 ```
-curl -XDELETE -i 'http://localhost:9200/abc123-2015-07-01'
+curl -XDELETE -i 'http://localhost:9200/logs-abc123-2015-07-01'
 ```
 
 This command either returns an error, such as `IndexMissingException`, or acknowledges the
@@ -605,7 +604,7 @@ Both, for `-XHEAD` and `-XDELETE`, you can use wildcards for processing several 
 example, you can delete all indices of a specific project for the whole month of July, 2015:
 
 ```
-curl -XDELETE -i 'http://localhost:9200/abc123-2015-07-*'
+curl -XDELETE -i 'http://localhost:9200/logs-abc123-2015-07-*'
 ```
 
 > **Note:** Take extreme care when using wildcards for the deletion of indices. You could delete all
@@ -856,7 +855,7 @@ curl -XGET http://localhost:9200/_snapshot/my_backup
    Example:
 
 ```
-curl -XPUT http://localhost:9200/_snapshot/my_backup -d '{
+curl -XPUT http://localhost:9200/_snapshot/my_backup -H'Content-Type: application/json' -d '{
   "type": "fs",
   "settings": {
        "location": "/elasticsearch_backup/my_backup",
