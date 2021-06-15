@@ -210,23 +210,6 @@ exceeds a threshold of 90 percent:
 cpu.system_perc{hostname=monasca} > 90
 ```
 
-Example for a simple alarm definition that checks the average time of the system-level load of the
-CPU over a period of 480 seconds. The alarm is triggered only if this average is greater than 95
-percent:
-
-```
-avg(cpu.system_perc{hostname=monasca}, 120) > 95 times 4
-```
-
-Example for a compound alarm definition that evaluates two metrics. The alarm is triggered if
-either the system-level load of the CPU exceeds a threshold of 90 percent, or if the disk space that
-is used by the specified service exceeds a threshold of 90 percent:
-
-```
-avg(cpu.system_perc{hostname=monasca}) > 90 OR
-max(disk.space_used_perc{service=monitoring}) > 90
-```
-
 To define an alarm expression, proceed as follows:
 
 1. Select the metrics to be evaluated.
