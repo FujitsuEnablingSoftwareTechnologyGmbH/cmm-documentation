@@ -30,14 +30,14 @@ follows:
 
 ![Basic Usage Scenario](./images/basic-usage-scenario_01.png)
 
-An **application operator** acts as a service provider in the OpenStack environment. He books
-virtual machines to provide services to **end users** or to host services that he needs for his own
+An **application operator** acts as a service provider in the OpenStack environment. This person books
+virtual machines to provide services to **end users** or to host services that are needed for his or her own
 development activities. CMM helps application operators ensure that their services and the
 servers on which they are provided are configured and working as required.
 
 The **OpenStack operator** is responsible for administrating and maintaining the underlying
-OpenStack platform. The monitoring and log management services of CMM enable him to ensure
-the availability and quality of the platform. He uses CMM for:
+OpenStack platform. The monitoring and log management services of CMM enable him or her to ensure
+the availability and quality of the platform. This person uses CMM for:
 
 - Monitoring physical and virtual servers, hypervisors, and OpenStack services.
 - Monitoring middleware components, for example, database services.
@@ -48,7 +48,7 @@ The **Monitoring Service operator** is responsible for providing the monitoring 
 management features to the application operators and the OpenStack operator. This enables
 them to focus on operation and the quality of their services and servers without having to carry
 out the tedious tasks implied by setting up and administrating their own monitoring software. The
-Monitoring Service operator uses the monitoring features himself for ensuring the quality of CMM.
+Monitoring Service operator uses the monitoring features for ensuring the quality of CMM.
 
 
 ### Tasks Overview
