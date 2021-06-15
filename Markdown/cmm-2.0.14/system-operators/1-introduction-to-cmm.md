@@ -245,6 +245,6 @@ The `CMM_client_2.0.14-x.tar.gz` file includes (replace x with the current versi
 - `monasca-ui-CMM_2.0.14-x.run` Executable for installing the Horizon Plugin on the node where
     the OpenStack Horizon Service is deployed.
 
-The `CMM_documentation_2.0.14-x.tar.gz` file includes Markdown manuals providing an overview of
+The `CMM_documentation_2.0.14-x.tar.gz` file includes PDF manuals providing an overview of
 CMM as well as information directed to system operators and application operators (replace `x` with
 the current version number of CMM).
