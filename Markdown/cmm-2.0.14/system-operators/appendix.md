@@ -412,7 +412,7 @@ podman exec -it galera-bundle-podman-0 /bin/sh
 cat /root/.my.cnf
 ```
 
-Example configuration for `/root.my.cnf`:
+Example configuration for `/root/.my.cnf`:
 
 ```
 [client]
@@ -437,7 +437,7 @@ Metrics Agent. To install it in the default directory, execute the following com
 # deactivate
 ```
 
-Example configuration:
+Example configuration for mysql.yaml:
 
 ```
 init_config: null
