@@ -1084,7 +1084,7 @@ $ ls /opt/monasca-ui/monasca_ui-1.17.*.whl
 > - _Example file:_ /opt/monasca-ui/monasca-ui-1.17.`2.dev4`.zip
 > - _Version:_ 1.17.`2-dev4`
 
-> **Note:** Expected message:
+> **Note:** Expected message: \
 > `WARNING: Running pip install with root privileges is generally not a good idea.`
 
 7. Create symbolic links:
@@ -1136,17 +1136,17 @@ $ python3 /usr/share/openstack-dashboard/manage.py collectstatic --noinput
 $ python3 /usr/share/openstack-dashboard/manage.py compress --force
 ```
 
-> **Note:** Expected messages:\
-  `WARNING:root:"dashboards" and "default_dashboard" in (local_)settings is DEPRECATED`
-  `ERROR:scss.ast:Function not found: twbs-font-path:1`\
-  `ERROR:scss.compiler:Mixin not found: dropdown-arrow:0`\
-  `ERROR:scss.compiler:Maximum number of supported selectors in Internet Explorer (4095) exceeded!`
+> **Note:** Expected messages: \
+> `WARNING:root:"dashboards" and "default_dashboard" in (local_)settings is DEPRECATED` \
+> `ERROR:scss.ast:Function not found: twbs-font-path:1` \
+> `ERROR:scss.compiler:Mixin not found: dropdown-arrow:0` \
+> `ERROR:scss.compiler:Maximum number of supported selectors in Internet Explorer (4095) exceeded!`
 
 > **Note:** If japanese translations are required, pls. execute:
->  ```
->  $ cd /usr/local/lib/python3.6/site-packages/monitoring
->  $ /usr/lib/python3.6/site-packages/django/bin/django-admin.py compilemessages -l ja
->  ```
+> ```
+> $ cd /usr/local/lib/python3.6/site-packages/monitoring
+> $ /usr/lib/python3.6/site-packages/django/bin/django-admin.py compilemessages -l ja
+> ```
 
 
 10. Exit from Horizon container:
