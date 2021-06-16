@@ -22,9 +22,9 @@ To perform monitoring tasks, you must use one of the Web browsers supported by C
 - Mozilla Firefox 58.  
 
 > **Notes:** 
-> - Mozilla Firefox 58: When accessing Grafana, a message is displayed: "Your browser is not fully supported. A newer Browser version is recommended". 
+> - Mozilla Firefox 58: When accessing Grafana, a message is displayed: `Your browser is not fully supported. A newer Browser version is recommended`. 
 >   This browser version has been extensively tested. There is no known restriction when using Firefox 58 to access CMM metric information via Grafana.
-> - All Browsers: When accessing Kibana, a message is displayed: "Your browser doesn't meet the security requirements for Kibana." 
+> - All Browsers: When accessing Kibana, a message is displayed: `Your browser doesn't meet the security requirements for Kibana.` 
 >   However, this message is not related to browser versions. Security in CMM is ensured: Only users with access to Horizon can successfully use Kibana to 
 >   access CMM log information. Thus, this message can be safely ignored.
 
