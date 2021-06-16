@@ -109,7 +109,7 @@ To uninstall the Horizon Plugin (Monasca-UI), proceed as follows:
 # podman exec -it horizon /bin/sh
 ```
 
-3. Remove monasca-ui directory:
+3. Remove monasca-ui directories:
 ```
 $ rm -rf /opt/monasca-ui/
 $ rm -rf /usr/share/openstack-dashboard/static/monitoring
