@@ -691,7 +691,7 @@ agent each time the machine is booted.
 The agent is installed in a virtualenv environment. By default, the virtualenv enviroment is located
 in the `/opt/monasca-agent/` directory.
 
-> **Note:** If you require to monitor disk mount_points which are only accessible to the root,
+> **Note:** If you require to monitor disk mount points which are only accessible to root user,
 > then `monasca-collector.service` should run as root:
 >
 > 1. Comment the `User` and `Group` parameters in the file `/etc/systemd/system/monasca-collector.service` as follows:
