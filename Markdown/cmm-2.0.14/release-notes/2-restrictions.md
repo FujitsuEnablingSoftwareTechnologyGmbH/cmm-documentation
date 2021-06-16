@@ -49,9 +49,5 @@ be not loading properly.
 
 ### Workaround:
 
-When Chrome 63.0 is used, you have to manually reload the Kibana page. For this purpose, 
-click **clear your session** or **Go back** in the message window that is displayed. 
-Alternatively, you can also use the default options of your browser to reload the page.
+For all browser versions suppported: Please use the default options of your browser to reload the page.
 
-When Firefox 57.0 is used, you have to clear the Firefox cache, close the browser window, and
-restart Firefox.
