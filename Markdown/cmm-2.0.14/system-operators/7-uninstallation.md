@@ -198,7 +198,7 @@ rm -f /usr/local/bin/docker-compose
 ```
 
 5. Delete the installation directory of the Monitoring Service to which you extracted the
-   `CMM_server_2.0.x.tar.gz` archive file from the CMM installation package:
+   `CMM_server_2.0.14-x.tar.gz` archive file from the CMM installation package:
 
 ```
 rm -rf <path_to_installation_directory>

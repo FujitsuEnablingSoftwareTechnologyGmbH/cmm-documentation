@@ -115,8 +115,9 @@ The formula is based on the following assumptions for metrics data:
 
 CMM has been tested with the following Web browsers:
 
-- Google Chrome 90.
-- Mozilla Firefox 58.
+- Google Chrome 90
+- Microsoft Edge
+- Mozilla Firefox 58
 
 
 ## 2.1.3 Security
@@ -535,6 +536,7 @@ main components of CMM:
 | monasca | Monitoring API. |
 | monasca-notification | Notification Engine. |
 | monasca-persister | Persister. |
+| monasca-statsd | Service for sending statsd messages via the Monasca Agent |
 | mysql | MySQL database service. CMM stores configuration information in this database. |
 | thresh | Threshold Engine. |
 | zookeeper | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. |
@@ -596,17 +598,17 @@ To install a Metrics Agent, proceed as follows:
 
 1. Log in to the OpenStack node on which to install the Metrics Agent.
 2. Prepare an installation directory.
-3. Extract the `CMM_client_2.0.x.tar.gz` archive file from the CMM installation package to the
+3. Extract the `CMM_client_2.0.14-x.tar.gz` archive file from the CMM installation package to the
    installation directory. The archive provides the following files:
-     - `log-agent-CMM_2.0.x.run`
-     - `monasca-agent-CMM_2.0.x.run`
-     - `monasca-ui-1.17.x-CMM_2.0.x.tar.gz`
-4. Change the access permission of the `monasca-agent-CMM_2.0.x.run` file to Execute.
+     - `log-agent-7.3.0_2.0.x-CMM2.0.14-x.run`
+     - `monasca-agent-3.0.x-CMM2.0.14-x.run`
+     - `monasca-ui-1.17.x-CMM2.0.14-x.tar.gz`
+4. Change the access permission of the `monasca-agent-3.0.x-CMM2.0.14-x.run` file to Execute.
 5. Make sure that your `/root/.my.cnf` file does not define any passwords in single quotes.
 6. Run the agent installer:
 
 ```
-./monasca-agent-CMM_2.0.x.run \
+./monasca-agent-3.0.x-CMM2.0.14-x.run \
 --target /opt/monasca-agent -- \
 --username <user_name> \
 --password <password> \
@@ -652,14 +654,14 @@ For additional details, you can refer to the Monasca documentation. Help is also
 configuration settings. For a description of the settings, execute the following command:
 
 ```
-./monasca-agent-<version_number>.run --help
+./monasca-agent-3.0.x-CMM2.0.14-x.run --help
 ```
 
 In case the installation fails, check your configuration settings and passwords. To collect
 debugging information, you can retry the installation in verbose mode:
 
 ```
-./monasca-agent-CMM_2.0.14-x.run \
+./monasca-agent-3.0.x-CMM2.0.14-x.run \
   --target /opt/monasca-agent -- \
   --username <user_name> \
   --password <password> \
@@ -763,7 +765,7 @@ To activate additional metrics, proceed as follows:
 2. To stop the agent, execute the following command:
 
 ```
-systemctl stop monasca-agent.target
+systemctl stop monasca-collector 
 ```
 
 3. Copy the required template file. Example:
@@ -832,14 +834,14 @@ To install a Log Agent, proceed as follows:
 2. Prepare an installation directory.
 3. Extract the CMM_client_2.0.14-x.tar.gz archive file from the CMM installation package to the
    installation directory. The archive provides the following files:
-     - `log-agent-CMM_2.0.x.run`
-     - `monasca-agent-CMM_2.0.x.run`
-     - `monasca-ui-1.17.x-CMM_2.0.x.tar.gz`
-4. Change the access permission of the `log-agent-CMM_2.0.x.run` file to Execute.
+     - `log-agent-7.3.0_2.0.x-CMM2.0.14-x.run`
+     - `monasca-agent-3.0.x-CMM2.0.14-x.run`
+     - `monasca-ui-1.17.x-CMM2.0.14-x.tar.gz`
+4. Change the access permission of the `log-agent-7.3.0_2.0.x-CMM2.0.14-x.run` file to Execute.
 5. Run the agent installer:
 
 ```
-./log-agent-7.3.0_2.0.1-CMM2.0.14-x.run \
+./log-agent-7.3.0_2.0.x-CMM2.0.14-x.run \
   --target "/opt/monasca-log-agent" -- \
   --monasca_log_api_url "http://<cmm-server-ip>:5607/v2.0" \
   --keystone_auth_url "http://<keystone-ip>:35357/v3" \
@@ -895,7 +897,7 @@ enclosed in double quotes (").
 example:
 
 ```
-./log-agent-7.3.0_2.0.1-CMM2.0.14-x.run \
+./log-agent-7.3.0_2.0.x-CMM2.0.14-x.run \
   --target "/opt/monasca-log-agent" -- \
   --monasca_log_api_url "http://<cmm-server-ip>:5607/v2.0" \
   --keystone_auth_url "http://<keystone-ip>:35357/v3" \
