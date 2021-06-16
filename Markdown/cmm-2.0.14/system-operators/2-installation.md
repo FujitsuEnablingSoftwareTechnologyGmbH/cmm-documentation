@@ -1067,7 +1067,7 @@ $ tar -xzvf /opt/monasca-ui/monasca-ui-1.17.x-CMM2.0.14-x.tar.gz -C /opt/monasca
 $ python3.6 -m pip install --no-index --find-links="/opt/monasca-ui" monasca-ui==1.17.x
 ```
  
-Pls. replace `x` in monasca-ui version the following way:  
+Determine `x` to be used in monasca-ui version the following way:  
 ```
 $ ls /opt/monasca-ui/monasca_ui-1.17.*.whl
 ```
