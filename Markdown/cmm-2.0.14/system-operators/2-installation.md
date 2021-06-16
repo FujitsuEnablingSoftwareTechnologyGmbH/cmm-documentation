@@ -1044,7 +1044,7 @@ To install the Horizon Plugin, proceed as follows:
 1. Log in as root to the OpenStack node on which the OpenStack Horizon service is installed.
 2. Create the directory /opt/monasca-ui inside Horizon container:
 ```
-# podman exec -it horizon mkdir -p /opt/monasca-ui/
+# podman exec horizon mkdir -p /opt/monasca-ui/
 ```
 
 3. Copy the file monasca-ui-1.17.x-CMM2.0.14-x.tar.gz into Horizon container:
@@ -1069,12 +1069,15 @@ $ python3.6 -m pip install --no-index --find-links="/opt/monasca-ui" monasca-ui=
  
 Pls. replace `x` in monasca-ui version the following way:  
 ```
-ls  /opt/monasca-ui/monasca-ui-1.17.*.zip
+ls  /opt/monasca-ui/monasca-ui-1.17.*
 ```
-`x` shall be replaced by the digit(s) between `1.17.` and `.zip`  
-Sample result: `/opt/monasca-ui/monasca-ui-1.17.2.dev4.zip`   
-In the sample, `x` shall be replaced by `2.dev4`  
-  
+
+| File                                                     | 1.17.`x`      |
+|----------------------------------------------------------|---------------|
+| `/opt/monasca-ui/monasca_ui-1.17.2-py2.py3-none-any.whl` | 1.17.`2`      |
+| `/opt/monasca-ui/monasca-ui-1.17.2.dev4.zip`             | 1.17.`2-dev4` |
+
+
 7. Create symbolic links:
 ```
 $ ln -sf /usr/local/lib/python3.6/site-packages/monitoring/conf/monitoring_policy.json \

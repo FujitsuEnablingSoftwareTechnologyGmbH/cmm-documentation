@@ -114,9 +114,9 @@ To uninstall the Horizon Plugin (Monasca-UI), proceed as follows:
 $ rm -rf /opt/monasca-ui/
 ```
 
-4. Uninstall monasca-ui:
+4. Uninstall monasca-ui and python-monascaclient:
 ```
-$ python3.6 -m pip uninstall monasca-ui
+$ python3.6 -m pip uninstall monasca-ui python-monascaclient
 ```
 
 5. Remove the symbolic links:
