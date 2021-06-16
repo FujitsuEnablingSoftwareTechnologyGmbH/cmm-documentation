@@ -428,12 +428,12 @@ Edit the file `mysql.yaml` in `/etc/monasca/agent/conf.d/` and insert the passwo
 > **Note:** Make sure that the password is set correctly. The agent installer fails if you specify the
   password enclosed in quotation marks.
 
-In addition, the MySQL module (`pymysql`) must be installed in the virtualenv environment of the
+In addition, the MySQL module (`PyMySQL`) must be installed in the virtualenv environment of the
 Metrics Agent. To install it in the default directory, execute the following command:
 
 ```
 # source /opt/monasca-agent/bin/activate
-# pip install pymysql
+# pip install PyMySQL
 # deactivate
 ```
 
