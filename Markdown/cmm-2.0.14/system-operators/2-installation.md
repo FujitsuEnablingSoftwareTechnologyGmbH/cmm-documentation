@@ -600,15 +600,15 @@ To install a Metrics Agent, proceed as follows:
 2. Prepare an installation directory.
 3. Extract the `CMM_client_2.0.14-x.tar.gz` archive file from the CMM installation package to the
    installation directory. The archive provides the following files:
-     - `log-agent-7.3.0_2.0.1-CMM2.0.14-x.run`
-     - `monasca-agent-3.0.3-CMM2.0.14-x.run`
-     - `monasca-ui-1.17.2-CMM2.0.14-x.tar.gz`
-4. Change the access permission of the `monasca-agent-3.0.3-CMM2.0.14-x.run` file to Execute.
+     - `log-agent-7.3.0_2.0.x-CMM2.0.14-x.run`
+     - `monasca-agent-3.0.x-CMM2.0.14-x.run`
+     - `monasca-ui-1.17.x-CMM2.0.14-x.tar.gz`
+4. Change the access permission of the `monasca-agent-3.0.x-CMM2.0.14-x.run` file to Execute.
 5. Make sure that your `/root/.my.cnf` file does not define any passwords in single quotes.
 6. Run the agent installer:
 
 ```
-./monasca-agent-3.0.3-CMM2.0.14-x.run \
+./monasca-agent-3.0.x-CMM2.0.14-x.run \
 --target /opt/monasca-agent -- \
 --username <user_name> \
 --password <password> \
@@ -654,14 +654,14 @@ For additional details, you can refer to the Monasca documentation. Help is also
 configuration settings. For a description of the settings, execute the following command:
 
 ```
-./monasca-agent-3.0.3-CMM2.0.14-x.run --help
+./monasca-agent-3.0.x-CMM2.0.14-x.run --help
 ```
 
 In case the installation fails, check your configuration settings and passwords. To collect
 debugging information, you can retry the installation in verbose mode:
 
 ```
-./monasca-agent-3.0.3-CMM2.0.14-x.run \
+./monasca-agent-3.0.x-CMM2.0.14-x.run \
   --target /opt/monasca-agent -- \
   --username <user_name> \
   --password <password> \
@@ -812,14 +812,14 @@ To install a Log Agent, proceed as follows:
 2. Prepare an installation directory.
 3. Extract the CMM_client_2.0.14-x.tar.gz archive file from the CMM installation package to the
    installation directory. The archive provides the following files:
-     - `log-agent-7.3.0_2.0.1-CMM2.0.14-x.run`
-     - `monasca-agent-3.0.3-CMM2.0.14-x.run`
-     - `monasca-ui-1.17.2-CMM2.0.14-x.tar.gz`
-4. Change the access permission of the `log-agent-7.3.0_2.0.1-CMM2.0.14-x.run` file to Execute.
+     - `log-agent-7.3.0_2.0.x-CMM2.0.14-x.run`
+     - `monasca-agent-3.0.x-CMM2.0.14-x.run`
+     - `monasca-ui-1.17.x-CMM2.0.14-x.tar.gz`
+4. Change the access permission of the `log-agent-7.3.0_2.0.x-CMM2.0.14-x.run` file to Execute.
 5. Run the agent installer:
 
 ```
-./log-agent-7.3.0_2.0.1-CMM2.0.14-x.run \
+./log-agent-7.3.0_2.0.x-CMM2.0.14-x.run \
   --target "/opt/monasca-log-agent" -- \
   --monasca_log_api_url "http://<cmm-server-ip>:5607/v2.0" \
   --keystone_auth_url "http://<keystone-ip>:35357/v3" \
@@ -875,7 +875,7 @@ enclosed in double quotes (").
 example:
 
 ```
-./log-agent-7.3.0_2.0.1-CMM2.0.14-x.run \
+./log-agent-7.3.0_2.0.x-CMM2.0.14-x.run \
   --target "/opt/monasca-log-agent" -- \
   --monasca_log_api_url "http://<cmm-server-ip>:5607/v2.0" \
   --keystone_auth_url "http://<keystone-ip>:35357/v3" \
