@@ -120,6 +120,9 @@ $ rm -rf /usr/share/openstack-dashboard/static/monitoring
 $ python3.6 -m pip uninstall monasca-ui python-monascaclient
 ```
 
+> **Note:** If the japanese translations were installed, remove this directory: \
+> `rm -rf /usr/local/lib/python3.6/site-packages/monitoring`
+
 5. Remove the symbolic links:
 ```
 $ rm /etc/openstack-dashboard/monitoring_policy.json
