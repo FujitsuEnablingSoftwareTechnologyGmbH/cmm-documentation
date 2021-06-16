@@ -1075,7 +1075,7 @@ $ ls /opt/monasca-ui/monasca_ui-1.17.*.whl
 - _Example file:_ /opt/monasca-ui/monasca_ui-1.17.`2`-py2.py3-none-any.whl
 - _Version_ 1.17.`2`
 
-> **Note** If there isn't any .whl file try the following way:
+> **Note:** If there isn't any .whl file try the following way:
 >
 > ```
 > $ ls /opt/monasca-ui/monasca-ui-1.17.*.zip
@@ -1084,6 +1084,8 @@ $ ls /opt/monasca-ui/monasca_ui-1.17.*.whl
 > - _Example file:_ /opt/monasca-ui/monasca-ui-1.17.`2.dev4`.zip
 > - _Version:_ 1.17.`2-dev4`
 
+> **Note:** Expected message:
+> `WARNING: Running pip install with root privileges is generally not a good idea.`
 
 7. Create symbolic links:
 ```
@@ -1134,7 +1136,8 @@ $ python3 /usr/share/openstack-dashboard/manage.py collectstatic --noinput
 $ python3 /usr/share/openstack-dashboard/manage.py compress --force
 ```
 
-> **Note:** Expected CSS Error messages:\
+> **Note:** Expected messages:\
+  `WARNING:root:"dashboards" and "default_dashboard" in (local_)settings is DEPRECATED`
   `ERROR:scss.ast:Function not found: twbs-font-path:1`\
   `ERROR:scss.compiler:Mixin not found: dropdown-arrow:0`\
   `ERROR:scss.compiler:Maximum number of supported selectors in Internet Explorer (4095) exceeded!`
