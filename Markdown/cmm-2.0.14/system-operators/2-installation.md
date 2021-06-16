@@ -1066,7 +1066,7 @@ To install the Horizon Plugin, proceed as follows:
 1. Log in as root to the OpenStack node on which the OpenStack Horizon service is installed.
 2. Create the directory /opt/monasca-ui inside Horizon container:
 ```
-# podman exec -it horizon mkdir -p /opt/monasca-ui/
+# podman exec horizon mkdir -p /opt/monasca-ui/
 ```
 
 3. Copy the file monasca-ui-1.17.x-CMM2.0.14-x.tar.gz into Horizon container:
@@ -1089,14 +1089,26 @@ $ tar -xzvf /opt/monasca-ui/monasca-ui-1.17.x-CMM2.0.14-x.tar.gz -C /opt/monasca
 $ python3.6 -m pip install --no-index --find-links="/opt/monasca-ui" monasca-ui==1.17.x
 ```
  
-Pls. replace `x` in monasca-ui version the following way:  
+Determine `x` to be used in monasca-ui version the following way:  
 ```
-ls  /opt/monasca-ui/monasca-ui-1.17.*.zip
+$ ls /opt/monasca-ui/monasca_ui-1.17.*.whl
 ```
-`x` shall be replaced by the digit(s) between `1.17.` and `.zip`  
-Sample result: `/opt/monasca-ui/monasca-ui-1.17.2.dev4.zip`   
-In the sample, `x` shall be replaced by `2.dev4`  
-  
+
+- _Example file:_ /opt/monasca-ui/monasca_ui-1.17.`2`-py2.py3-none-any.whl
+- _Version_ 1.17.`2`
+
+> **Note:** If there isn't any .whl file try the following way:
+>
+> ```
+> $ ls /opt/monasca-ui/monasca-ui-1.17.*.zip
+> ```
+>
+> - _Example file:_ /opt/monasca-ui/monasca-ui-1.17.`2.dev4`.zip
+> - _Version:_ 1.17.`2-dev4`
+
+> **Note:** Expected message: \
+> `WARNING: Running pip install with root privileges is generally not a good idea.`
+
 7. Create symbolic links:
 ```
 $ ln -sf /usr/local/lib/python3.6/site-packages/monitoring/conf/monitoring_policy.json \
@@ -1146,10 +1158,18 @@ $ python3 /usr/share/openstack-dashboard/manage.py collectstatic --noinput
 $ python3 /usr/share/openstack-dashboard/manage.py compress --force
 ```
 
-> **Note:** Expected CSS Error messages:\
-  `ERROR:scss.ast:Function not found: twbs-font-path:1`\
-  `ERROR:scss.compiler:Mixin not found: dropdown-arrow:0`\
-  `ERROR:scss.compiler:Maximum number of supported selectors in Internet Explorer (4095) exceeded!`
+> **Note:** Expected messages: \
+> `WARNING:root:"dashboards" and "default_dashboard" in (local_)settings is DEPRECATED` \
+> `ERROR:scss.ast:Function not found: twbs-font-path:1` \
+> `ERROR:scss.compiler:Mixin not found: dropdown-arrow:0` \
+> `ERROR:scss.compiler:Maximum number of supported selectors in Internet Explorer (4095) exceeded!`
+
+> **Note:** If japanese translations are required, pls. execute:
+> ```
+> $ cd /usr/local/lib/python3.6/site-packages/monitoring
+> $ /usr/lib/python3.6/site-packages/django/bin/django-admin.py compilemessages -l ja
+> ```
+
 
 10. Exit from Horizon container:
 ```
