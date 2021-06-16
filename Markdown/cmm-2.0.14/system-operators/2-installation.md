@@ -691,6 +691,28 @@ agent each time the machine is booted.
 The agent is installed in a virtualenv environment. By default, the virtualenv enviroment is located
 in the `/opt/monasca-agent/` directory.
 
+> **Note:** If you require to monitor disk mount points which are only accessible to root user,
+> then `monasca-collector.service` should run as root:
+>
+> 1. Comment the `User` and `Group` parameters in the file `/etc/systemd/system/monasca-collector.service` as follows:
+>    ```
+>    [Service]
+>    Type=simple
+>    #User=mon-agent
+>    #Group=mon-agent
+>    Restart=always
+>    ExecStart=/opt/monasca-agent/bin/monasca-collector foreground
+>    ```
+>
+> 2. Reload the systemd units
+>    ```
+>    # systemctl daemon-reload
+>    ```
+> 
+> 3. Restart monasca-collector service
+>    ```
+>    # systemctl restart monasca-collector.service
+>    ```
 
 ## 2.4.3 Metric Agent Updating the Configuration File
 
