@@ -1064,7 +1064,7 @@ $ tar -xzvf /opt/monasca-ui/monasca-ui-1.17.x-CMM2.0.14-x.tar.gz -C /opt/monasca
 
 6. Install the libraries:
 ```
-$ python3.6 -m pip install --no-index --find-links="/opt/monasca-ui" monasca-ui==1.17.`x`
+$ python3.6 -m pip install --no-index --find-links="/opt/monasca-ui" monasca-ui==1.17.x
 ```
  
 Pls. replace `x` in monasca-ui version the following way:  
