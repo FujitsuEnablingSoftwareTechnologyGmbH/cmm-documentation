@@ -1072,8 +1072,8 @@ Pls. replace `x` in monasca-ui version the following way:
 ls  /opt/monasca_ui/monasca-ui-1.17.*.whl
 ```
 
-_Output:_ /opt/monasca-ui/monasca_ui-1.17.`2`-py2.py3-none-any.whl _Version_ 1.17.`2`
-
+- _Example file:_ /opt/monasca-ui/monasca_ui-1.17.`2`-py2.py3-none-any.whl
+- _Version_ 1.17.`2`
 
 > **Note** If there isn't any .whl file try the following way:
 >
@@ -1081,7 +1081,8 @@ _Output:_ /opt/monasca-ui/monasca_ui-1.17.`2`-py2.py3-none-any.whl _Version_ 1.1
 > ls  /opt/monasca-ui/monasca-ui-1.17.*.zip
 > ```
 >
-> _Output_ /opt/monasca-ui/monasca-ui-1.17.`2.dev4`.zip _Version_ 1.17.`2-dev4`
+> - _Example file:_ /opt/monasca-ui/monasca-ui-1.17.`2.dev4`.zip
+> - _Version:_ 1.17.`2-dev4`
 
 
 7. Create symbolic links:
