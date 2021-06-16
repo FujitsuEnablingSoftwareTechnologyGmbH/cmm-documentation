@@ -1139,6 +1139,13 @@ $ python3 /usr/share/openstack-dashboard/manage.py compress --force
   `ERROR:scss.compiler:Mixin not found: dropdown-arrow:0`\
   `ERROR:scss.compiler:Maximum number of supported selectors in Internet Explorer (4095) exceeded!`
 
+> **Note:** If japanese translations are required, pls. execute:
+>  ```
+>  $ cd /usr/local/lib/python3.6/site-packages/monitoring
+>  $ /usr/lib/python3.6/site-packages/django/bin/django-admin.py compilemessages -l ja
+>  ```
+
+
 10. Exit from Horizon container:
 ```
 $ exit
