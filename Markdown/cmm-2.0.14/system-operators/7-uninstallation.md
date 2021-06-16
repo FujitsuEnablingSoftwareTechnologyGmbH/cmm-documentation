@@ -112,6 +112,7 @@ To uninstall the Horizon Plugin (Monasca-UI), proceed as follows:
 3. Remove monasca-ui directory:
 ```
 $ rm -rf /opt/monasca-ui/
+$ rm -rf /usr/share/openstack-dashboard/static/monitoring
 ```
 
 4. Uninstall monasca-ui and python-monascaclient:
@@ -132,10 +133,11 @@ $ python3 /usr/share/openstack-dashboard/manage.py collectstatic --noinput
 $ python3 /usr/share/openstack-dashboard/manage.py compress --force
 ```
 
-> **Note:** Expected CSS Error messages:\
-  `ERROR:scss.ast:Function not found: twbs-font-path:1`\
-  `ERROR:scss.compiler:Mixin not found: dropdown-arrow:0`\
-  `ERROR:scss.compiler:Maximum number of supported selectors in Internet Explorer (4095) exceeded!`
+> **Note:** Expected messages: \
+> `WARNING:root:"dashboards" and "default_dashboard" in (local_)settings is DEPRECATED` \
+> `ERROR:scss.ast:Function not found: twbs-font-path:1` \
+> `ERROR:scss.compiler:Mixin not found: dropdown-arrow:0` \
+> `ERROR:scss.compiler:Maximum number of supported selectors in Internet Explorer (4095) exceeded!`
 
 
 7. Exit from Horizon container:
