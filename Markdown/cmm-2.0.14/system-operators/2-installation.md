@@ -1069,13 +1069,19 @@ $ python3.6 -m pip install --no-index --find-links="/opt/monasca-ui" monasca-ui=
  
 Pls. replace `x` in monasca-ui version the following way:  
 ```
-ls  /opt/monasca-ui/monasca-ui-1.17.*
+ls  /opt/monasca_ui/monasca-ui-1.17.*.whl
 ```
 
-| File                                                     | 1.17.`x`      |
-|----------------------------------------------------------|---------------|
-| /opt/monasca-ui/monasca_ui-1.17.`2`-py2.py3-none-any.whl | 1.17.`2`      |
-| /opt/monasca-ui/monasca-ui-1.17.`2.dev4`.zip             | 1.17.`2-dev4` |
+/opt/monasca-ui/monasca_ui-1.17.`2`-py2.py3-none-any.whl  -> 1.17.`2`
+
+
+> **Note** If there isn't any .whl file try the following way:
+
+  ```
+  ls  /opt/monasca-ui/monasca-ui-1.17.*.zip
+  ```
+
+  /opt/monasca-ui/monasca-ui-1.17.`2.dev4`.zip  -> 1.17.`2-dev4`
 
 
 7. Create symbolic links:
