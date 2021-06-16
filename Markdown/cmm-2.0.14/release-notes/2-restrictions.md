@@ -49,7 +49,5 @@ be not loading properly.
 
 ### Workaround:
 
-When Chrome 90 or Edge 91 is used, please use the default options of your browser to reload the page.
+For all browser versions suppported: Please use the default options of your browser to reload the page.
 
-When Firefox 58 is used, you have to clear the Firefox cache, close the browser window, and
-restart Firefox.
