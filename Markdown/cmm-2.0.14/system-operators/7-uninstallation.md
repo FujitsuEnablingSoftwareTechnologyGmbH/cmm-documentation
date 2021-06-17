@@ -189,7 +189,7 @@ docker-compose -f docker-compose-metric.yml \
 > **Note:** When running the command, you can ignore error messages related to removing the
   images for the `kafka-init` and `api` services. The error messages are output because the images
   are used twice, for setting up Kafka for the metrics pipeline as well as for the log pipeline.
-  Irrespective of this message, all docker images are successfully removed.
+  Irrespective of these messages, all docker images are successfully removed.
 
 4. Delete the `docker-compose` file in the `/usr/local/bin/` directory:
 
