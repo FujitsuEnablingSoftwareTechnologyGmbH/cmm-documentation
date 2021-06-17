@@ -536,7 +536,7 @@ main components of CMM:
 | monasca | Monitoring API. |
 | monasca-notification | Notification Engine. |
 | monasca-persister | Persister. |
-| monasca-statsd | Service for sending statsd messages via the Monasca Agent |
+| monasca-statsd | Service for sending statsd messages via the Monasca Agent. |
 | mysql | MySQL database service. CMM stores configuration information in this database. |
 | thresh | Threshold Engine. |
 | zookeeper | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. |
