@@ -304,16 +304,17 @@ For a notification, you specify the following elements:
   alarm.
 - **Type**. The notification method to be used. `Email`, `Pagerduty` or `WebHook` can
   be selected, provided that the methods were enabled when installing the Monitoring Service.
-- **Address**.
+- **Address**. \
   For `Email`, the email address to be notified when an alarm is triggered.
   
   > **Note:** Generic top-level domains such as business domain names are not supported in email
     addresses (for example `user@xyz.company`).
   
-  For `Slack`, the URL specifying the channel to which the notification is to be sent. Example
-  URL with variables for the legacy token and the channel:
+  For `Pagerduty`, the Integration Key of Pagerduty `Events API v1`. Example:
   
-  `https://slack.com/api/chat.postMessage?token=<token>&channel=#<channel>`
+  `2e8b50c787ab4405d0a0d6ad89740d75` \
+  See [Monasca-Notification Pagerduty Plugin](https://opendev.org/openstack/monasca-notification#pagerduty-plugin)
+  for more info.
 
   For `WebHook`, the WebHook URL to be loaded when an alarm is triggered.
 
