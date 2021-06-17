@@ -186,7 +186,7 @@ docker-compose -f docker-compose-metric.yml \
 -f docker-compose-log.yml down --rmi all --volumes
 ```
 
-> **Note:** When running the command, you can ignore warnings about images to be removed haven't been found. The messages are written because some images
+> **Note:** When running the command, you can ignore warnings about images to be removed not being found. The messages are written because some images
   are used twice, for setting up Kafka for the metrics pipeline as well as for the log pipeline.
   Irrespective of these messages, all docker images are successfully removed.
 
