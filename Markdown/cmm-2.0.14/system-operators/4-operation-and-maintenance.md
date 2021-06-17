@@ -792,7 +792,7 @@ exit
 
 ```   
 tar --selinux -zcvf es_snapshot_1.tar.gz -C \
-  /mount/backup/elasticsearch_backup/ my_backup
+  /mount/backup/elasticsearch_backup/my_backup
 ```
 
 8. Stop the `elasticsearch` service:
