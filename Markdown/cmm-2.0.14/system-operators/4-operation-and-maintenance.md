@@ -845,7 +845,7 @@ curl -XGET http://localhost:9200/_snapshot/my_backup
     "type": "fs",
     "settings": {
       "compress": "true",
-      "location": "/elasticsearch_backup/my_backup"
+      "location": "/elasticsearch/backup/my_backup"
     }
   }
 }
@@ -858,7 +858,7 @@ curl -XGET http://localhost:9200/_snapshot/my_backup
 curl -XPUT http://localhost:9200/_snapshot/my_backup -H'Content-Type: application/json' -d '{
   "type": "fs",
   "settings": {
-       "location": "/elasticsearch_backup/my_backup",
+       "location": "/elasticsearch/backup/my_backup",
        "compress": true
   }
 }'
