@@ -735,7 +735,7 @@ Example response for a successfully created repository:
     "type": "fs",
     "settings": {
       "compress": "true",
-      "location": "/elasticsearch_backup/my_backup"
+      "location": "/elasticsearch/backup/my_backup"
     }
   }
 }
