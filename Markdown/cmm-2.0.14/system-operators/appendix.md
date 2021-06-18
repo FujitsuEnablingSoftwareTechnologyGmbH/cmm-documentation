@@ -603,6 +603,7 @@ Run following commands:
 ```
 podman exec -it rabbitmq-bundle-podman-0 /bin/sh
 cat /etc/rabbitmq/rabbitmq.config
+```
 
 For RabbitMQ checks, the RabbitMQ Management plugin must be installed. It is included in the
 RabbitMQ distribution. To enable the plugin, execute the following command:
