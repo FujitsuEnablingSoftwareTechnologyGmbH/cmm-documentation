@@ -404,7 +404,8 @@ instances:
 MySQL checks gather metrics from a MySQL database server. The metrics are related to the
 server status variables of MySQL.
 
-The agent installer automatically configures the MySQL checks. As a prerequisite, you need to find out the MySQL password credentials stored in  `/root/.my.cnf` file inside the galera-bundle-podman container.
+As a prerequisite, you need to find out the MySQL password credentials stored in 
+`/root/.my.cnf` file inside the galera-bundle-podman container.
 
 Run following commands:
 ```
@@ -593,20 +594,15 @@ instances:
 
 ### rabbitmq.yaml
 
-RabbitMQ checks gather metrics on nodes, exchanges, and queues from a RabbitMQ server. If
-you want the installer to automatically configure the checks, update the `/root/rabbitmq.cnf` file
-before installing the agent.
+RabbitMQ checks gather metrics on nodes, exchanges, and queues from a RabbitMQ server.
 
-Example configuration for `rabbitmq.cnf`:
+As a prerequisite, you need to find out the RabbitMQ password credentials stored in
+`/etc/rabbitmq/rabbitmq.config` file inside the rabbitmq-bundle-podman-0 container.
 
+Run following commands:
 ```
-[client]
-user=guest
-password=pass
-nodes=rabbit@devstack
-queues=conductor
-exchanges=nova,cinder,glance,keystone,neutron,heat
-```
+podman exec -it rabbitmq-bundle-podman-0 /bin/sh
+cat /etc/rabbitmq/rabbitmq.config
 
 For RabbitMQ checks, the RabbitMQ Management plugin must be installed. It is included in the
 RabbitMQ distribution. To enable the plugin, execute the following command:
@@ -615,8 +611,9 @@ RabbitMQ distribution. To enable the plugin, execute the following command:
 rabbitmq-plugins enable rabbitmq_management
 ```
 
-Specify the configuration information in the `rabbitmq.yaml` file after the installation. It must
-specify the names of the exchanges and queues to be monitored.
+Specify the configuration information in the `rabbitmq.yaml` file after the installation.
+Replace `<rabbitmq-user>` and `<rabbitmq-password>` with the current RabbitMQ user and
+password. It must specify the names of the exchanges and queues to be monitored.
 
 Example configuration:
 
@@ -624,8 +621,8 @@ Example configuration:
 init_config: null
 instances:
 -  rabbitmq_api_url: http://localhost:15672/api/
-   rabbitmq_user: guest
-   rabbitmq_pass: guest
+   rabbitmq_user: <rabbitmq-user>
+   rabbitmq_pass: <rabbitmq-password>
    nodes:
     - rabbit@localhost
     - rabbit2@domain
