@@ -1213,37 +1213,10 @@ $ python3 /usr/share/openstack-dashboard/manage.py compress --force
 $ exit
 ```
 
-11. Add Proxy Modules at the end of file in httpd.conf. Location of file:\
-`/var/lib/config-data/puppet-generated/horizon/etc/httpd/conf/httpd.conf`
-
-Add these lines at the end:
-```
-LoadModule proxy_module modules/mod_proxy.so
-LoadModule proxy_http_module modules/mod_proxy_http.so
-```
-
-12. Add the Proxy configuration inside VirtualHost section in 10-horizon_vhost.conf. Location of file:\
-`/var/lib/config-data/puppet-generated/horizon/etc/httpd/conf.d/10-horizon_vhost.conf`
-
-Add lines:
-```
-  ProxyPass        "/grafana" "http://<CMM-SERVER-IP>:3000"
-  ProxyPassReverse "/grafana" "http://<CMM-SERVER-IP>:3000"
-```
-
-before line:\
-`</VirtualHost>`
-
-Replace <CMM-SERVER-IP> by CMM Server IP Address, e.g.:
-```
-  ProxyPass        "/grafana" "http://10.140.99.76:3000"
-  ProxyPassReverse "/grafana" "http://10.140.99.76:3000"
-```
-
-13. Restart Horizon container:
+11. Restart Horizon container:
 ```
 # systemctl restart tripleo_horizon
 ```
 
-14. Go to Horizon in the browser and login as admin, then choose the project monasca:
+12. Go to Horizon in the browser and login as admin, then choose the project monasca:
     The Monitoring tab is now present.
