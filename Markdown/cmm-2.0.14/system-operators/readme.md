@@ -24,6 +24,7 @@
     - [2.2.1 Setting the Administrator Credentials](./2-installation.md#221-setting-the-administrator-credentials)
     - [2.2.2 Creating Projects, Users, and Roles](./2-installation.md#222-creating-projects-users-and-roles)
     - [2.2.3 Defining Services and Endpoints](./2-installation.md#223-defining-services-and-endpoints)
+    - [2.2.4 Configuring the HTTP Proxy](./2-installation.md#224-configuring-the-http-proxy)
   - [2.3 Installing the Monitoring Service](./2-installation.md#23-installing-the-monitoring-service)
     - [2.3.1 Prerequisites](./2-installation.md#231-prerequisites)
     - [2.3.2 Installation](./2-installation.md#232-installation)
