@@ -788,7 +788,8 @@ The agent installation automatically configures and activates a comprehensive se
 monitoring your services and servers. The agent ships with additional metrics templates that you
 can manually adapt to your environment and activate for monitoring, if required.
 
-For a list of the metrics that are supported by CMM, refer to _Supported Metrics_.
+For a list of the metrics that are supported by CMM, refer to
+[_Supported Metrics_](./appendix.md#appendix-a-supported-metrics).
 
 For information on the complete set of metrics that is provided by the Monasca project, refer to the
 _Monasca documentation_. If you want to extend your monitoring environment to perform additional
@@ -806,8 +807,8 @@ systemctl stop monasca-collector
 3. Copy the required template file. Example:
 
 ```
-cp -p /opt/monasca-agent/share/monasca/agent/conf.d/*.yaml.example \
-  /etc/monasca/agent/conf.d/*.yaml
+cp /opt/monasca-agent/share/monasca/agent/conf.d/<plugin>.yaml.example \
+  /etc/monasca/agent/conf.d/<plugin>.yaml
 ```
 
 4. Open the template file with your favorite editor. Example:
@@ -816,8 +817,9 @@ cp -p /opt/monasca-agent/share/monasca/agent/conf.d/*.yaml.example \
 vim /etc/monasca/agent/conf.d/rabbitmq.yaml
 ```
 
-5. Adapt the configuration to your environment. For configuration examples, refer to _Additional_
-   _Metrics_.
+5. Adapt the configuration to your environment. For configuration examples, refer to
+   [_Additional Metrics_](./appendix.md#a2-additional-metrics).
+
 6. To start the agent again, execute the following command:
 
 ```
