@@ -754,7 +754,7 @@ monitoring your services and servers. The agent ships with additional metrics te
 can manually adapt to your environment and activate for monitoring, if required.
 
 For a list of the metrics that are supported by CMM, refer to
-[Supported Metrics](./appendix.md#appendix-a-supported-metrics).
+[_Supported Metrics_](./appendix.md#appendix-a-supported-metrics).
 
 For information on the complete set of metrics that is provided by the Monasca project, refer to the
 _Monasca documentation_. If you want to extend your monitoring environment to perform additional
@@ -782,8 +782,9 @@ cp /opt/monasca-agent/share/monasca/agent/conf.d/<plugin>.yaml.example \
 vim /etc/monasca/agent/conf.d/rabbitmq.yaml
 ```
 
-5. Adapt the configuration to your environment. For configuration examples, refer to _Additional_
-   _Metrics_.
+5. Adapt the configuration to your environment. For configuration examples, refer to
+   [_Additional Metrics_](./appendix.md#a2-additional-metrics).
+
 6. To start the agent again, execute the following command:
 
 ```
