@@ -823,7 +823,7 @@ vim /etc/monasca/agent/conf.d/rabbitmq.yaml
 6. To start the agent again, execute the following command:
 
 ```
-systemctl start monasca-agent.target
+systemctl start monasca-collector
 ```
 
 The activated metrics can instantly be used by the agent for retrieving monitoring data.
