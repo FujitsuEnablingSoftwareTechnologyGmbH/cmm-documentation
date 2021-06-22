@@ -48,10 +48,10 @@ be not loading properly.
 
 
 * Workaround:
-  For all browser versions suppported: Please use the default options of your browser to reload the page.
+  For all browser versions supported: Please use the default options of your browser to reload the page.
 
 
-### Filtering more than one element in Kibana using Firefox
+### Filtering More Than One Element in Kibana Using Firefox
 
 Errors occur due to this known issue in Kibana 7.3.0 [Kibana Issue 41567](https://github.com/elastic/kibana/issues/41567)
 
