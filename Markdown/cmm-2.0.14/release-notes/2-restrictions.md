@@ -50,3 +50,14 @@ be not loading properly.
 * Workaround:
   For all browser versions suppported: Please use the default options of your browser to reload the page.
 
+
+### Filtering more than one element in Kibana using Firefox
+
+Errors occur due to this known issue in Kibana 7.3.0 [Kibana Issue 41567](https://github.com/elastic/kibana/issues/41567)
+
+* Workaround:
+  For filterning more than two elements: Please use the Filter line. Example:
+  ```
+  hostname: "docker-host" and not (service: "kibana" or service: "logspout")
+  ```
+  
