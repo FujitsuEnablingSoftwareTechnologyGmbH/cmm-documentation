@@ -153,14 +153,16 @@ To define an alarm expression, proceed as follows:
    - Delete an appended expression using the **Remove** button.
    - Change the position of an appended expression using the **Up** or **Down** button.
 
-> **Notes:** 
-  * You can also edit the expression syntax directly. For this purpose, save your alarm
-  definition and update it using the **Edit Alarm Definition option**.
-  When updating the alarm definition, you can also change the default time period for each
-  alarm definition evaluation. For syntax details, refer to the Monasca API documentation
-  on *Alarm Definition Expressions*.
-  * Restrictions apply to usage of time/times and compound alarm definitions. Please refer to  
-    _Release Notes_ for details.
+> **Notes:**
+>  * `Function`, `Metric`, `Comparator` and `Threshold` are required fields and can't be
+>    empty.
+>  * You can also edit the expression syntax directly. For this purpose, save your alarm
+>    definition and update it using the **Edit Alarm Definition option**.
+>    When updating the alarm definition, you can also change the default time period for each
+>    alarm definition evaluation. For syntax details, refer to the Monasca API documentation
+>    on *Alarm Definition Expressions*.
+>  * Restrictions apply to usage of time/times and compound alarm definitions. Please refer to  
+>    _Release Notes_ for details.
 
 
 ### Notifications
