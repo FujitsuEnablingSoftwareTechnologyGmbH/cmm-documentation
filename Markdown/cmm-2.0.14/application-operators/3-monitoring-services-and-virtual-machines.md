@@ -154,7 +154,7 @@ To define an alarm expression, proceed as follows:
    - Change the position of an appended expression using the **Up** or **Down** button.
 
 > **Notes:**
->  * `Function`, `Metric`, `Comparator` and `Threshold` are required fields and can't be
+>  * `Function`, `Metric`, `Comparator` and `Threshold` are required fields and must not be
 >    empty.
 >  * You can also edit the expression syntax directly. For this purpose, save your alarm
 >    definition and update it using the **Edit Alarm Definition option**.
