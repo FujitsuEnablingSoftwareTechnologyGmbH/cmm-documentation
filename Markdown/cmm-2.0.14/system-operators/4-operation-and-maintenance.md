@@ -689,7 +689,7 @@ Service is installed:
 
 ### Elasticsearch Database
 
-Backup
+### Backup
 
 For backing up and restoring your Elasticsearch database, you can use the Snapshot and Restore
 module of Elasticsearch. You have to create a snapshot repository, before creating a regular
