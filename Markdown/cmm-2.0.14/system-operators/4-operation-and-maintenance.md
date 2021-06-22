@@ -689,6 +689,8 @@ Service is installed:
 
 ### Elasticsearch Database
 
+### Backup
+
 For backing up and restoring your Elasticsearch database, you can use the Snapshot and Restore
 module of Elasticsearch. You have to create a snapshot repository, before creating a regular
 backup of your database.
@@ -735,7 +737,7 @@ Example response for a successfully created repository:
     "type": "fs",
     "settings": {
       "compress": "true",
-      "location": "/elasticsearch/backup/my_backup"
+      "location": "/usr/share/elasticsearch/backup/my_backup"
     }
   }
 }
@@ -788,7 +790,13 @@ exit
 
 7. For easier portability and storage, you can create an archive file for the snapshot you have
    created. To configure the security context, the `--selinux` parameter must be specified.
-   Example:
+
+```   
+tar --selinux -zcvf es_snapshot_1.tar.gz -C \
+  <MON_BACKUP_DIR>/elasticsearch_backup/ my_backup
+```
+
+Replace `<MON_BACKUP_DIR>` with its value in `.env`. Example:
 
 ```   
 tar --selinux -zcvf es_snapshot_1.tar.gz -C \
@@ -805,6 +813,8 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop elast
 ```
 docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d
 ```
+
+### Restore
 
 To restore a database instance, proceed as follows:
 
@@ -845,7 +855,7 @@ curl -XGET http://localhost:9200/_snapshot/my_backup
     "type": "fs",
     "settings": {
       "compress": "true",
-      "location": "/elasticsearch/backup/my_backup"
+      "location": "/usr/share/elasticsearch/backup/my_backup"
     }
   }
 }
@@ -856,15 +866,15 @@ curl -XGET http://localhost:9200/_snapshot/my_backup
 
 ```
 curl -XPUT http://localhost:9200/_snapshot/my_backup -H'Content-Type: application/json' -d '{
-  "type": "fs",
-  "settings": {
-       "location": "/elasticsearch/backup/my_backup",
-       "compress": true
-  }
+ "type": "fs",
+ "settings": {
+ "location": "/usr/share/elasticsearch/backup/my_backup",
+ "compress": true
+ }
 }'
 ```
 
-   If the snapshot repository is created successfully, Elasticsearch returns `{"acknowledged":true}`
+If the snapshot repository is created successfully, Elasticsearch returns `{"acknowledged":true}`
 
 8. Close all indices of your database. Example:
 
@@ -911,6 +921,7 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml up -d
 
 For additional information on backing up and restoring an Elasticsearch database, refer to the
 _Elasticsearch documentation_.
+
 
 ### InfluxDB Database
 
