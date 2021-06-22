@@ -47,7 +47,17 @@ project in OpenStack Horizon and then try to access Kibana, the Kibana dashboard
 be not loading properly.
 
 
-### Workaround:
+* Workaround:
+  For all browser versions supported: Please use the default options of your browser to reload the page.
 
-For all browser versions suppported: Please use the default options of your browser to reload the page.
 
+### Filtering More Than One Element in Kibana Using Firefox
+
+Errors occur due to this known issue in Kibana 7.3.0 [Kibana Issue 41567](https://github.com/elastic/kibana/issues/41567)
+
+* Workaround:
+  For filterning more than two elements: Please use the Filter line. Example:
+  ```
+  hostname: "docker-host" and not (service: "kibana" or service: "logspout")
+  ```
+  
