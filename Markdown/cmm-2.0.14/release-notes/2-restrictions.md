@@ -47,7 +47,6 @@ project in OpenStack Horizon and then try to access Kibana, the Kibana dashboard
 be not loading properly.
 
 
-### Workaround:
-
-For all browser versions suppported: Please use the default options of your browser to reload the page.
+* Workaround:
+  For all browser versions suppported: Please use the default options of your browser to reload the page.
 
