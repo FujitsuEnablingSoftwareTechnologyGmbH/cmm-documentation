@@ -363,6 +363,7 @@ To install the Monitoring Service, proceed as follows:
     - `docker-compose-metric.yml`
     - `docker-compose-log.yml`
     - `.env`
+    - `purge-zookeeper-txnlogs.sh`
 4. go to the installation directory:  `cd <install_dir>`
 5. Install Docker-CE 19.03.15
 > **Note:** Docker-CE requires the package `container-selinux` which is available in the repository
