@@ -33,6 +33,9 @@ rm -f /etc/systemd/system/monasca-forwarder.service
 rm -f /etc/systemd/system/monasca-statsd.service
 systemctl daemon-reload
 systemctl reset-failed monasca-agent.target
+systemctl reset-failed monasca-collector.service
+systemctl reset-failed monasca-forwarder.service
+systemctl reset-failed monasca-statsd.service
 ```
 
 3. Remove all directories and files created by the agent installer:
