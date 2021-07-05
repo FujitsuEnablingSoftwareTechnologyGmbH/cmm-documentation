@@ -68,7 +68,7 @@ When attempting to import from web UI, an error message is shown, including info
 * Workaround:  
   Use following `curl` command to import the JSON data from API: 
   ```
-  curl –XPOST “<ip-address of kibana server>:5601/api/saved_objects/_import?overwrite=true” -H "kbn-xsrf: true" --form file=@<file to be imported>
+  curl –XPOST "<ip-address of kibana server>:5601/api/saved_objects/_import?overwrite=true" -H "kbn-xsrf: true" --form file=@<file to be imported>
   ```
   Replace `<ip-address of kibana server>`with the IP address of the server where Kibana is running and `<file to be imported>` with the local path of the file to be imported.
 
