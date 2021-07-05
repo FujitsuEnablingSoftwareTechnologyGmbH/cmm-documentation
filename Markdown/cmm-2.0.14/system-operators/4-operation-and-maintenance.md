@@ -405,14 +405,20 @@ Monitoring Service:
 
 1. Log in to the CMM node as a user with root privileges.
 2. Go to the installation directory.
-3. Stop and remove the `elasticsearch-curator` service. For this purpose, run `docker-compose stop` as
+3. Stop the `elasticsearch-curator` service. For this purpose, run `docker-compose stop` as
    follows:
 
 ```
-docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml down elasticsearch-curator
+docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml stop elasticsearch-curator
+```
+4. Remove `elasticsearch-curator` service. For this purpose, run `docker-compose rm` as
+   follows:
+
+```
+docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml rm elasticsearch-curator
 ```
 
-4. Open the `.env` file, and update the data retention parameter as required.
+5. Open the `.env` file, and update the data retention parameter as required.
    Example for deleting the data after a period of 30 days:
 
 ```
@@ -421,7 +427,7 @@ docker-compose -f docker-compose-metric.yml -f docker-compose-log.yml down elast
 MON_ELASTICSEARCH_DATA_RETENTION_DAYS=30
 ```
 
-5. Start the elasticsearch-curator service. For this purpose, run docker-compose up as
+6. Start the elasticsearch-curator service. For this purpose, run docker-compose up as
    follows:
 
 ```
