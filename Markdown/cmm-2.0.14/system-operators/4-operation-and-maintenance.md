@@ -1151,7 +1151,20 @@ to recall them. For details on saving, loading, and sharing dashboards for log m
 to the *Kibana documentation*.
 
 As a Grafana administrator, you are allowed to export dashboards to a JSON file, and to re-import
-them when necessary. Use the administrator credentials defined in the `.env` file for the installation
+them when necessary. 
+
+**Export**
+Use the administrator credentials defined in the `.env` file for the installation
 of the Monitoring Service to directly access Grafana and export dashboards. For backing up
 and restoring the exported dashboards, you can then use the standard mechanisms of your file
 system. For details on exporting monitoring dashboards, refer to the *Grafana documentation*.
+
+**Import**
+
+> **Note**: Due to an existing bug in Kibana, the exported JSON file can only be imported with API. Otherwise, when attempting to import from UI, an error message is shown, including information of "Unsupported Media Type".
+
+Use following `curl` command to import the JSON data from API: 
+```
+curl –XPOST “<ip-address of kibana server>:5601/api/saved_objects/_import?overwrite=true” -H "kbn-xsrf: true" --form file=@<file to be imported>
+```
+Replace `<ip-address of kibana server>`with the IP address of the server where Kibana is running and `<file to be imported>` with the local path of the file to be imported.
