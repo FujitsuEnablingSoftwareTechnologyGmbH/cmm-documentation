@@ -60,4 +60,16 @@ Errors occur due to this known issue in Kibana 7.3.0 [Kibana Issue 41567](https:
   ```
   hostname: "docker-host" and not (service: "kibana" or service: "logspout")
   ```
+
+### Importing Objects in Kibana
+Exported JSON files can only be imported with API, due to a known issue with Kibana 7.3.0:  
+When attempting to import from web UI, an error message is shown, including information of "Unsupported Media Type".
+
+* Workaround:  
+  Use following `curl` command to import the JSON data from API: 
+  ```
+  curl –XPOST "<ip-address of kibana server>:5601/api/saved_objects/_import?overwrite=true" -H "kbn-xsrf: true" --form file=@<file to be imported>
+  ```
+  Replace `<ip-address of kibana server>`with the IP address of the server where Kibana is running and `<file to be imported>` with the local path of the file to be imported.
+
   
